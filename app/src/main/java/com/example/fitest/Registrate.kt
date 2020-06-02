@@ -17,6 +17,22 @@ private lateinit var auth: FirebaseAuth
 
 class Registration : AppCompatActivity() {
 
+    private fun showSystemUI() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+    }
+
+    private fun hideSystemUI() {
+
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,7 +48,7 @@ class Registration : AppCompatActivity() {
     val PASSWORD__PATTERN = Regex(pattern = "[0-9]{8,15}")
 
     fun regClick(view: View) {
-        val matched = !PASSWORD__PATTERN.matches(editPassword.text.toString())
+        val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
         if (editMail.text.toString().isEmpty()) {
             editMail.error = "Введите email"
             editMail.requestFocus()
@@ -64,7 +80,7 @@ class Registration : AppCompatActivity() {
             editMail.requestFocus()
             return
         }
-        when (view.id) {
+        else {when (view.id) {
             R.id.buttonReg -> {
                 auth.createUserWithEmailAndPassword(
                     editMail.text.toString(),
@@ -100,6 +116,11 @@ class Registration : AppCompatActivity() {
                     }
             }
         }
+        }
+    }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
     }
 }
 

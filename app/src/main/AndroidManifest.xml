@@ -8,42 +8,124 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         android:minSdkVersion="7"
         >
-        <activity android:name=".Registration">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Registration"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Anketa_Coach"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"/>
 
-        <activity android:name=".Anketa_Coach">
-        </activity>
+        <activity android:name=".Anketa_Sportsmen_P1"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Anketa_Sportsmen_P2"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Params_Coach"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <activity android:name=".Params_Sportsmen"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Params_Edit"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Trainings_Sportsmen"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Trainings_Coach"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Load_Trainings"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Chat_Coach"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".Chat_Sportsmen"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"
+        />
+        <activity android:name=".SelectTrenerNotReg"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".TrenerVidClient"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".ProfileTrenerView"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name=".Anketa_Sportsmen_P1">
-        </activity>
-        <activity android:name=".Anketa_Sportsmen_P2">
-        </activity>
-        <activity android:name=".Params_Coach">
-        </activity>
-        <activity android:name=".Params_Sportsmen">
-        </activity>
-        <activity android:name=".Params_Edit">
-        </activity>
-        <activity android:name=".Trainings_Sportsmen">
-        </activity>
-        <activity android:name=".Trainings_Coach">
-        </activity>
-        <activity android:name=".Load_Trainings">
-        </activity>
-        <activity android:name=".Chat_Coach">
-        </activity>
-        <activity android:name=".Chat_Sportsmen">
-        </activity>
+        <activity
+            android:name=".ListClient"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".TrenerSelectClientView"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SpisocChatov"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Load_Eat"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".OtchetPitanie"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
 
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" >
+        <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    </activity>
+        <activity
+            android:name=".SelectTrener"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ProfileClientView"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".RedactorTrener"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ProfileTrener"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".RedactorClient"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ProfileClient"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
     </application>
    <permission android:name="android.permission.INTERNET"
        />
