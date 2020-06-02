@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backloadtrainings"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollIndicators="end"
+    android:scrollbars="vertical">
+
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_clients"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonclients"
+            android:gravity="bottom|left"
+            android:onClick="loadTrenClick" />
+
+        <Button
+            android:id="@+id/button_clients_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonclientsprofile"
+            android:gravity="bottom|center"
+            android:onClick="loadTrenClick" />
+
+        <Button
+            android:id="@+id/button_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonchat"
+            android:gravity="bottom|right"
+            android:onClick="loadTrenClick" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="54dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/buttonprofile"
+        android:onClick="loadTrenClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="219dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="102dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/button_day1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_day1_selector"
+            android:button="@null"
+            android:checked="true"
+            android:onClick="loadTrenClick" />
+
+        <RadioButton
+            android:id="@+id/button_day2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_day2_selector"
+            android:button="@null"
+            android:onClick="loadTrenClick" />
+
+        <RadioButton
+            android:id="@+id/button_day3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_day3_selector"
+            android:button="@null"
+            android:onClick="loadTrenClick" />
+
+    </RadioGroup>
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/buttonsave"
+        android:onClick="loadTrenClick"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/editExercise1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight1"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo1"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment1"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo1"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo1"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.852" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight2"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment2"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo2"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise2"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight3"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment3"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo3"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise3"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight4"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo4"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment4"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo4"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo4"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise4"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight5"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo5"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment5"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo5"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo5"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise5"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight6"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo6"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment6"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo6"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo6"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise6"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="394dp">
+
+                <EditText
+                    android:id="@+id/ediExercise7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldexercise"
+                    android:ems="10"
+                    android:hint="Болгарские выпады"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editPodhods7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/editPodhods7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldpodhod"
+                    android:ems="10"
+                    android:hint="4x20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editTakeWeight7"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo7"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editTakeWeight7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/fieldweight"
+                    android:ems="10"
+                    android:hint="20"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="6"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment7"
+                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo7"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/editComment7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/fieldcomment"
+                    android:ems="10"
+                    android:hint="4"
+                    android:inputType="textShortMessage|textLongMessage"
+                    android:maxLength="30"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/button_loadVideo7"
+                    android:layout_width="177dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/buttonloadvideo"
+                    android:onClick="loadTrenClick"
+                    app:layout_constraintBottom_toTopOf="@+id/editComment7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ediExercise7"
+                    app:layout_constraintVertical_bias="0.439" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

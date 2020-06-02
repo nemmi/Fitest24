@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "988855777173",
+    "firebase_url": "https://fitest-26bdd.firebaseio.com",
+    "project_id": "fitest-26bdd",
+    "storage_bucket": "fitest-26bdd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988855777173:android:543792868fc2100fabe89c",
+        "android_client_info": {
+          "package_name": "com.example.fitest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988855777173-ge42cetjtqhhqtglf6pcfrlf2cvbte97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI9---c-4yQuqXJQM-g9S-yRDcoaym338"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988855777173-ge42cetjtqhhqtglf6pcfrlf2cvbte97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

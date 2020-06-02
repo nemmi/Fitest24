@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backuniversal">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topclientsanketa"
+        android:minHeight="?attr/actionBarSize"
+        android:onClick="anketaSp1Click"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="612dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        app:layout_constraintVertical_bias="0.234">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/secname" />
+
+            <EditText
+                android:id="@+id/editSecondName"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:ems="20"
+                android:hint="Иванов"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/name" />
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="Иван"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/age" />
+
+            <EditText
+                android:id="@+id/editAge"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="19"
+                android:inputType="number"
+                android:maxLength="3"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/telephonenum" />
+
+            <EditText
+                android:id="@+id/editPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="89960000000"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/experience" />
+
+            <EditText
+                android:id="@+id/editExpTr"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="1 год без перерывов"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/goals" />
+
+            <EditText
+                android:id="@+id/editGoals"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/field"
+                android:hint="Снижение веса, восстановление после травм, набор мышечной массы"
+                android:inputType="textLongMessage"
+                android:maxLength="50"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/donteat" />
+
+            <EditText
+                android:id="@+id/editDontEat"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="Лук"
+                android:inputType="textLongMessage"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/height" />
+
+            <EditText
+                android:id="@+id/editHeight"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="175"
+                android:inputType="number"
+                android:maxLength="7"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/weight" />
+
+            <EditText
+                android:id="@+id/editAnketaWeight"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="80.5"
+                android:inputType="number"
+                android:maxLength="7"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/bads" />
+
+            <EditText
+                android:id="@+id/editBADS"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="Протеин"
+                android:inputType="textLongMessage"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/blood" />
+
+            <EditText
+                android:id="@+id/editBlood"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/field"
+                android:hint="Растяжение связки"
+                android:inputType="textLongMessage"
+                android:maxLength="30"
+                android:paddingStart="25dp"
+                android:paddingEnd="30dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/button_choose"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/buttonchooseyourfighters"
+                android:onClick="anketaSp1Click" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
