@@ -48,5 +48,8 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
 
         }
     }
-
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
 }
