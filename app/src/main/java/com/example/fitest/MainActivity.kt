@@ -14,13 +14,13 @@ import com.example.fitest.View.ILoginView
 import kotlinx.android.synthetic.main.activity_auth.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ILoginView {
+class MainActivity : AppCompatActivity()/*, ILoginView*/ {
 
     /*override fun onLoginResult(message: String) {
         Toasty.info(this, message, Toast.LENGTH_SHORT).show()
     }*/
 
-    internal lateinit var loginPresenter: ILoginPresenter
+    /*internal lateinit var loginPresenter: ILoginPresenter*/
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -43,12 +43,12 @@ class MainActivity : AppCompatActivity(), ILoginView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         //Init
-        loginPresenter = LoginPresenter(this)
+      /*  loginPresenter = LoginPresenter(this)
 
 
         btn_login.setOnClickListener {
             loginPresenter.onLogin(edt_email.text.toString(), edt_password.text.toString())
-        }
+        }*/
         /*btn_login.setOnClickListener{val intent=Intent(this, ProfileClient::class.java)
             startActivity(intent)}*/
             btn_login.setOnClickListener { val trener1=Intent(this, ProfileTrener::class.java)

@@ -57,4 +57,8 @@ class Chat_Sportsmen : AppCompatActivity() {
 
         }
     }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
 }
