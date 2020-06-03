@@ -34,19 +34,19 @@ class Chat_Coach : AppCompatActivity() {
     fun chatCoachClick(view: View) {
         when (view.id) {
             R.id.profile -> {
-                val intent = Intent(this, Registration::class.java)
+                val intent = Intent(this, ProfileTrener::class.java)
                 startActivity(intent)
             }
             R.id.button_clients -> {
-                val intent = Intent(this, Anketa_Sportsmen_P2::class.java)
+                val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
             }
             R.id.button_clients_profile -> {
-                val intent = Intent(this, Chat_Coach::class.java)
+                val intent = Intent(this, ProfileClientView::class.java)
                 startActivity(intent)
             }
             R.id.button_chat -> {
-                val intent = Intent(this, Chat_Coach::class.java)
+                val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
             R.id.button2 -> {

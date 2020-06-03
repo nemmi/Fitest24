@@ -22,20 +22,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
+        android:onClick="AnketaCoachClick"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/shapkaviewtrener" />
 
-    <ImageButton
-        android:id="@+id/imageButton25"
+    <ImageView
+        android:id="@+id/imageView61"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton9"
         app:srcCompat="@drawable/photo" />
@@ -46,9 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton25"
-        app:layout_constraintStart_toEndOf="@+id/imageButton25"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+        app:layout_constraintStart_toEndOf="@+id/imageView61"
         app:srcCompat="@drawable/costquadro" />
 
     <TextView
@@ -62,8 +61,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView57"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton25"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton25" />
+        app:layout_constraintStart_toStartOf="@+id/imageView61"
+        app:layout_constraintTop_toBottomOf="@+id/imageView61" />
 
     <ImageView
         android:id="@+id/imageView58"
@@ -94,17 +93,19 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/imageButton25"
+        app:layout_constraintStart_toEndOf="@+id/imageView61"
         app:layout_constraintTop_toBottomOf="@+id/imageButton9"
         app:srcCompat="@drawable/urfio" />
 
-    <ImageView
-        android:id="@+id/imageView61"
+    <ImageButton
+        android:id="@+id/imageButton25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton25"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton25"
-        app:layout_constraintStart_toStartOf="@+id/imageButton25"
-        app:layout_constraintTop_toTopOf="@+id/imageButton25"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="AnketaCoachClick"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+        app:layout_constraintEnd_toEndOf="@+id/imageView61"
+        app:layout_constraintStart_toStartOf="@+id/imageView61"
+        app:layout_constraintTop_toTopOf="@+id/imageView61"
         app:srcCompat="@drawable/downloadphoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

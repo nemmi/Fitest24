@@ -126,7 +126,6 @@
         android:layout_alignBottom="@+id/imageView21"
         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 @._"
         android:maxLength="50"
-
         android:ems="10"
         android:inputType="textEmailAddress" />
 

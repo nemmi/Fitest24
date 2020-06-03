@@ -11,6 +11,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
         android:id="@+id/imageView"
         android:layout_width="192dp"
         android:layout_height="299dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="224dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintHorizontal_bias="0.914"
@@ -18,49 +19,43 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/peoplewitharrows" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_height="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/button_clients"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonclients"
+            android:gravity="bottom|left"
+            android:onClick="paramsCoachClick" />
 
-            <Button
-                android:id="@+id/button_clients"
-                android:layout_width="wrap_content"
-                android:layout_height="51dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonclients"
-                android:gravity="bottom|left"
-                android:onClick="paramsCoachClick" />
+        <Button
+            android:id="@+id/button_clients_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonclientsprofile"
+            android:gravity="bottom|center"
+            android:onClick="paramsCoachClick" />
 
-            <Button
-                android:id="@+id/button_clients_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="51dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonclientsprofile"
-                android:gravity="bottom|center"
-                android:onClick="paramsCoachClick" />
+        <Button
+            android:id="@+id/button_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonchat"
+            android:gravity="bottom|right"
+            android:onClick="paramsCoachClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <Button
-                android:id="@+id/button_chat"
-                android:layout_width="wrap_content"
-                android:layout_height="51dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonchat"
-                android:gravity="bottom|right"
-                android:onClick="paramsCoachClick"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-        </TableRow>
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </TableRow>
 
     <ImageView
         android:id="@+id/imageView3"

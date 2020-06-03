@@ -125,7 +125,7 @@
         app:srcCompat="@drawable/colvoinweek" />
 
     <ImageView
-        android:id="@+id/imageView25"
+        android:id="@+id/imageView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/imageView13"
@@ -174,8 +174,8 @@
         android:layout_marginRight="8dp"
         android:gravity="center"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
-        app:layout_constraintEnd_toEndOf="@+id/imageView25"
-        app:layout_constraintStart_toStartOf="@+id/imageView25"
-        app:layout_constraintTop_toTopOf="@+id/imageView25" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+        app:layout_constraintEnd_toEndOf="@+id/imageView61"
+        app:layout_constraintStart_toStartOf="@+id/imageView61"
+        app:layout_constraintTop_toTopOf="@+id/imageView61" />
 </androidx.constraintlayout.widget.ConstraintLayout>

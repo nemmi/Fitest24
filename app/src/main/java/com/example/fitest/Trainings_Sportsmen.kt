@@ -45,7 +45,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.profile ->{
-                    val intent = Intent(this, Anketa_Coach::class.java)
+                    val intent = Intent(this, ProfileClient::class.java)
                     startActivity(intent)
                 }
                 R.id.button_day1 ->{

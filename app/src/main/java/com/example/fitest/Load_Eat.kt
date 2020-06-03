@@ -69,6 +69,9 @@ class Load_Eat : AppCompatActivity() {
                 val Client= Intent(this, ProfileClientView::class.java)
                 startActivity(Client)
             }
+            R.id.buttonSaveEat ->{
+
+            }
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {

@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -36,19 +34,20 @@ class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val but: Button = findViewById(R.id.buttonReg)
+       /* val but: Button = findViewById(R.id.buttonReg)
         val butText = findViewById<Button>(R.id.buttonINTeam)
         val email = findViewById<EditText>(R.id.editMail)
         val passw = findViewById<EditText>(R.id.editPassword)
-        val passw1 = findViewById<EditText>(R.id.editPassword1)
+        val passw1 = findViewById<EditText>(R.id.editPassword1)*/
 
         auth = FirebaseAuth.getInstance()
+
     }
 
-    val PASSWORD__PATTERN = Regex(pattern = "[0-9]{8,15}")
-
     fun regClick(view: View) {
+        val PASSWORD__PATTERN = Regex(pattern = "[0-9]{8,15}")
         val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
+
         if (editMail.text.toString().isEmpty()) {
             editMail.error = "Введите email"
             editMail.requestFocus()
@@ -80,7 +79,8 @@ class Registration : AppCompatActivity() {
             editMail.requestFocus()
             return
         }
-        else {when (view.id) {
+        else {
+            when (view.id) {
             R.id.buttonReg -> {
                 auth.createUserWithEmailAndPassword(
                     editMail.text.toString(),
@@ -88,8 +88,9 @@ class Registration : AppCompatActivity() {
                 )
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val intent = Intent(this, Anketa_Sportsmen_P1::class.java)
-                            startActivity(intent)
+
+                            startActivity(Intent(this, Anketa_Sportsmen_P1::class.java))
+                            finish()
                         } else {
                             Toast.makeText(
                                 baseContext, "Регистрация не выполнена",
@@ -98,7 +99,7 @@ class Registration : AppCompatActivity() {
                         }
                     }
             }
-            R.id.buttonINTeam -> {
+           R.id.buttonINTeam -> {
                 auth.createUserWithEmailAndPassword(
                     editMail.text.toString(),
                     editPassword.text.toString()
@@ -107,6 +108,7 @@ class Registration : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val intent = Intent(this, Anketa_Coach::class.java)
                             startActivity(intent)
+                            finish()
                         } else {
                             Toast.makeText(
                                 baseContext, "Регистрация не выполнена",
@@ -118,6 +120,7 @@ class Registration : AppCompatActivity() {
         }
         }
     }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

@@ -36,21 +36,18 @@ class Chat_Sportsmen : AppCompatActivity() {
     fun chatSportClick(view: View) {
         when (view.id) {
             R.id.profile -> {
-                val intent = Intent(this, Registration::class.java)
+                val intent = Intent(this, ProfileClient::class.java)
                 startActivity(intent)
             }
             R.id.button_training -> {
-                val intent = Intent(this, Anketa_Sportsmen_P2::class.java)
+                val intent = Intent(this, Trainings_Sportsmen::class.java)
                 startActivity(intent)
             }
             R.id.button_eats -> {
                 val intent = Intent(this, Chat_Coach::class.java)
                 startActivity(intent)
             }
-            R.id.button_chats -> {
-                val intent = Intent(this, Chat_Coach::class.java)
-                startActivity(intent)
-            }
+
             R.id.button2 -> {
 
             }

@@ -108,8 +108,13 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="379dp"
         android:layout_height="523dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:alwaysDrawnWithCache="true"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:fitsSystemWindows="false"
+        android:verticalScrollbarPosition="defaultPosition"
         app:layout_constraintBottom_toTopOf="@+id/tableRow2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -445,6 +450,7 @@
                     android:layout_marginEnd="132dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/capture"
+                    android:cropToPadding="false"
                     app:layout_constraintBottom_toTopOf="@+id/textPodhod3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/forvideo" />
@@ -589,7 +595,6 @@
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/capture"
                     app:layout_constraintBottom_toTopOf="@+id/textPodhod4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/forvideo" />
@@ -734,7 +739,6 @@
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/capture"
                     app:layout_constraintBottom_toTopOf="@+id/textPodhod5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/forvideo" />
@@ -879,7 +883,6 @@
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/capture"
                     app:layout_constraintBottom_toTopOf="@+id/textPodhod6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/forvideo" />
@@ -997,7 +1000,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="563dp">
+                android:layout_height="563dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:accessibilityLiveRegion="none">
 
                 <TextView
                     android:id="@+id/textExercise7"
@@ -1020,21 +1026,20 @@
 
                 <ImageView
                     android:id="@+id/imageBorderforVideo7"
-                    android:layout_width="330dp"
-                    android:layout_height="213dp"
+                    android:layout_width="332dp"
+                    android:layout_height="211dp"
                     android:layout_marginEnd="132dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/capture"
                     app:layout_constraintBottom_toTopOf="@+id/textPodhod7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:srcCompat="@drawable/forvideo" />
 
                 <VideoView
                     android:id="@+id/videoExercise7"
-                    android:layout_width="320dp"
-                    android:layout_height="190dp"
+                    android:layout_width="321dp"
+                    android:layout_height="192dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:background="@drawable/capture"
