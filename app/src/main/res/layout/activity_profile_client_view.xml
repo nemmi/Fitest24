@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileClientView">
+
+    <ImageView
+        android:id="@+id/imageView33"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chekclient" />
+
+    <ImageButton
+        android:id="@+id/programtreni"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/programpitaniye"
+        app:layout_constraintEnd_toEndOf="@+id/otchettreni"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/otchettreni"
+        app:srcCompat="@drawable/redbutton" />
+
+    <ImageButton
+        android:id="@+id/otchettreni"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/otchetpitanie"
+        app:layout_constraintEnd_toEndOf="@+id/otchetparamer"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/otchetparamer"
+        app:srcCompat="@drawable/redbutton" />
+
+    <ImageButton
+        android:id="@+id/programpitaniye"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/otchettreni"
+        app:layout_constraintEnd_toEndOf="@+id/otchettreni"
+        app:layout_constraintStart_toStartOf="@+id/otchettreni"
+        app:srcCompat="@drawable/redbutton" />
+
+    <ImageButton
+        android:id="@+id/otchetparamer"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginBottom="30dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/imageView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/redbutton" />
+
+    <ImageView
+        android:id="@+id/imageView36"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/knopkiniz" />
+
+    <ImageButton
+        android:id="@+id/otchetpitanie"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/otchetparamer"
+        app:layout_constraintEnd_toEndOf="@+id/otchetparamer"
+        app:layout_constraintStart_toStartOf="@+id/otchetparamer"
+        app:srcCompat="@drawable/redbutton" />
+
+    <ImageView
+        android:id="@+id/imageView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/otchetparamer"
+        app:layout_constraintEnd_toEndOf="@+id/otchetparamer"
+        app:layout_constraintStart_toStartOf="@+id/otchetparamer"
+        app:layout_constraintTop_toTopOf="@+id/otchetparamer"
+        app:srcCompat="@drawable/parametr" />
+
+    <ImageView
+        android:id="@+id/imageView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/programpitaniye"
+        app:layout_constraintEnd_toEndOf="@+id/programpitaniye"
+        app:layout_constraintStart_toStartOf="@+id/programpitaniye"
+        app:layout_constraintTop_toTopOf="@+id/programpitaniye"
+        app:srcCompat="@drawable/programpitaniye" />
+
+    <ImageView
+        android:id="@+id/imageView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/otchettreni"
+        app:layout_constraintEnd_toEndOf="@+id/otchettreni"
+        app:layout_constraintStart_toStartOf="@+id/otchettreni"
+        app:layout_constraintTop_toTopOf="@+id/otchettreni"
+        app:srcCompat="@drawable/treni" />
+
+    <ImageView
+        android:id="@+id/imageView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/otchetpitanie"
+        app:layout_constraintEnd_toEndOf="@+id/otchetpitanie"
+        app:layout_constraintStart_toStartOf="@+id/otchetpitanie"
+        app:layout_constraintTop_toTopOf="@+id/otchetpitanie"
+        app:srcCompat="@drawable/pitaniye" />
+
+    <ImageView
+        android:id="@+id/imageView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/programtreni"
+        app:layout_constraintEnd_toEndOf="@+id/programtreni"
+        app:layout_constraintStart_toStartOf="@+id/programtreni"
+        app:layout_constraintTop_toTopOf="@+id/programtreni"
+        app:srcCompat="@drawable/programtreni" />
+
+    <ImageView
+        android:id="@+id/imageView43"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/programtreni"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/blackfone" />
+
+    <ImageView
+        android:id="@+id/imageView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView43"
+        app:layout_constraintStart_toStartOf="@+id/imageView43"
+        app:srcCompat="@drawable/colvovweek" />
+
+    <ImageView
+        android:id="@+id/imageView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView46"
+        app:layout_constraintStart_toStartOf="@+id/imageView46"
+        app:srcCompat="@drawable/po4ta" />
+
+    <ImageView
+        android:id="@+id/imageView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView44"
+        app:layout_constraintStart_toStartOf="@+id/imageView44"
+        app:srcCompat="@drawable/nomer" />
+
+    <ImageView
+        android:id="@+id/imageView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView44"
+        app:layout_constraintStart_toEndOf="@+id/imageView44"
+        app:layout_constraintTop_toTopOf="@+id/imageView44"
+        app:srcCompat="@drawable/redrect" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/imageView43"
+        app:layout_constraintEnd_toEndOf="@+id/imageView43"
+        app:srcCompat="@drawable/chatmb" />
+
+    <ImageButton
+        android:id="@+id/imageButton13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@+id/imageView43"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton12"
+        app:layout_constraintTop_toTopOf="@+id/imageButton12"
+        app:srcCompat="@drawable/anketa" />
+</androidx.constraintlayout.widget.ConstraintLayout>

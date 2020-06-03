@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main"
+    tools:context=".MainActivity"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageButton
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:bottomRightRadius="20dp"
+        android:bottomLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:topLeftRadius="20dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView16"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:srcCompat="@drawable/enter" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/mainwatchsostav" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButton6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="90dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:srcCompat="@drawable/reg" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButton7"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/notreg" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        app:srcCompat="@drawable/rectangle29" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView19"
+        android:layout_alignStart="@+id/imageView19"
+        android:layout_alignLeft="@+id/imageView19"
+
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/pass" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView20"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/rectangle29" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView21"
+        android:layout_alignStart="@+id/imageView21"
+        android:layout_alignLeft="@+id/imageView21"
+
+
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/login" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView21"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView23"
+        android:layout_marginBottom="14dp"
+        app:srcCompat="@drawable/fitest" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:imeOptions="actionDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView21"
+        android:layout_alignLeft="@+id/imageView21"
+        android:layout_alignTop="@+id/imageView21"
+        android:layout_alignEnd="@+id/imageView21"
+        android:layout_alignRight="@+id/imageView21"
+        android:layout_alignBottom="@+id/imageView21"
+        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 @._"
+        android:maxLength="50"
+
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/imageView19"
+        android:layout_alignLeft="@+id/imageView19"
+        android:layout_alignTop="@+id/imageView19"
+        android:layout_alignEnd="@+id/imageView19"
+        android:layout_alignRight="@+id/imageView19"
+        android:layout_alignBottom="@+id/imageView19"
+        android:maxLength="35"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+</RelativeLayout>
