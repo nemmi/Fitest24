@@ -31,13 +31,14 @@
         app:srcCompat="@drawable/otchetpitaniewhite"
 
         />
+
     <RadioGroup
         android:id="@+id/tableRow2"
-        android:layout_width="374dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,10 +53,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/mn_selector"
             android:button="@null"
-            android:checked="true" />
+            android:checked="true"
+            android:onClick="eatClick" />
 
         <RadioButton
             android:id="@+id/tuesday"
@@ -63,9 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/tue_selector"
-            android:button="@null" />
+            android:button="@null"
+            android:onClick="eatClick" />
 
         <RadioButton
             android:id="@+id/wednesday"
@@ -73,9 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/w_selector"
-            android:button="@null" />
+            android:button="@null"
+            android:onClick="eatClick" />
 
         <RadioButton
             android:id="@+id/thursday"
@@ -93,9 +94,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/fri_selector"
-            android:button="@null" />
+            android:button="@null"
+            android:onClick="eatClick" />
 
         <RadioButton
             android:id="@+id/saturday"
@@ -103,9 +104,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/sat_selector"
-            android:button="@null" />
+            android:button="@null"
+            android:onClick="eatClick" />
 
         <RadioButton
             android:id="@+id/sunday"
@@ -113,9 +114,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="eatClick"
             android:background="@drawable/sun_selector"
-            android:button="@null" />
+            android:button="@null"
+            android:onClick="eatClick" />
     </RadioGroup>
 
     <View

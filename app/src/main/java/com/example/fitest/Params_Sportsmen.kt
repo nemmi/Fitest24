@@ -52,7 +52,7 @@ class Params_Sportsmen : AppCompatActivity() {
     fun paramSportClick(view: View) {
         when (view.id) {
             R.id.toolbar -> {
-                val intent = Intent(this, Registration::class.java)
+                val intent = Intent(this, ProfileClient::class.java)
                 startActivity(intent)
             }
             R.id.button_edit -> {

@@ -47,23 +47,24 @@ class Params_Coach : AppCompatActivity() {
         val buttocks2 = findViewById<TextView>(R.id.textButtocks2)
         val hip = findViewById<TextView>(R.id.textHip)
         val hip2 = findViewById<TextView>(R.id.textHip)
+
     }
     fun paramsCoachClick(view: View) {
         when (view.id) {
             R.id.button_clients -> {
-                val intent = Intent(this, Trainings_Sportsmen::class.java)
+                val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
             }
             R.id.button_clients_profile -> {
-                val intent = Intent(this, Anketa_Coach::class.java)
+                val intent = Intent(this, ProfileClientView::class.java)
                 startActivity(intent)
             }
             R.id.button_chat -> {
-                val intent = Intent(this, Chat_Sportsmen::class.java)
+                val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
             R.id.profile -> {
-                val intent = Intent(this, Anketa_Coach::class.java)
+                val intent = Intent(this, ProfileTrener::class.java)
                 startActivity(intent)
             }
 

@@ -30,7 +30,7 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sportsmen_anketa1)
-        val sec_name = findViewById<EditText>(R.id.editSecondName)
+       /* val sec_name = findViewById<EditText>(R.id.editSecondName)
         val name = findViewById<EditText>(R.id.editName)
         val age = findViewById<EditText>(R.id.editAge)
         val phone = findViewById<EditText>(R.id.editPhoneNumber)
@@ -42,7 +42,7 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
         val bads = findViewById<EditText>(R.id.editBADS)
         val blood = findViewById<EditText>(R.id.editBlood)
         val choiceEat = findViewById<Button>(R.id.button_choose)
-        val back = findViewById<Toolbar>(R.id.toolbar3)
+        val back = findViewById<Toolbar>(R.id.toolbar3)*/
 
     }
 
