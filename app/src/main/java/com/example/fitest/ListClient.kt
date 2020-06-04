@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_list_client.*
+
 
 class ListClient : AppCompatActivity() {
 
@@ -30,12 +33,18 @@ class ListClient : AppCompatActivity() {
 
         imageButton14.setOnClickListener { val chat=Intent(this, SpisocChatov::class.java)
         startActivity(chat)}
-
-
-
         imageButton11.setOnClickListener { val Profile= Intent(this, ProfileTrener::class.java)
             startActivity(Profile)}
+        createPhoto()
+    }
 
+    private val storage = FirebaseStorage.getInstance()
+    private   var PhotoImage = storage.reference.child("TrenersPhoto")
+
+    private fun createPhoto() {
+        Glide.with(this)
+            .load(PhotoImage)
+            .into(rv_photo_list_client)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

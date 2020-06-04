@@ -10,8 +10,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.storage.FirebaseStorage
+
 import java.io.File
 import java.io.FileInputStream
+import java.io.InputStream
 
 
 class Load_Trainings : AppCompatActivity() {
@@ -68,7 +70,7 @@ class Load_Trainings : AppCompatActivity() {
 
     }
     val storage = FirebaseStorage.getInstance()
-    val VideoStorage = storage.getReference().child("video")
+    var VideoStorage = storage.getReference().child("video_training").child("day1").child("video")
     val REQUEST_CODE = 100
    fun loadTrenClick(view:View) {
         when (view.id){
@@ -76,44 +78,37 @@ class Load_Trainings : AppCompatActivity() {
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                    }
             R.id.button_loadVideo2 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                    }
             R.id.button_loadVideo3 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                    }
             R.id.button_loadVideo4 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                   }
             R.id.button_loadVideo5 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                    }
             R.id.button_loadVideo6 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                   }
             R.id.button_loadVideo7 ->{
                 val videoPickerIntent = Intent(Intent.ACTION_PICK)
                 videoPickerIntent.type = "video/*"
                 startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                   }
             R.id.button_clients ->{
                 val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
@@ -131,29 +126,34 @@ class Load_Trainings : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.button_day1 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day1").child("video")
             }
             R.id.button_day2 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day2").child("video")
             }
             R.id.button_day3 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day3").child("video")
             }
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            val stream = FileInputStream(File(data?.data?.path.toString()))
-            var uploadTask = VideoStorage.putStream(stream)
-            uploadTask.addOnFailureListener {
+        if (resultCode == Activity.RESULT_OK && data!=null) {
 
-                Toast.makeText(applicationContext, "Упс", Toast.LENGTH_SHORT).show()
+            val input: InputStream? = data!!.data?.let { contentResolver.openInputStream(it) }
+            val uploadTask = input?.let { VideoStorage.putStream(it) }
 
-            }.addOnSuccessListener {
-                Toast.makeText(applicationContext, "Фото успешно загружено!", Toast.LENGTH_SHORT).show()
+            uploadTask!!.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Видео успешно загружено!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+
             }
-
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {

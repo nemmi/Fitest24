@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity()/*, ILoginView*/ {
             startActivity(reg)}
 
         }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
