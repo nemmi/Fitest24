@@ -1,15 +1,18 @@
 package com.example.fitest
 
+import android.R.attr
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_trainings.*
+import java.io.File
+import java.io.FileInputStream
+
 
 class Load_Trainings : AppCompatActivity() {
 
@@ -32,7 +35,7 @@ class Load_Trainings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_trainings)
-        val exercise1 = findViewById<EditText>(R.id.editExercise1)
+        /*val exercise1 = findViewById<EditText>(R.id.editExercise1)
         val podhod1 = findViewById<EditText>(R.id.editPodhods1)
         val weight1 = findViewById<EditText>(R.id.editTakeWeight1)
         val comment1 = findViewById<EditText>(R.id.editComment1)
@@ -60,25 +63,12 @@ class Load_Trainings : AppCompatActivity() {
         val podhod7 = findViewById<EditText>(R.id.editPodhods1)
         val weight7 = findViewById<EditText>(R.id.editTakeWeight1)
         val comment7 = findViewById<EditText>(R.id.editComment1)
-        val profile = findViewById<Button>(R.id.profile)
-        val day1 = findViewById<Button>(R.id.button_day1)
-        val day2 = findViewById<Button>(R.id.button_day2)
-        val day3 = findViewById<Button>(R.id.button_day3)
-        val save = findViewById<Button>(R.id.button_save)
-        val loadV1 = findViewById<Button>(R.id.button_loadVideo1)
-        val loadV2 = findViewById<Button>(R.id.button_loadVideo2)
-        val loadV3 = findViewById<Button>(R.id.button_loadVideo3)
-        val loadV4 = findViewById<Button>(R.id.button_loadVideo4)
-        val loadV5 = findViewById<Button>(R.id.button_loadVideo5)
-        val loadV6 = findViewById<Button>(R.id.button_loadVideo6)
-        val loadV7 = findViewById<Button>(R.id.button_loadVideo7)
-        val clients = findViewById<Button>(R.id.button_clients)
-        val clientsProfile = findViewById<Button>(R.id.button_clients_profile)
-        val chat = findViewById<Button>(R.id.button_chat)
-        val storage = FirebaseStorage.getInstance()
-        val VideoStorage = storage.getReference().child("video")
-    }
 
+       */
+
+    }
+    val storage = FirebaseStorage.getInstance()
+    val VideoStorage = storage.getReference().child("video")
     val REQUEST_CODE = 100
    fun loadTrenClick(view:View) {
         when (view.id){
@@ -154,7 +144,16 @@ class Load_Trainings : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            videoExercise1.setVideoURI(data?.data) // handle chosen image
+            val stream = FileInputStream(File(data?.data?.path.toString()))
+            var uploadTask = VideoStorage.putStream(stream)
+            uploadTask.addOnFailureListener {
+
+                Toast.makeText(applicationContext, "Упс", Toast.LENGTH_SHORT).show()
+
+            }.addOnSuccessListener {
+                Toast.makeText(applicationContext, "Фото успешно загружено!", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
