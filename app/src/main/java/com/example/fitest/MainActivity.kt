@@ -57,6 +57,8 @@ class MainActivity : AppCompatActivity()/*, ILoginView*/ {
         imageButton6.setOnClickListener { val chektrener = Intent(this, SelectTrenerNotReg::class.java)
         startActivity(chektrener)}
 
+        imageButton7.setOnClickListener { val reg = Intent(this, Registration::class.java)
+            startActivity(reg)}
 
         }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
