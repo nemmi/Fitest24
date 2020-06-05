@@ -3,6 +3,9 @@ package com.example.fitest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_trener_vid_client.*
 
 class TrenerSelectClientView : AppCompatActivity() {
 
@@ -26,6 +29,15 @@ class TrenerSelectClientView : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trener_select_client_view)
+        createPhoto()
+    }
+    
+   private val storage = FirebaseStorage.getInstance()
+   private var PhotoImage = storage.reference.child("TrenersPhoto")
+    private fun createPhoto(){
+        Glide.with(this)
+            .load(PhotoImage)
+            .into(PhotoImg)
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

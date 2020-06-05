@@ -1,17 +1,14 @@
 package com.example.fitest
 
-import android.R.attr
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.storage.FirebaseStorage
-import java.io.File
-import java.io.FileInputStream
+
+import java.io.InputStream
 
 
 class Load_Trainings : AppCompatActivity() {
@@ -67,93 +64,148 @@ class Load_Trainings : AppCompatActivity() {
        */
 
     }
-    val storage = FirebaseStorage.getInstance()
-    val VideoStorage = storage.getReference().child("video")
+   private val storage = FirebaseStorage.getInstance()
+    private var VideoStorage = storage.reference.child("video_training").child("day1").child("video")
     val REQUEST_CODE = 100
+
+
    fun loadTrenClick(view:View) {
         when (view.id){
             R.id.button_loadVideo1 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+
+                    }
             R.id.button_loadVideo2 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                    }
             R.id.button_loadVideo3 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                    }
             R.id.button_loadVideo4 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                   }
             R.id.button_loadVideo5 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                    }
             R.id.button_loadVideo6 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                   }
             R.id.button_loadVideo7 ->{
-                val videoPickerIntent = Intent(Intent.ACTION_PICK)
-                videoPickerIntent.type = "video/*"
-                startActivityForResult(videoPickerIntent, REQUEST_CODE)
-                Toast.makeText(applicationContext, "Видео успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+                var detected: Boolean =true
+
+                if(!detected) {
+                    chooseVideo()
+                    detected=true
+                }
+                else {
+                    deleteVideo()
+                    detected=false
+                }
+                   }
             R.id.button_clients ->{
-                val intent = Intent(this, ListClient::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, ListClient::class.java))
             }
             R.id.button_clients_profile ->{
-                val intent = Intent(this, ProfileClientView::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, ProfileClientView::class.java))
             }
             R.id.button_chat ->{
-                val intent = Intent(this, SpisocChatov::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, SpisocChatov::class.java))
             }
             R.id.profile ->{
-                val intent = Intent(this, ProfileClient::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, ProfileClient::class.java))
             }
             R.id.button_day1 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day1").child("video")
             }
             R.id.button_day2 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day2").child("video")
             }
             R.id.button_day3 ->{
-
+                VideoStorage = storage.getReference().child("video_training").child("day3").child("video")
             }
         }
     }
+    private fun deleteVideo(){
+        VideoStorage.delete().addOnSuccessListener {
+            chooseVideo()
+        }
+    }
+
+    private fun chooseVideo(){
+        val videoPickerIntent = Intent(Intent.ACTION_PICK)
+        videoPickerIntent.type = "video/*"
+        startActivityForResult(videoPickerIntent, REQUEST_CODE)
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            val stream = FileInputStream(File(data?.data?.path.toString()))
-            var uploadTask = VideoStorage.putStream(stream)
-            uploadTask.addOnFailureListener {
+        if (resultCode == Activity.RESULT_OK && data!=null) {
 
-                Toast.makeText(applicationContext, "Упс", Toast.LENGTH_SHORT).show()
+            val input: InputStream? = data!!.data?.let { contentResolver.openInputStream(it) }
+            val uploadTask = input?.let { VideoStorage.putStream(it) }
 
-            }.addOnSuccessListener {
-                Toast.makeText(applicationContext, "Фото успешно загружено!", Toast.LENGTH_SHORT).show()
+            uploadTask!!.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Видео успешно загружено!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {

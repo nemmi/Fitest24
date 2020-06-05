@@ -75,6 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/fieldchatred" />
 
+
     <EditText
         android:id="@+id/editText3"
         android:layout_width="match_parent"
@@ -98,5 +99,6 @@
         app:layout_constraintStart_toStartOf="@+id/imageView31"
         app:layout_constraintTop_toTopOf="@+id/imageView31"
         app:layout_constraintVertical_bias="0.481" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

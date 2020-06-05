@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_select_trener_not_reg.*
+import kotlinx.android.synthetic.main.activity_trener_vid_client.*
 
 class SelectTrenerNotReg : AppCompatActivity() {
     private fun showSystemUI() {
@@ -26,11 +29,23 @@ class SelectTrenerNotReg : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_trener_not_reg)
 
-        button999.setOnClickListener { val trener = Intent(this, TrenerVidClient::class.java)
-        startActivity(trener)}
-        imageButton8.setOnClickListener { val main = Intent(this,MainActivity::class.java)
-        startActivity(main)}
+        button999.setOnClickListener {
+            val trener = Intent(this, TrenerVidClient::class.java)
+            startActivity(trener)
+        }
+        imageButton8.setOnClickListener {
+            val main = Intent(this, MainActivity::class.java)
+            startActivity(main)
+        }
     }
+        private val storage = FirebaseStorage.getInstance()
+        private   var photoTren = storage.reference.child("TrenersPhoto")
+        private fun createPhoto() {
+            Glide.with(this)
+                .load(photoTren)
+                .into(PhotoImg)
+        }
+
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

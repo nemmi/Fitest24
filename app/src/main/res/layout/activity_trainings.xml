@@ -80,7 +80,7 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_day1_selector"
             android:button="@null"
-            android:checked="true"
+            android:checked="false"
             android:onClick="trenSportsmenClick" />
 
         <RadioButton

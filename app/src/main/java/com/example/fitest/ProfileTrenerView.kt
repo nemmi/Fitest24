@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.fitest.Model.User
 
 import com.google.firebase.storage.FirebaseStorage
@@ -21,6 +22,7 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
 
+lateinit var REF_STORAGE_ROOT: StorageReference
 
 class ProfileTrenerView : AppCompatActivity() {
 
@@ -45,13 +47,10 @@ class ProfileTrenerView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_trener_view)
 
-
+        REF_STORAGE_ROOT=FirebaseStorage.getInstance().reference
     }
-    val storage = FirebaseStorage.getInstance()
-    val ImageStorage = storage.getReference().child("TrenersPhoto")
-    val REQUEST_CODE = 100
 
-    fun AnketaCoachClick(view: View) {
+    fun ProfileTrenerClick(view: View) {
         when (view.id){
             R.id.imageButton25->{
                 chooserPhoto()
@@ -74,48 +73,21 @@ class ProfileTrenerView : AppCompatActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE &&
+            resultCode== Activity.RESULT_OK && data!=null) {
+
             val uri =CropImage.getActivityResult(data).uri
-            val path = ImageStorage
-            path.putFile(uri).addOnFailureListener {
-                Toast.makeText(applicationContext, "Упс", Toast.LENGTH_SHORT).show()
-            }.addOnSuccessListener {
-                Toast.makeText(applicationContext, "Фото успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
+            val path = REF_STORAGE_ROOT.child("TrenersPhoto")
+
+            path.putFile(uri).addOnSuccessListener {
+                Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()}
+
+            Glide.with(this)
+                .load(uri)
+                .into(imageView61)
+
         }
         }
-            /* fun xz(){val photoPickerIntent = Intent(Intent.ACTION_PICK)
-    photoPickerIntent.type = "image/*"
-    startActivityForResult(photoPickerIntent, REQUEST_CODE)}*/
-
-    */
-            /*  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            val stream = FileInputStream(File(data?.data?.path.toString()))
-           /* imageView61.setImageURI(data?.data) // handle chosen image
-            val bitmap = (imageView61.drawable as BitmapDrawable).bitmap
-            val baos = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-            val data = baos.toByteArray()
-
-            var uploadTask = ImageStorage.putBytes(data)
-            uploadTask.addOnFailureListener {
-                // Handle unsuccessful uploads
-            }.addOnSuccessListener {
-                // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-                // ...
-            }*/
-            var uploadTask = ImageStorage.putStream(stream)
-            uploadTask.addOnFailureListener {
-
-                    Toast.makeText(applicationContext, "Упс", Toast.LENGTH_SHORT).show()
-
-            }.addOnSuccessListener {
-                Toast.makeText(applicationContext, "Фото успешно загружено!", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }*/
 
             override fun onWindowFocusChanged(hasFocus: Boolean) {
                 super.onWindowFocusChanged(hasFocus)
