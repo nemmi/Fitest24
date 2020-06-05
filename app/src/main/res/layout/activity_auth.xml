@@ -13,46 +13,50 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/btn_login"
         android:layout_width="300dp"
-        android:bottomRightRadius="20dp"
-        android:bottomLeftRadius="20dp"
-        android:topRightRadius="20dp"
-        android:topLeftRadius="20dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_above="@+id/imageView16"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:srcCompat="@drawable/enter" />
+        android:background="@drawable/enter"
+        android:onClick="AuthClick"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+         />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+    <Button
+        android:id="@+id/button_listTren"
+        android:layout_width="match_parent"
+        android:layout_height="21dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@drawable/mainwatchsostav" />
+        android:background="@drawable/mainwatchsostav"
+        android:onClick="AuthClick"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        />
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButton6"
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_above="@+id/button_listTren"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="90dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:srcCompat="@drawable/reg" />
+        android:background="@drawable/reg"
+        android:onClick="AuthClick"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"/>
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButton7"
+        android:layout_above="@+id/SignUp"
         android:layout_marginBottom="15dp"
         app:srcCompat="@drawable/notreg" />
 
@@ -114,7 +118,7 @@
         app:srcCompat="@drawable/fitest" />
 
     <EditText
-        android:id="@+id/edt_email"
+        android:id="@+id/editEmail"
         android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -130,7 +134,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/edt_password"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignStart="@+id/imageView19"

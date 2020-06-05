@@ -2,74 +2,96 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fitest">
 
+    <permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <supports-screens
+        android:compatibleWidthLimitDp="720"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:requiresSmallestWidthDp="720"
+        android:smallScreens="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:minSdkVersion="7"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:minSdkVersion="7"
-        >
-        <activity android:name=".Registration"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"/>
+        android:theme="@style/Theme.AppCompat.NoActionBar">
 
-        <activity android:name=".Anketa_Coach"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".Anketa_Sportsmen_P1"
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Registration"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Anketa_Sportsmen_P2"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Anketa_Coach"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Params_Coach"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Anketa_Sportsmen_P1"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-            />
-        <activity android:name=".Params_Sportsmen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Anketa_Sportsmen_P2"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Params_Edit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Params_Coach"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Trainings_Sportsmen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Params_Sportsmen"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Trainings_Coach"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Params_Edit"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Load_Trainings"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Trainings_Sportsmen"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Chat_Coach"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Trainings_Coach"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".Chat_Sportsmen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Load_Trainings"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"
-        />
-        <activity android:name=".SelectTrenerNotReg"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Chat_Coach"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".TrenerVidClient"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Chat_Sportsmen"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SelectTrenerNotReg"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".TrenerVidClient"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ProfileTrenerView"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".ListClient"
             android:screenOrientation="locked"
@@ -90,17 +112,11 @@
             android:name=".OtchetPitanie"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" >
-        <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+            android:windowSoftInputMode="stateHidden"/>
 
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-    </activity>
         <activity
             android:name=".SelectTrener"
             android:screenOrientation="locked"
@@ -124,20 +140,10 @@
         <activity
             android:name=".ProfileClient"
             android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
-   <permission android:name="android.permission.INTERNET"
-       />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <supports-screens android:smallScreens="false"
-        android:normalScreens="true"
-        android:largeScreens="true"
-    android:requiresSmallestWidthDp="720"
-    android:compatibleWidthLimitDp="720"
-     />
 </manifest>

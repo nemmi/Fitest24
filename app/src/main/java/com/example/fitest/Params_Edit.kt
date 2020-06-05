@@ -8,7 +8,9 @@ import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_body_params_edit.*
 
 
 class Params_Edit : AppCompatActivity() {
@@ -33,30 +35,23 @@ class Params_Edit : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_body_params_edit)
         val name = findViewById<TextView>(R.id.urName)
-        val weight = findViewById<TextView>(R.id.textWeight)
-        val weight2 = findViewById<EditText>(R.id.editWeight).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val shoulders = findViewById<TextView>(R.id.textShoulder)
-        val shoulders2 = findViewById<EditText>(R.id.editShoulder).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val tall = findViewById<EditText>(R.id.editTall).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val breats = findViewById<TextView>(R.id.textBreast)
-        val breast2 = findViewById<EditText>(R.id.editBreast).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val biceps = findViewById<TextView>(R.id.textBiceps)
-        val biceps2 = findViewById<EditText>(R.id.editBiceps).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val waist = findViewById<TextView>(R.id.textWaist)
-        val waist2 = findViewById<EditText>(R.id.editWaist).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val buttocks = findViewById<TextView>(R.id.textButtocks)
-        val buttocks2 = findViewById<EditText>(R.id.editButtocks).setInputType( InputType.TYPE_CLASS_NUMBER )
-        val hip = findViewById<TextView>(R.id.textHip)
-        val hip2 = findViewById<EditText>(R.id.editHip).setInputType( InputType.TYPE_CLASS_NUMBER )
-
-      /*это должен быть фильтр на длину вводимых символов, но у меня не получилось
-        fun EditText.limitLength(filter: LengthFilter) {
-            this.filters = arrayOf(InputFilter.LengthFilter(4))
-        }
-        */
+       editWeight.limitLength()
+        editShoulder.limitLength()
+      editTall.limitLength()
+        editBreast.limitLength()
+      editBiceps.limitLength()
+       editWaist.limitLength()
+       editButtocks.limitLength()
+        editHip.limitLength()
     }
 
-    fun paramEditClick(view: View) {
+
+private fun EditText.limitLength() {
+    this.filters = arrayOf(InputFilter.LengthFilter(4))
+}
+
+
+fun paramEditClick(view: View) {
         when (view.id) {
             R.id.toolbarProf2 -> {
                 val intent = Intent(this, Params_Sportsmen::class.java)
@@ -74,3 +69,5 @@ class Params_Edit : AppCompatActivity() {
         if (hasFocus) hideSystemUI()
     }
 }
+
+
