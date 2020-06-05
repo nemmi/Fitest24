@@ -50,11 +50,25 @@ class Chat_Coach : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.button2 -> {
-
+                /* if (!editText3.text.toString().isEmpty()){
+                                   sendData()
+                               }else{
+                                   Toast.makeText(this, "Пожалуйста, введите сообщение", Toast.LENGTH_SHORT).show()
+                               }*/
             }
 
         }
     }
+    /* private fun sendData() {
+        database?.
+            child("messages")?.
+            child(java.lang.String.valueOf(System.currentTimeMillis()))?.
+            setValue(Message(editText3.text.toString()))
+
+        //clear the text
+        editText3.setText("")
+    }
+*/
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

@@ -1,12 +1,14 @@
 package com.example.fitest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_chat_clients.*
 
 
 class Chat_Sportsmen : AppCompatActivity() {
@@ -32,8 +34,9 @@ class Chat_Sportsmen : AppCompatActivity() {
         setContentView(R.layout.activity_chat_clients)
         val messageChat = findViewById<EditText>(R.id.editText3)
     }
+    private val database = FirebaseDatabase.getInstance().reference
 
-    fun chatSportClick(view: View) {
+    private fun chatSportClick(view: View) {
         when (view.id) {
             R.id.profile -> {
                 val intent = Intent(this, ProfileClient::class.java)
@@ -49,11 +52,26 @@ class Chat_Sportsmen : AppCompatActivity() {
             }
 
             R.id.button2 -> {
-
+               /* if (!editText3.text.toString().isEmpty()){
+                    sendData()
+                }else{
+                    Toast.makeText(this, "Пожалуйста, введите сообщение", Toast.LENGTH_SHORT).show()
+                }*/
             }
-
         }
     }
+
+   /* private fun sendData() {
+        database?.
+            child("messages")?.
+            child(java.lang.String.valueOf(System.currentTimeMillis()))?.
+            setValue(Message(editText3.text.toString()))
+
+        //clear the text
+        editText3.setText("")
+    }
+*/
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
