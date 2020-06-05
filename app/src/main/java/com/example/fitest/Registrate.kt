@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-private lateinit var auth: FirebaseAuth
+lateinit var auth: FirebaseAuth
 
 class Registration : AppCompatActivity() {
 
@@ -34,18 +34,13 @@ class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       /* val but: Button = findViewById(R.id.buttonReg)
-        val butText = findViewById<Button>(R.id.buttonINTeam)
-        val email = findViewById<EditText>(R.id.editMail)
-        val passw = findViewById<EditText>(R.id.editPassword)
-        val passw1 = findViewById<EditText>(R.id.editPassword1)*/
 
         auth = FirebaseAuth.getInstance()
 
     }
 
     fun regClick(view: View) {
-        val PASSWORD__PATTERN = Regex(pattern = "[0-9]{8,15}")
+        val PASSWORD__PATTERN = Regex(pattern = "[0-9a-zA-Z]{8,15}")
         val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
 
         if (editMail.text.toString().isEmpty()) {
@@ -55,6 +50,16 @@ class Registration : AppCompatActivity() {
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(editMail.text.toString()).matches()) {
             editMail.error = "Введите корректный email"
+            editMail.requestFocus()
+            return
+        }
+        if (editMail.text.length>30) {
+            editMail.error = "email должен содержать не более 30 символов"
+            editMail.requestFocus()
+            return
+        }
+        if (editMail.text.length<10) {
+            editMail.error = "email должен содержать не менее 10 символов"
             editMail.requestFocus()
             return
         }

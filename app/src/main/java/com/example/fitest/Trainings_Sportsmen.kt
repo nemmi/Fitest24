@@ -64,6 +64,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 R.id.button_day3 ->{
 
                 }
+                R.id.videoExercise1 ->{}
             }
         }
 /*private fun listOfVideo(){
