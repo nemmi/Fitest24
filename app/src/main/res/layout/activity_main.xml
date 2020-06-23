@@ -86,7 +86,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="55dp"
         android:background="@drawable/button_incommand"
         android:gravity="center"
         android:onClick="regClick"

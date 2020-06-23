@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="?android:attr/selectableItemBackground"
-        android:onClick="eatClick"
+        android:onClick="otchEatClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backtoprofile" />
@@ -23,9 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="eatClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/otchetpitaniewhite"
@@ -56,7 +54,7 @@
             android:background="@drawable/mn_selector"
             android:button="@null"
             android:checked="true"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/tuesday"
@@ -66,7 +64,7 @@
             android:layout_weight="1"
             android:background="@drawable/tue_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/wednesday"
@@ -76,7 +74,7 @@
             android:layout_weight="1"
             android:background="@drawable/w_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/thursday"
@@ -86,7 +84,7 @@
             android:layout_weight="1"
             android:background="@drawable/thu_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/friday"
@@ -96,7 +94,7 @@
             android:layout_weight="1"
             android:background="@drawable/fri_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/saturday"
@@ -106,7 +104,7 @@
             android:layout_weight="1"
             android:background="@drawable/sat_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
 
         <RadioButton
             android:id="@+id/sunday"
@@ -116,7 +114,7 @@
             android:layout_weight="1"
             android:background="@drawable/sun_selector"
             android:button="@null"
-            android:onClick="eatClick" />
+            />
     </RadioGroup>
 
     <View
@@ -144,10 +142,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
@@ -156,7 +152,218 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+
+
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="otchEatClick"
+                    android:layout_marginStart="10dp"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:button="@drawable/checkbox_selector"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView49"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="17dp"
+                    app:srcCompat="@drawable/eat1" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/eat1txt"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/qwesx"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:textColor="@android:color/black" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="otchEatClick"
+                    android:layout_marginStart="10dp"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:button="@drawable/checkbox_selector"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView222"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="17dp"
+                    app:srcCompat="@drawable/eat2" />
+
+
+            </TableRow>
+            <TextView
+                android:id="@+id/eat2txt"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/qwesx"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:textColor="@android:color/black" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="otchEatClick"
+                    android:layout_marginStart="10dp"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:button="@drawable/checkbox_selector"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="17dp"
+                    app:srcCompat="@drawable/eat3" />
+
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/eat3txt"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/qwesx"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:textColor="@android:color/black" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="otchEatClick"
+                    android:layout_marginStart="10dp"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:button="@drawable/checkbox_selector"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView444"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="17dp"
+                    app:srcCompat="@drawable/eat4" />
+
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/eat4txt"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/qwesx"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:textColor="@android:color/black" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <CheckBox
+                    android:id="@+id/checkBox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="otchEatClick"
+                    android:layout_marginStart="10dp"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:button="@drawable/checkbox_selector"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="17dp"
+                    app:srcCompat="@drawable/eat5" />
+
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/eat5txt"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/qwesx"
+                android:ems="10"
+                android:gravity="start|top"
+
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
     </ScrollView>
 
     <TableRow
@@ -173,7 +380,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="?android:attr/selectableItemBackground"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="eatClick"
+            android:onClick="otchEatClick"
             android:layout_weight="1"
             android:gravity="bottom|left"
             app:srcCompat="@drawable/groupclient" />
@@ -185,7 +392,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_weight="1"
             android:gravity="bottom|center"
-            android:onClick="eatClick"
+            android:onClick="otchEatClick"
             android:background="?android:attr/selectableItemBackground"
             app:layout_constraintStart_toEndOf="@+id/Clienti"
             app:srcCompat="@drawable/groupprofile" />
@@ -199,7 +406,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_weight="1"
             android:gravity="bottom|right"
-            android:onClick="eatClick"
+            android:onClick="otchEatClick"
             app:layout_constraintStart_toEndOf="@+id/btn_profileClient"
             app:srcCompat="@drawable/groupchat" />
     </TableRow>

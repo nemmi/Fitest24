@@ -1,9 +1,17 @@
 package com.example.fitest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_pitanie.*
+
 
 class Pitanie : AppCompatActivity() {
 
@@ -26,47 +34,897 @@ class Pitanie : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pitanie)
+        loadMon()
+        val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
+        radGrp.setOnCheckedChangeListener { radGrp, optionId ->
+            run {
+                when (optionId) {
+
+                    R.id.monday -> {
+                        loadMon()
+                    }
+
+                    R.id.tuesday -> {
+
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_T")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    R.id.wednesday -> {
+
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_W")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    R.id.thursday -> {
+
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Th")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    R.id.friday -> {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_F")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    R.id.saturday -> {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Sat")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    R.id.sunday -> {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Sun")
+                                .addSnapshotListener { snapshot, e ->
+                                    if (e != null) {
+                                        Toast.makeText(
+                                            baseContext, "Считать неудалось$e",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        return@addSnapshotListener
+                                    }
+                                    if (snapshot != null && snapshot.exists()) {
+
+                                        eat1txt.text = snapshot.getString("eat1")
+                                        eat2txt.text = snapshot.getString("eat2")
+                                        eat3txt.text = snapshot.getString("eat3")
+                                        eat4txt.text = snapshot.getString("eat4")
+                                        eat5txt.text = snapshot.getString("eat5")
+
+                                    } else {
+                                        Toast.makeText(
+                                            baseContext, "Нет данных",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+                    }
+                    else -> throw AssertionError()
+                }
+
+            }
+
+        }
     }
+    private val ddb = FirebaseFirestore.getInstance()
 
     fun eatClick(view: View) {
-        when (view.id){
-            R.id.monday ->{
-
+        when (view.id) {
+            R.id.checkBox1 -> {
+                if (checkBox1.isChecked) {
+                    if (monday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_M")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (tuesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_T")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (wednesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_W")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (thursday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Th")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (friday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_F")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (saturday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sat")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (sunday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sun")
+                                .update("Checkbox1", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    /*  else {
+                        if (monday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_M")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (tuesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_T")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (wednesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_W")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (thursday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Th")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (friday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_F")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (saturday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sat")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (sunday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sun")
+                                    .update("Checkbox1", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                    }*/
+                }
             }
-            R.id.tuesday ->{
-
+            R.id.checkBox2 -> {
+                if (checkBox2.isChecked) {
+                    if (monday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_M")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (tuesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_T")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (wednesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_W")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (thursday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Th")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (friday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_F")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (saturday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sat")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (sunday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sun")
+                                .update("Checkbox2", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    /*   else {
+                        if (monday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_M")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (tuesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_T")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (wednesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_W")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (thursday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Th")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (friday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_F")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (saturday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sat")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (sunday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sun")
+                                    .update("Checkbox2", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                    }*/
+                }
             }
-            R.id.wednesday ->{
-
+            R.id.checkBox3 -> {
+                if (checkBox3.isChecked) {
+                    if (monday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_M")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (tuesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_T")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (wednesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_W")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (thursday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Th")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (friday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_F")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (saturday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sat")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (sunday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sun")
+                                .update("Checkbox3", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    /* else {
+                        if (monday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_M")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (tuesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_T")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (wednesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_W")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (thursday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Th")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (friday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_F")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (saturday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sat")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (sunday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sun")
+                                    .update("Checkbox3", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                    }*/
+                }
             }
-            R.id.thursday ->{
-
+            R.id.checkBox4 -> {
+                if (checkBox4.isChecked) {
+                    if (monday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_M")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (tuesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_T")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (wednesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_W")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (thursday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Th")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (friday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_F")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (saturday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sat")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (sunday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it + "_Sun")
+                                .update("Checkbox4", true)
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    /*else {
+                        if (monday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_M")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (tuesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_T")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (wednesday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_W")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (thursday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Th")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (friday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_F")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (saturday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sat")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                        if (sunday.isChecked) {
+                            Firebase.auth.currentUser?.uid?.let {
+                                ddb.collection("eat")
+                                    .document(it+"_Sun")
+                                    .update("Checkbox4", false)
+                                    .addOnSuccessListener {
+                                    }
+                            }
+                        }
+                    }*/
+                }
             }
-            R.id.friday ->{
+            R.id.checkBox5 -> {
+                if (monday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_M")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (tuesday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_T")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (wednesday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_W")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (thursday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_Th")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (friday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_F")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (saturday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_Sat")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                if (sunday.isChecked) {
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("eat")
+                            .document(it + "_Sun")
+                            .update("Checkbox5", true)
+                            .addOnSuccessListener {
+                            }
+                    }
+                }
+                /*   else {
+                       if (monday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_M")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (tuesday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_T")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (wednesday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_W")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (thursday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_Th")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (friday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_F")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (saturday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_Sat")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                       if (sunday.isChecked) {
+                           Firebase.auth.currentUser?.uid?.let {
+                               ddb.collection("eat")
+                                   .document(it+"_Sun")
+                                   .update("Checkbox5", false)
+                                   .addOnSuccessListener {
+                                   }
+                           }
+                       }
+                   }*/
 
-            }
-            R.id.saturday ->{
-
-            }
-            R.id.sunday ->{
-
-            }
-            R.id.imageProfile ->{
-                val backtotrener= Intent(this, ProfileTrener::class.java)
-                startActivity(backtotrener)
             }
             R.id.trenning ->{
-                val Clienty= Intent(this, ListClient::class.java)
-                startActivity(Clienty)
+
+                startActivity(Intent(this, Trainings_Sportsmen::class.java))
             }
             R.id.chat ->{
-                val Chat= Intent(this, SpisocChatov::class.java)
-                startActivity(Chat)
+
+                startActivity(Intent(this, Chat_Sportsmen::class.java))
             }
-            R.id.btn_profileClient ->{
-                val Client= Intent(this, ProfileClientView::class.java)
-                startActivity(Client)
+            R.id.imageProfile ->{
+                startActivity(Intent(this, ProfileClient::class.java))
             }
+        }
+    }
+    private fun loadMon(){
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("eat")
+                .document(it+"_M")
+                .addSnapshotListener { snapshot, e ->
+                    if (e != null) {
+                        Toast.makeText(
+                            baseContext, "Считать неудалось$e",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@addSnapshotListener
+                    }
+                    if (snapshot != null && snapshot.exists()) {
+
+                        eat1txt.text = snapshot.getString("eat1")
+                        eat2txt.text = snapshot.getString("eat2")
+                        eat3txt.text = snapshot.getString("eat3")
+                        eat4txt.text = snapshot.getString("eat4")
+                        eat5txt.text = snapshot.getString("eat5")
+
+                    } else {
+                        Toast.makeText(
+                            baseContext, "Нет данных",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {

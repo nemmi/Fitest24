@@ -9,10 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        app:srcCompat="@drawable/profieclient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/profieclient"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,48 +27,77 @@
         tools:layout_editor_absoluteX="-16dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/buttonEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:layout_marginTop="8dp"
-
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/buttonredact" />
+        app:srcCompat="@drawable/buttonredact"
+        android:onClick="profileSpClick"/>
 
-    <ImageView
-        android:id="@+id/imageView12"
+    <TableRow
+        android:id="@+id/tableRow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/knopkiniz"
-        tools:layout_editor_absoluteX="100dp" />
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/button_trainings"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttontrenpure"
+            android:onClick="profileSpClick" />
+
+        <Button
+            android:id="@+id/button_eats"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttoneatpure"
+            android:onClick="profileSpClick" />
+
+        <Button
+            android:id="@+id/button_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonchatpure"
+            android:onClick="profileSpClick" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toTopOf="@+id/imageView12"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/exit"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/exit" />
+        android:onClick="profileSpClick"
+        />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
+    <Button
+        android:id="@+id/buttonParams"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="88dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        android:background="@drawable/parametritela"
+        app:layout_constraintBottom_toTopOf="@+id/buttonExit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/parametritela" />
+        android:onClick="profileSpClick"
+        />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -74,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="47dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/buttonParams"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -84,9 +115,8 @@
         android:id="@+id/imageView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toTopOf="@+id/imageView13"
         app:srcCompat="@drawable/po4ta" />
@@ -95,44 +125,34 @@
         android:id="@+id/imageView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
         app:srcCompat="@drawable/nomer" />
+
+    <TextView
+        android:id="@+id/FI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="56dp"
+        android:text="Адам "
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/imageView15"
         app:srcCompat="@drawable/trenerprofile" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView13"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17"
-        app:srcCompat="@drawable/colvoinweek" />
-
-    <ImageView
-        android:id="@+id/imageView61"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/imageView13"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/imageView18"
-        app:srcCompat="@drawable/rectanglezz" />
 
     <TextView
         android:id="@+id/ClientEmailView"
@@ -164,18 +184,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView13" />
 
-    <TextView
-        android:id="@+id/ClientZanyatieView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView61"
-        app:layout_constraintEnd_toEndOf="@+id/imageView61"
-        app:layout_constraintStart_toStartOf="@+id/imageView61"
-        app:layout_constraintTop_toTopOf="@+id/imageView61" />
 </androidx.constraintlayout.widget.ConstraintLayout>

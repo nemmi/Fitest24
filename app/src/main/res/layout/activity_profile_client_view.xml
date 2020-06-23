@@ -21,7 +21,7 @@
         android:id="@+id/programtreni"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-
+        android:onClick="profileSpViewClick"
         android:layout_marginBottom="8dp"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/programpitaniye"
@@ -34,7 +34,7 @@
         android:id="@+id/otchettreni"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-
+        android:onClick="profileSpViewClick"
         android:layout_marginBottom="8dp"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/otchetpitanie"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-
+        android:onClick="profileSpViewClick"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/otchettreni"
         app:layout_constraintEnd_toEndOf="@+id/otchettreni"
@@ -59,28 +59,60 @@
         android:id="@+id/otchetparamer"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="48dp"
         android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toTopOf="@+id/imageView36"
+        android:onClick="profileSpViewClick"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/redbutton" />
 
-    <ImageView
-        android:id="@+id/imageView36"
+    <TableRow
+        android:id="@+id/tableRow4"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginBottom="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView33"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/knopkiniz" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|left"
+            app:srcCompat="@drawable/clientiredwithout"
+            android:onClick="profileSpViewClick"/>
+
+        <ImageButton
+            android:id="@+id/imageView56"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|center"
+            app:srcCompat="@drawable/profileredwithoutline"
+            android:onClick="profileSpViewClick"/>
+
+        <ImageButton
+            android:id="@+id/imageButton33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="bottom|right"
+            app:srcCompat="@drawable/chatredwithoutline"
+            android:onClick="profileSpViewClick"/>
+    </TableRow>
 
     <ImageButton
         android:id="@+id/otchetpitanie"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-
+        android:onClick="profileSpViewClick"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/otchetparamer"
         app:layout_constraintEnd_toEndOf="@+id/otchetparamer"
@@ -139,25 +171,14 @@
 
     <ImageView
         android:id="@+id/imageView43"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="149dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/programtreni"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/blackfone" />
-
-    <ImageView
-        android:id="@+id/imageView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView43"
-        app:layout_constraintStart_toStartOf="@+id/imageView43"
-        app:srcCompat="@drawable/colvovweek" />
 
     <ImageView
         android:id="@+id/imageView45"
@@ -172,21 +193,11 @@
         android:id="@+id/imageView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView44"
-        app:layout_constraintStart_toStartOf="@+id/imageView44"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView43"
+        app:layout_constraintStart_toStartOf="@+id/imageView43"
         app:srcCompat="@drawable/nomer" />
-
-    <ImageView
-        android:id="@+id/imageView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView44"
-        app:layout_constraintStart_toEndOf="@+id/imageView44"
-        app:layout_constraintTop_toTopOf="@+id/imageView44"
-        app:srcCompat="@drawable/redrect" />
 
     <ImageButton
         android:id="@+id/imageButton12"
@@ -195,7 +206,8 @@
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/imageView43"
         app:layout_constraintEnd_toEndOf="@+id/imageView43"
-        app:srcCompat="@drawable/chatmb" />
+        app:srcCompat="@drawable/chatmb"
+        android:onClick="profileSpViewClick"/>
 
     <ImageButton
         android:id="@+id/imageButton13"
@@ -207,5 +219,48 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView43"
         app:layout_constraintEnd_toStartOf="@+id/imageButton12"
         app:layout_constraintTop_toTopOf="@+id/imageButton12"
-        app:srcCompat="@drawable/anketa" />
+        app:srcCompat="@drawable/anketa"
+        android:onClick="profileSpViewClick"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:text="Фатеева Анастасия"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="36dp"
+        android:text="mailmail@mail.ru"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintStart_toEndOf="@+id/imageView45"
+        app:layout_constraintTop_toTopOf="@+id/imageView43" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="89999990000"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintStart_toEndOf="@+id/imageView46"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

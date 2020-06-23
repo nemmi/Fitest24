@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
+import com.example.fitest.ListClient.ListClient
+import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 
 
 class Chat_Coach : AppCompatActivity() {
@@ -28,6 +31,9 @@ class Chat_Coach : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chat_coach)
         val messageChat = findViewById<EditText>(R.id.editText3)
     }

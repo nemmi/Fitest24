@@ -64,26 +64,7 @@
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/name" />
 
-            <EditText
-                android:id="@+id/editName"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/field"
-                android:hint="Иван"
-                android:maxLength="30"
-                android:paddingStart="25dp"
-                android:paddingEnd="30dp"
-                android:singleLine="true"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
 
             <ImageView
                 android:id="@+id/imageView15"
@@ -203,7 +184,7 @@
                 android:src="@drawable/height" />
 
             <EditText
-                android:id="@+id/editHeight"
+                android:id="@+id/editHeightAnketa"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="15dp"

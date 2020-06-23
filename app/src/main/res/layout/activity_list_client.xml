@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListClient">
+    android:background="@drawable/backgroundselecttrener"
+    tools:context=".RecyclerListClient">
 
-    <ImageButton
-        android:id="@+id/imageButton10"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
         android:background="?android:attr/selectableItemBackground"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/listclientshapka" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:padding="0dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="36dp"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/example_item"/>
+
+
     <TableRow
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView52"
@@ -51,57 +62,4 @@
             android:background="?android:attr/selectableItemBackground"
             app:srcCompat="@drawable/chatredwithoutline" />
     </TableRow>
-
-    <ImageView
-        android:id="@+id/osnova"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton10"
-        app:srcCompat="@drawable/rv_osnova" />
-
-    <ImageButton
-        android:id="@+id/podrobnee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="@+id/osnova"
-        app:layout_constraintEnd_toEndOf="@+id/osnova"
-        app:srcCompat="@drawable/rv_podrobnee" />
-
-    <ImageView
-        android:id="@+id/rv_photo_list_client"
-        android:layout_width="104dp"
-        android:layout_height="104dp"
-        app:layout_constraintBottom_toBottomOf="@+id/osnova"
-        app:layout_constraintStart_toStartOf="@+id/osnova"
-        app:layout_constraintTop_toTopOf="@+id/osnova"
-        app:srcCompat="@drawable/rv_photo_contur" />
-
-    <TextView
-        android:id="@+id/fio_list_client"
-        style="@android:style/Widget.TextView.PopupMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Маркова Анастасия"
-        app:layout_constraintEnd_toEndOf="@+id/osnova"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/rv_photo_list_client"
-        app:layout_constraintTop_toTopOf="@+id/osnova" />
-
-    <TextView
-        android:id="@+id/textView5"
-        style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="5000/месяц"
-        app:layout_constraintEnd_toStartOf="@+id/podrobnee"
-        app:layout_constraintStart_toEndOf="@+id/rv_photo_list_client"
-        app:layout_constraintTop_toTopOf="@+id/podrobnee" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

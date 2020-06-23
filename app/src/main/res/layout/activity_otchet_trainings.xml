@@ -40,7 +40,7 @@
             android:background="@drawable/radiobutton_day1_selector"
             android:button="@null"
             android:checked="true"
-            android:onClick="trenCoachClick" />
+            />
 
         <RadioButton
             android:id="@+id/button_day2"
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_day2_selector"
             android:button="@null"
-            android:onClick="trenCoachClick" />
+            />
 
         <RadioButton
             android:id="@+id/button_day3"
@@ -59,7 +59,7 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_day3_selector"
             android:button="@null"
-            android:onClick="trenCoachClick" />
+            />
 
     </RadioGroup>
 
@@ -121,7 +121,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -145,20 +144,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
+
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/checkBox1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true"
-                    android:onClick="trenCoachClick" />
+                    android:clickable="false"
+                    />
 
             </TableRow>
 
@@ -180,7 +179,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="5"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -194,7 +192,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -217,19 +214,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <CheckBox
-                    android:id="@+id/checkBox1"
+                    android:id="@+id/checkBox2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false" />
 
             </TableRow>
 
@@ -251,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="10"
+
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -265,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
+
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -288,7 +284,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
+
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -300,7 +296,7 @@
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false" />
 
             </TableRow>
 
@@ -322,7 +318,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="10"
+
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -334,7 +330,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -357,7 +352,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -369,7 +363,7 @@
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false"/>
 
             </TableRow>
 
@@ -391,7 +385,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="10"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -403,7 +396,6 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -426,7 +418,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -438,7 +429,7 @@
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false" />
 
             </TableRow>
 
@@ -460,7 +451,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="5"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -473,7 +463,6 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -496,7 +485,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -508,7 +496,7 @@
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false"/>
 
             </TableRow>
 
@@ -530,7 +518,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="5"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -543,7 +530,6 @@
                 android:layout_height="35dp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Название упражнения"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -566,7 +552,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
-                    android:text="4x20"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -578,7 +563,7 @@
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
-                    android:clickable="true" />
+                    android:clickable="false" />
 
             </TableRow>
 
@@ -600,7 +585,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="5"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />

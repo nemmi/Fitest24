@@ -4,9 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toolbar
+import android.widget.Toast
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.*
+
+import kotlinx.android.synthetic.main.activity_sportsmen_anketa2.*
 
 class Anketa_Sportsmen_P2 : AppCompatActivity() {
 
@@ -29,11 +34,6 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sportsmen_anketa2)
-      /*  val belok = findViewById<EditText>(R.id.editBelok)
-        val carbs = findViewById<EditText>(R.id.editCarbs)
-        val fat = findViewById<EditText>(R.id.editFats)
-        val coach = findViewById<Button>(R.id.button_toCoach)
-        val back = findViewById<Toolbar>(R.id.toolbar3)*/
     }
     fun anketaSp2Click(view: View) {
         when (view.id) {
@@ -42,12 +42,385 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.button_toCoach -> {
-                val intent = Intent(this, SelectTrener::class.java)
-                startActivity(intent)
+                upProfile()
             }
 
         }
     }
+
+    private fun upProfile() {
+        val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,50}")
+
+        if (!FIELD__PATTERN.matches(editBelok.text.toString())) {
+            editBelok.error = "Введите не менее 3 и не более 50 символов"
+            editBelok.requestFocus()
+            return
+        }
+        if (!FIELD__PATTERN.matches(editFats.text.toString())) {
+            editFats.error = "Введите не менее 3 и не более 50 символов"
+            editFats.requestFocus()
+            return
+        }
+        if (!FIELD__PATTERN.matches(editCarbs.text.toString())) {
+            editCarbs.error = "Введите не менее 3 и не более 50 символов"
+            editCarbs.requestFocus()
+            return
+        }
+
+        if (editBelok.text.toString().isEmpty()) {
+            editBelok.error = "Введите данные"
+            editBelok.requestFocus()
+            return
+        }
+        if (editFats.text.toString().isEmpty()) {
+            editFats.error = "Введите данные"
+            editFats.requestFocus()
+            return
+        }
+        if (editCarbs.text.toString().isEmpty()) {
+            editCarbs.error = "Введите данные"
+            editCarbs.requestFocus()
+            return
+        }
+
+        if ((editBelok.text.length > 50) or (editBelok.text.length < 10)) {
+            editBelok.error = "Введите не менее 10 и не более 30 символов"
+            editBelok.requestFocus()
+            return
+        }
+        if ((editCarbs.text.length > 50) or (editCarbs.text.length < 10)) {
+            editCarbs.error = "Введите не менее 10 и не более 30 символов"
+            editCarbs.requestFocus()
+            return
+        }
+        if ((editFats.text.length > 50) or (editFats.text.length < 10)) {
+            editFats.error = "Введите не менее 10 и не более 30 символов"
+            editFats.requestFocus()
+            return
+        }
+        else {
+
+            val user = hashMapOf(
+
+                "belock" to editBelok.text.toString(),
+                "carbs" to editCarbs.text.toString(),
+                "fats" to editFats.text.toString(),
+
+                "shoulder" to   "",
+                "breast" to   "",
+                "biceps" to  "",
+                "waist" to  "",
+                "buttock" to "",
+                "hip" to "",
+
+                "weight2" to "",
+                "shoulder2" to   "",
+                "breast2" to   "",
+                "biceps2" to  "",
+                "waist2" to  "",
+                "buttock2" to "",
+                "hip2" to "",
+
+                "myTrener" to "null"
+
+            )
+            val eatM =hashMapOf(
+
+                "eat1" to "омлет+ кофе, сыр 30г",
+                "eat2" to "курица+ овощи",
+                "eat3" to "",
+                "eat4" to "",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+            val eatT =hashMapOf(
+
+                "eat1" to "каша + сыр+ кофе",
+                "eat2" to "курица+ овощи",
+                "eat3" to "рыба + овощи",
+                "eat4" to "творог",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+
+            val eatW =hashMapOf(
+
+                "eat1" to "овсяная каша, кофе, сыр 30г",
+                "eat2" to "курица+ овощи",
+                "eat3" to "кальмар+ рис",
+                "eat4" to "творог",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+            val eatTh =hashMapOf(
+
+                "eat1" to "омлет + сыр 30 г, кофе/чай",
+                "eat2" to "водичка",
+                "eat3" to "водичка",
+                "eat4" to "вода",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+            val eatFr =hashMapOf(
+
+                "eat1" to "овсяная каша, кофе, сыр 30г",
+                "eat2" to "курица+гречка",
+                "eat3" to "рыба+овощи",
+                "eat4" to "творог",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+            val eatSat =hashMapOf(
+
+                "eat1" to "водичка",
+                "eat2" to "водичка",
+                "eat3" to "вода",
+                "eat4" to "",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+            val eatSun =hashMapOf(
+                "eat1" to "",
+                "eat2" to "",
+                "eat3" to "",
+                "eat4" to "",
+                "eat5" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false
+            )
+
+            val tren1 =hashMapOf(
+                "Comment1" to "",
+                "Comment2" to "",
+                "Comment3" to "",
+                "Comment4" to "вес в каждую руку",
+                "Comment5" to "",
+                "Comment6" to "",
+                "Comment7" to "",
+
+                "Exercise1" to "Румынская тяга",
+                "Exercise2" to "Тяга верхнего блока",
+                "Exercise3" to "Скрестные выпады",
+                "Exercise4" to "Плие",
+                "Exercise5" to "Отжимания",
+                "Exercise6" to "Планка",
+                "Exercise7" to "",
+
+                "Podhod1" to "4х20",
+                "Podhod2" to "3Х20",
+                "Podhod3" to "4х15",
+                "Podhod4" to "4х20",
+                "Podhod5" to "3х12",
+                "Podhod6" to "4хмакс",
+                "Podhod7" to "",
+
+                "Weight1" to "10",
+                "Weight2" to "12",
+                "Weight3" to "6",
+                "Weight4" to "24",
+                "Weight5"  to "",
+                "Weight6" to "",
+                "Weight7" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false,
+                "Checkbox6" to false,
+                "Checkbox7" to false
+            )
+            val tren2 =hashMapOf(
+
+                "Comment1" to "",
+                "Comment2" to "",
+                "Comment3" to "вес в каждую руку",
+                "Comment4" to "",
+                "Comment5" to "любое упражнение",
+                "Comment6" to "",
+                "Comment7" to "",
+
+                "Exercise1" to "Тяга блока к груди",
+                "Exercise2" to "Тяга блока к поясу",
+                "Exercise3" to "Жим гантелей лежа",
+                "Exercise4" to "Гиперэкстензия",
+                "Exercise5" to "Скручивания",
+                "Exercise6" to "",
+                "Exercise7" to "",
+
+                "Podhod1" to "3х20",
+                "Podhod2" to "3Х20",
+                "Podhod3" to "3х15",
+                "Podhod4" to "4х25",
+                "Podhod5" to "4х20",
+                "Podhod6" to "",
+                "Podhod7" to "",
+
+                "Weight1" to "12",
+                "Weight2" to "16",
+                "Weight3" to "6",
+                "Weight4" to "5",
+                "Weight5"  to "",
+                "Weight6" to "",
+                "Weight7" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false,
+                "Checkbox6" to false,
+                "Checkbox7" to false
+            )
+            val tren3 =hashMapOf(
+                "Comment1" to "",
+                "Comment2" to "",
+                "Comment3" to "",
+                "Comment4" to "вес в каждую руку",
+                "Comment5" to "",
+                "Comment6" to "",
+                "Comment7" to "",
+
+                "Exercise1" to "Румынская тяга",
+                "Exercise2" to "Тяга верхнего блока",
+                "Exercise3" to "Скрестные выпады",
+                "Exercise4" to "Плие",
+                "Exercise5" to "Отжимания",
+                "Exercise6" to "Планка",
+                "Exercise7" to "",
+
+                "Podhod1" to "4х20",
+                "Podhod2" to "3Х20",
+                "Podhod3" to "4х15",
+                "Podhod4" to "4х20",
+                "Podhod5" to "3х12",
+                "Podhod6" to "4хмакс",
+                "Podhod7" to "",
+
+                "Weight1" to "10",
+                "Weight2" to "12",
+                "Weight3" to "6",
+                "Weight4" to "24",
+                "Weight5"  to "",
+                "Weight6" to "",
+                "Weight7" to "",
+
+                "Checkbox1" to false,
+                "Checkbox2" to false,
+                "Checkbox3" to false,
+                "Checkbox4" to false,
+                "Checkbox5" to false,
+                "Checkbox6" to false,
+                "Checkbox7" to false
+            )
+
+            Firebase.auth.currentUser?.uid?.let {
+                ddb.collection("eat")
+                    .document(it+"_M")
+                    .set(eatM as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_T")
+                    .set(eatT as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_W")
+                    .set(eatW as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_Th")
+                    .set(eatTh as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_F")
+                    .set(eatFr as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_Sat")
+                    .set(eatSat as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+                ddb.collection("eat")
+                    .document(it+"_Sun")
+                    .set(eatSun as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                    }
+
+                ddb.collection("trainings")
+                    .document(it+"_1")
+                    .set(tren1 as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+
+                    }
+
+                ddb.collection("trainings")
+                    .document(it+"_2")
+                    .set(tren2 as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+
+                    }
+                ddb.collection("trainings")
+                    .document(it+"_3")
+                    .set(tren3 as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+
+                    }
+                ddb.collection("sportsmen")
+                    .document(it)
+                    .set(user as Map<String, Any>, SetOptions.merge())
+                    .addOnSuccessListener { documentReference ->
+                        Toast.makeText(
+                            baseContext, "Профиль заполнен!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        startActivity(Intent(this, ProfileClient::class.java))
+                        finish()
+                    }
+            }
+        }
+    }
+
+    private val ddb = FirebaseFirestore.getInstance()
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

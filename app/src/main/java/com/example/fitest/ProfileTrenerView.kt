@@ -4,20 +4,33 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.fitest.Model.User
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
+import kotlinx.android.synthetic.main.activity_coaches_anketa.*
 import kotlinx.android.synthetic.main.activity_profile_client.*
 import kotlinx.android.synthetic.main.activity_profile_trener_view.*
 import kotlinx.android.synthetic.main.activity_profile_trener_view.imageView61
+import kotlinx.android.synthetic.main.activity_trener_vid_client.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -45,10 +58,13 @@ class ProfileTrenerView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_trener_view)
-
         REF_STORAGE_ROOT=FirebaseStorage.getInstance().reference
     }
+    private val uid= FirebaseAuth.getInstance().currentUser?.uid
 
     fun ProfileTrenerClick(view: View) {
         when (view.id){
@@ -77,20 +93,29 @@ class ProfileTrenerView : AppCompatActivity() {
             resultCode== Activity.RESULT_OK && data!=null) {
 
             val uri =CropImage.getActivityResult(data).uri
-            val path = REF_STORAGE_ROOT.child("TrenersPhoto")
+            val path = uid?.let { REF_STORAGE_ROOT.child("TrenersPhoto").child(it) }
 
-            path.putFile(uri).addOnSuccessListener {
-                Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()}
+            if (path != null) {
+                path.putFile(uri).addOnSuccessListener {
+                    Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()
+                    imageButton25.visibility=View.INVISIBLE
+                }
 
-            Glide.with(this)
-                .load(uri)
-                .into(imageView61)
+                /*  Glide.with(this)
+                    .load(uri)
+                    .into(imageView61)*/
+                Glide.with(this)
+                    .load(path)
+                    .into(imageView61)
 
-        }
-        }
-
-            override fun onWindowFocusChanged(hasFocus: Boolean) {
-                super.onWindowFocusChanged(hasFocus)
-                if (hasFocus) hideSystemUI()
             }
         }
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
+}
+
+

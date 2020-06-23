@@ -23,6 +23,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/button_loadPh"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/buttonloadphoto"
+                android:onClick="AnketaCoachClick" />
+
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
@@ -45,34 +53,6 @@
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/name" />
-
-            <EditText
-                android:id="@+id/editName"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/field"
-                android:hint="Иван"
-                android:inputType="textPersonName"
-                android:maxLength="30"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
-
-            <Button
-                android:id="@+id/button_loadPh"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/buttonloadphoto"
-                android:onClick="AnketaCoachClick" />
 
             <ImageView
                 android:id="@+id/imageView2"

@@ -4,8 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitest.ListClient.ListClient
+import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 import com.google.firebase.storage.FirebaseStorage
 
 import java.io.InputStream
@@ -31,6 +34,9 @@ class Load_Trainings : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_load_trainings)
         /*val exercise1 = findViewById<EditText>(R.id.editExercise1)
         val podhod1 = findViewById<EditText>(R.id.editPodhods1)
@@ -74,27 +80,27 @@ class Load_Trainings : AppCompatActivity() {
             R.id.button_loadVideo1 ->{
                 var detected: Boolean =true
 
-                if(!detected) {
+             //  if(!detected) {
                     chooseVideo()
-                    detected=true
-                }
+                    //detected=true
+             /*   }
                 else {
                     deleteVideo()
                     detected=false
-                }
+                }*/
 
                     }
             R.id.button_loadVideo2 ->{
                 var detected: Boolean =true
 
-                if(!detected) {
+                //if(!detected) {
                     chooseVideo()
-                    detected=true
+                /*    detected=true
                 }
                 else {
                     deleteVideo()
                     detected=false
-                }
+                }*/
                     }
             R.id.button_loadVideo3 ->{
                 var detected: Boolean =true

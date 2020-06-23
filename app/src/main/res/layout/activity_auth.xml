@@ -32,12 +32,11 @@
         android:layout_height="21dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/mainwatchsostav"
-        android:onClick="AuthClick"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        />
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/mainwatchsostav"
+        android:onClick="AuthClick" />
 
     <Button
         android:id="@+id/SignUp"
@@ -131,20 +130,23 @@
         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 @._"
         android:maxLength="50"
         android:ems="10"
+
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+
         android:layout_alignStart="@+id/imageView19"
         android:layout_alignLeft="@+id/imageView19"
         android:layout_alignTop="@+id/imageView19"
         android:layout_alignEnd="@+id/imageView19"
         android:layout_alignRight="@+id/imageView19"
         android:layout_alignBottom="@+id/imageView19"
-        android:maxLength="35"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:maxLength="35" />
 
 </RelativeLayout>

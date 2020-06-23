@@ -1,2 +1,3 @@
 rootProject.name='Fitest'
 include ':app'
+include ':Firestoreadapter'

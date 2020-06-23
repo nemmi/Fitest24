@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="106dp"
+    android:layout_marginTop="6dp"
+
+    android:paddingTop="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/rv_osnova"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/imageview" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imageview"
+            android:paddingStart="15dp"
+            android:text="Маркова Анастасия"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+
+            android:textStyle="normal"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/text_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imageview"
+            android:paddingStart="20dp"
+            android:paddingTop="70dp"
+            android:text="5000p"
+            android:typeface="sans"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginEnd="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/rv_podrobnee" />
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

@@ -4,6 +4,8 @@
 
     <permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <supports-screens
@@ -21,27 +23,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-
+        <activity android:name=".AnketaView"></activity>
+        <activity android:name=".RecyclerSpisocChatov.SpisocChatov" />
+        <activity android:name=".dffgh.SelectTrener" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
+            android:screenOrientation="locked"
             android:theme="@style/SplashTheme">
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".Registration"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ListClient.ListClient" />
+        <activity android:name=".OtchetPitanie" />
+        <activity android:name=".ProfileClient" />
         <activity
             android:name=".Anketa_Coach"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
+            android:screenOrientation="locked" />
         <activity
-            android:name=".Anketa_Sportsmen_P1"
+            android:name=".Load_Trainings"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".RecyclerListClient"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -49,15 +55,11 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Params_Coach"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".Params_Sportsmen"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".Params_Edit"
+            android:screenOrientation="locked"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Anketa_Sportsmen_P1"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -69,7 +71,7 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Load_Trainings"
+            android:name=".SplashActivity"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -93,7 +95,7 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ListClient"
+            android:name=".Registration"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -101,28 +103,18 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SpisocChatov"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".Load_Eat"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".OtchetPitanie"
+            android:name=".Params_Sportsmen"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden"/>
-
+            android:name=".Params_Coach"
+            android:screenOrientation="locked" />
         <activity
-            android:name=".SelectTrener"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".ProfileClientView"
+            android:name=".ProfileTrener"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -130,7 +122,7 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ProfileTrener"
+            android:name=".Pitanie"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -138,7 +130,7 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".ProfileClient"
+            android:name=".ProfileClientView"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />
         <activity
