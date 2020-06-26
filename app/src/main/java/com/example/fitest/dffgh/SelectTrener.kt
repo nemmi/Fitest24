@@ -7,7 +7,9 @@ import com.example.fitest.R
 
 
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 
 import androidx.appcompat.widget.Toolbar
 
@@ -44,9 +46,20 @@ class SelectTrener : AppCompatActivity() {
     }
 
     private var sort = SORT_NAME
+    private fun hideSystemUI() {
 
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2)
 
         root = findViewById(R.id.root)
@@ -88,7 +101,7 @@ class SelectTrener : AppCompatActivity() {
 
         adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
-                .show()
+             //   .show()
             firestore.collection("treners").get().addOnSuccessListener { documents ->
                 var value = ""
                 for (document in documents) {
@@ -113,18 +126,7 @@ class SelectTrener : AppCompatActivity() {
                 }
 
         }
-        /*    adapter.onDeleteListener = { position ->
-            //assume success, otherwise it will be updated in the next query
-            val state = adapter.get(position)
-            val snapshot = adapter.getSnapshot(position)
-           // delete(state, snapshot.reference)
-        }
-        adapter.onUpListener = { position ->
-            val state = adapter.get(position)
-            val snapshot = adapter.getSnapshot(position)
-          //  incrementPopulation(state, snapshot.reference)
-            //shows us waiting for the update
-        }*/
+
 
         val list = findViewById<RecyclerView>(R.id.list)
         val layoutManager = LinearLayoutManager(this)
@@ -165,30 +167,9 @@ class SelectTrener : AppCompatActivity() {
     }
 
 
-    /* fun incrementPopulation(state: State, docRef: DocumentReference) {
-    firestore.runTransaction { transaction ->
-        val snapshot = transaction.get(docRef)
-        val newPopulation = snapshot.getDouble("price")!! + 1
-        transaction.update(docRef, "price", newPopulation)
-        // Success
-        null
-    }.addOnSuccessListener {
-        log("Transaction success!")
-    }.addOnFailureListener { e ->
-        e.printStackTrace()
-        snackbar("Failed to increment ${state.name}")
+   
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
     }
-}*/
-
-    /*fun delete(state: State, docRef: DocumentReference) {
-    docRef.delete()
-        .addOnSuccessListener {
-            log("Transaction success!")
-        }
-        .addOnFailureListener { e ->
-            e.printStackTrace()
-            snackbar("Failed to delete ${state.name}")
-        }
-}*/
-
 }

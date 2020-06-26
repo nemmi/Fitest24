@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +38,9 @@ class TrenerSelectClientView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_trener_select_client_view)
         loadData()
 
@@ -45,21 +49,21 @@ class TrenerSelectClientView : AppCompatActivity() {
     }
 
     private val storage = FirebaseStorage.getInstance()
-    // private var PhotoImage = storage.reference.child("TrenersPhoto").child("2OBPiRIe4ecZ6Ov0rUTixvIfy9x2") /* чайлд до айди*/
 
     private fun  loadData(){
-
-        /* PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
-             val imageURL = Uri.toString()
-
-             Glide.with(this)
-                 .load(imageURL)
-                 .into(imageView62)
-         }*/
 
 
         var value = intent.getStringExtra("id")
         Log.i("NewActivity2", value)
+
+        var PhotoImage = storage.reference.child("TrenersPhoto").child(value) /* чайлд до айди*/
+
+        PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
+            val imageURL = Uri.toString()
+            Glide.with(this)
+                .load(imageURL)
+                .into(imageView62)
+        }
 
         imageButton27.setOnClickListener {
             if (FirebaseAuth.getInstance().currentUser == null){

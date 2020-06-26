@@ -3,7 +3,9 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
@@ -28,6 +30,9 @@ class Params_Coach : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params_coach_otchet)
         var value = intent.getStringExtra("id")
         // Log.i("NewActivity", value)
@@ -78,6 +83,7 @@ class Params_Coach : AppCompatActivity() {
 
     }
     fun paramsCoachClick(view: View) {
+        var value= intent.getStringExtra("id")
         when (view.id) {
             R.id.button_clients -> {
                 val intent = Intent(this, ListClient::class.java)
@@ -85,13 +91,17 @@ class Params_Coach : AppCompatActivity() {
             }
             R.id.button_clients_profile -> {
                 val intent = Intent(this, ProfileClientView::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
                 startActivity(intent)
             }
             R.id.button_chat -> {
                 val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
-            R.id.profile -> {
+            R.id.profilecircle -> {
                 val intent = Intent(this, ProfileTrener::class.java)
                 startActivity(intent)
             }

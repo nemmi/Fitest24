@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.CheckBox
 import android.widget.MediaController
 import android.widget.RadioGroup
@@ -16,25 +17,18 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_otchet_trainings.*
 
 import kotlinx.android.synthetic.main.activity_trainings.*
-import kotlinx.android.synthetic.main.activity_trainings.button_day1
-import kotlinx.android.synthetic.main.activity_trainings.button_day2
-import kotlinx.android.synthetic.main.activity_trainings.button_day3
 import kotlinx.android.synthetic.main.activity_trainings.checkBox1
 import kotlinx.android.synthetic.main.activity_trainings.checkBox2
 import kotlinx.android.synthetic.main.activity_trainings.checkBox3
 import kotlinx.android.synthetic.main.activity_trainings.checkBox4
 import kotlinx.android.synthetic.main.activity_trainings.checkBox5
-import kotlinx.android.synthetic.main.activity_trainings.checkBox6
-import kotlinx.android.synthetic.main.activity_trainings.checkBox7
 import kotlinx.android.synthetic.main.activity_trainings.textExercise2
 import kotlinx.android.synthetic.main.activity_trainings.textExercise3
 import kotlinx.android.synthetic.main.activity_trainings.textExercise4
 import kotlinx.android.synthetic.main.activity_trainings.textExercise5
 import kotlinx.android.synthetic.main.activity_trainings.textExercise6
-import kotlinx.android.synthetic.main.activity_trainings.textExercise7
 
 
 class Trainings_Sportsmen : AppCompatActivity() {
@@ -57,6 +51,9 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_trainings)
 
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup);
@@ -124,15 +121,6 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
                                         if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
                                         if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
 
                                     } else {
                                         Toast.makeText(
@@ -200,15 +188,6 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
                                         if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
                                         if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
                                     } else {
                                         Toast.makeText(
                                             baseContext, "Нет данных",
@@ -279,15 +258,6 @@ class Trainings_Sportsmen : AppCompatActivity() {
                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
                         if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
                         if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
-                        else{
-                            checkBox1.isChecked = false
-                            checkBox2.isChecked = false
-                            checkBox3.isChecked = false
-                            checkBox4.isChecked = false
-                            checkBox5.isChecked = false
-                            checkBox6.isChecked = false
-                            checkBox7.isChecked = false
-                        }
 
                     } else {
                         Toast.makeText(

@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,11 +39,22 @@ class SpisocChatov : AppCompatActivity() {
     private val refStates by lazy {
         firestore.collection("sportsmen")
     }
+    private fun hideSystemUI() {
 
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
     private var sort = SORT_NAME
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main3)
 
         root = findViewById(R.id.root)
@@ -65,7 +78,7 @@ class SpisocChatov : AppCompatActivity() {
                 }
                 R.id.action_sort -> {
                     if (sort == SORT_NAME) sort = SORT_POPULATION else sort = SORT_NAME
-                    snackbar("Sorting by $sort")
+                //    snackbar("Sorting by $sort")
                     adapter.clear()
                     adapter.startListening()
                     return@setOnMenuItemClickListener true
@@ -87,7 +100,7 @@ class SpisocChatov : AppCompatActivity() {
 
         adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
-                .show()
+               // .show()
             firestore.collection("sportsmen").get().addOnSuccessListener { documents ->
                 var value = ""
                 for (document in documents) {
@@ -177,4 +190,10 @@ class SpisocChatov : AppCompatActivity() {
                 snackbar("Failed to delete ${state.name}")
             }
     }*/
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
+
 }

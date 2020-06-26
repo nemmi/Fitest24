@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
@@ -45,6 +46,9 @@ class OtchetPitanie : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otchet_eat)
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
 
@@ -296,21 +300,13 @@ class OtchetPitanie : AppCompatActivity() {
             if (snapshot.getString("Checkbox5") == "true") {
                 checkBox5.isChecked = true
             }
-            else{
-                checkBox1.isChecked = false
-                checkBox2.isChecked = false
-                checkBox3.isChecked = false
-                checkBox4.isChecked = false
-                checkBox5.isChecked = false
-                checkBox6.isChecked = false
-                checkBox7.isChecked = false
-            }
+
         }
 
     }
 
     fun otchEatClick(view: View) {
-        var value = intent.getStringExtra("id")
+        var value= intent.getStringExtra("id")
         when (view.id){
 
             R.id.imageProfile ->{
@@ -329,7 +325,9 @@ class OtchetPitanie : AppCompatActivity() {
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
-                startActivity(intent)}
+
+                startActivity(intent)
+            }
         }
     }
 

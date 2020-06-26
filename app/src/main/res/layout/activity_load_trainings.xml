@@ -110,7 +110,6 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/buttonsave"
-        android:onClick="loadTrenClick"
         app:layout_constraintBottom_toTopOf="@+id/tableRow3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -124,6 +123,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSave"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
@@ -244,6 +244,7 @@
                     android:id="@+id/ediExercise2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/fieldexercise"
@@ -361,6 +362,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editPodhods3"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.072"
                     app:layout_constraintStart_toStartOf="parent"
@@ -479,6 +481,7 @@
                     android:background="@drawable/fieldpodhod"
                     android:ems="10"
                     android:hint="4x20"
+
                     android:inputType="textShortMessage|textLongMessage"
                     android:maxLength="6"
                     android:paddingStart="20dp"
@@ -597,6 +600,7 @@
 
                 <EditText
                     android:id="@+id/editTakeWeight5"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="200dp"
@@ -715,6 +719,7 @@
                     android:singleLine="true"
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
+
                     app:layout_constraintBottom_toTopOf="@+id/editComment6"
                     app:layout_constraintEnd_toStartOf="@+id/button_loadVideo6"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -832,6 +837,7 @@
                     android:background="@drawable/fieldcomment"
                     android:ems="10"
                     android:hint="4"
+
                     android:inputType="textShortMessage|textLongMessage"
                     android:maxLength="30"
                     android:paddingStart="20dp"

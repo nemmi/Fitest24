@@ -9,6 +9,7 @@ import com.example.fitest.R
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 
 import androidx.appcompat.widget.Toolbar
 
@@ -50,13 +51,24 @@ class ListClient : AppCompatActivity() {
     }
 
 
+    private fun hideSystemUI() {
 
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
 
 
     private var sort = SORT_POPULATION
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_list_client_main)
 
 
@@ -86,7 +98,7 @@ imageButton21.setOnClickListener {  val profile = Intent(this, ProfileTrener::cl
                 }
                 R.id.action_sort -> {
                     if (sort == SORT_NAME) sort = SORT_POPULATION else sort = SORT_NAME
-                    snackbar("Sorting by $sort")
+                 //   snackbar("Sorting by $sort")
                     adapter.clear()
                     adapter.startListening()
                     return@setOnMenuItemClickListener true
@@ -129,7 +141,7 @@ imageButton21.setOnClickListener {  val profile = Intent(this, ProfileTrener::cl
 
         adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
-                .show()
+               // .show()
             firestore.collection("sportsmen").get().addOnSuccessListener { documents ->
                 var value = ""
                 for (document in documents) {
@@ -228,4 +240,10 @@ imageButton21.setOnClickListener {  val profile = Intent(this, ProfileTrener::cl
                 snackbar("Failed to delete ${state.name}")
             }
     }*/
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideSystemUI()
+    }
+
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
+import android.view.WindowManager
 
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
@@ -40,6 +41,9 @@ class Params_Sportsmen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params)
         loadData()
 
@@ -105,7 +109,7 @@ class Params_Sportsmen : AppCompatActivity() {
             R.id.button_eats -> {
                 startActivity(Intent(this, Pitanie::class.java))
             }
-            R.id.button_chats -> {
+            R.id.button_chat -> {
                 startActivity(Intent(this, Chat_Sportsmen::class.java))
             }
 

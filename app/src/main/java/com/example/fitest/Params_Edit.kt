@@ -7,6 +7,7 @@ import android.text.InputFilter
 import android.text.InputFilter.LengthFilter
 import android.text.InputType
 import android.view.View
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -39,6 +40,9 @@ class Params_Edit : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params_edit)
 
         loadData()

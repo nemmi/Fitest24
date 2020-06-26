@@ -45,9 +45,15 @@ class ProfileClient : AppCompatActivity() {
         changesAndRead()
 
 
+
+
+
     }
 
     private fun changesAndRead() {
+
+
+
         Firebase.auth.currentUser?.uid?.let {
 
             ddb.collection("sportsmen")
@@ -66,7 +72,25 @@ class ProfileClient : AppCompatActivity() {
                         ClientEmailView.text=snapshot.getString("email")
                         FI.text=snapshot.getString("name")
                         ClientPhoneView.text=snapshot.getString("phoneNumber")
-                        ClentTrenerView.text=snapshot.getString("myTrener")
+                        var NameTren = snapshot.getString("myTrener")
+
+                        ddb.collection("treners")
+                            .document(NameTren.toString())
+                            .addSnapshotListener { snapshot, e ->
+                                if (e != null) {
+                                    Toast.makeText(
+                                        baseContext, "Считать неудалось$e",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    return@addSnapshotListener
+                                }
+
+
+                                if (snapshot != null && snapshot.exists()) {
+                                    ClentTrenerView.text = snapshot.getString("name")
+                                }
+                            }
+
                     }
                     else {
                         Toast.makeText(
@@ -76,7 +100,8 @@ class ProfileClient : AppCompatActivity() {
                     }
 
                 }
-        }
+             }
+
     }
 
 

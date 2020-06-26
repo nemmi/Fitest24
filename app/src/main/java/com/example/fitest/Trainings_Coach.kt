@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
@@ -30,6 +31,12 @@ import kotlinx.android.synthetic.main.activity_otchet_trainings.textExercise7
 
 class Trainings_Coach : AppCompatActivity() {
 
+    private fun showSystemUI() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+    }
+
     private fun hideSystemUI() {
 
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -42,10 +49,13 @@ class Trainings_Coach : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otchet_trainings)
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup);
         var value = intent.getStringExtra("id")
-        Log.i("NewActivity", value)
+        // Log.i("NewActivity", value)
 
         loadFirst(value)
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
@@ -160,7 +170,7 @@ class Trainings_Coach : AppCompatActivity() {
     }
     private val ddb = FirebaseFirestore.getInstance()
 
-    private fun loadFirst(value: String) {
+    private fun loadFirst(value: String?) {
 
         ddb.collection("trainings")
             .document(value+"_1")
@@ -212,6 +222,7 @@ class Trainings_Coach : AppCompatActivity() {
     }
 
     fun trenCoachClick(view: View) {
+        var value= intent.getStringExtra("id")
         when (view.id){
             R.id.button_clients ->{
                 val intent = Intent(this, ListClient::class.java)
@@ -219,6 +230,10 @@ class Trainings_Coach : AppCompatActivity() {
             }
             R.id.button_clients_profile ->{
                 val intent = Intent(this, ProfileClientView::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
                 startActivity(intent)
             }
             R.id.button_chat ->{
@@ -226,44 +241,37 @@ class Trainings_Coach : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.profile ->{
-                val intent = Intent(this, ProfileClient::class.java)
+                val intent = Intent(this, ProfileTrener::class.java)
                 startActivity(intent)
             }
 
 
         }
     }
-    private fun check(snapshot: DocumentSnapshot){
+    private fun check(snapshot: DocumentSnapshot?){
 
-        if (snapshot.getString("Checkbox1") == "true") {
-            checkBox1.isChecked = true
-        }
-        if (snapshot.getString("Checkbox2") == "true") {
-            checkBox2.isChecked = true
-        }
-        if (snapshot.getString("Checkbox3") == "true") {
-            checkBox3.isChecked = true
-        }
-        if (snapshot.getString("Checkbox4") == "true") {
-            checkBox4.isChecked = true
-        }
-        if (snapshot.getString("Checkbox5") == "true") {
-            checkBox5.isChecked = true
-        }
-        if (snapshot.getString("Checkbox6") == "true") {
-            checkBox6.isChecked = true
-        }
-        if (snapshot.getString("Checkbox7") == "true") {
-            checkBox7.isChecked = true
-        }
-        else{
-            checkBox1.isChecked = false
-            checkBox2.isChecked = false
-            checkBox3.isChecked = false
-            checkBox4.isChecked = false
-            checkBox5.isChecked = false
-            checkBox6.isChecked = false
-            checkBox7.isChecked = false
+        if (snapshot != null) {
+            if (snapshot.getString("Checkbox1") == "true") {
+                checkBox1.isChecked = true
+            }
+            if (snapshot.getString("Checkbox2") == "true") {
+                checkBox2.isChecked = true
+            }
+            if (snapshot.getString("Checkbox3") == "true") {
+                checkBox3.isChecked = true
+            }
+            if (snapshot.getString("Checkbox4") == "true") {
+                checkBox4.isChecked = true
+            }
+            if (snapshot.getString("Checkbox5") == "true") {
+                checkBox5.isChecked = true
+            }
+            if (snapshot.getString("Checkbox6") == "true") {
+                checkBox6.isChecked = true
+            }
+            if (snapshot.getString("Checkbox7") == "true") {
+                checkBox7.isChecked = true
+            }
         }
 
     }

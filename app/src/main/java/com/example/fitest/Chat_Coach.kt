@@ -1,33 +1,26 @@
 package com.example.fitest
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.EditText
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
-
-
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ListenerRegistration
-import java.util.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
-
 import kotlinx.android.synthetic.main.activity_chat_coach.*
-import org.jetbrains.anko.startActivityForResult
-import org.jetbrains.anko.toast
-
-
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreException
+import java.util.*
 
 class Chat_Coach : AppCompatActivity() {
 
@@ -61,6 +54,7 @@ class Chat_Coach : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chat_coach)
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
         var otherUserId = intent.getStringExtra("id")
         // Log.i("NewActivity", value)
 
@@ -91,6 +85,7 @@ class Chat_Coach : AppCompatActivity() {
     }
 
     fun chatCoachClick(view: View) {
+        var otherUserId = intent.getStringExtra("id")
         when (view.id) {
             R.id.profile -> {
                 val intent = Intent(this, ProfileTrener::class.java)
@@ -102,6 +97,10 @@ class Chat_Coach : AppCompatActivity() {
             }
             R.id.button_clients_profile -> {
                 val intent = Intent(this, ProfileClientView::class.java)
+                Log.i("DocId", otherUserId)
+                intent.putExtra("id", otherUserId)
+                Log.i("Intent", otherUserId)
+
                 startActivity(intent)
             }
             R.id.button_chat -> {
@@ -133,6 +132,16 @@ class Chat_Coach : AppCompatActivity() {
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) hideSystemUI()
+        val view = window.decorView
+        if (hasFocus) {//hideSystemUI()
+            view.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            )
+        }
     }
 }

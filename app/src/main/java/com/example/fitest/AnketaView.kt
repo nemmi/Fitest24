@@ -2,7 +2,9 @@ package com.example.fitest
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -23,11 +25,22 @@ class AnketaView : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_anketa_view)
+
+        var value = intent.getStringExtra("id")
+        Log.i("NewActivity", value)
         toolbar3.setOnClickListener {
-            startActivity(Intent(this, ProfileClientView::class.java))
+            val intent = Intent(this, ProfileClientView::class.java)
+            Log.i("DocId", value)
+            intent.putExtra("id", value)
+            Log.i("Intent", value)
+
+            startActivity(intent)
         }
-        val value = intent.getStringExtra("id")
+
         loadData(value)
     }
 

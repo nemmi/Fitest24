@@ -3,6 +3,7 @@ package com.example.fitest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -10,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_otchet_trainings.*
 import kotlinx.android.synthetic.main.activity_pitanie.*
 import kotlinx.android.synthetic.main.activity_pitanie.checkBox1
 import kotlinx.android.synthetic.main.activity_pitanie.checkBox2
@@ -35,6 +35,9 @@ class Pitanie : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_pitanie)
         loadMon()
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
@@ -70,15 +73,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
 
                                     } else {
                                         Toast.makeText(
@@ -113,15 +107,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
                                     } else {
                                         Toast.makeText(
                                             baseContext, "Нет данных",
@@ -155,15 +140,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
                                     } else {
                                         Toast.makeText(
                                             baseContext, "Нет данных",
@@ -197,15 +173,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
 
                                     } else {
                                         Toast.makeText(
@@ -241,15 +208,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
 
                                     } else {
                                         Toast.makeText(
@@ -286,15 +244,6 @@ class Pitanie : AppCompatActivity() {
                                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                                        else{
-                                            checkBox1.isChecked = false
-                                            checkBox2.isChecked = false
-                                            checkBox3.isChecked = false
-                                            checkBox4.isChecked = false
-                                            checkBox5.isChecked = false
-                                            checkBox6.isChecked = false
-                                            checkBox7.isChecked = false
-                                        }
 
                                     } else {
                                         Toast.makeText(
@@ -1003,15 +952,6 @@ class Pitanie : AppCompatActivity() {
                         if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
                         if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
                         if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
-                        else{
-                            checkBox1.isChecked = false
-                            checkBox2.isChecked = false
-                            checkBox3.isChecked = false
-                            checkBox4.isChecked = false
-                            checkBox5.isChecked = false
-                            checkBox6.isChecked = false
-                            checkBox7.isChecked = false
-                        }
 
                     } else {
                         Toast.makeText(

@@ -3,6 +3,7 @@ package com.example.fitest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +44,9 @@ class Chat_Sportsmen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chat_clients)
 
         FirebaseAuth.getInstance().currentUser?.uid?.let {
@@ -89,7 +93,7 @@ class Chat_Sportsmen : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.button_eats -> {
-                val intent = Intent(this, Chat_Coach::class.java)
+                val intent = Intent(this, Pitanie::class.java)
                 startActivity(intent)
             }
         }
