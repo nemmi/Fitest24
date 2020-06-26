@@ -8,7 +8,8 @@ class ChatAdapter(query: QueryCreator) : FirestoreAdapter<State, ChatViewHolder>
 
     var onDeleteListener: ((position: Int) -> Unit)? = null
     var onUpListener: ((position: Int) -> Unit)? = null
-    var onClickListener: ((position: Int) -> Unit)? = null
+
+    var onClickListener: ((position: Int, name:String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
         val holder = ChatViewHolder.inflate(parent)
@@ -22,7 +23,8 @@ class ChatAdapter(query: QueryCreator) : FirestoreAdapter<State, ChatViewHolder>
           }*/
         holder.itemView.setOnClickListener {
             val position = holder.adapterPosition
-            onClickListener?.invoke(position)
+
+            onClickListener?.invoke(position, this.get(position).email)
         }
         return holder
     }

@@ -4,6 +4,7 @@ class State {
 
     var name = ""
     var abbreviation = ""
+    var email = ""
 
 
 }

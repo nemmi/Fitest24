@@ -13,12 +13,16 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitest.ListClient.ClientAdapter
+import com.example.fitest.ProfileTrenerView
+import com.example.fitest.TrenerSelectClientView
 
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-
+import com.google.firebase.ktx.Firebase
 
 
 class SelectTrener : AppCompatActivity() {
@@ -69,28 +73,58 @@ class SelectTrener : AppCompatActivity() {
             false
         }
 
-        adapter = ItemAdapter({
+        val query = Firebase.auth.currentUser!!.uid.let {
+
             refStates.limit(10)
                 .orderBy(sort, Query.Direction.ASCENDING)
-        })
+        }
 
-    /*    adapter.onDeleteListener = { position ->
+
+        adapter =
+            ItemAdapter {
+                query
+            }
+
+
+        adapter.onClickListener = { position, email ->
+            Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
+                .show()
+            firestore.collection("treners").get().addOnSuccessListener { documents ->
+                var value = ""
+                for (document in documents) {
+                    if (document.data.containsValue(email)) {
+                        value = document.id
+                        Log.i("Collection", "${email}=> ${document.data}")
+                    } else {
+                        Log.i("Collection", "${document.id}=> ${document.data}")
+                    }
+
+
+                }
+                val intent = Intent(this, TrenerSelectClientView::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
+                startActivity(intent)
+            }
+                .addOnFailureListener { exception ->
+                    Log.w("CollectionError", "Error getting documents: ", exception)
+                }
+
+        }
+        /*    adapter.onDeleteListener = { position ->
             //assume success, otherwise it will be updated in the next query
             val state = adapter.get(position)
             val snapshot = adapter.getSnapshot(position)
            // delete(state, snapshot.reference)
         }
-
         adapter.onUpListener = { position ->
             val state = adapter.get(position)
             val snapshot = adapter.getSnapshot(position)
           //  incrementPopulation(state, snapshot.reference)
             //shows us waiting for the update
         }*/
-       adapter.onClickListener = { position ->
-            Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
-                .show()
-        }
 
         val list = findViewById<RecyclerView>(R.id.list)
         val layoutManager = LinearLayoutManager(this)
@@ -107,6 +141,7 @@ class SelectTrener : AppCompatActivity() {
         adapter.onHasLoadedAll = {
             log("onHasLoadedAll")
         }
+
     }
 
     override fun onStart() {
@@ -129,30 +164,31 @@ class SelectTrener : AppCompatActivity() {
             .show()
     }
 
-   /* fun incrementPopulation(state: State, docRef: DocumentReference) {
-        firestore.runTransaction { transaction ->
-            val snapshot = transaction.get(docRef)
-            val newPopulation = snapshot.getDouble("price")!! + 1
-            transaction.update(docRef, "price", newPopulation)
 
-            // Success
-            null
-        }.addOnSuccessListener {
-            log("Transaction success!")
-        }.addOnFailureListener { e ->
-            e.printStackTrace()
-            snackbar("Failed to increment ${state.name}")
-        }
-    }*/
+    /* fun incrementPopulation(state: State, docRef: DocumentReference) {
+    firestore.runTransaction { transaction ->
+        val snapshot = transaction.get(docRef)
+        val newPopulation = snapshot.getDouble("price")!! + 1
+        transaction.update(docRef, "price", newPopulation)
+        // Success
+        null
+    }.addOnSuccessListener {
+        log("Transaction success!")
+    }.addOnFailureListener { e ->
+        e.printStackTrace()
+        snackbar("Failed to increment ${state.name}")
+    }
+}*/
 
     /*fun delete(state: State, docRef: DocumentReference) {
-        docRef.delete()
-            .addOnSuccessListener {
-                log("Transaction success!")
-            }
-            .addOnFailureListener { e ->
-                e.printStackTrace()
-                snackbar("Failed to delete ${state.name}")
-            }
-    }*/
+    docRef.delete()
+        .addOnSuccessListener {
+            log("Transaction success!")
+        }
+        .addOnFailureListener { e ->
+            e.printStackTrace()
+            snackbar("Failed to delete ${state.name}")
+        }
+}*/
+
 }

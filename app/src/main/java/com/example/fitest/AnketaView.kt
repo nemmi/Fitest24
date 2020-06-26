@@ -9,7 +9,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_anketa_view.*
 
 
-class anketaView : AppCompatActivity(){
+
+class AnketaView : AppCompatActivity(){
     private fun hideSystemUI() {
 
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -22,13 +23,18 @@ class anketaView : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sportsmen_anketa1)
-        loadData()
+        setContentView(R.layout.activity_anketa_view)
+        toolbar3.setOnClickListener {
+            startActivity(Intent(this, ProfileClientView::class.java))
+        }
+        val value = intent.getStringExtra("id")
+        loadData(value)
     }
 
-    private fun loadData() {
-        ddb.collection("sportsmen")
-            .document(/*здесь айди выбранного спортсмена */)
+    private fun loadData(value: String) {
+
+        FirebaseFirestore.getInstance().collection("sportsmen")
+            .document(value)
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Toast.makeText(
@@ -57,19 +63,10 @@ class anketaView : AppCompatActivity(){
                     ).show()
                 }
 
+
             }
     }
 
-    private val ddb = FirebaseFirestore.getInstance()
-    fun anketaClick(view: View) {
-        when (view.id) {
-            R.id.toolbar3 -> {
-                val intent = Intent(this, ProfileClientView::class.java)
-                startActivity(intent)
-            }
-
-        }
-    }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

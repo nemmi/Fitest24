@@ -1,11 +1,16 @@
 package com.example.fitest
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 import kotlinx.android.synthetic.main.activity_trener_select_client_view.*
@@ -34,43 +39,75 @@ class TrenerSelectClientView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trener_select_client_view)
         loadData()
+
+
+
     }
 
     private val storage = FirebaseStorage.getInstance()
-    private var PhotoImage = storage.reference.child("TrenersPhoto").child("2OBPiRIe4ecZ6Ov0rUTixvIfy9x2") /* чайлд до айди*/
+    // private var PhotoImage = storage.reference.child("TrenersPhoto").child("2OBPiRIe4ecZ6Ov0rUTixvIfy9x2") /* чайлд до айди*/
+
     private fun  loadData(){
-        PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
-            val imageURL = Uri.toString()
 
-            Glide.with(this)
-                .load(imageURL)
-                .into(imageView62)
-        }
+        /* PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
+             val imageURL = Uri.toString()
 
-        ddb.collection("treners")
-            .document("2OBPiRIe4ecZ6Ov0rUTixvIfy9x2") /*здесь будет айди тренера*/
-            .addSnapshotListener { snapshot, e ->
-                if (e != null) {
-                    Toast.makeText(
-                        baseContext, "Считать неудалось$e",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@addSnapshotListener
-                }
-                if (snapshot != null && snapshot.exists()) {
-                    textView3.text=snapshot.getString("name")
-                    textView7.text=snapshot.getString("price")
-                    textViewR.text=snapshot.getString("study")
-                    textView2.text=snapshot.getString("win")
-                    textView8.text=snapshot.getString("spec")
-                }
-                else {
-                    Toast.makeText(
-                        baseContext, "Нет данных",
-                        Toast.LENGTH_SHORT
-                    ).show()
+             Glide.with(this)
+                 .load(imageURL)
+                 .into(imageView62)
+         }*/
+
+
+        var value = intent.getStringExtra("id")
+        Log.i("NewActivity2", value)
+
+        imageButton27.setOnClickListener {
+            if (FirebaseAuth.getInstance().currentUser == null){
+                Toast.makeText(
+                    baseContext, "Сначала авторизируйтесь!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+            else {
+                Firebase.auth.currentUser?.uid?.let {
+                    ddb.collection("sportsmen")
+                        .document(it)
+                        .update(
+                            "myTrener", value.toString()
+                        )
+                        .addOnSuccessListener {
+                            Toast.makeText(
+                                baseContext, "Успешно!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            startActivity(Intent(this, ProfileClient::class.java))
+                        }
                 }
             }
+        }
+        ddb.collection("treners").document(value).addSnapshotListener{
+                snapshot, e ->
+            if (e != null) {
+                Toast.makeText(
+                    baseContext, "Считать неудалось$e",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@addSnapshotListener
+            }
+            if (snapshot != null && snapshot.exists()) {
+                textView7.text=snapshot.getString("price")
+                textView3.text=snapshot.getString("name")
+
+            }
+            else {
+                Toast.makeText(
+                    baseContext, "Нет данных",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
     private val ddb = FirebaseFirestore.getInstance()
     override fun onWindowFocusChanged(hasFocus: Boolean) {

@@ -12,21 +12,27 @@ class ItemAdapter(query: QueryCreator) : FirestoreAdapter<State, ItemViewHolder>
 
     var onDeleteListener: ((position: Int) -> Unit)? = null
     var onUpListener: ((position: Int) -> Unit)? = null
-    var onClickListener: ((position: Int) -> Unit)? = null
+    var onClickListener: ((position: Int, name:String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val holder = ItemViewHolder.inflate(parent)
-      /*  holder.buttonDelete.setOnClickListener {
-            val position = holder.adapterPosition
-            onDeleteListener?.invoke(position)
-        }
-        holder.buttonUp.setOnClickListener {
-            val position = holder.adapterPosition
-            onUpListener?.invoke(position)
-        }*/
+        /*  holder.buttonDelete.setOnClickListener {
+              val position = holder.adapterPosition
+              onDeleteListener?.invoke(position)
+          }
+          holder.buttonUp.setOnClickListener {
+              val position = holder.adapterPosition
+              onUpListener?.invoke(position)
+          }*/
+
+        /*  holder.itemView.setOnClickListener {
+              val position = holder.adapterPosition
+              onClickListener?.invoke(position)
+          }*/
         holder.itemView.setOnClickListener {
             val position = holder.adapterPosition
-            onClickListener?.invoke(position)
+
+            onClickListener?.invoke(position, this.get(position).email)
         }
         return holder
     }

@@ -4,22 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_body_params_coach_otchet.*
 
 
 class Params_Coach : AppCompatActivity() {
 
-    private fun showSystemUI() {
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-    }
 
     private fun hideSystemUI() {
 
@@ -33,26 +28,53 @@ class Params_Coach : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params_coach_otchet)
-        val name = findViewById<TextView>(R.id.urName)
-        val weight = findViewById<TextView>(R.id.textWeight)
-        val weight2 = findViewById<TextView>(R.id.textWeight2)
-        val shoulders = findViewById<TextView>(R.id.textShoulder)
-        val shoulders2 = findViewById<TextView>(R.id.textShoulder2)
-        val tall = findViewById<TextView>(R.id.textTall)
-        val breats = findViewById<TextView>(R.id.textBreast)
-        val breast2 = findViewById<TextView>(R.id.textBreast2)
-        val biceps = findViewById<TextView>(R.id.textBiceps)
-        val biceps2 = findViewById<TextView>(R.id.textBiceps2)
-        val waist = findViewById<TextView>(R.id.textWaist)
-        val waist2 = findViewById<TextView>(R.id.textWaist2)
-        val buttocks = findViewById<TextView>(R.id.textButtocks)
-        val buttocks2 = findViewById<TextView>(R.id.textButtocks2)
-        val hip = findViewById<TextView>(R.id.textHip)
-        val hip2 = findViewById<TextView>(R.id.textHip)
+        var value = intent.getStringExtra("id")
+        // Log.i("NewActivity", value)
+        loadData(value)
+
+    }
+    private val ddb = FirebaseFirestore.getInstance()
+
+    private fun loadData(value: String) {
+
+        ddb.collection("sportsmen")
+            .document(value)
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Toast.makeText(
+                        baseContext, "Считать неудалось$e",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+
+                    textWeight.text = snapshot.getString("weight")
+                    textShoulder.text = snapshot.getString("shoulder")
+                    textBreast.text = snapshot.getString("breast")
+                    textBiceps.text = snapshot.getString("biceps")
+                    textWaist.text = snapshot.getString("waist")
+                    textButtocks.text = snapshot.getString("buttock")
+                    textHip.text = snapshot.getString("hip")
+
+                    textTall.text = snapshot.getString("height")
+
+                    textWeight2.text = snapshot.getString("weight2")
+                    textShoulder2.text = snapshot.getString("shoulder2")
+                    textBreast2.text = snapshot.getString("breast2")
+                    textBiceps2.text = snapshot.getString("biceps2")
+                    textWaist2.text = snapshot.getString("waist2")
+                    textButtocks2.text = snapshot.getString("buttock2")
+                    textHip2.text = snapshot.getString("hip2")
+                } else {
+                    Toast.makeText(
+                        baseContext, "Нет данных",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
 
     }
     fun paramsCoachClick(view: View) {
@@ -75,7 +97,7 @@ class Params_Coach : AppCompatActivity() {
             }
 
         }
-        }
+    }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

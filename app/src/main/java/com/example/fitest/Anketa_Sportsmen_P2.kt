@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.fitest.dffgh.SelectTrener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -132,11 +133,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
             val eatT =hashMapOf(
 
@@ -146,11 +147,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "творог",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
 
             val eatW =hashMapOf(
@@ -161,11 +162,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "творог",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
             val eatTh =hashMapOf(
 
@@ -175,11 +176,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "вода",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
             val eatFr =hashMapOf(
 
@@ -189,11 +190,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "творог",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
             val eatSat =hashMapOf(
 
@@ -203,11 +204,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
             val eatSun =hashMapOf(
                 "eat1" to "",
@@ -216,11 +217,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "eat4" to "",
                 "eat5" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false"
             )
 
             val tren1 =hashMapOf(
@@ -256,13 +257,13 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Weight6" to "",
                 "Weight7" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false,
-                "Checkbox6" to false,
-                "Checkbox7" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false",
+                "Checkbox6" to "false",
+                "Checkbox7" to "false"
             )
             val tren2 =hashMapOf(
 
@@ -298,13 +299,13 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Weight6" to "",
                 "Weight7" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false,
-                "Checkbox6" to false,
-                "Checkbox7" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false",
+                "Checkbox6" to "false",
+                "Checkbox7" to "false"
             )
             val tren3 =hashMapOf(
                 "Comment1" to "",
@@ -339,13 +340,13 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Weight6" to "",
                 "Weight7" to "",
 
-                "Checkbox1" to false,
-                "Checkbox2" to false,
-                "Checkbox3" to false,
-                "Checkbox4" to false,
-                "Checkbox5" to false,
-                "Checkbox6" to false,
-                "Checkbox7" to false
+                "Checkbox1" to "false",
+                "Checkbox2" to "false",
+                "Checkbox3" to "false",
+                "Checkbox4" to "false",
+                "Checkbox5" to "false",
+                "Checkbox6" to "false",
+                "Checkbox7" to "false"
             )
 
             Firebase.auth.currentUser?.uid?.let {
@@ -412,7 +413,7 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                             baseContext, "Профиль заполнен!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        startActivity(Intent(this, ProfileClient::class.java))
+                        startActivity(Intent(this, SelectTrener::class.java))
                         finish()
                     }
             }

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/backuniversal"
-    tools:context=".anketaView">
+    tools:context=".AnketaView">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar3"
@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/topclientsanketa"
         android:minHeight="?attr/actionBarSize"
-        android:onClick="anketaClick"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,9 +77,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
 
             <ImageView
@@ -100,9 +98,9 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"
+                />
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -121,9 +119,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView12"
@@ -136,15 +133,15 @@
                 android:id="@+id/HeightAnketa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/field"
                 android:maxLength="7"
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView14"
@@ -163,9 +160,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView16"
@@ -184,9 +180,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView19"
@@ -205,9 +200,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -227,9 +221,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -248,9 +241,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -269,9 +261,8 @@
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
-                android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textSize="24sp"/>
 
         </LinearLayout>
     </ScrollView>

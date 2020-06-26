@@ -3,9 +3,8 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
@@ -31,12 +30,6 @@ import kotlinx.android.synthetic.main.activity_otchet_trainings.textExercise7
 
 class Trainings_Coach : AppCompatActivity() {
 
-    private fun showSystemUI() {
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-    }
-
     private fun hideSystemUI() {
 
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -51,16 +44,20 @@ class Trainings_Coach : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otchet_trainings)
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup);
-        loadFirst()
+        var value = intent.getStringExtra("id")
+        Log.i("NewActivity", value)
+
+        loadFirst(value)
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 when (optionId) {
+
                     R.id.button_day1 -> {
-                        loadFirst()
+                        loadFirst(value)
                     }
                     R.id.button_day2 -> {
                         ddb.collection("trainings")
-                            .document("test_load"+"_2") /*здесь будет айди спортсмена   .document(айди спортсмена+"_2")*/
+                            .document(value+"_2")
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -109,7 +106,7 @@ class Trainings_Coach : AppCompatActivity() {
                     }
                     R.id.button_day3 -> {
                         ddb.collection("trainings")
-                            .document("test_load"+"_3") /*здесь будет айди спортсмена   .document( айди спортсмена +"_3")*/
+                            .document(value+"_3")
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -163,10 +160,10 @@ class Trainings_Coach : AppCompatActivity() {
     }
     private val ddb = FirebaseFirestore.getInstance()
 
-    private fun loadFirst() {
+    private fun loadFirst(value: String) {
 
         ddb.collection("trainings")
-            .document("test_load"+"_1") /*здесь будет айди спортсмена   .document(айди спортсмена +"_1")*/
+            .document(value+"_1")
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Toast.makeText(
@@ -236,30 +233,37 @@ class Trainings_Coach : AppCompatActivity() {
 
         }
     }
-    private fun check(snapshot: DocumentSnapshot?){
+    private fun check(snapshot: DocumentSnapshot){
 
-        if (snapshot != null) {
-            if (snapshot.get("Checkbox1") == true) {
-                checkBox1.isChecked = true
-            }
-            if (snapshot.get("Checkbox2") == true) {
-                checkBox2.isChecked = true
-            }
-            if (snapshot.get("Checkbox3") == true) {
-                checkBox3.isChecked = true
-            }
-            if (snapshot.get("Checkbox4") == true) {
-                checkBox4.isChecked = true
-            }
-            if (snapshot.get("Checkbox5") == true) {
-                checkBox5.isChecked = true
-            }
-            if (snapshot.get("Checkbox6") == true) {
-                checkBox6.isChecked = true
-            }
-            if (snapshot.get("Checkbox7") == true) {
-                checkBox7.isChecked = true
-            }
+        if (snapshot.getString("Checkbox1") == "true") {
+            checkBox1.isChecked = true
+        }
+        if (snapshot.getString("Checkbox2") == "true") {
+            checkBox2.isChecked = true
+        }
+        if (snapshot.getString("Checkbox3") == "true") {
+            checkBox3.isChecked = true
+        }
+        if (snapshot.getString("Checkbox4") == "true") {
+            checkBox4.isChecked = true
+        }
+        if (snapshot.getString("Checkbox5") == "true") {
+            checkBox5.isChecked = true
+        }
+        if (snapshot.getString("Checkbox6") == "true") {
+            checkBox6.isChecked = true
+        }
+        if (snapshot.getString("Checkbox7") == "true") {
+            checkBox7.isChecked = true
+        }
+        else{
+            checkBox1.isChecked = false
+            checkBox2.isChecked = false
+            checkBox3.isChecked = false
+            checkBox4.isChecked = false
+            checkBox5.isChecked = false
+            checkBox6.isChecked = false
+            checkBox7.isChecked = false
         }
 
     }

@@ -42,14 +42,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageButton22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="bottom|left"
-            app:srcCompat="@drawable/clientspisocchatov" />
+            app:srcCompat="@drawable/clientwhitewithline" />
 
         <ImageButton
             android:id="@+id/imageButton21"
@@ -60,13 +60,13 @@
             android:gravity="bottom|center"
             app:srcCompat="@drawable/profilespisocchatov" />
 
-        <ImageView
-            android:id="@+id/imageView51"
+        <ImageButton
+            android:id="@+id/imageButton211"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?android:attr/selectableItemBackground"
             android:gravity="bottom|right"
-            app:srcCompat="@drawable/chatspisocchatov" />
+            app:srcCompat="@drawable/chatredwithoutline" />
     </TableRow>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,31 +1,40 @@
 package com.example.fitest
 
-import android.content.ContextWrapper
 import android.content.Intent
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.CheckBox
 import android.widget.MediaController
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_otchet_trainings.*
 
 import kotlinx.android.synthetic.main.activity_trainings.*
+import kotlinx.android.synthetic.main.activity_trainings.button_day1
+import kotlinx.android.synthetic.main.activity_trainings.button_day2
+import kotlinx.android.synthetic.main.activity_trainings.button_day3
 import kotlinx.android.synthetic.main.activity_trainings.checkBox1
 import kotlinx.android.synthetic.main.activity_trainings.checkBox2
 import kotlinx.android.synthetic.main.activity_trainings.checkBox3
 import kotlinx.android.synthetic.main.activity_trainings.checkBox4
 import kotlinx.android.synthetic.main.activity_trainings.checkBox5
+import kotlinx.android.synthetic.main.activity_trainings.checkBox6
+import kotlinx.android.synthetic.main.activity_trainings.checkBox7
 import kotlinx.android.synthetic.main.activity_trainings.textExercise2
 import kotlinx.android.synthetic.main.activity_trainings.textExercise3
 import kotlinx.android.synthetic.main.activity_trainings.textExercise4
 import kotlinx.android.synthetic.main.activity_trainings.textExercise5
 import kotlinx.android.synthetic.main.activity_trainings.textExercise6
+import kotlinx.android.synthetic.main.activity_trainings.textExercise7
 
 
 class Trainings_Sportsmen : AppCompatActivity() {
@@ -56,9 +65,11 @@ class Trainings_Sportsmen : AppCompatActivity() {
             run {
                 when (optionId) {
                     R.id.button_day1 -> {
+
                         loadFirst()
                     }
                     R.id.button_day2 -> {
+
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
                                 .document(it + "_2")
@@ -106,6 +117,23 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                         textComment6.text = snapshot.getString("Comment6")
                                         textComment7.text = snapshot.getString("Comment7")
 
+                                        if(snapshot.getString("CheckBox1")=="true")checkBox1.isChecked= true
+                                        if(snapshot.getString("CheckBox2")=="true")checkBox2.isChecked= true
+                                        if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
+                                        if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
+                                        if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
+                                        if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
+                                        if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
+                                        else{
+                                            checkBox1.isChecked = false
+                                            checkBox2.isChecked = false
+                                            checkBox3.isChecked = false
+                                            checkBox4.isChecked = false
+                                            checkBox5.isChecked = false
+                                            checkBox6.isChecked = false
+                                            checkBox7.isChecked = false
+                                        }
+
                                     } else {
                                         Toast.makeText(
                                             baseContext, "Нет данных",
@@ -116,6 +144,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                         }
                     }
                     R.id.button_day3 -> {
+
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
                                 .document(it + "_3")
@@ -164,6 +193,22 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                         textComment6.text = snapshot.getString("Comment6")
                                         textComment7.text = snapshot.getString("Comment7")
 
+                                        if(snapshot.getString("CheckBox1")=="true")checkBox1.isChecked= true
+                                        if(snapshot.getString("CheckBox2")=="true")checkBox2.isChecked= true
+                                        if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
+                                        if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
+                                        if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
+                                        if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
+                                        if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
+                                        else{
+                                            checkBox1.isChecked = false
+                                            checkBox2.isChecked = false
+                                            checkBox3.isChecked = false
+                                            checkBox4.isChecked = false
+                                            checkBox5.isChecked = false
+                                            checkBox6.isChecked = false
+                                            checkBox7.isChecked = false
+                                        }
                                     } else {
                                         Toast.makeText(
                                             baseContext, "Нет данных",
@@ -227,6 +272,23 @@ class Trainings_Sportsmen : AppCompatActivity() {
                         textComment6.text = snapshot.getString("Comment6")
                         textComment7.text = snapshot.getString("Comment7")
 
+                        if(snapshot.getString("CheckBox1")=="true")checkBox1.isChecked= true
+                        if(snapshot.getString("CheckBox2")=="true")checkBox2.isChecked= true
+                        if(snapshot.getString("CheckBox3")=="true")checkBox3.isChecked= true
+                        if(snapshot.getString("CheckBox4")=="true")checkBox4.isChecked= true
+                        if(snapshot.getString("CheckBox5")=="true")checkBox5.isChecked= true
+                        if(snapshot.getString("CheckBox6")=="true")checkBox6.isChecked= true
+                        if(snapshot.getString("CheckBox7")=="true")checkBox7.isChecked= true
+                        else{
+                            checkBox1.isChecked = false
+                            checkBox2.isChecked = false
+                            checkBox3.isChecked = false
+                            checkBox4.isChecked = false
+                            checkBox5.isChecked = false
+                            checkBox6.isChecked = false
+                            checkBox7.isChecked = false
+                        }
+
                     } else {
                         Toast.makeText(
                             baseContext, "Нет данных",
@@ -237,7 +299,11 @@ class Trainings_Sportsmen : AppCompatActivity() {
         }
     }
     private val storage = FirebaseStorage.getInstance()
-    private var VideoStorage = storage.reference.child("video_training").child("test_week").child("2020-05-29-13-07-09-2754.mp4")
+
+    private var VideoStorage = Firebase.auth.currentUser?.uid?.let {
+        storage.reference.child("video_training").child(it)
+    }
+
     private val ddb = FirebaseFirestore.getInstance()
 
     fun trenSportsmenClick(view: View) {
@@ -247,7 +313,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.button_eats -> {
-                val intent = Intent(this, Anketa_Coach::class.java)
+                val intent = Intent(this, Pitanie::class.java)
                 startActivity(intent)
             }
             R.id.button_chats -> {
@@ -293,7 +359,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                     }
 
                     else {
-                        if (button_day1.isChecked) {
+                        if (!button_day1.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -303,7 +369,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                     }
                             }
                         }
-                        if (button_day2.isChecked) {
+                        if (!button_day2.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -313,7 +379,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                     }
                             }
                         }
-                        if (button_day3.isChecked) {
+                        if (!button_day3.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -359,7 +425,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
 
                 else {
-                    if (button_day1.isChecked) {
+                    if (!button_day1.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -369,7 +435,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day2.isChecked) {
+                    if (!button_day2.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -379,7 +445,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day3.isChecked) {
+                    if (!button_day3.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -424,7 +490,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
 
                 else {
-                    if (button_day1.isChecked) {
+                    if (!button_day1.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -434,7 +500,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day2.isChecked) {
+                    if (!button_day2.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -444,7 +510,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day3.isChecked) {
+                    if (!button_day3.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -489,7 +555,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
 
                 else {
-                    if (button_day1.isChecked) {
+                    if (!button_day1.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -499,7 +565,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day2.isChecked) {
+                    if (!button_day2.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -509,7 +575,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day3.isChecked) {
+                    if (!button_day3.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -554,7 +620,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
 
                 else {
-                    if (button_day1.isChecked) {
+                    if (!button_day1.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -564,7 +630,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day2.isChecked) {
+                    if (!button_day2.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -574,7 +640,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day3.isChecked) {
+                    if (!button_day3.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -620,7 +686,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
 
                 else {
-                    if (button_day1.isChecked) {
+                    if (!button_day1.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -630,7 +696,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day2.isChecked) {
+                    if (!button_day2.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -640,7 +706,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                 }
                         }
                     }
-                    if (button_day3.isChecked) {
+                    if (!button_day3.isChecked) {
 
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("trainings")
@@ -687,7 +753,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                     }
 
                     else {
-                        if (button_day1.isChecked) {
+                        if (!button_day1.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -697,7 +763,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                     }
                             }
                         }
-                        if (button_day2.isChecked) {
+                        if (!button_day2.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -707,7 +773,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                     }
                             }
                         }
-                        if (button_day3.isChecked) {
+                        if (!button_day3.isChecked) {
 
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("trainings")
@@ -721,10 +787,109 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
             }
             R.id.videoExercise1 -> {
-                if (button_day1.isChecked) {}
-                if (button_day2.isChecked) {}
-                if (button_day3.isChecked) {}
-                loadVideo()
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video1")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video1")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video1")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise2 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video2")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video2")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video2")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise3 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video3")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video3")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video3")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise4 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video4")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video4")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video4")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise5 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video5")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video5")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video5")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise6 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video6")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video6")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video6")
+                    loadVideo(vid)
+                }
+
+            }
+            R.id.videoExercise7 -> {
+                if (button_day1.isChecked) {
+                    val vid=  VideoStorage?.child("day1")?.child("video7")
+                    loadVideo(vid)
+                }
+                if (button_day2.isChecked) {
+                    val vid=  VideoStorage?.child("day2")?.child("video7")
+                    loadVideo(vid)
+                }
+                if (button_day3.isChecked) {
+                    val vid=  VideoStorage?.child("day3")?.child("video7")
+                    loadVideo(vid)
+                }
+
             }
 
         }
@@ -737,8 +902,16 @@ class Trainings_Sportsmen : AppCompatActivity() {
                 }
             }
     }*/
-    private fun loadVideo(){
-        val videoUri= Uri.parse(VideoStorage.path)
+    private fun loadVideo(vid: StorageReference?) {
+        val videoUri= Uri.parse(vid?.path)
+        /*val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
+            setAudioStreamType(AudioManager.STREAM_MUSIC)
+            setDataSource(applicationContext, videoUri)
+            prepare()
+            start()
+        }
+        videoExercise1.set(mediaPlayer)
+    */
         videoExercise1.setMediaController(MediaController(this))
         videoExercise1.setVideoURI(videoUri)
         videoExercise1.start()

@@ -47,10 +47,6 @@
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".RecyclerListClient"
-            android:screenOrientation="locked"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".Anketa_Sportsmen_P2"
             android:screenOrientation="locked"
             android:windowSoftInputMode="stateHidden" />

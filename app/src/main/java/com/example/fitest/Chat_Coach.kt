@@ -7,11 +7,37 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 
 
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ListenerRegistration
+import java.util.*
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Section
+import com.xwray.groupie.kotlinandroidextensions.Item
+import com.xwray.groupie.kotlinandroidextensions.ViewHolder
+
+import kotlinx.android.synthetic.main.activity_chat_coach.*
+import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.toast
+
+
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+
 class Chat_Coach : AppCompatActivity() {
+
+    private lateinit var currentChannelId: String
+    private val firestoreInstance: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
+
+    private lateinit var messagesListenerRegistration: ListenerRegistration
+
+    private var shouldInitRecyclerView = true
+    private lateinit var messagesSection: Section
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -35,8 +61,35 @@ class Chat_Coach : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chat_coach)
-        val messageChat = findViewById<EditText>(R.id.editText3)
+        var otherUserId = intent.getStringExtra("id")
+        // Log.i("NewActivity", value)
+
+        FirestoreUtil.getOrCreateChatChannel(otherUserId)
+        { channelId ->
+            currentChannelId = channelId
+
+            messagesListenerRegistration =
+                FirestoreUtil.addChatMessagesListener(channelId, this, this::updateRecyclerView)
+
+            floatingActionButton.setOnClickListener{
+                if (editText3.text.toString().isNotEmpty()) {
+                    val messageToSend =
+                        TextMessage(
+                            editText3.text.toString(), Calendar.getInstance().time,
+                            FirebaseAuth.getInstance().currentUser!!.uid,
+                            otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
+                                firestoreInstance.collection("treners").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
+                                    snapshot?.getString("name")
+                                }}.toString()
+                        )
+                    editText3.setText("")
+                    FirestoreUtil.sendMessage(messageToSend, channelId)
+                }
+            }
+        }
+
     }
+
     fun chatCoachClick(view: View) {
         when (view.id) {
             R.id.profile -> {
@@ -55,26 +108,29 @@ class Chat_Coach : AppCompatActivity() {
                 val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
-            R.id.button2 -> {
-                /* if (!editText3.text.toString().isEmpty()){
-                                   sendData()
-                               }else{
-                                   Toast.makeText(this, "Пожалуйста, введите сообщение", Toast.LENGTH_SHORT).show()
-                               }*/
-            }
-
         }
     }
-    /* private fun sendData() {
-        database?.
-            child("messages")?.
-            child(java.lang.String.valueOf(System.currentTimeMillis()))?.
-            setValue(Message(editText3.text.toString()))
+    private fun updateRecyclerView(messages: List<Item>) {
+        fun init() {
+            recyclerChat.apply {
+                layoutManager = LinearLayoutManager(this@Chat_Coach)
+                adapter = GroupAdapter<ViewHolder>().apply {
+                    messagesSection = Section(messages)
+                    this.add(messagesSection)
+                }
+            }
+            shouldInitRecyclerView = false
+        }
 
-        //clear the text
-        editText3.setText("")
+        fun updateItems() = messagesSection.update(messages)
+
+        if (shouldInitRecyclerView)
+            init()
+        else
+            updateItems()
+
+        recyclerChat.scrollToPosition(recyclerChat.adapter!!.itemCount - 1)
     }
-*/
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
