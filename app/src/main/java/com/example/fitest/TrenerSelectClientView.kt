@@ -8,6 +8,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.fitest.dffgh.SelectTrener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -44,7 +45,8 @@ class TrenerSelectClientView : AppCompatActivity() {
         setContentView(R.layout.activity_trener_select_client_view)
         loadData()
 
-
+        imageButton26.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
+        startActivity(intent)}
 
     }
 
@@ -62,7 +64,7 @@ class TrenerSelectClientView : AppCompatActivity() {
             val imageURL = Uri.toString()
             Glide.with(this)
                 .load(imageURL)
-                .into(imageView62)
+                .into(photoImg)
         }
 
         imageButton27.setOnClickListener {
@@ -103,7 +105,9 @@ class TrenerSelectClientView : AppCompatActivity() {
             if (snapshot != null && snapshot.exists()) {
                 textView7.text=snapshot.getString("price")
                 textView3.text=snapshot.getString("name")
-
+                textViewR.text=snapshot.getString("win")
+                textView8.text=snapshot.getString("spec")
+                textView2.text=snapshot.getString("study")
             }
             else {
                 Toast.makeText(
