@@ -3,7 +3,6 @@ package com.example.fitest.dffgh
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.fitest.R
 
 
 import android.util.Log
@@ -15,11 +14,11 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitest.*
 import com.example.fitest.ListClient.ClientAdapter
-import com.example.fitest.ProfileTrenerView
-import com.example.fitest.TrenerSelectClientView
 
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.firestore.FirebaseFirestore
@@ -57,16 +56,19 @@ class SelectTrener : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2)
 
         root = findViewById(R.id.root)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        var num = intent.getStringExtra("num")
 
+        toolbar.inflateMenu(R.menu.last)
         toolbar.inflateMenu(R.menu.refresh)
         toolbar.inflateMenu(R.menu.sort)
+
 
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
@@ -81,6 +83,21 @@ class SelectTrener : AppCompatActivity() {
                     adapter.clear()
                     adapter.startListening()
                     return@setOnMenuItemClickListener true
+                }
+                R.id.action_last ->{
+                    if(Firebase.auth.currentUser?.uid?.let {
+                            it=="caBlWtPi6idpzBQUZ7M9Ta7w70q2"
+                        }!!){  startActivity(Intent(this, MainActivity::class.java))}
+                    else{
+                        if(num=="true") {
+                            startActivity(Intent(this, Anketa_Sportsmen_P2::class.java))
+                        }
+                        else {
+                            startActivity(Intent(this, ProfileClient::class.java))
+                        }
+                    }
+
+
                 }
             }
             false
@@ -101,7 +118,7 @@ class SelectTrener : AppCompatActivity() {
 
         adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
-             //   .show()
+            //   .show()
             firestore.collection("treners").get().addOnSuccessListener { documents ->
                 var value = ""
                 for (document in documents) {

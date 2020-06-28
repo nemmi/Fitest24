@@ -74,24 +74,24 @@ class Registration : AppCompatActivity() {
             return
         }
         if (editPassword.text.toString().isEmpty()) {
-            editMail.error = "Введите пароль"
-            editMail.requestFocus()
+            editPassword.error = "Введите пароль"
+            editPassword.requestFocus()
             return
         }
         if (!matched) {
-            editMail.error = "Пароль должен содержать не менее 8 цифр"
-            editMail.requestFocus()
+            editPassword.error = "Пароль должен содержать не менее 8 и не более 15 цифр"
+            editPassword.requestFocus()
             return
         }
         if (editPassword1.text.toString().isEmpty()) {
-            editMail.error = "Повторите пароль"
-            editMail.requestFocus()
+            editPassword.error = "Повторите пароль"
+            editPassword.requestFocus()
             return
         }
 
         if (editPassword1.text.toString() != editPassword.text.toString()) {
-            editMail.error = "Пароли не совпадают"
-            editMail.requestFocus()
+            editPassword.error = "Пароли не совпадают"
+            editPassword.requestFocus()
             return
         }
         else {

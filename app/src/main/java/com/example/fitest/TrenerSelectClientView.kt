@@ -47,8 +47,13 @@ class TrenerSelectClientView : AppCompatActivity() {
         var value = intent.getStringExtra("id")
         Log.i("NewActivity2", value)
 
+
+
+
         imageButton27.setOnClickListener {
-            if (FirebaseAuth.getInstance().currentUser == null){
+            if(Firebase.auth.currentUser?.uid?.let {
+                    it=="caBlWtPi6idpzBQUZ7M9Ta7w70q2"
+                }!!){
                 Toast.makeText(
                     baseContext, "Сначала авторизируйтесь!",
                     Toast.LENGTH_SHORT

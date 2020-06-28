@@ -90,7 +90,7 @@ class RedactorClient : AppCompatActivity() {
 
         else {
 
-            if (mailEdit.text.toString().isNotEmpty()) {
+            if (mailEdit.text.toString().isNotEmpty()){
                 user!!.updateEmail(mailEdit.text.toString())
                     .addOnCompleteListener { task ->
                         Firebase.auth.currentUser?.uid?.let {

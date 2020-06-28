@@ -101,15 +101,14 @@
     </TableRow>
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="502dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:scrollbarStyle="outsideInset"
         app:layout_constraintBottom_toTopOf="@+id/tableRow3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.418">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -130,6 +129,15 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp">
 
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody1"
                     android:layout_width="wrap_content"
@@ -142,22 +150,12 @@
                     android:id="@+id/editPodhody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
 
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
-
-                <CheckBox
-                    android:id="@+id/checkBox1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false"
-                    />
 
             </TableRow>
 
@@ -169,7 +167,7 @@
                     android:id="@+id/textViewWeight1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -200,6 +198,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody2"
                     android:layout_width="wrap_content"
@@ -218,15 +225,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false" />
-
             </TableRow>
 
             <TableRow
@@ -237,7 +235,7 @@
                     android:id="@+id/textViewWeight2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -270,6 +268,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody3"
                     android:layout_width="wrap_content"
@@ -289,15 +296,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false" />
-
             </TableRow>
 
             <TableRow
@@ -308,7 +306,7 @@
                     android:id="@+id/textViewWeight3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -338,6 +336,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody4"
                     android:layout_width="wrap_content"
@@ -356,15 +363,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false"/>
-
             </TableRow>
 
             <TableRow
@@ -375,7 +373,7 @@
                     android:id="@+id/textViewWeight4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -404,6 +402,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <CheckBox
+                    android:id="@+id/checkBox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody5"
                     android:layout_width="wrap_content"
@@ -422,15 +429,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false" />
-
             </TableRow>
 
             <TableRow
@@ -441,7 +439,7 @@
                     android:id="@+id/textViewWeight5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -471,6 +469,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <CheckBox
+                    android:id="@+id/checkBox6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody6"
                     android:layout_width="wrap_content"
@@ -489,15 +496,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false"/>
-
             </TableRow>
 
             <TableRow
@@ -508,7 +506,7 @@
                     android:id="@+id/textViewWeight6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />
@@ -538,6 +536,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <CheckBox
+                    android:id="@+id/checkBox7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:button="@drawable/checkbox_selector"
+                    android:clickable="false" />
+
                 <TextView
                     android:id="@+id/textPodhody7"
                     android:layout_width="wrap_content"
@@ -556,15 +563,6 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <CheckBox
-                    android:id="@+id/checkBox7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="15dp"
-                    android:button="@drawable/checkbox_selector"
-                    android:clickable="false" />
-
             </TableRow>
 
             <TableRow
@@ -575,7 +573,7 @@
                     android:id="@+id/textViewWeight7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="69dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/weight2" />

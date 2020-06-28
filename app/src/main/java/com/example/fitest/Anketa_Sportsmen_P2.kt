@@ -3,6 +3,7 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -422,8 +423,17 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                             baseContext, "Профиль заполнен!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        startActivity(Intent(this, SelectTrener::class.java))
+                        val num="true"
+                        val intent = Intent(this, SelectTrener::class.java)
+                        intent.putExtra("num", num)
+                        startActivity(intent)
                         finish()
+                    }
+                    .addOnFailureListener{e ->
+                        Toast.makeText(
+                            baseContext, "Что-то пошло не так.. " + e.localizedMessage,
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
             }
         }

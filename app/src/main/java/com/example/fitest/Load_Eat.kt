@@ -37,336 +37,29 @@ class Load_Eat : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_load_eat)
         var value= intent.getStringExtra("id")
-        var pusto = ""
         buttonSaveEat.setOnClickListener{
-            val FIELD__PATTERN = Regex(pattern = "[0-9a-zA-Zа-яА-Я -.,!? \n \r]{3,175}")
-
             if(monday.isChecked){
-                val up=  ddb.collection("eat")
-                    .document(value+"_M") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_M")
             }
             if(tuesday.isChecked){
-                val up= ddb.collection("eat")
-                    .document(value+"_T") /*здесь будет айди спортсмена*/
-
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_T")
             }
             if(wednesday.isChecked){
-                val up=  ddb.collection("eat")
-                    .document(value+"_W") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_W")
             }
             if(thursday.isChecked){
-                val up= ddb.collection("eat")
-                    .document(value+"_Th") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_Th")
             }
             if(friday.isChecked){
-                val up=    ddb.collection("eat")
-                    .document(value+"_F") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_F")
             }
 
             if(saturday.isChecked){
-                val up=  ddb.collection("eat")
-                    .document(value+"_Sat") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_Sat")
             }
 
             if(sunday.isChecked){
-                val up=  ddb.collection("eat")
-                    .document(value+"_Sun") /*здесь будет айди спортсмена*/
-                if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
-                    up
-                        .update(
-                            "eat1", eat1txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
-                    up
-                        .update(
-                            "eat2", eat2txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
-                    up
-                        .update(
-                            "eat3", eat3txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
-                    up
-                        .update(
-                            "eat4", eat4txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-                if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
-                    up
-                        .update(
-                            "eat5",eat5txt.text.toString()
-                        )
-                        .addOnSuccessListener {}
-                }
-
-                Toast.makeText(
-                    baseContext, "Программа успешно загружена",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                loadEat(value,"_Sun")
             }
         }
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
@@ -427,8 +120,94 @@ class Load_Eat : AppCompatActivity() {
             }
         }
     }
+    fun loadEat(value:String, day:String){
+        val FIELD__PATTERN = Regex(pattern = "[0-9a-zA-Zа-яА-Я -., \n \r]{3,300}")
 
+        val up=  ddb.collection("eat")
+            .document(value+day)
+
+        if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
+            up
+                .update(
+                    "eat1", eat1txt.text.toString()
+                )
+                .addOnSuccessListener {}
+        }
+        else if(eat1txt.text.toString().isEmpty()){
+            up
+                .update(
+                    "eat1", ""
+                )
+                .addOnSuccessListener {}
+        }
+
+        if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
+            up
+                .update(
+                    "eat2", eat2txt.text.toString()
+                )
+                .addOnSuccessListener {}
+        }
+        else if(eat2txt.text.toString().isEmpty()){
+            up
+                .update(
+                    "eat2", ""
+                )
+                .addOnSuccessListener {}
+        }
+
+        if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
+            up
+                .update(
+                    "eat3", eat3txt.text.toString()
+                )
+                .addOnSuccessListener {}
+        }
+        else if(eat3txt.text.toString().isEmpty()){
+            up
+                .update(
+                    "eat3", ""
+                )
+                .addOnSuccessListener {}
+        }
+
+        if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
+            up
+                .update(
+                    "eat4", eat4txt.text.toString()
+                )
+                .addOnSuccessListener {}
+        }
+        else if(eat4txt.text.toString().isEmpty()){
+            up
+                .update(
+                    "eat4", ""
+                )
+                .addOnSuccessListener {}
+        }
+        if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
+            up
+                .update(
+                    "eat5",eat5txt.text.toString()
+                )
+                .addOnSuccessListener {}
+        }
+        else if(eat5txt.text.toString().isEmpty()){
+            up
+                .update(
+                    "eat5", ""
+                )
+                .addOnSuccessListener {}
+        }
+
+        Toast.makeText(
+            baseContext, "Программа успешно загружена",
+            Toast.LENGTH_SHORT
+        ).show()
+
+    }
     fun eatLoadClick(view: View) {
+
         var value= intent.getStringExtra("id")
         when (view.id){
             R.id.imageProfile ->{
