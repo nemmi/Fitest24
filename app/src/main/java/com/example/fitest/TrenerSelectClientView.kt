@@ -43,29 +43,9 @@ class TrenerSelectClientView : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_trener_select_client_view)
-        loadData()
-
-        imageButton26.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
-        startActivity(intent)}
-
-    }
-
-    private val storage = FirebaseStorage.getInstance()
-
-    private fun  loadData(){
-
 
         var value = intent.getStringExtra("id")
         Log.i("NewActivity2", value)
-
-        var PhotoImage = storage.reference.child("TrenersPhoto").child(value) /* чайлд до айди*/
-
-        PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
-            val imageURL = Uri.toString()
-            Glide.with(this)
-                .load(imageURL)
-                .into(photoImg)
-        }
 
         imageButton27.setOnClickListener {
             if (FirebaseAuth.getInstance().currentUser == null){
@@ -93,6 +73,33 @@ class TrenerSelectClientView : AppCompatActivity() {
                 }
             }
         }
+
+
+        loadData()
+
+        imageButton26.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
+        startActivity(intent)}
+
+    }
+
+    private val storage = FirebaseStorage.getInstance()
+
+    private fun  loadData(){
+
+
+        var value = intent.getStringExtra("id")
+        Log.i("NewActivity2", value)
+
+        var PhotoImage = storage.reference.child("TrenersPhoto").child(value) /* чайлд до айди*/
+
+        PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
+            val imageURL = Uri.toString()
+            Glide.with(this)
+                .load(imageURL)
+                .into(photoImg)
+        }
+
+
         ddb.collection("treners").document(value).addSnapshotListener{
                 snapshot, e ->
             if (e != null) {

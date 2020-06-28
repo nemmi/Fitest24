@@ -15,6 +15,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_load_trainings.*
+import kotlinx.android.synthetic.main.activity_load_trainings.button_day1
+import kotlinx.android.synthetic.main.activity_load_trainings.button_day2
+import kotlinx.android.synthetic.main.activity_load_trainings.button_day3
+import kotlinx.android.synthetic.main.activity_trainings.*
 
 import java.io.InputStream
 
@@ -377,7 +381,6 @@ class Load_Trainings : AppCompatActivity() {
 
 
     // Log.i("NewActivity", value)
-    private var VideoStorage = storage.reference.child("video_training")
     val REQUEST_CODE = 100
 
     private val ddb = FirebaseFirestore.getInstance()
@@ -386,26 +389,95 @@ class Load_Trainings : AppCompatActivity() {
         var value= intent.getStringExtra("id")
         when (view.id){
             R.id.button_loadVideo1 ->{
-
-                chooseVideo()
+                if(editExercise1.text.toString().isNotEmpty()) {
+                    val ex = editExercise1.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo2 ->{
-                chooseVideo()
+                if(ediExercise2.text.toString().isNotEmpty()) {
+                    val ex = ediExercise2.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo3 ->{
-                chooseVideo()
+                if(ediExercise3.text.toString().isNotEmpty()) {
+                    val ex = ediExercise3.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo4 ->{
-                chooseVideo()
+                if(ediExercise4.text.toString().isNotEmpty()) {
+                    val ex = ediExercise4.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo5 ->{
-                chooseVideo()
+                if(ediExercise5.text.toString().isNotEmpty()) {
+                    val ex = ediExercise5.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo6 ->{
-                chooseVideo()
+                if(ediExercise6.text.toString().isNotEmpty()) {
+                    val ex = ediExercise6.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             R.id.button_loadVideo7 ->{
-                chooseVideo()
+                if(ediExercise2.text.toString().isNotEmpty()) {
+                    val ex = ediExercise2.text.toString()
+                    chooseVideo(ex)
+                }
+                else
+                {
+                    Toast.makeText(
+                        baseContext, "Пожалуйста, введите название упражнения",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
 
 
@@ -430,26 +502,24 @@ class Load_Trainings : AppCompatActivity() {
         }
     }
 
-    private fun chooseVideo() {
+    private fun chooseVideo(ex:String) {
         val videoPickerIntent = Intent(Intent.ACTION_PICK)
         videoPickerIntent.type = "video/*"
+        val ogo=Intent()
+        ogo.putExtra("ex",ex)
 
         startActivityForResult(videoPickerIntent, REQUEST_CODE)
+        startActivityForResult(ogo, REQUEST_CODE)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && data!=null) {
             var value = intent.getStringExtra("id")
 
-            if(button_day1.isChecked){
-                VideoStorage = storage.reference.child("video_training").child(value).child("day1").child("name"+1)
-            }
-            if(button_day2.isChecked){
-                VideoStorage = storage.reference.child("video_training").child(value).child("day2").child("name"+1)
-            }
-            if(button_day3.isChecked){
-                VideoStorage = storage.reference.child("video_training").child(value).child("day3").child("name"+1)
-            }
+            var ex = data.getStringExtra("ex")
+
+            val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+
 
             val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
             val uploadTask = input?.let { VideoStorage.putStream(it) }

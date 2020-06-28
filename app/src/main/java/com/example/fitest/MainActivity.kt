@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_auth)
@@ -54,9 +54,10 @@ class MainActivity : AppCompatActivity() {
             R.id.btn_login -> {
                 doLogin()
             }
-          //  R.id.button_listTren ->{
-               // startActivity(Intent(this, SelectTrener::class.java))
-          //  }
+            R.id.button_listTren ->{
+                startActivity(Intent(this, SelectTrener::class.java))
+                finish()
+            }
             R.id.SignUp ->{
                 startActivity(Intent(this, Registration::class.java))
             }
