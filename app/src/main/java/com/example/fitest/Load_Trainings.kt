@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_load_trainings.*
 import kotlinx.android.synthetic.main.activity_load_trainings.button_day1
 import kotlinx.android.synthetic.main.activity_load_trainings.button_day2
 import kotlinx.android.synthetic.main.activity_load_trainings.button_day3
+import kotlinx.android.synthetic.main.activity_sportsmen_anketa2.*
 import kotlinx.android.synthetic.main.activity_trainings.*
 
 import java.io.InputStream
@@ -46,10 +47,12 @@ class Load_Trainings : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(R.layout.activity_load_trainings)
+
         var value = intent.getStringExtra("id")
         buttonSave.setOnClickListener{
             if(button_day1.isChecked) {
@@ -62,8 +65,13 @@ class Load_Trainings : AppCompatActivity() {
                             "Comment1" ,editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
                             "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString()
+                            "Weight1",editTakeWeight1.text.toString(),
+                            "test_week", false
                         ).addOnSuccessListener {}
+                }
+                else {
+                    editExercise1.error="Введите упражнение"
+                    editExercise1.requestFocus()
                 }
                 if(ediExercise2.text.toString().isNotEmpty()){
                     up
@@ -73,6 +81,9 @@ class Load_Trainings : AppCompatActivity() {
                             "Podhod2",editPodhods2.text.toString(),
                             "Weight2",editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
+                }else {
+                    ediExercise2.error="Введите упражнение"
+                    ediExercise2.requestFocus()
                 }
                 if(ediExercise3.text.toString().isNotEmpty()){
                     up
@@ -83,6 +94,10 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight3",editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else {
+                    ediExercise3.error="Введите упражнение"
+                    ediExercise3.requestFocus()
+                }
                 if(ediExercise4.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -90,6 +105,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise4", ediExercise4.text.toString(),
                             "Podhod4",editPodhods4.text.toString(),
                             "Weight4",editTakeWeight4.text.toString()
+                        ).addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment4" ,"",
+                            "Exercise4", "",
+                            "Podhod4","",
+                            "Weight4",""
                         ).addOnSuccessListener {}
                 }
                 if(ediExercise5.text.toString().isNotEmpty()){
@@ -101,6 +125,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight5",editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment5" ,"",
+                            "Exercise5", "",
+                            "Podhod5","",
+                            "Weight5",""
+                        ).addOnSuccessListener {}
+                }
                 if(ediExercise6.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -110,6 +143,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight6",editTakeWeight6.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment6" ,"",
+                            "Exercise6", "",
+                            "Podhod6","",
+                            "Weight6",""
+                        ).addOnSuccessListener {}
+                }
                 if(ediExercise7.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -117,6 +159,16 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise7", ediExercise7.text.toString(),
                             "Podhod7",editPodhods7.text.toString(),
                             "Weight7",editTakeWeight7.text.toString()
+                        )
+                        .addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment7" ,"",
+                            "Exercise7", "",
+                            "Podhod7","",
+                            "Weight7",""
                         )
                         .addOnSuccessListener {}
                 }
@@ -136,8 +188,13 @@ class Load_Trainings : AppCompatActivity() {
                             "Comment1" ,editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
                             "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString()
+                            "Weight1",editTakeWeight1.text.toString(),
+                            "test_week", false
                         ).addOnSuccessListener {}
+                }
+                else {
+                    editExercise1.error="Введите упражнение"
+                    editExercise1.requestFocus()
                 }
                 if(ediExercise2.text.toString().isNotEmpty()){
                     up
@@ -147,6 +204,9 @@ class Load_Trainings : AppCompatActivity() {
                             "Podhod2",editPodhods2.text.toString(),
                             "Weight2",editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
+                }else {
+                    ediExercise2.error="Введите упражнение"
+                    ediExercise2.requestFocus()
                 }
                 if(ediExercise3.text.toString().isNotEmpty()){
                     up
@@ -157,6 +217,10 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight3",editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else {
+                    ediExercise3.error="Введите упражнение"
+                    ediExercise3.requestFocus()
+                }
                 if(ediExercise4.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -164,6 +228,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise4", ediExercise4.text.toString(),
                             "Podhod4",editPodhods4.text.toString(),
                             "Weight4",editTakeWeight4.text.toString()
+                        ).addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment4" ,"",
+                            "Exercise4", "",
+                            "Podhod4","",
+                            "Weight4",""
                         ).addOnSuccessListener {}
                 }
                 if(ediExercise5.text.toString().isNotEmpty()){
@@ -175,6 +248,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight5",editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment5" ,"",
+                            "Exercise5", "",
+                            "Podhod5","",
+                            "Weight5",""
+                        ).addOnSuccessListener {}
+                }
                 if(ediExercise6.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -184,6 +266,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight6",editTakeWeight6.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment6" ,"",
+                            "Exercise6", "",
+                            "Podhod6","",
+                            "Weight6",""
+                        ).addOnSuccessListener {}
+                }
                 if(ediExercise7.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -191,6 +282,16 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise7", ediExercise7.text.toString(),
                             "Podhod7",editPodhods7.text.toString(),
                             "Weight7",editTakeWeight7.text.toString()
+                        )
+                        .addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment7" ,"",
+                            "Exercise7", "",
+                            "Podhod7","",
+                            "Weight7",""
                         )
                         .addOnSuccessListener {}
                 }
@@ -210,8 +311,13 @@ class Load_Trainings : AppCompatActivity() {
                             "Comment1" ,editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
                             "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString()
+                            "Weight1",editTakeWeight1.text.toString(),
+                            "test_week", false
                         ).addOnSuccessListener {}
+                }
+                else {
+                    editExercise1.error="Введите упражнение"
+                    editExercise1.requestFocus()
                 }
                 if(ediExercise2.text.toString().isNotEmpty()){
                     up
@@ -221,6 +327,9 @@ class Load_Trainings : AppCompatActivity() {
                             "Podhod2",editPodhods2.text.toString(),
                             "Weight2",editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
+                }else {
+                    ediExercise2.error="Введите упражнение"
+                    ediExercise2.requestFocus()
                 }
                 if(ediExercise3.text.toString().isNotEmpty()){
                     up
@@ -231,6 +340,10 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight3",editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else {
+                    ediExercise3.error="Введите упражнение"
+                    ediExercise3.requestFocus()
+                }
                 if(ediExercise4.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -238,6 +351,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise4", ediExercise4.text.toString(),
                             "Podhod4",editPodhods4.text.toString(),
                             "Weight4",editTakeWeight4.text.toString()
+                        ).addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment4" ,"",
+                            "Exercise4", "",
+                            "Podhod4","",
+                            "Weight4",""
                         ).addOnSuccessListener {}
                 }
                 if(ediExercise5.text.toString().isNotEmpty()){
@@ -249,6 +371,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Weight5",editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment5" ,"",
+                            "Exercise5", "",
+                            "Podhod5","",
+                            "Weight5",""
+                        ).addOnSuccessListener {}
+                }
                 if(ediExercise6.text.toString().isNotEmpty()){
                     up
                         .update(
@@ -256,6 +387,15 @@ class Load_Trainings : AppCompatActivity() {
                             "Exercise6", ediExercise6.text.toString(),
                             "Podhod6",editPodhods6.text.toString(),
                             "Weight6",editTakeWeight6.text.toString()
+                        ).addOnSuccessListener {}
+                }
+                else{
+                    up
+                        .update(
+                            "Comment6" ,"",
+                            "Exercise6", "",
+                            "Podhod6","",
+                            "Weight6",""
                         ).addOnSuccessListener {}
                 }
                 if(ediExercise7.text.toString().isNotEmpty()){
@@ -268,6 +408,17 @@ class Load_Trainings : AppCompatActivity() {
                         )
                         .addOnSuccessListener {}
                 }
+                else{
+                    up
+                        .update(
+                            "Comment7" ,"",
+                            "Exercise7", "",
+                            "Podhod7","",
+                            "Weight7",""
+                        )
+                        .addOnSuccessListener {}
+                }
+
 
                 Toast.makeText(
                     baseContext, "Программа успешно загружена",
@@ -390,8 +541,7 @@ class Load_Trainings : AppCompatActivity() {
         when (view.id){
             R.id.button_loadVideo1 ->{
                 if(editExercise1.text.toString().isNotEmpty()) {
-                    val ex = editExercise1.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -403,8 +553,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo2 ->{
                 if(ediExercise2.text.toString().isNotEmpty()) {
-                    val ex = ediExercise2.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -416,8 +565,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo3 ->{
                 if(ediExercise3.text.toString().isNotEmpty()) {
-                    val ex = ediExercise3.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -429,8 +577,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo4 ->{
                 if(ediExercise4.text.toString().isNotEmpty()) {
-                    val ex = ediExercise4.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -442,8 +589,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo5 ->{
                 if(ediExercise5.text.toString().isNotEmpty()) {
-                    val ex = ediExercise5.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -455,8 +601,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo6 ->{
                 if(ediExercise6.text.toString().isNotEmpty()) {
-                    val ex = ediExercise6.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -468,8 +613,7 @@ class Load_Trainings : AppCompatActivity() {
             }
             R.id.button_loadVideo7 ->{
                 if(ediExercise2.text.toString().isNotEmpty()) {
-                    val ex = ediExercise2.text.toString()
-                    chooseVideo(ex)
+                    chooseVideo()
                 }
                 else
                 {
@@ -502,41 +646,158 @@ class Load_Trainings : AppCompatActivity() {
         }
     }
 
-    private fun chooseVideo(ex:String) {
+    private fun chooseVideo() {
         val videoPickerIntent = Intent(Intent.ACTION_PICK)
         videoPickerIntent.type = "video/*"
-        val ogo=Intent()
-        ogo.putExtra("ex",ex)
 
         startActivityForResult(videoPickerIntent, REQUEST_CODE)
-        startActivityForResult(ogo, REQUEST_CODE)
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && data!=null) {
             var value = intent.getStringExtra("id")
 
-            var ex = data.getStringExtra("ex")
 
-            val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+            var ex:String
 
-
-            val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
-            val uploadTask = input?.let { VideoStorage.putStream(it) }
-
-            uploadTask!!.addOnProgressListener { taskSnapshot ->
-                val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
-                println("Upload is $progress% done")
-            }
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Видео успешно загружено!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+            if(button_loadVideo1.isChecked)  {
+                ex = editExercise1.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
                 }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+
+            if(button_loadVideo2.isChecked)  {
+                ex = ediExercise2.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+
+            if(button_loadVideo3.isChecked)  {
+                ex = ediExercise3.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+            if(button_loadVideo4.isChecked)  {
+                ex = ediExercise4.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+
+            if(button_loadVideo5.isChecked)  {
+                ex = ediExercise5.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+            if(button_loadVideo6.isChecked)  {
+                ex = ediExercise6.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+            if(button_loadVideo7.isChecked)  {
+                ex = ediExercise7.text.toString()
+                val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
+                val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
+                val uploadTask = input?.let { VideoStorage.putStream(it) }
+                uploadTask!!.addOnProgressListener { taskSnapshot ->
+                    val progress = (100.0 * taskSnapshot.bytesTransferred) / taskSnapshot.totalByteCount
+                    println("Upload is $progress% done")
+                }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Видео успешно загружено!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+            }
+
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {

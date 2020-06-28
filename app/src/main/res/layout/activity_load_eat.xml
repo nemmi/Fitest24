@@ -197,6 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="7dp"
                     android:layout_marginTop="2dp"
+                    android:paddingStart="8dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
                     android:gravity="start|top"
@@ -219,6 +220,7 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
+                    android:paddingStart="8dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
@@ -239,6 +241,7 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
+                    android:paddingStart="8dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
@@ -259,6 +262,7 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
+                    android:paddingStart="8dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
@@ -280,16 +284,12 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
+                    android:paddingStart="8dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
 
-                <ImageView
-                    android:id="@+id/imageView599"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@android:color/white" />
+
 
             </LinearLayout>
         </LinearLayout>

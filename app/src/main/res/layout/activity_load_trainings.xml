@@ -220,13 +220,14 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo1"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -324,7 +325,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo2"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -332,6 +333,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -429,7 +431,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo3"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -437,6 +439,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -534,7 +537,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo4"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -542,6 +545,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -639,7 +643,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo5"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -647,6 +651,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -744,7 +749,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo6"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -752,6 +757,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -849,7 +855,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/button_loadVideo7"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
@@ -857,6 +863,7 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/buttonloadvideo"
                     android:onClick="loadTrenClick"
+                    android:button="@null"
                     app:layout_constraintBottom_toTopOf="@+id/editComment7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"

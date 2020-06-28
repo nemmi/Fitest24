@@ -37,8 +37,9 @@ class Load_Eat : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_load_eat)
         var value= intent.getStringExtra("id")
+        var pusto = ""
         buttonSaveEat.setOnClickListener{
-            val FIELD__PATTERN = Regex(pattern = "[0-9a-zA-Zа-яА-Я -.,]{3,300}")
+            val FIELD__PATTERN = Regex(pattern = "[0-9a-zA-Zа-яА-Я -.,!? \n \r]{3,175}")
 
             if(monday.isChecked){
                 val up=  ddb.collection("eat")

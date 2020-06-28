@@ -110,6 +110,7 @@
         android:layout_marginEnd="10dp"
         android:alwaysDrawnWithCache="true"
         android:fadingEdge="none"
+
         android:fillViewport="true"
         android:fitsSystemWindows="false"
         android:verticalScrollbarPosition="defaultPosition"
@@ -212,28 +213,28 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight1"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imagePodhod1" />
 
                 <TextView
                     android:id="@+id/textWeight1"
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment1"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight1" />
 
                 <TextView
                     android:id="@+id/textComment1"
@@ -353,28 +354,28 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight2"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imagePodhod2" />
 
                 <TextView
                     android:id="@+id/textWeight2"
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment2"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight2" />
 
                 <TextView
                     android:id="@+id/textComment2"
@@ -495,13 +496,12 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight3"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod3"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
@@ -509,14 +509,14 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment3"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight3" />
 
                 <TextView
                     android:id="@+id/textComment3"
@@ -636,28 +636,28 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight4"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imagePodhod4" />
 
                 <TextView
                     android:id="@+id/textWeight4"
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment4"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight4" />
 
                 <TextView
                     android:id="@+id/textComment4"
@@ -777,28 +777,28 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight5"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imagePodhod5" />
 
                 <TextView
                     android:id="@+id/textWeight5"
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment5"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight5" />
 
                 <TextView
                     android:id="@+id/textComment5"
@@ -918,13 +918,12 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight6"
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod6"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
@@ -932,14 +931,14 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment6"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight6" />
 
                 <TextView
                     android:id="@+id/textComment6"
@@ -1064,28 +1063,28 @@
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textWeight7"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imagePodhod7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imagePodhod7" />
 
                 <TextView
                     android:id="@+id/textWeight7"
                     android:layout_width="69dp"
                     android:layout_height="26dp"
                     android:layout_marginEnd="248dp"
-                    android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:scrollbars="vertical"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textComment7"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imageWeight7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageWeight7" />
 
                 <TextView
                     android:id="@+id/textComment7"

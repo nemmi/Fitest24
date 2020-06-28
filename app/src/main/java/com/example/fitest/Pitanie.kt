@@ -320,6 +320,21 @@ class Pitanie : AppCompatActivity() {
                         eat3txt.text = snapshot.getString("eat3")
                         eat4txt.text = snapshot.getString("eat4")
                         eat5txt.text = snapshot.getString("eat5")
+                        if(snapshot.getString("Checkbox1") == "true")
+                        {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
+
+                        if(snapshot.getString("Checkbox2") == "true")
+                        {checkBox2.setChecked(true)} else {checkBox2.setChecked(false)}
+
+                        if(snapshot.getString("Checkbox3") == "true")
+                        {checkBox3.setChecked(true)} else {checkBox3.setChecked(false)}
+
+                        if(snapshot.getString("Checkbox4") == "true")
+                        {checkBox4.setChecked(true)} else {checkBox4.setChecked(false)}
+
+                        if(snapshot.getString("Checkbox5") == "true")
+                        {checkBox5.setChecked(true)} else {checkBox5.setChecked(false)}
+
                        } else {
                         Toast.makeText(
                             baseContext, "Нет данных",

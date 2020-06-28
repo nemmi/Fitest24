@@ -11,7 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.*
 
 import kotlinx.android.synthetic.main.activity_sportsmen_anketa2.*
 
@@ -35,7 +34,7 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sportsmen_anketa2)
@@ -267,7 +266,9 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Checkbox4" to "false",
                 "Checkbox5" to "false",
                 "Checkbox6" to "false",
-                "Checkbox7" to "false"
+                "Checkbox7" to "false",
+
+                "test_week" to true
             )
             val tren2 =hashMapOf(
 
@@ -309,7 +310,9 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Checkbox4" to "false",
                 "Checkbox5" to "false",
                 "Checkbox6" to "false",
-                "Checkbox7" to "false"
+                "Checkbox7" to "false",
+
+                "test_week" to true
             )
             val tren3 =hashMapOf(
                 "Comment1" to "",
@@ -350,7 +353,9 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
                 "Checkbox4" to "false",
                 "Checkbox5" to "false",
                 "Checkbox6" to "false",
-                "Checkbox7" to "false"
+                "Checkbox7" to "false",
+
+                "test_week" to true
             )
 
             Firebase.auth.currentUser?.uid?.let {

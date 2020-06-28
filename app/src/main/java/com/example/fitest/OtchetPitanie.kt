@@ -53,236 +53,50 @@ class OtchetPitanie : AppCompatActivity() {
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
 
         var value = intent.getStringExtra("id")
-        // Log.i("NewActivity", value)
-        loadMon(value)
+
+        loadinfo(value, "_M")
 
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 when (optionId) {
 
                     R.id.monday -> {
-                        loadMon(value)
+                        loadinfo(value, "_M")
                     }
 
                     R.id.tuesday -> {
-
-                        ddb.collection("eat")
-                            .document(value+"_T") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadinfo(value, "_T")
                     }
 
                     R.id.wednesday -> {
-
-                        ddb.collection("eat")
-                            .document(value+"_W") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadinfo(value, "_W")
                     }
 
                     R.id.thursday ->{
-
-                        ddb.collection("eat")
-                            .document(value+"_Th") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                       loadinfo(value, "_Th")
                     }
 
                     R.id.friday ->{
-                        ddb.collection("eat")
-                            .document(value+"_F") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadinfo(value, "_F")
                     }
 
                     R.id.saturday ->{
-                        ddb.collection("eat")
-                            .document(value+"_Sat") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadinfo(value, "_Sat")
                     }
 
                     R.id.sunday ->{
-                        ddb.collection("eat")
-                            .document(value+"_Sun") /*здесь будет айди спортсмена*/
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-
-                                    eat1txt.text = snapshot.getString("eat1")
-                                    eat2txt.text = snapshot.getString("eat2")
-                                    eat3txt.text = snapshot.getString("eat3")
-                                    eat4txt.text = snapshot.getString("eat4")
-                                    eat5txt.text = snapshot.getString("eat5")
-
-                                    check(snapshot)
-
-                                } else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadinfo(value, "_Sun")
                     }
                     else -> throw AssertionError()
                 }
-
             }
-
         }
     }
 
-    private fun loadMon(value: String) {
-        ddb.collection("eat")
-            .document(value+"_M") /*здесь будет айди спортсмена*/
-            .addSnapshotListener { snapshot, e ->
-                if (e != null) {
-                    Toast.makeText(
-                        baseContext, "Считать неудалось$e",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@addSnapshotListener
-                }
-                if (snapshot != null && snapshot.exists()) {
 
-                    eat1txt.text = snapshot.getString("eat1")
-                    eat2txt.text = snapshot.getString("eat2")
-                    eat3txt.text = snapshot.getString("eat3")
-                    eat4txt.text = snapshot.getString("eat4")
-                    eat5txt.text = snapshot.getString("eat5")
-
-                    check(snapshot)
-                }
-                else {
-                    Toast.makeText(
-                        baseContext, "Нет данных",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-    }
 
     private val ddb = FirebaseFirestore.getInstance()
-    private fun check(snapshot: DocumentSnapshot?){
+   /* private fun check(snapshot: DocumentSnapshot?){
 
         if (snapshot != null) {
             if (snapshot.getString("Checkbox1") == "true") {
@@ -303,6 +117,53 @@ class OtchetPitanie : AppCompatActivity() {
 
         }
 
+    }*/
+
+    private fun loadinfo(value:String, day:String){
+        ddb.collection("eat")
+            .document(value+day) /*здесь будет айди спортсмена*/
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Toast.makeText(
+                        baseContext, "Считать неудалось$e",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@addSnapshotListener
+                }
+                if (snapshot != null && snapshot.exists()) {
+
+                    eat1txt.text = snapshot.getString("eat1")
+                    eat2txt.text = snapshot.getString("eat2")
+                    eat3txt.text = snapshot.getString("eat3")
+                    eat4txt.text = snapshot.getString("eat4")
+                    eat5txt.text = snapshot.getString("eat5")
+
+                   if(snapshot.getString("Checkbox1") == "true")
+                    {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox2") == "true")
+                    {checkBox2.setChecked(true)} else {checkBox2.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox3") == "true")
+                    {checkBox3.setChecked(true)} else {checkBox3.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox4") == "true")
+                    {checkBox4.setChecked(true)} else {checkBox4.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox5") == "true")
+                    {checkBox5.setChecked(true)} else {checkBox5.setChecked(false)}
+
+
+
+                       // check(snapshot)
+                }
+                else {
+                    Toast.makeText(
+                        baseContext, "Нет данных",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 
     fun otchEatClick(view: View) {

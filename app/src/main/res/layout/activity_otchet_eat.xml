@@ -168,6 +168,7 @@
                     android:onClick="otchEatClick"
                     android:layout_marginStart="10dp"
                     android:clickable="false"
+                    android:enabled="false"
                     android:layout_marginTop="5dp"
                     android:button="@drawable/checkbox_selector"
 
@@ -210,7 +211,7 @@
                     android:clickable="false"
                     android:layout_marginTop="5dp"
                     android:button="@drawable/checkbox_selector"
-
+                    android:enabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
 
@@ -249,6 +250,7 @@
                     android:onClick="otchEatClick"
                     android:layout_marginStart="10dp"
                     android:clickable="false"
+                    android:enabled="false"
                     android:layout_marginTop="5dp"
                     android:button="@drawable/checkbox_selector"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -292,7 +294,7 @@
                     android:clickable="false"
                     android:layout_marginTop="5dp"
                     android:button="@drawable/checkbox_selector"
-
+                    android:enabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
 
@@ -334,7 +336,7 @@
                     android:clickable="false"
                     android:layout_marginTop="5dp"
                     android:button="@drawable/checkbox_selector"
-
+                    android:enabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
 
