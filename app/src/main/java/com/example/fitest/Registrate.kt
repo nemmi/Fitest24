@@ -141,31 +141,40 @@ class Registration : AppCompatActivity() {
         val user = hashMapOf(
             "email" to editMail.text.toString()
         )
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("sportsmen")
+                .document(it)
+                .set(user as Map<String, Any>)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(
+                        baseContext, "Вы зарегистрировались как спортсмен, пожалуйста, заполните анкету",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
 
-        Reg("Вы зарегистрировались как спортсмен, пожалуйста, заполните анкету", user)
     }
     private fun writeNewTrener() {
 
         val user = hashMapOf(
             "email" to editMail.text.toString()
         )
-
-        Reg("Вы зарегистрировались как тренер, пожалуйста, заполните анкету", user)
-    }
-
-    private fun Reg(message:String, user:HashMap<String,String>){
         Firebase.auth.currentUser?.uid?.let {
             ddb.collection("treners")
                 .document(it)
                 .set(user as Map<String, Any>)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(
-                        baseContext, message,
+                        baseContext, "Вы зарегистрировались как тренер, пожалуйста, заполните анкету",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
         }
-}
+
+    }
+
+
+
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
