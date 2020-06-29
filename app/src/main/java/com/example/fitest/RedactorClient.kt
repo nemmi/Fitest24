@@ -7,6 +7,7 @@ import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.fitest.dffgh.SelectTrener
 import com.google.firebase.auth.ktx.auth
@@ -69,6 +70,7 @@ class RedactorClient : AppCompatActivity() {
     private fun editProfile(){
         val user = Firebase.auth.currentUser
         val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
+        val PHONE_PATTERN = Regex(pattern= "[0-9]{11,12}")
 
         if (mailEdit.text.toString().isNotEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(mailEdit.text.toString()).matches()) {
             mailEdit.error = "Введите корректный email"
@@ -82,7 +84,7 @@ class RedactorClient : AppCompatActivity() {
             return
         }
 
-        if (phoneEdit.text.toString().isNotEmpty()&&!Patterns.PHONE.matcher(phoneEdit.text.toString()).matches()) {
+        if (phoneEdit.text.toString().isNotEmpty()&&!Patterns.PHONE.matcher(phoneEdit.text.toString()).matches()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
             phoneEdit.error = "Введите корректный номер"
             phoneEdit.requestFocus()
             return
@@ -93,47 +95,19 @@ class RedactorClient : AppCompatActivity() {
             if (mailEdit.text.toString().isNotEmpty()){
                 user!!.updateEmail(mailEdit.text.toString())
                     .addOnCompleteListener { task ->
-                        Firebase.auth.currentUser?.uid?.let {
-                            val up =
-                                ddb.collection("sportsmen")
-                                    .document(it)
-                            up.update(
-                                "email", mailEdit.text.toString()
-                            )
-                                .addOnSuccessListener {
-                                }
-                        }
+                        Update("email", mailEdit)
                     }
 
             }
 
             if (editFI.text.toString().isNotEmpty()) {
 
-                Firebase.auth.currentUser?.uid?.let {
-                    val up =
-                        ddb.collection("sportsmen")
-                            .document(it)
-                    up.update(
-                        "name", editFI.text.toString()
-                    )
-                        .addOnSuccessListener {
-                        }
-                }
+                Update("name", editFI)
 
 
             }
             if (phoneEdit.text.toString().isNotEmpty()) {
-                Firebase.auth.currentUser?.uid?.let {
-                    val up =
-                        ddb.collection("sportsmen")
-                            .document(it)
-                    up.update(
-
-                        "phoneNumber", phoneEdit.text.toString()
-                    )
-                        .addOnSuccessListener {
-                        }
-                }
+                Update("phoneNumber", phoneEdit)
             }
             Toast.makeText(
                 baseContext, "Профиль успешно обновлен",
@@ -157,7 +131,19 @@ class RedactorClient : AppCompatActivity() {
                 }
             }
     }
+private fun Update(Auth:String, field:TextView){
+    Firebase.auth.currentUser?.uid?.let {
+        val up =
+            ddb.collection("sportsmen")
+                .document(it)
+        up.update(
 
+            Auth, field.text.toString()
+        )
+            .addOnSuccessListener {
+            }
+    }
+}
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

@@ -7,6 +7,7 @@ import android.text.Editable
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -51,11 +52,6 @@ class RedactorTrener : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_redactor_trener)
-
-        /* loadData()*/
-        /* val uid= FirebaseAuth.getInstance().currentUser?.uid
-         val db = uid?.let { FirebaseDatabase.getInstance().reference.child("users").child("treners").child(it) }
- */
     }
 
     private val ddb = FirebaseFirestore.getInstance()
@@ -101,47 +97,16 @@ class RedactorTrener : AppCompatActivity() {
             if (mailEdit.text.toString().isNotEmpty()) {
                 user!!.updateEmail(mailEdit.text.toString())
                     .addOnCompleteListener { task ->
-                        Firebase.auth.currentUser?.uid?.let {
-                            val up =
-                                ddb.collection("treners")
-                                    .document(it)
-                            up.update(
-                                "email", mailEdit.text.toString()
-                            )
-                                .addOnSuccessListener {
-                                }
-                        }
+                        Update("email", mailEdit)
                     }
 
             }
 
             if (editFI.text.toString().isNotEmpty()) {
-
-                Firebase.auth.currentUser?.uid?.let {
-                    val up =
-                        ddb.collection("treners")
-                            .document(it)
-                    up.update(
-                        "name", editFI.text.toString()
-                    )
-                        .addOnSuccessListener {
-                        }
-                }
-
-
+                Update("name",editFI)
             }
             if (phoneEdit.text.toString().isNotEmpty()) {
-                Firebase.auth.currentUser?.uid?.let {
-                    val up =
-                        ddb.collection("treners")
-                            .document(it)
-                    up.update(
-
-                        "phoneNumber", phoneEdit.text.toString()
-                    )
-                        .addOnSuccessListener {
-                        }
-                }
+                Update("phoneNumber", phoneEdit)
             }
             Toast.makeText(
                 baseContext, "Профиль успешно обновлен",
@@ -151,9 +116,9 @@ class RedactorTrener : AppCompatActivity() {
         }
 
     }
+
     private fun deleteUser(){
         val user = Firebase.auth.currentUser!!
-
         user.delete()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -166,6 +131,19 @@ class RedactorTrener : AppCompatActivity() {
             }
     }
 
+    private fun Update(Auth:String, field:TextView){
+     Firebase.auth.currentUser?.uid?.let {
+        val up =
+            ddb.collection("treners")
+                .document(it)
+        up.update(
+
+            Auth, field.text.toString()
+        )
+            .addOnSuccessListener {
+            }
+      }
+    }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

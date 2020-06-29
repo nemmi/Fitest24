@@ -2,38 +2,26 @@ package com.example.fitest
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
+
 import com.bumptech.glide.Glide
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
+
 
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_coaches_anketa.*
-import kotlinx.android.synthetic.main.activity_profile_client.*
+
 import kotlinx.android.synthetic.main.activity_profile_trener_view.*
 import kotlinx.android.synthetic.main.activity_profile_trener_view.imageView61
-import kotlinx.android.synthetic.main.activity_trener_vid_client.*
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileInputStream
+
 
 lateinit var REF_STORAGE_ROOT: StorageReference
 
@@ -101,9 +89,6 @@ class ProfileTrenerView : AppCompatActivity() {
                     imageButton25.visibility=View.INVISIBLE
                 }
 
-                /*  Glide.with(this)
-                    .load(uri)
-                    .into(imageView61)*/
                 Glide.with(this)
                     .load(path)
                     .into(imageView61)

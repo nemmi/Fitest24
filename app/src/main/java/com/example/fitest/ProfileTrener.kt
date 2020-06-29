@@ -48,20 +48,9 @@ class ProfileTrener : AppCompatActivity() {
     }
     val uid= FirebaseAuth.getInstance().currentUser?.uid
 
-    /*  val db = uid?.let { FirebaseDatabase.getInstance().reference.child("users").child("treners").child(it).child("phoneNumber") }*/
     private val ddb = FirebaseFirestore.getInstance()
 
-    /* private fun let(){
-         val user = Firebase.auth.currentUser
-         user?.let {
-             val name = user.displayName
-             val email = user.email
-             FI.text=name
-             textMail.text = email
-         }
 
-       textPhone.text= db.toString()
-     }*/
     private fun changesAndRead(){
 
         Firebase.auth.currentUser?.uid?.let {
@@ -77,9 +66,7 @@ class ProfileTrener : AppCompatActivity() {
                         return@addSnapshotListener
                     }
 
-                    /*   if (snapshot != null && snapshot.exists()) {
-                           Log.d(TAG, "Current data: ${snapshot.data}")
-                       }*/
+
                     if (snapshot != null && snapshot.exists()) {
                         textMail.text=snapshot.getString("email")
                         FI.text=snapshot.getString("name")
