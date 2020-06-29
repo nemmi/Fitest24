@@ -34,6 +34,30 @@ import java.io.File
 
 class Trainings_Sportsmen : AppCompatActivity() {
 
+    var mondayChek1 = false
+    var mondayChek2 = false
+    var mondayChek3 = false
+    var mondayChek4 = false
+    var mondayChek5 = false
+    var mondayChek6 = false
+    var mondayChek7 = false
+
+    var tuesdayChek2 = false
+    var tuesdayChek1 = false
+    var tuesdayChek3 = false
+    var tuesdayChek5 = false
+    var tuesdayChek4 = false
+    var tuesdayChek6 = false
+    var tuesdayChek7 = false
+
+    var wednesdayChek1 = false
+    var wednesdayChek2 = false
+    var wednesdayChek3 = false
+    var wednesdayChek4 = false
+    var wednesdayChek5 = false
+    var wednesdayChek6 = false
+    var wednesdayChek7 = false
+
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -63,13 +87,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
             run {
                 when (optionId) {
                     R.id.button_day1 -> {
+                        CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5, mondayChek6, mondayChek7)
                         loadFirst("_1")
+
                     }
                     R.id.button_day2 -> {
                         loadFirst("_2")
+                        CheckThisOut(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5, tuesdayChek6, tuesdayChek7)
                     }
                     R.id.button_day3 -> {
                         loadFirst("_3")
+                        CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5, wednesdayChek6, wednesdayChek7)
                     }
                     else -> throw AssertionError()
                 }
@@ -178,467 +206,135 @@ class Trainings_Sportsmen : AppCompatActivity() {
             }
 
             R.id.checkBox1 -> {
-                if (checkBox1.isChecked) {
+
                     if (button_day1.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox1", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
+                        mondayChek1 = checkBox1.isChecked
+                        CheckID("_1", "Checkbox1", mondayChek1.toString())
+
+
                     }
                     if (button_day2.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_2")
-                                .update("Checkbox1", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
+                        tuesdayChek1 = checkBox1.isChecked
+                        CheckID("_2", "Checkbox1", tuesdayChek1.toString())
                     }
                     if (button_day3.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_3")
-                                .update("Checkbox1", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
+                        wednesdayChek1 = checkBox1.isChecked
+                        CheckID("_3", "Checkbox1", wednesdayChek1.toString())
                     }
 
-                    else {
-                        if (!button_day1.isChecked) {
-
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it+"_1")
-                                    .update("Checkbox1", "false")
-                                    .addOnSuccessListener {
                                     }
-                            }
-                        }
-                        if (!button_day2.isChecked) {
 
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it + "_2")
-                                    .update("Checkbox1", "false")
-                                    .addOnSuccessListener {
-                                    }
-                            }
-                        }
-                        if (!button_day3.isChecked) {
-
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it + "_3")
-                                    .update("Checkbox1", "false")
-                                    .addOnSuccessListener {
-                                    }
-                            }
-                        }
-                    }
-                }
-            }
             R.id.checkBox2 -> {
                 if (button_day1.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_1")
-                            .update("Checkbox2", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    mondayChek2 = checkBox2.isChecked
+                    CheckID("_1", "Checkbox2", mondayChek2.toString())
                 }
                 if (button_day2.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_2")
-                            .update("Checkbox2", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    tuesdayChek2 = checkBox2.isChecked
+                    CheckID("_2", "Checkbox2", tuesdayChek2.toString())
                 }
                 if (button_day3.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_3")
-                            .update("Checkbox2", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    wednesdayChek2 = checkBox2.isChecked
+                    CheckID("_3", "Checkbox2", wednesdayChek2.toString())
                 }
 
-                else {
-                    if (!button_day1.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox2", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day2.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_2")
-                                .update("Checkbox2", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day3.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_3")
-                                .update("Checkbox2", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                }
             }
             R.id.checkBox3 -> {
                 if (button_day1.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_1")
-                            .update("Checkbox3", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    mondayChek3 = checkBox3.isChecked
+                    CheckID("_1", "Checkbox3", mondayChek3.toString())
                 }
                 if (button_day2.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_2")
-                            .update("Checkbox3", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    tuesdayChek3 = checkBox3.isChecked
+                    CheckID("_2", "Checkbox3", tuesdayChek3.toString())
                 }
                 if (button_day3.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_3")
-                            .update("Checkbox3", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    wednesdayChek3 = checkBox3.isChecked
+                    CheckID("_3", "Checkbox3", wednesdayChek3.toString())
                 }
 
-                else {
-                    if (!button_day1.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox3", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day2.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_2")
-                                .update("Checkbox3", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day3.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_3")
-                                .update("Checkbox3", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                }
             }
             R.id.checkBox4 -> {
                 if (button_day1.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_1")
-                            .update("Checkbox4", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    mondayChek4 = checkBox4.isChecked
+                    CheckID("_1", "Checkbox4", mondayChek4.toString())
                 }
                 if (button_day2.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_2")
-                            .update("Checkbox4", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    tuesdayChek4 = checkBox4.isChecked
+                    CheckID("_2", "Checkbox4", tuesdayChek4.toString())
                 }
                 if (button_day3.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_3")
-                            .update("Checkbox4", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    wednesdayChek4 = checkBox4.isChecked
+                    CheckID("_3", "Checkbox4", wednesdayChek4.toString())
                 }
 
-                else {
-                    if (!button_day1.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox4", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day2.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_2")
-                                .update("Checkbox4", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day3.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_3")
-                                .update("Checkbox4", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                }
             }
             R.id.checkBox5 -> {
                 if (button_day1.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_1")
-                            .update("Checkbox5", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    mondayChek5 = checkBox5.isChecked
+                    CheckID("_1", "Checkbox5", mondayChek5.toString())
                 }
                 if (button_day2.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_2")
-                            .update("Checkbox5", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    tuesdayChek5 = checkBox5.isChecked
+                    CheckID("_2", "Checkbox5", tuesdayChek5.toString())
                 }
                 if (button_day3.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_3")
-                            .update("Checkbox5", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
-                }
-
-                else {
-                    if (!button_day1.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox5", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day2.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_2")
-                                .update("Checkbox5", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day3.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_3")
-                                .update("Checkbox5", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
+                    wednesdayChek5 = checkBox5.isChecked
+                    CheckID("_3", "Checkbox5", wednesdayChek5.toString())
                 }
 
             }
             R.id.checkBox6 -> {
                 if (button_day1.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_1")
-                            .update("Checkbox6", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    mondayChek6 = checkBox6.isChecked
+                    CheckID("_1", "Checkbox6", mondayChek6.toString())
                 }
                 if (button_day2.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_2")
-                            .update("Checkbox6", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
+                    tuesdayChek6 = checkBox6.isChecked
+                    CheckID("_2", "Checkbox6", tuesdayChek6.toString())
                 }
                 if (button_day3.isChecked) {
 
-                    Firebase.auth.currentUser?.uid?.let {
-                        ddb.collection("trainings")
-                            .document(it+"_3")
-                            .update("Checkbox6", "true")
-                            .addOnSuccessListener {
-                            }
-                    }
-                }
-
-                else {
-                    if (!button_day1.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox6", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day2.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_2")
-                                .update("Checkbox6", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-                    if (!button_day3.isChecked) {
-
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it + "_3")
-                                .update("Checkbox6", "false")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
+                    wednesdayChek6 = checkBox6.isChecked
+                    CheckID("_3", "Checkbox6", wednesdayChek6.toString())
                 }
 
             }
             R.id.checkBox7 -> {
-                if (checkBox7.isChecked) {
+
                     if (button_day1.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_1")
-                                .update("Checkbox7", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
+                        mondayChek7 = checkBox7.isChecked
+                        CheckID("_1", "Checkbox7", mondayChek7.toString())
                     }
                     if (button_day2.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_2")
-                                .update("Checkbox7", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
+                        tuesdayChek7 = checkBox7.isChecked
+                        CheckID("_2", "Checkbox7", tuesdayChek7.toString())
                     }
                     if (button_day3.isChecked) {
 
-                        Firebase.auth.currentUser?.uid?.let {
-                            ddb.collection("trainings")
-                                .document(it+"_3")
-                                .update("Checkbox7", "true")
-                                .addOnSuccessListener {
-                                }
-                        }
-                    }
-
-                    else {
-                        if (!button_day1.isChecked) {
-
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it+"_1")
-                                    .update("Checkbox7", "false")
-                                    .addOnSuccessListener {
-                                    }
-                            }
-                        }
-                        if (!button_day2.isChecked) {
-
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it + "_2")
-                                    .update("Checkbox7", "false")
-                                    .addOnSuccessListener {
-                                    }
-                            }
-                        }
-                        if (!button_day3.isChecked) {
-
-                            Firebase.auth.currentUser?.uid?.let {
-                                ddb.collection("trainings")
-                                    .document(it + "_3")
-                                    .update("Checkbox7", "false")
-                                    .addOnSuccessListener {
-                                    }
-                            }
-                        }
+                        wednesdayChek7 = checkBox7.isChecked
+                        CheckID("_3", "Checkbox7", wednesdayChek7.toString())
                     }
                 }
-            }
-
             R.id.videoExercise1 -> {
 
                 if(textExercise1.text.toString().isNotEmpty()) {
@@ -864,6 +560,38 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
 
     }
+
+    private fun CheckID(day:String, checkbox:String, daycheck:String){
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("trainings")
+                .document(it+day)
+                .update(checkbox, daycheck)
+                .addOnSuccessListener {
+                }
+        }
+
+
+    }
+
+    private fun CheckThisOut(Chek1:Boolean, Chek2:Boolean, Chek3:Boolean, Chek4:Boolean, Chek5:Boolean, Chek6:Boolean, Chek7:Boolean){
+        checkBox1.isChecked= false
+        checkBox2.isChecked= false
+        checkBox3.isChecked= false
+        checkBox4.isChecked= false
+        checkBox5.isChecked= false
+        checkBox6.isChecked= false
+        checkBox7.isChecked= false
+
+        if(Chek1 == true) checkBox1.isChecked=true
+        if(Chek2 == true) checkBox2.isChecked=true
+        if(Chek3 == true) checkBox3.isChecked=true
+        if(Chek4 == true) checkBox4.isChecked=true
+        if(Chek5 == true) checkBox5.isChecked=true
+        if(Chek6 == true) checkBox6.isChecked=true
+        if(Chek7 == true) checkBox6.isChecked=true
+    }
+
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

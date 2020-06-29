@@ -57,111 +57,19 @@ class Trainings_Coach : AppCompatActivity() {
         var value = intent.getStringExtra("id")
         // Log.i("NewActivity", value)
 
-        loadFirst(value)
+        loadFirst(value, "_1")
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 when (optionId) {
 
                     R.id.button_day1 -> {
-                        loadFirst(value)
+                        loadFirst(value, "_1")
                     }
                     R.id.button_day2 -> {
-                        ddb.collection("trainings")
-                            .document(value+"_2")
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-
-                                    textExercise.text = snapshot.getString("Exercise1")
-                                    textExercise2.text = snapshot.getString("Exercise2")
-                                    textExercise3.text = snapshot.getString("Exercise3")
-                                    textExercise4.text = snapshot.getString("Exercise4")
-                                    textExercise5.text = snapshot.getString("Exercise5")
-                                    textExercise6.text = snapshot.getString("Exercise6")
-                                    textExercise7.text = snapshot.getString("Exercise7")
-
-
-                                    editPodhody1.text = snapshot.getString("Podhod1")
-                                    editPodhody2.text = snapshot.getString("Podhod2")
-                                    editPodhody3.text = snapshot.getString("Podhod3")
-                                    editPodhody4.text = snapshot.getString("Podhod4")
-                                    editPodhody5.text = snapshot.getString("Podhod5")
-                                    editPodhody6.text = snapshot.getString("Podhod6")
-                                    editPodhody7.text = snapshot.getString("Podhod7")
-
-
-                                    editKG.text = snapshot.getString("Weight1")
-                                    editKG2.text = snapshot.getString("Weight2")
-                                    editKG3.text = snapshot.getString("Weight3")
-                                    editKG4.text = snapshot.getString("Weight4")
-                                    editKG5.text = snapshot.getString("Weight5")
-                                    editKG6.text = snapshot.getString("Weight6")
-                                    editKG7.text = snapshot.getString("Weight7")
-
-                                    check(snapshot)
-                                }
-                                else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadFirst(value, "_2")
                     }
                     R.id.button_day3 -> {
-                        ddb.collection("trainings")
-                            .document(value+"_3")
-                            .addSnapshotListener { snapshot, e ->
-                                if (e != null) {
-                                    Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@addSnapshotListener
-                                }
-                                if (snapshot != null && snapshot.exists()) {
-
-                                    textExercise.text = snapshot.getString("Exercise1")
-                                    textExercise2.text = snapshot.getString("Exercise2")
-                                    textExercise3.text = snapshot.getString("Exercise3")
-                                    textExercise4.text = snapshot.getString("Exercise4")
-                                    textExercise5.text = snapshot.getString("Exercise5")
-                                    textExercise6.text = snapshot.getString("Exercise6")
-                                    textExercise7.text = snapshot.getString("Exercise7")
-
-
-                                    editPodhody1.text = snapshot.getString("Podhod1")
-                                    editPodhody2.text = snapshot.getString("Podhod2")
-                                    editPodhody3.text = snapshot.getString("Podhod3")
-                                    editPodhody4.text = snapshot.getString("Podhod4")
-                                    editPodhody5.text = snapshot.getString("Podhod5")
-                                    editPodhody6.text = snapshot.getString("Podhod6")
-                                    editPodhody7.text = snapshot.getString("Podhod7")
-
-
-                                    editKG.text = snapshot.getString("Weight1")
-                                    editKG2.text = snapshot.getString("Weight2")
-                                    editKG3.text = snapshot.getString("Weight3")
-                                    editKG4.text = snapshot.getString("Weight4")
-                                    editKG5.text = snapshot.getString("Weight5")
-                                    editKG6.text = snapshot.getString("Weight6")
-                                    editKG7.text = snapshot.getString("Weight7")
-
-                                    check(snapshot)
-                                }
-                                else {
-                                    Toast.makeText(
-                                        baseContext, "Нет данных",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
+                        loadFirst(value, "_3")
                     }
                     else -> throw AssertionError()
                 }
@@ -170,10 +78,10 @@ class Trainings_Coach : AppCompatActivity() {
     }
     private val ddb = FirebaseFirestore.getInstance()
 
-    private fun loadFirst(value: String?) {
+    private fun loadFirst(value: String?, day:String) {
 
         ddb.collection("trainings")
-            .document(value+"_1")
+            .document(value+day)
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Toast.makeText(
@@ -210,7 +118,28 @@ class Trainings_Coach : AppCompatActivity() {
                     editKG6.text = snapshot.getString("Weight6")
                     editKG7.text = snapshot.getString("Weight7")
 
-                    check(snapshot)
+                    if(snapshot.getString("Checkbox1") == "true")
+                    {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox2") == "true")
+                    {checkBox2.setChecked(true)} else {checkBox2.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox3") == "true")
+                    {checkBox3.setChecked(true)} else {checkBox3.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox4") == "true")
+                    {checkBox4.setChecked(true)} else {checkBox4.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox5") == "true")
+                    {checkBox5.setChecked(true)} else {checkBox5.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox6") == "true")
+                    {checkBox6.setChecked(true)} else {checkBox6.setChecked(false)}
+
+                    if(snapshot.getString("Checkbox7") == "true")
+                    {checkBox7.setChecked(true)} else {checkBox7.setChecked(false)}
+
+                    //check(snapshot)
                 }
                 else {
                     Toast.makeText(
@@ -248,7 +177,7 @@ class Trainings_Coach : AppCompatActivity() {
 
         }
     }
-    private fun check(snapshot: DocumentSnapshot?){
+ /*   private fun check(snapshot: DocumentSnapshot?){
 
         if (snapshot != null) {
             if (snapshot.getString("Checkbox1") == "true") {
@@ -274,7 +203,7 @@ class Trainings_Coach : AppCompatActivity() {
             }
         }
 
-    }
+    }*/
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
