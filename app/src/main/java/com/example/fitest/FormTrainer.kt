@@ -1,19 +1,14 @@
 package com.example.fitest
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
@@ -23,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_coaches_anketa.editSecondName
 
 
 
-class Anketa_Coach : AppCompatActivity() {
+class FormTrainer : AppCompatActivity() {
 
     private lateinit var auth:FirebaseAuth
 
@@ -57,10 +52,10 @@ class Anketa_Coach : AppCompatActivity() {
 
     fun AnketaCoachClick(view: View) {
         when (view.id){
-            R.id.button_loadPh->{
+            R.id.buttonLoadPhoto->{
                 startActivity(Intent(this, ProfileTrenerView::class.java))
             }
-            R.id.but_IN_Coach ->{
+            R.id.butInCoach ->{
                 upProfile()
             }
         }
@@ -160,7 +155,7 @@ class Anketa_Coach : AppCompatActivity() {
                             baseContext, "Профиль заполнен",
                             Toast.LENGTH_SHORT
                         ).show()
-                        startActivity(Intent(this, ProfileTrener::class.java))
+                        startActivity(Intent(this, ProfileTrainer::class.java))
                         finish()
                     }
             }

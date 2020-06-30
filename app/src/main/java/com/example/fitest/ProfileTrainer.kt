@@ -3,7 +3,6 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -11,13 +10,11 @@ import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_profile_trener.*
-import kotlinx.android.synthetic.main.activity_redactor_trener.*
 
-class ProfileTrener : AppCompatActivity() {
+class ProfileTrainer : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -69,7 +66,7 @@ class ProfileTrener : AppCompatActivity() {
 
                     if (snapshot != null && snapshot.exists()) {
                         textMail.text=snapshot.getString("email")
-                        FI.text=snapshot.getString("name")
+                        fio.text=snapshot.getString("name")
                         textPhone.text=snapshot.getString("phoneNumber")
                     }
                     else {
@@ -86,17 +83,17 @@ class ProfileTrener : AppCompatActivity() {
 
     fun profileTrClick(view: View) {
         when (view.id) {
-            R.id.imageButton -> {
+            R.id.btnExit -> {
                 Firebase.auth.signOut()
                 startActivity(Intent(this, MainActivity::class.java))
             }
-            R.id.imageButton2 -> {
-                startActivity(Intent(this, RedactorTrener::class.java))
+            R.id.btnRedactorTrainerProfile -> {
+                startActivity(Intent(this, RedactorTrainer::class.java))
             }
-            R.id.imageButton28 -> {
+            R.id.listClients -> {
                 startActivity(Intent(this, ListClient::class.java))
             }
-            R.id.imageButton33 -> {
+            R.id.chat -> {
                 startActivity(Intent(this, SpisocChatov::class.java))
             }
 

@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@drawable/backotchetbodyparam1sportsman1"
-    tools:context=".Params_Coach">
+    tools:context=".ParamsTrainer">
 
     <ImageView
         android:id="@+id/imageView"
@@ -26,7 +26,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button_clients"
+            android:id="@+id/buttonClients"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -35,7 +35,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
             android:onClick="paramsCoachClick" />
 
         <Button
-            android:id="@+id/button_clients_profile"
+            android:id="@+id/buttonClientsProfile"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -44,7 +44,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
             android:onClick="paramsCoachClick" />
 
         <Button
-            android:id="@+id/button_chat"
+            android:id="@+id/buttonChat"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -190,7 +190,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
         android:layout_marginStart="32dp"
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilecircle"
+        app:layout_constraintTop_toBottomOf="@+id/profileCircle"
         app:srcCompat="@drawable/weightwtharrow" />
 
     <TextView
@@ -377,7 +377,7 @@ android:background="@drawable/backotchetbodyparam1sportsman1"
     app:layout_constraintVertical_bias="0.222" />
 
     <Button
-        android:id="@+id/profilecircle"
+        android:id="@+id/profileCircle"
         android:layout_width="54dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"

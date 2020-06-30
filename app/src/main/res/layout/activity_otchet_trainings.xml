@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backotchettrainings"
-    tools:context=".Trainings_Coach">
+    tools:context=".TrainingsTrainer">
 
     <Button
         android:id="@+id/profile"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/button_day1"
+            android:id="@+id/buttonDay1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -43,7 +43,7 @@
             />
 
         <RadioButton
-            android:id="@+id/button_day2"
+            android:id="@+id/buttonDay2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -53,7 +53,7 @@
             />
 
         <RadioButton
-            android:id="@+id/button_day3"
+            android:id="@+id/buttonDay3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button_clients"
+            android:id="@+id/buttonClients"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:onClick="trenCoachClick" />
 
         <Button
-            android:id="@+id/button_clients_profile"
+            android:id="@+id/buttonClientsProfile"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -91,7 +91,7 @@
             android:onClick="trenCoachClick" />
 
         <Button
-            android:id="@+id/button_chat"
+            android:id="@+id/buttonChat"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -133,7 +133,7 @@
                     android:id="@+id/checkBox1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-android:layout_marginStart="15dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:button="@drawable/checkbox_selector"
                     android:clickable="false" />

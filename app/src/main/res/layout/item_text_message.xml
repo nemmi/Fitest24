@@ -9,14 +9,14 @@
     android:layout_marginBottom="8dp">
 
     <RelativeLayout
-        android:id="@+id/message_root"
+        android:id="@+id/messageRoot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:background="@color/cardview_dark_background">
 
         <TextView
-            android:id="@+id/textView_message_text"
+            android:id="@+id/textViewMessageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="250dp"
@@ -34,8 +34,8 @@
             android:id="@+id/textView_message_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView_message_text"
-            android:layout_alignEnd="@id/textView_message_text"
+            android:layout_below="@id/textViewMessageText"
+            android:layout_alignEnd="@id/textViewMessageText"
             android:layout_marginEnd="8dp"
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"

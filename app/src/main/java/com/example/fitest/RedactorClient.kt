@@ -6,20 +6,14 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.fitest.dffgh.SelectTrener
+import com.example.fitest.SelectTrener.SelectTrener
 import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-
 import kotlinx.android.synthetic.main.activity_redactor_client.*
-import kotlinx.android.synthetic.main.activity_redactor_client.editFI
-import kotlinx.android.synthetic.main.activity_redactor_client.mailEdit
-import kotlinx.android.synthetic.main.activity_redactor_client.phoneEdit
-import kotlinx.android.synthetic.main.activity_redactor_trener.*
 
 
 class RedactorClient : AppCompatActivity() {
@@ -53,10 +47,10 @@ class RedactorClient : AppCompatActivity() {
 
     fun editSpClick(view: View) {
         when (view.id) {
-            R.id.deleteprofile -> {
+            R.id.deleteProfile -> {
                 deleteUser()
             }
-            R.id.swaptrener -> {
+            R.id.swapTrainer -> {
                 startActivity(Intent(this, SelectTrener::class.java))
             }
             R.id.save -> {
@@ -78,9 +72,9 @@ class RedactorClient : AppCompatActivity() {
             return
         }
 
-        if (editFI.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editFI.text.toString())) {
-            editFI.error = "Введите Имя"
-            editFI.requestFocus()
+        if (editSecnameName.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editSecnameName.text.toString())) {
+            editSecnameName.error = "Введите Имя"
+            editSecnameName.requestFocus()
             return
         }
 
@@ -100,9 +94,9 @@ class RedactorClient : AppCompatActivity() {
 
             }
 
-            if (editFI.text.toString().isNotEmpty()) {
+            if (editSecnameName.text.toString().isNotEmpty()) {
 
-                Update("name", editFI)
+                Update("name", editSecnameName)
 
 
             }

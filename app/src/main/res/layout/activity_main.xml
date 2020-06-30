@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="112dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/fieldurmail"
         android:ems="10"
         android:hint="youremail@email.ru"
@@ -27,18 +27,18 @@
         android:soundEffectsEnabled="true"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/editPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/fieldenterthepassword"
         android:ems="10"
         android:hint="123456sS"
@@ -51,17 +51,17 @@
         android:soundEffectsEnabled="true"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/editPassword1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMail" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editPassword1"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/fieldrepassword"
         android:ems="10"
         android:hint="123456sS"
@@ -76,12 +76,10 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonINTeam"
+        android:id="@+id/buttonInTeam"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="160dp"
@@ -107,7 +105,7 @@
         android:gravity="center"
         android:onClick="regClick"
         android:soundEffectsEnabled="true"
-        app:layout_constraintBottom_toTopOf="@+id/buttonINTeam"
+        app:layout_constraintBottom_toTopOf="@+id/buttonInTeam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />

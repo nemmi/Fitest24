@@ -8,12 +8,10 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_profile_client.*
-import kotlinx.android.synthetic.main.activity_profile_client.FI
-import kotlinx.android.synthetic.main.activity_profile_trener.*
+import kotlinx.android.synthetic.main.activity_profile_client.fio
 
 
 class ProfileClient : AppCompatActivity() {
@@ -69,9 +67,9 @@ class ProfileClient : AppCompatActivity() {
 
 
                     if (snapshot != null && snapshot.exists()) {
-                        ClientEmailView.text=snapshot.getString("email")
-                        FI.text=snapshot.getString("name")
-                        ClientPhoneView.text=snapshot.getString("phoneNumber")
+                        clientEmailView.text=snapshot.getString("email")
+                        fio.text=snapshot.getString("name")
+                        clientPhoneView.text=snapshot.getString("phoneNumber")
                         var NameTren = snapshot.getString("myTrener")
 
                         ddb.collection("treners")
@@ -87,7 +85,7 @@ class ProfileClient : AppCompatActivity() {
 
 
                                 if (snapshot != null && snapshot.exists()) {
-                                    ClentTrenerView.text = snapshot.getString("name")
+                                    clentTrenerView.text = snapshot.getString("name")
                                 }
                             }
 
@@ -117,16 +115,16 @@ class ProfileClient : AppCompatActivity() {
                 startActivity(Intent(this, RedactorClient::class.java))
             }
             R.id.buttonParams -> {
-                startActivity(Intent(this, Params_Sportsmen::class.java))
+                startActivity(Intent(this, ParamsSportsman::class.java))
             }
-            R.id.button_trainings -> {
-                startActivity(Intent(this, Trainings_Sportsmen::class.java))
+            R.id.buttonTrainings -> {
+                startActivity(Intent(this, TrainingsSportsman::class.java))
             }
-            R.id.button_eats -> {
-                startActivity(Intent(this, Pitanie::class.java))
+            R.id.buttonEats -> {
+                startActivity(Intent(this, Eat::class.java))
             }
-            R.id.button_chat -> {
-                startActivity(Intent(this, Chat_Sportsmen::class.java))
+            R.id.buttonChat -> {
+                startActivity(Intent(this, ChatSportsman::class.java))
             }
 
 

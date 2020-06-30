@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backtrainig"
-    tools:context=".Trainings_Sportsmen">
+    tools:context=".TrainingsSportsman">
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button_training"
+            android:id="@+id/buttonTraining"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_weight="1"
@@ -25,7 +25,7 @@
             android:onClick="trenSportsmenClick" />
 
         <Button
-            android:id="@+id/button_eats"
+            android:id="@+id/buttonEats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
             android:onClick="trenSportsmenClick" />
 
         <Button
-            android:id="@+id/button_chats"
+            android:id="@+id/buttonChats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
-            android:id="@+id/button_day1"
+            android:id="@+id/buttonDay1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -84,7 +84,7 @@
             />
 
         <RadioButton
-            android:id="@+id/button_day2"
+            android:id="@+id/buttonDay2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -93,7 +93,7 @@
             android:button="@null" />
 
         <RadioButton
-            android:id="@+id/button_day3"
+            android:id="@+id/buttonDay3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -143,7 +143,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo1"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +151,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo1"
+                    android:id="@+id/BorderForVideo1"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -169,10 +169,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo1"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo1"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo1"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo1" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo1"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo1"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo1"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo1" />
 
                 <ImageView
                     android:id="@+id/imagePodhod1"
@@ -284,7 +284,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo2"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -292,7 +292,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo2"
+                    android:id="@+id/BorderForVideo2"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -310,10 +310,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo2"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo2"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo2"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo2" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo2"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo2"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo2"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo2" />
 
                 <ImageView
                     android:id="@+id/imagePodhod2"
@@ -425,7 +425,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo3"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -433,7 +433,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo3"
+                    android:id="@+id/BorderForVideo3"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -452,10 +452,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo3"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo3"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo3"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo3" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo3"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo3"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo3"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo3" />
 
                 <ImageView
                     android:id="@+id/imagePodhod3"
@@ -566,7 +566,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo4"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -574,7 +574,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo4"
+                    android:id="@+id/BorderForVideo4"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -592,10 +592,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo4"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo4"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo4"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo4" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo4"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo4"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo4"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo4" />
 
                 <ImageView
                     android:id="@+id/imagePodhod4"
@@ -707,7 +707,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo5"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -715,7 +715,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo5"
+                    android:id="@+id/BorderForVideo5"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -733,10 +733,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo5"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo5"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo5"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo5" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo5"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo5"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo5"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo5" />
 
                 <ImageView
                     android:id="@+id/imagePodhod5"
@@ -848,7 +848,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo6"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -856,7 +856,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo6"
+                    android:id="@+id/BorderForVideo6"
                     android:layout_width="330dp"
                     android:layout_height="213dp"
                     android:layout_marginEnd="132dp"
@@ -874,10 +874,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
                     android:onClick="trenSportsmenClick"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo6"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo6"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo6"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo6" />
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo6"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo6"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo6"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo6" />
 
                 <ImageView
                     android:id="@+id/imagePodhod6"
@@ -992,7 +992,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/imageBorderforVideo7"
+                    app:layout_constraintBottom_toTopOf="@+id/BorderForVideo7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1000,7 +1000,7 @@
                     app:layout_constraintVertical_bias="0.448" />
 
                 <ImageView
-                    android:id="@+id/imageBorderforVideo7"
+                    android:id="@+id/BorderForVideo7"
                     android:layout_width="332dp"
                     android:layout_height="211dp"
                     android:layout_marginEnd="132dp"
@@ -1017,11 +1017,11 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="6dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageBorderforVideo7"
-                    app:layout_constraintEnd_toEndOf="@+id/imageBorderforVideo7"
+                    app:layout_constraintBottom_toBottomOf="@+id/BorderForVideo7"
+                    app:layout_constraintEnd_toEndOf="@+id/BorderForVideo7"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/imageBorderforVideo7"
-                    app:layout_constraintTop_toTopOf="@+id/imageBorderforVideo7"
+                    app:layout_constraintStart_toStartOf="@+id/BorderForVideo7"
+                    app:layout_constraintTop_toTopOf="@+id/BorderForVideo7"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView

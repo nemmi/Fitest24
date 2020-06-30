@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
@@ -104,7 +103,7 @@ class Registration : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 writeNewSportsmen()
-                                startActivity(Intent(this, Anketa_Sportsmen_P1::class.java))
+                                startActivity(Intent(this, FormSportsmanP1::class.java))
                                 finish()
                             } else {
                                 Toast.makeText(
@@ -114,7 +113,7 @@ class Registration : AppCompatActivity() {
                             }
                         }
                 }
-                R.id.buttonINTeam -> {
+                R.id.buttonInTeam -> {
                     auth.createUserWithEmailAndPassword(
                         editMail.text.toString(),
                         editPassword.text.toString()
@@ -122,7 +121,7 @@ class Registration : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 writeNewTrener()
-                                startActivity(Intent(this, Anketa_Coach::class.java))
+                                startActivity(Intent(this, FormTrainer::class.java))
                                 finish()
                             } else {
                                 Toast.makeText(

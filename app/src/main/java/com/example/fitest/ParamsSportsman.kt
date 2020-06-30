@@ -3,7 +3,6 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.view.WindowManager
 
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_body_params.textWaist
 import kotlinx.android.synthetic.main.activity_body_params.textWeight
 
 
-class Params_Sportsmen : AppCompatActivity() {
+class ParamsSportsman : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -99,18 +98,18 @@ class Params_Sportsmen : AppCompatActivity() {
             R.id.toolbar -> {
                 startActivity(Intent(this, ProfileClient::class.java))
             }
-            R.id.button_edit -> {
+            R.id.buttonEdit -> {
                 param()
-                startActivity(Intent(this, Params_Edit::class.java))
+                startActivity(Intent(this, ParamsEdit::class.java))
             }
-            R.id.button_trainings -> {
-                startActivity(Intent(this, Trainings_Sportsmen::class.java))
+            R.id.buttonTrainings -> {
+                startActivity(Intent(this, TrainingsSportsman::class.java))
             }
-            R.id.button_eats -> {
-                startActivity(Intent(this, Pitanie::class.java))
+            R.id.buttonEats -> {
+                startActivity(Intent(this, Eat::class.java))
             }
-            R.id.button_chat -> {
-                startActivity(Intent(this, Chat_Sportsmen::class.java))
+            R.id.buttonChat -> {
+                startActivity(Intent(this, ChatSportsman::class.java))
             }
 
         }

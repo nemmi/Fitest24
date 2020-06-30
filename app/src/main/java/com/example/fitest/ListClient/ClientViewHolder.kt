@@ -18,9 +18,9 @@ class ClientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    var textTitle: TextView = itemView.findViewById(R.id.text_title)
+    var textTitle: TextView = itemView.findViewById(R.id.listName)
     // var textSubtitle: TextView = itemView.findViewById(R.id.text_subtitle)
-var imagebutton : View = itemView.findViewById(R.id.imageButton90)
+var imagebutton : View = itemView.findViewById(R.id.moreDetails)
     //   var buttonDelete: View = itemView.findViewById(R.id.button_delete)
     //  var buttonUp: View = itemView.findViewById(R.id.button_up)
 

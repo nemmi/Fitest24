@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_anketa_view.*
 
 
 
-class AnketaView : AppCompatActivity(){
+class FormSportsmanView : AppCompatActivity(){
     private fun hideSystemUI() {
 
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -32,7 +32,7 @@ class AnketaView : AppCompatActivity(){
 
         var value = intent.getStringExtra("id")
         Log.i("NewActivity", value)
-        toolbar3.setOnClickListener {
+        toolbarAnketaView.setOnClickListener {
             val intent = Intent(this, ProfileClientView::class.java)
             Log.i("DocId", value)
             intent.putExtra("id", value)
@@ -57,17 +57,17 @@ class AnketaView : AppCompatActivity(){
                     return@addSnapshotListener
                 }
                 if (snapshot != null && snapshot.exists()) {
-                    Age.text=snapshot.getString("age")
-                    ExpTr.text=snapshot.getString("experience")
-                    Goals.text=snapshot.getString("goals")
-                    DontEat.text=snapshot.getString("hatingEat")
-                    HeightAnketa.text=snapshot.getString("height")
-                    AnketaWeight.text=snapshot.getString("weight")
-                    BADS.text=snapshot.getString("bads")
-                    Blood.text=snapshot.getString("bloods")
-                    Belok.text=snapshot.getString("belock")
-                    Carbs.text=snapshot.getString("carbs")
-                    Fats.text=snapshot.getString("fats")
+                    age.text=snapshot.getString("age")
+                    expTr.text=snapshot.getString("experience")
+                    goals.text=snapshot.getString("goals")
+                    dontEat.text=snapshot.getString("hatingEat")
+                    heightAnketa.text=snapshot.getString("height")
+                    anketaWeight.text=snapshot.getString("weight")
+                    bads.text=snapshot.getString("bads")
+                    blood.text=snapshot.getString("bloods")
+                    belok.text=snapshot.getString("belock")
+                    carbs.text=snapshot.getString("carbs")
+                    fats.text=snapshot.getString("fats")
                 }
                 else {
                     Toast.makeText(

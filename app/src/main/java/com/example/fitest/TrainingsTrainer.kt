@@ -10,7 +10,6 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.android.synthetic.main.activity_otchet_trainings.*
@@ -29,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_otchet_trainings.textExercise7
 
 
 
-class Trainings_Coach : AppCompatActivity() {
+class TrainingsTrainer : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -62,13 +61,13 @@ class Trainings_Coach : AppCompatActivity() {
             run {
                 when (optionId) {
 
-                    R.id.button_day1 -> {
+                    R.id.buttonDay1 -> {
                         loadFirst(value, "_1")
                     }
-                    R.id.button_day2 -> {
+                    R.id.buttonDay2 -> {
                         loadFirst(value, "_2")
                     }
-                    R.id.button_day3 -> {
+                    R.id.buttonDay3 -> {
                         loadFirst(value, "_3")
                     }
                     else -> throw AssertionError()
@@ -153,11 +152,11 @@ class Trainings_Coach : AppCompatActivity() {
     fun trenCoachClick(view: View) {
         var value= intent.getStringExtra("id")
         when (view.id){
-            R.id.button_clients ->{
+            R.id.buttonClients ->{
                 val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
             }
-            R.id.button_clients_profile ->{
+            R.id.buttonClientsProfile ->{
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
@@ -165,12 +164,12 @@ class Trainings_Coach : AppCompatActivity() {
 
                 startActivity(intent)
             }
-            R.id.button_chat ->{
+            R.id.buttonChat ->{
                 val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
             R.id.profile ->{
-                val intent = Intent(this, ProfileTrener::class.java)
+                val intent = Intent(this, ProfileTrainer::class.java)
                 startActivity(intent)
             }
 

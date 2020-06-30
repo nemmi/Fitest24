@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backotchetbodyparam1editside1"
-    tools:context=".Params_Edit">
+    tools:context=".ParamsEdit">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/peopleagain" />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
         app:layout_constraintEnd_toStartOf="@+id/editHip"
         app:layout_constraintHorizontal_bias="0.852"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
         android:textCursorDrawable="@color/design_default_color_error"
         android:paddingStart="20dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.187" />
@@ -341,7 +341,7 @@
         app:layout_constraintVertical_bias="0.444" />
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/buttonSave"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="44dp"

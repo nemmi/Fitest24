@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/backuniversal"
-    tools:context=".AnketaView">
+    tools:context=".FormSportsmanView">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/toolbarAnketaView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/topclientsanketa"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAnketaView"
         app:layout_constraintVertical_bias="0.234">
 
         <LinearLayout
@@ -48,7 +48,7 @@
                 android:src="@drawable/age" />
 
             <TextView
-                android:id="@+id/Age"
+                android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -68,7 +68,7 @@
                 android:src="@drawable/experience" />
 
             <TextView
-                android:id="@+id/ExpTr"
+                android:id="@+id/expTr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -89,7 +89,7 @@
                 android:src="@drawable/goals" />
 
             <TextView
-                android:id="@+id/Goals"
+                android:id="@+id/goals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
@@ -110,7 +110,7 @@
                 android:src="@drawable/donteat" />
 
             <TextView
-                android:id="@+id/DontEat"
+                android:id="@+id/dontEat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -130,13 +130,13 @@
                 android:src="@drawable/height" />
 
             <TextView
-                android:id="@+id/HeightAnketa"
+                android:id="@+id/heightAnketa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/field"
-                android:maxLength="7"
+                android:maxLength="3"
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
@@ -151,12 +151,12 @@
                 android:src="@drawable/weight" />
 
             <TextView
-                android:id="@+id/AnketaWeight"
+                android:id="@+id/anketaWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/field"
-                android:maxLength="7"
+                android:maxLength="3"
                 android:paddingStart="25dp"
                 android:paddingEnd="30dp"
                 android:paddingTop="10dp"
@@ -171,7 +171,7 @@
                 android:src="@drawable/bads" />
 
             <TextView
-                android:id="@+id/BADS"
+                android:id="@+id/bads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -191,7 +191,7 @@
                 android:src="@drawable/blood" />
 
             <TextView
-                android:id="@+id/Blood"
+                android:id="@+id/blood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -211,7 +211,7 @@
                 android:src="@drawable/belok" />
 
             <TextView
-                android:id="@+id/Belok"
+                android:id="@+id/belok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -232,7 +232,7 @@
                 android:src="@drawable/carbs" />
 
             <TextView
-                android:id="@+id/Carbs"
+                android:id="@+id/carbs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -252,7 +252,7 @@
                 android:src="@drawable/fats" />
 
             <TextView
-                android:id="@+id/Fats"
+                android:id="@+id/fats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"

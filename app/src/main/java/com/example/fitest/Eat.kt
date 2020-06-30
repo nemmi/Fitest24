@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_otchet_trainings.*
 import kotlinx.android.synthetic.main.activity_pitanie.*
 import kotlinx.android.synthetic.main.activity_pitanie.checkBox1
 import kotlinx.android.synthetic.main.activity_pitanie.checkBox2
@@ -20,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_pitanie.checkBox5
 
 
 
-class Pitanie : AppCompatActivity() {
+class Eat : AppCompatActivity() {
 
     var mondayChek1 = false
     var mondayChek2 = false
@@ -85,31 +84,31 @@ class Pitanie : AppCompatActivity() {
 
                     R.id.monday -> {
                         loadEat("_M")
-                        CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5)
+                        scanCheckBoxs(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5)
                     }
                     R.id.tuesday -> {
                         loadEat("_T")
-                        CheckThisOut(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5)
+                        scanCheckBoxs(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5)
                     }
                     R.id.wednesday -> {
                         loadEat("_W")
-                        CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5)
+                        scanCheckBoxs(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5)
                     }
                     R.id.thursday -> {
                         loadEat("_Th")
-                        CheckThisOut(thursdayChek1, thursdayChek2, thursdayChek3, thursdayChek4, thursdayChek5)
+                        scanCheckBoxs(thursdayChek1, thursdayChek2, thursdayChek3, thursdayChek4, thursdayChek5)
                     }
                     R.id.friday -> {
                         loadEat("_F")
-                        CheckThisOut(fridayChek1, fridayChek2, fridayChek3, fridayChek4, fridayChek5)
+                        scanCheckBoxs(fridayChek1, fridayChek2, fridayChek3, fridayChek4, fridayChek5)
                     }
                     R.id.saturday -> {
                         loadEat("_Sat")
-                        CheckThisOut(saturdayChek1, saturdayChek2, saturdayChek3, saturdayChek4, saturdayChek5)
+                        scanCheckBoxs(saturdayChek1, saturdayChek2, saturdayChek3, saturdayChek4, saturdayChek5)
                     }
                     R.id.sunday -> {
                         loadEat("_Sun")
-                        CheckThisOut(sundayChek1, sundayChek2, sundayChek3, sundayChek4, sundayChek5)
+                        scanCheckBoxs(sundayChek1, sundayChek2, sundayChek3, sundayChek4, sundayChek5)
                     }
                     else -> throw AssertionError()
                 }
@@ -125,176 +124,176 @@ class Pitanie : AppCompatActivity() {
             R.id.checkBox1 -> {
                    if (monday.isChecked) {
                         mondayChek1 = checkBox1.isChecked
-                       ChekID("_M", "Checkbox1", mondayChek1.toString())
+                       verificationId("_M", "Checkbox1", mondayChek1.toString())
                     }
 
                     if (tuesday.isChecked) {
                         tuesdayChek1 = checkBox1.isChecked
-                        ChekID("_T", "Checkbox1", tuesdayChek1.toString())
+                        verificationId("_T", "Checkbox1", tuesdayChek1.toString())
                     }
 
                     if (wednesday.isChecked) {
                         wednesdayChek1 = checkBox1.isChecked
-                        ChekID("_W", "Checkbox1", wednesdayChek1.toString())
+                        verificationId("_W", "Checkbox1", wednesdayChek1.toString())
                     }
 
                     if (thursday.isChecked) {
                         thursdayChek1 = checkBox1.isChecked
-                        ChekID("_Th", "Checkbox1", thursdayChek1.toString())
+                        verificationId("_Th", "Checkbox1", thursdayChek1.toString())
                     }
                     if (friday.isChecked) {
                         fridayChek1 = checkBox1.isChecked
-                        ChekID("_F", "Checkbox1", fridayChek1.toString())
+                        verificationId("_F", "Checkbox1", fridayChek1.toString())
                     }
                     if (saturday.isChecked) {
                         saturdayChek1 = checkBox1.isChecked
-                        ChekID("_Sat", "Checkbox1", saturdayChek1.toString())
+                        verificationId("_Sat", "Checkbox1", saturdayChek1.toString())
                     }
                     if (sunday.isChecked) {
                         sundayChek1 = checkBox1.isChecked
-                        ChekID("_Sun", "Checkbox1", sundayChek1.toString())
+                        verificationId("_Sun", "Checkbox1", sundayChek1.toString())
                     }
                 }
 
             R.id.checkBox2 -> {
                 if (monday.isChecked) {
                     mondayChek2 = checkBox2.isChecked
-                    ChekID("_M", "Checkbox2", mondayChek2.toString())
+                    verificationId("_M", "Checkbox2", mondayChek2.toString())
                 }
 
                 if (tuesday.isChecked) {
                     tuesdayChek2 = checkBox2.isChecked
-                    ChekID("_T", "Checkbox2", tuesdayChek2.toString())
+                    verificationId("_T", "Checkbox2", tuesdayChek2.toString())
                 }
 
                 if (wednesday.isChecked) {
                     wednesdayChek2 = checkBox2.isChecked
-                    ChekID("_W", "Checkbox2", wednesdayChek2.toString())
+                    verificationId("_W", "Checkbox2", wednesdayChek2.toString())
                 }
 
                 if (thursday.isChecked) {
                     thursdayChek2 = checkBox2.isChecked
-                    ChekID("_Th", "Checkbox2", thursdayChek2.toString())
+                    verificationId("_Th", "Checkbox2", thursdayChek2.toString())
                 }
                 if (friday.isChecked) {
                     fridayChek2 = checkBox2.isChecked
-                    ChekID("_F", "Checkbox2", fridayChek2.toString())
+                    verificationId("_F", "Checkbox2", fridayChek2.toString())
                 }
                 if (saturday.isChecked) {
                     saturdayChek2 = checkBox2.isChecked
-                    ChekID("_Sat", "Checkbox2", saturdayChek2.toString())
+                    verificationId("_Sat", "Checkbox2", saturdayChek2.toString())
                 }
                 if (sunday.isChecked) {
                     sundayChek2 = checkBox2.isChecked
-                    ChekID("_Sun", "Checkbox2", sundayChek2.toString())
+                    verificationId("_Sun", "Checkbox2", sundayChek2.toString())
                 }
             }
             R.id.checkBox3 -> {
                 if (monday.isChecked) {
                     mondayChek3 = checkBox3.isChecked
-                    ChekID("_M", "Checkbox3", mondayChek3.toString())
+                    verificationId("_M", "Checkbox3", mondayChek3.toString())
                 }
 
                 if (tuesday.isChecked) {
                     tuesdayChek3 = checkBox3.isChecked
-                    ChekID("_T", "Checkbox3", tuesdayChek3.toString())
+                    verificationId("_T", "Checkbox3", tuesdayChek3.toString())
                 }
 
                 if (wednesday.isChecked) {
                     wednesdayChek3 = checkBox3.isChecked
-                    ChekID("_W", "Checkbox3", wednesdayChek3.toString())
+                    verificationId("_W", "Checkbox3", wednesdayChek3.toString())
                 }
 
                 if (thursday.isChecked) {
                     thursdayChek3 = checkBox3.isChecked
-                    ChekID("_Th", "Checkbox3", thursdayChek3.toString())
+                    verificationId("_Th", "Checkbox3", thursdayChek3.toString())
                 }
                 if (friday.isChecked) {
                     fridayChek3 = checkBox3.isChecked
-                    ChekID("_F", "Checkbox3", fridayChek3.toString())
+                    verificationId("_F", "Checkbox3", fridayChek3.toString())
                 }
                 if (saturday.isChecked) {
                     saturdayChek3 = checkBox3.isChecked
-                    ChekID("_Sat", "Checkbox3", saturdayChek3.toString())
+                    verificationId("_Sat", "Checkbox3", saturdayChek3.toString())
                 }
                 if (sunday.isChecked) {
                     sundayChek3 = checkBox3.isChecked
-                    ChekID("_Sun", "Checkbox3", sundayChek3.toString())
+                    verificationId("_Sun", "Checkbox3", sundayChek3.toString())
                 }
             }
             R.id.checkBox4 -> {
                 if (monday.isChecked) {
                     mondayChek4 = checkBox4.isChecked
-                    ChekID("_M", "Checkbox4", mondayChek4.toString())
+                    verificationId("_M", "Checkbox4", mondayChek4.toString())
                 }
 
                 if (tuesday.isChecked) {
                     tuesdayChek4 = checkBox4.isChecked
-                    ChekID("_T", "Checkbox4", tuesdayChek4.toString())
+                    verificationId("_T", "Checkbox4", tuesdayChek4.toString())
                 }
 
                 if (wednesday.isChecked) {
                     wednesdayChek4 = checkBox4.isChecked
-                    ChekID("_W", "Checkbox4", wednesdayChek4.toString())
+                    verificationId("_W", "Checkbox4", wednesdayChek4.toString())
                 }
 
                 if (thursday.isChecked) {
                     thursdayChek4 = checkBox4.isChecked
-                    ChekID("_Th", "Checkbox4", thursdayChek4.toString())
+                    verificationId("_Th", "Checkbox4", thursdayChek4.toString())
                 }
                 if (friday.isChecked) {
                     fridayChek4 = checkBox4.isChecked
-                    ChekID("_F", "Checkbox4", fridayChek4.toString())
+                    verificationId("_F", "Checkbox4", fridayChek4.toString())
                 }
                 if (saturday.isChecked) {
                     saturdayChek4 = checkBox4.isChecked
-                    ChekID("_Sat", "Checkbox4", saturdayChek4.toString())
+                    verificationId("_Sat", "Checkbox4", saturdayChek4.toString())
                 }
                 if (sunday.isChecked) {
                     sundayChek4 = checkBox4.isChecked
-                    ChekID("_Sun", "Checkbox4", sundayChek4.toString())
+                    verificationId("_Sun", "Checkbox4", sundayChek4.toString())
                 }
             }
             R.id.checkBox5 -> {
                 if (monday.isChecked) {
                     mondayChek5 = checkBox5.isChecked
-                    ChekID("_M", "Checkbox5", mondayChek5.toString())
+                    verificationId("_M", "Checkbox5", mondayChek5.toString())
                 }
 
                 if (tuesday.isChecked) {
                     tuesdayChek5 = checkBox5.isChecked
-                    ChekID("_T", "Checkbox5", tuesdayChek5.toString())
+                    verificationId("_T", "Checkbox5", tuesdayChek5.toString())
                 }
 
                 if (wednesday.isChecked) {
                     wednesdayChek5 = checkBox5.isChecked
-                    ChekID("_W", "Checkbox5", wednesdayChek5.toString())
+                    verificationId("_W", "Checkbox5", wednesdayChek5.toString())
                 }
 
                 if (thursday.isChecked) {
                     thursdayChek5 = checkBox5.isChecked
-                    ChekID("_Th", "Checkbox5", thursdayChek5.toString())
+                    verificationId("_Th", "Checkbox5", thursdayChek5.toString())
                 }
                 if (friday.isChecked) {
                     fridayChek5 = checkBox5.isChecked
-                    ChekID("_F", "Checkbox5", fridayChek5.toString())
+                    verificationId("_F", "Checkbox5", fridayChek5.toString())
                 }
                 if (saturday.isChecked) {
                     saturdayChek5 = checkBox5.isChecked
-                    ChekID("_Sat", "Checkbox5", saturdayChek5.toString())
+                    verificationId("_Sat", "Checkbox5", saturdayChek5.toString())
                 }
                 if (sunday.isChecked) {
                     sundayChek5 = checkBox5.isChecked
-                    ChekID("_Sun", "Checkbox5", sundayChek5.toString())
+                    verificationId("_Sun", "Checkbox5", sundayChek5.toString())
                 }
             }
             R.id.trenning ->{
 
-                startActivity(Intent(this, Trainings_Sportsmen::class.java))
+                startActivity(Intent(this, TrainingsSportsman::class.java))
             }
             R.id.chat ->{
 
-                startActivity(Intent(this, Chat_Sportsmen::class.java))
+                startActivity(Intent(this, ChatSportsman::class.java))
             }
             R.id.imageProfile ->{
                 startActivity(Intent(this, ProfileClient::class.java))
@@ -315,11 +314,11 @@ class Pitanie : AppCompatActivity() {
                     }
                     if (snapshot != null && snapshot.exists()) {
 
-                        eat1txt.text = snapshot.getString("eat1")
-                        eat2txt.text = snapshot.getString("eat2")
-                        eat3txt.text = snapshot.getString("eat3")
-                        eat4txt.text = snapshot.getString("eat4")
-                        eat5txt.text = snapshot.getString("eat5")
+                        eatTxt1.text = snapshot.getString("eat1")
+                        eatTxt2.text = snapshot.getString("eat2")
+                        eatTxt3.text = snapshot.getString("eat3")
+                        eatTxt4.text = snapshot.getString("eat4")
+                        eatTxt5.text = snapshot.getString("eat5")
                         if(snapshot.getString("Checkbox1") == "true")
                         {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
 
@@ -346,7 +345,7 @@ class Pitanie : AppCompatActivity() {
         }
     }
 
-    private fun CheckThisOut(Chek1:Boolean, Chek2:Boolean, Chek3:Boolean, Chek4:Boolean, Chek5:Boolean){
+    private fun scanCheckBoxs(Chek1:Boolean, Chek2:Boolean, Chek3:Boolean, Chek4:Boolean, Chek5:Boolean){
         checkBox1.isChecked= false
         checkBox2.isChecked= false
         checkBox3.isChecked= false
@@ -361,7 +360,7 @@ class Pitanie : AppCompatActivity() {
 
     }
 
-private fun ChekID(day:String, checkbox:String, daycheck:String)
+private fun verificationId(day:String, checkbox:String, daycheck:String)
 {
     Firebase.auth.currentUser?.uid?.let {
         ddb.collection("eat")

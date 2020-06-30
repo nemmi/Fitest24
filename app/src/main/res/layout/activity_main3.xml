@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton22"
+            android:id="@+id/butClients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
             app:srcCompat="@drawable/clientspisocchatov" />
 
         <ImageButton
-            android:id="@+id/imageButton21"
+            android:id="@+id/openProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,7 +61,7 @@
             app:srcCompat="@drawable/profilespisocchatov" />
 
         <ImageView
-            android:id="@+id/imageView51"
+            android:id="@+id/btnChat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

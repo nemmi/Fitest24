@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/_____1_" />
 
     <ImageButton
-        android:id="@+id/imageButton26"
+        android:id="@+id/trenerSelectBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@+id/imageView62"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/perechisleniyatrenervid" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/description2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -52,26 +52,26 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView64"
+        android:id="@+id/costObject"
         android:layout_width="174dp"
         android:layout_height="56dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/description2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/PhotoImg"
         app:srcCompat="@drawable/costrenervid" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nameThisTrainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageView64"
-        app:layout_constraintEnd_toEndOf="@+id/imageView64"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton26" />
+        app:layout_constraintBottom_toTopOf="@+id/costObject"
+        app:layout_constraintEnd_toEndOf="@+id/costObject"
+        app:layout_constraintTop_toBottomOf="@+id/trenerSelectBack" />
 
     <ImageView
         android:id="@+id/PhotoImg"
@@ -80,7 +80,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="@+id/imageView62"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton26"
+        app:layout_constraintTop_toBottomOf="@+id/trenerSelectBack"
         app:srcCompat="@drawable/photo" />
 
 

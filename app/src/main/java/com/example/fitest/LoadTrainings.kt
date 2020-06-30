@@ -13,18 +13,15 @@ import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_load_trainings.*
-import kotlinx.android.synthetic.main.activity_load_trainings.button_day1
-import kotlinx.android.synthetic.main.activity_load_trainings.button_day2
-import kotlinx.android.synthetic.main.activity_load_trainings.button_day3
-import kotlinx.android.synthetic.main.activity_sportsmen_anketa2.*
-import kotlinx.android.synthetic.main.activity_trainings.*
+import kotlinx.android.synthetic.main.activity_load_trainings.buttonDay1
+import kotlinx.android.synthetic.main.activity_load_trainings.buttonDay2
+import kotlinx.android.synthetic.main.activity_load_trainings.buttonDay3
 
 import java.io.InputStream
 
 
-class Load_Trainings : AppCompatActivity() {
+class LoadTrainings : AppCompatActivity() {
 
     private val storage: FirebaseStorage by lazy { FirebaseStorage.getInstance() }
 
@@ -55,7 +52,7 @@ class Load_Trainings : AppCompatActivity() {
 
         var value = intent.getStringExtra("id")
         buttonSave.setOnClickListener{
-            if(button_day1.isChecked) {
+            if(buttonDay1.isChecked) {
                 val up= ddb.collection("trainings")
                     .document(value + "_1") /*здесь будет айди спортсмена*/
 
@@ -179,7 +176,7 @@ class Load_Trainings : AppCompatActivity() {
                 ).show()
 
             }
-            if(button_day2.isChecked){
+            if(buttonDay2.isChecked){
                 val up= ddb.collection("trainings")
                     .document(value + "_2") /*здесь будет айди спортсмена*/
                 if(editExercise1.text.toString().isNotEmpty()){
@@ -302,7 +299,7 @@ class Load_Trainings : AppCompatActivity() {
                 ).show()
 
             }
-            if(button_day3.isChecked){
+            if(buttonDay3.isChecked){
                 val up= ddb.collection("trainings")
                     .document(value + "_3") /*здесь будет айди спортсмена*/
                 if(editExercise1.text.toString().isNotEmpty()){
@@ -432,7 +429,7 @@ class Load_Trainings : AppCompatActivity() {
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 when (optionId) {
-                    R.id.button_day1 -> {
+                    R.id.buttonDay1 -> {
                         editExercise1.setText("")
                         editComment1.setText("")
                         editPodhods1.setText("")
@@ -462,7 +459,7 @@ class Load_Trainings : AppCompatActivity() {
                         editPodhods7.setText("")
                         editTakeWeight7.setText("")
                     }
-                    R.id.button_day2 -> {
+                    R.id.buttonDay2 -> {
                         editExercise1.setText("")
                         editComment1.setText("")
                         editPodhods1.setText("")
@@ -492,7 +489,7 @@ class Load_Trainings : AppCompatActivity() {
                         editPodhods7.setText("")
                         editTakeWeight7.setText("")
                     }
-                    R.id.button_day3 -> {
+                    R.id.buttonDay3 -> {
                         editExercise1.setText("")
                         editComment1.setText("")
                         editPodhods1.setText("")
@@ -539,7 +536,7 @@ class Load_Trainings : AppCompatActivity() {
     fun loadTrenClick(view:View) {
         var value= intent.getStringExtra("id")
         when (view.id){
-            R.id.button_loadVideo1 ->{
+            R.id.buttonLoadVideo1 ->{
                 if(editExercise1.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -551,7 +548,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo2 ->{
+            R.id.buttonLoadVideo2 ->{
                 if(ediExercise2.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -563,7 +560,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo3 ->{
+            R.id.buttonLoadVideo3 ->{
                 if(ediExercise3.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -575,7 +572,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo4 ->{
+            R.id.buttonLoadVideo4 ->{
                 if(ediExercise4.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -587,7 +584,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo5 ->{
+            R.id.buttonLoadVideo5 ->{
                 if(ediExercise5.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -599,7 +596,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo6 ->{
+            R.id.buttonLoadVideo6 ->{
                 if(ediExercise6.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -611,7 +608,7 @@ class Load_Trainings : AppCompatActivity() {
                     ).show()
                 }
             }
-            R.id.button_loadVideo7 ->{
+            R.id.buttonLoadVideo7 ->{
                 if(ediExercise2.text.toString().isNotEmpty()) {
                     chooseVideo()
                 }
@@ -625,10 +622,10 @@ class Load_Trainings : AppCompatActivity() {
             }
 
 
-            R.id.button_clients ->{
+            R.id.buttonClients ->{
                 startActivity(Intent(this, ListClient::class.java))
             }
-            R.id.button_clients_profile ->{
+            R.id.buttonClientsProfile ->{
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
@@ -636,11 +633,11 @@ class Load_Trainings : AppCompatActivity() {
 
                 startActivity(intent)
             }
-            R.id.button_chat ->{
+            R.id.buttonChat ->{
                 startActivity(Intent(this, SpisocChatov::class.java))
             }
             R.id.profile ->{
-                startActivity(Intent(this, ProfileTrener::class.java))
+                startActivity(Intent(this, ProfileTrainer::class.java))
             }
 
         }
@@ -661,7 +658,7 @@ class Load_Trainings : AppCompatActivity() {
 
             var ex:String
 
-            if(button_loadVideo1.isChecked)  {
+            if(buttonLoadVideo1.isChecked)  {
                 ex = editExercise1.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -681,7 +678,7 @@ class Load_Trainings : AppCompatActivity() {
                     }
             }
 
-            if(button_loadVideo2.isChecked)  {
+            if(buttonLoadVideo2.isChecked)  {
                 ex = ediExercise2.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -701,7 +698,7 @@ class Load_Trainings : AppCompatActivity() {
                     }
             }
 
-            if(button_loadVideo3.isChecked)  {
+            if(buttonLoadVideo3.isChecked)  {
                 ex = ediExercise3.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -720,7 +717,7 @@ class Load_Trainings : AppCompatActivity() {
                         }
                     }
             }
-            if(button_loadVideo4.isChecked)  {
+            if(buttonLoadVideo4.isChecked)  {
                 ex = ediExercise4.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -740,7 +737,7 @@ class Load_Trainings : AppCompatActivity() {
                     }
             }
 
-            if(button_loadVideo5.isChecked)  {
+            if(buttonLoadVideo5.isChecked)  {
                 ex = ediExercise5.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -759,7 +756,7 @@ class Load_Trainings : AppCompatActivity() {
                         }
                     }
             }
-            if(button_loadVideo6.isChecked)  {
+            if(buttonLoadVideo6.isChecked)  {
                 ex = ediExercise6.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
@@ -778,7 +775,7 @@ class Load_Trainings : AppCompatActivity() {
                         }
                     }
             }
-            if(button_loadVideo7.isChecked)  {
+            if(buttonLoadVideo7.isChecked)  {
                 ex = ediExercise7.text.toString()
                 val VideoStorage = storage.reference.child("video_training").child(value).child(ex)
                 val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }

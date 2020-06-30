@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileTrener">
+    tools:context=".ProfileTrainer">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnExit"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -40,7 +40,7 @@
         android:onClick="profileTrClick"/>
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnRedactorTrainerProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton28"
+            android:id="@+id/listClients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,7 +92,7 @@
             android:onClick="profileTrClick"/>
 
         <ImageView
-            android:id="@+id/imageView56"
+            android:id="@+id/openYourProfile"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
             app:srcCompat="@drawable/profilewhitewithline" />
 
         <ImageButton
-            android:id="@+id/imageButton33"
+            android:id="@+id/chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -133,11 +133,11 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/btnExit"
         app:layout_constraintStart_toEndOf="@+id/imageView7" />
 
     <TextView
-        android:id="@+id/FI"
+        android:id="@+id/fio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"

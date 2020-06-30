@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pitanie">
+    tools:context=".Eat">
 
     <ImageButton
         android:id="@+id/imageProfile"
@@ -187,7 +187,7 @@
             </TableRow>
 
             <TextView
-                android:id="@+id/eat1txt"
+                android:id="@+id/eatTxt1"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -230,7 +230,7 @@
 
             </TableRow>
             <TextView
-                android:id="@+id/eat2txt"
+                android:id="@+id/eatTxt2"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -274,7 +274,7 @@
             </TableRow>
 
             <TextView
-                android:id="@+id/eat3txt"
+                android:id="@+id/eatTxt3"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -318,7 +318,7 @@
             </TableRow>
 
             <TextView
-                android:id="@+id/eat4txt"
+                android:id="@+id/eatTxt4"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
@@ -362,7 +362,7 @@
             </TableRow>
 
             <TextView
-                android:id="@+id/eat5txt"
+                android:id="@+id/eatTxt5"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"

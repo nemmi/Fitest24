@@ -15,9 +15,8 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitest.ProfileClient
 import com.example.fitest.ProfileClientView
-import com.example.fitest.ProfileTrener
+import com.example.fitest.ProfileTrainer
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 
 import com.google.android.material.snackbar.Snackbar
@@ -27,7 +26,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_list_client_main.*
-import kotlinx.android.synthetic.main.item_client.*
 
 
 class ListClient : AppCompatActivity() {
@@ -77,16 +75,16 @@ class ListClient : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
         toolbar.inflateMenu(R.menu.refresh)
-        toolbar.inflateMenu(R.menu.sort)
+      //  toolbar.inflateMenu(R.menu.sort)
 
         //  adapter.clear()
         //   adapter.startListening()
 
-imageButton211.setOnClickListener { val chat = Intent(this, SpisocChatov::class.java)
-    startActivity(chat) }
+    buttonChat.setOnClickListener { val chat = Intent(this, SpisocChatov::class.java)
+        startActivity(chat) }
 
-imageButton21.setOnClickListener {  val profile = Intent(this, ProfileTrener::class.java)
-    startActivity(profile)}
+    openProfile.setOnClickListener {  val profile = Intent(this, ProfileTrainer::class.java)
+        startActivity(profile)}
 
 
         toolbar.setOnMenuItemClickListener { item ->
@@ -117,27 +115,6 @@ imageButton21.setOnClickListener {  val profile = Intent(this, ProfileTrener::cl
             ClientAdapter {
                 query
             }
-
-        /*    adapter.onDeleteListener = { position ->
-                //assume success, otherwise it will be updated in the next query
-                val state = adapter.get(position)
-                val snapshot = adapter.getSnapshot(position)
-               // delete(state, snapshot.reference)
-            }
-            adapter.onUpListener = { position ->
-                val state = adapter.get(position)
-                val snapshot = adapter.getSnapshot(position)
-              //  incrementPopulation(state, snapshot.reference)
-                //shows us waiting for the update
-            }*/
-
-        /*      adapter.onItemClick = {position , view->
-                  val value: String =  firestore.collection("sportsmen").document("it"+"id").toString()
-                  val intent = Intent(this, ProfileClientView::class.java)
-                  intent.putExtra("id", value)
-                  startActivity(intent)
-              }*/
-
 
         adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backuniversal"
-    tools:context=".Anketa_Coach">
+    tools:context=".FormTrainer">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button_loadPh"
+                android:id="@+id/buttonLoadPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="15dp"
@@ -45,7 +45,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/field"
                 android:ems="20"
-                android:hint="Иванов"
+                android:hint="Иванов Иван"
                 android:inputType="textPersonName"
                 android:maxLength="30"
                 android:paddingStart="25dp"
@@ -163,7 +163,7 @@
                 android:textColorHint="#FFFFFF" />
 
             <Button
-                android:id="@+id/but_IN_Coach"
+                android:id="@+id/butInCoach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"

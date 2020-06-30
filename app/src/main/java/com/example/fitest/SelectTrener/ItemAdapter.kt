@@ -1,12 +1,9 @@
-package com.example.fitest.dffgh
+package com.example.fitest.SelectTrener
 
 
-import android.content.Intent
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import com.example.firestoreadapter.FirestoreAdapter
 import com.example.firestoreadapter.QueryCreator
-import com.example.fitest.ProfileTrener
 
 class ItemAdapter(query: QueryCreator) : FirestoreAdapter<State, ItemViewHolder>(State::class.java, query) {
 

@@ -18,7 +18,7 @@
         >
 
         <ImageView
-            android:id="@+id/imageview"
+            android:id="@+id/imageProfile"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerVertical="true"
@@ -27,10 +27,10 @@
             android:src="@drawable/imageview" />
 
         <TextView
-            android:id="@+id/trener1"
+            android:id="@+id/listTrainerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/imageview"
+            android:layout_toEndOf="@+id/imageProfile"
             android:paddingStart="15dp"
             android:text="Маркова Анастасия"
             android:textColor="@android:color/white"
@@ -38,10 +38,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/trener2"
+            android:id="@+id/listTrainerCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/imageview"
+            android:layout_toEndOf="@+id/imageProfile"
             android:paddingStart="20dp"
             android:paddingTop="70dp"
             android:text="5000p"
@@ -50,7 +50,7 @@
 
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

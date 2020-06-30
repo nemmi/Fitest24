@@ -1,4 +1,4 @@
-package com.example.fitest.dffgh
+package com.example.fitest.SelectTrener
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +15,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitest.*
-import com.example.fitest.ListClient.ClientAdapter
 
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.firestore.FirebaseFirestore
@@ -67,7 +65,7 @@ class SelectTrener : AppCompatActivity() {
 
         toolbar.inflateMenu(R.menu.last)
         toolbar.inflateMenu(R.menu.refresh)
-        toolbar.inflateMenu(R.menu.sort)
+      //  toolbar.inflateMenu(R.menu.sort)
 
 
         toolbar.setOnMenuItemClickListener { item ->
@@ -90,7 +88,7 @@ class SelectTrener : AppCompatActivity() {
                         }!!){  startActivity(Intent(this, MainActivity::class.java))}
                     else{
                         if(num=="true") {
-                            startActivity(Intent(this, Anketa_Sportsmen_P2::class.java))
+                            startActivity(Intent(this, FormSportsmanP2::class.java))
                         }
                         else {
                             startActivity(Intent(this, ProfileClient::class.java))

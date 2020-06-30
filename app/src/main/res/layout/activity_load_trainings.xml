@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backloadtrainings"
-    tools:context=".Load_Trainings">
+    tools:context=".LoadTrainings">
 
     <TableRow
         android:id="@+id/tableRow3"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button_clients"
+            android:id="@+id/buttonClients"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -27,7 +27,7 @@
             android:onClick="loadTrenClick" />
 
         <Button
-            android:id="@+id/button_clients_profile"
+            android:id="@+id/buttonClientsProfile"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -36,7 +36,7 @@
             android:onClick="loadTrenClick" />
 
         <Button
-            android:id="@+id/button_chat"
+            android:id="@+id/buttonChat"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_weight="1"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
-            android:id="@+id/button_day1"
+            android:id="@+id/buttonDay1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -83,7 +83,7 @@
             android:onClick="loadTrenClick" />
 
         <RadioButton
-            android:id="@+id/button_day2"
+            android:id="@+id/buttonDay2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -93,7 +93,7 @@
             android:onClick="loadTrenClick" />
 
         <RadioButton
-            android:id="@+id/button_day3"
+            android:id="@+id/buttonDay3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -176,7 +176,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight1"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo1"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo1"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -197,7 +197,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment1"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo1"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo1"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -221,7 +221,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo1"
+                    android:id="@+id/buttonLoadVideo1"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginBottom="15dp"
@@ -281,7 +281,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight2"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo2"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo2"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -302,7 +302,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment2"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo2"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo2"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -326,7 +326,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo2"
+                    android:id="@+id/buttonLoadVideo2"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"
@@ -387,7 +387,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight3"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo3"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo3"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -408,7 +408,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment3"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo3"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo3"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -432,7 +432,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo3"
+                    android:id="@+id/buttonLoadVideo3"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"
@@ -493,7 +493,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight4"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo4"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo4"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -514,7 +514,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment4"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo4"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo4"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -538,7 +538,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo4"
+                    android:id="@+id/buttonLoadVideo4"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"
@@ -598,7 +598,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight5"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo5"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo5"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -620,7 +620,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment5"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo5"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo5"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -644,7 +644,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo5"
+                    android:id="@+id/buttonLoadVideo5"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"
@@ -704,7 +704,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight6"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo6"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo6"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -726,7 +726,7 @@
                     android:textColorHint="#FFFFFF"
 
                     app:layout_constraintBottom_toTopOf="@+id/editComment6"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo6"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo6"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -750,7 +750,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo6"
+                    android:id="@+id/buttonLoadVideo6"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"
@@ -810,7 +810,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editTakeWeight7"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo7"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo7"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -831,7 +831,7 @@
                     android:textColor="#FFFFFF"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintBottom_toTopOf="@+id/editComment7"
-                    app:layout_constraintEnd_toStartOf="@+id/button_loadVideo7"
+                    app:layout_constraintEnd_toStartOf="@+id/buttonLoadVideo7"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -856,7 +856,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <RadioButton
-                    android:id="@+id/button_loadVideo7"
+                    android:id="@+id/buttonLoadVideo7"
                     android:layout_width="177dp"
                     android:layout_height="132dp"
                     android:layout_marginTop="15dp"

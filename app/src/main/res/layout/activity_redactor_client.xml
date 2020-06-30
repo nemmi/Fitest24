@@ -25,7 +25,7 @@
         tools:layout_editor_absoluteX="30dp" />
 
     <ImageButton
-        android:id="@+id/deleteprofile"
+        android:id="@+id/deleteProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -53,13 +53,13 @@
         />
 
     <Button
-        android:id="@+id/swaptrener"
+        android:id="@+id/swapTrainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="132dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/swaptrener"
         android:onClick="editSpClick"
         app:layout_constraintBottom_toTopOf="@+id/save"
@@ -99,13 +99,13 @@
         android:paddingStart="15dp"
         android:paddingTop="20dp"
         android:paddingEnd="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/swaptrener"
+        app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editFI"
+        android:id="@+id/editSecnameName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

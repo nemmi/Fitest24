@@ -3,13 +3,11 @@ package com.example.fitest
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fitest.dffgh.SelectTrener
+import com.example.fitest.SelectTrener.SelectTrener
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
 import com.google.firebase.auth.ktx.auth
@@ -47,12 +45,12 @@ class MainActivity : AppCompatActivity() {
 
 
         auth = FirebaseAuth.getInstance()
-auth.signInWithEmailAndPassword("test@test.test","11111111")
+    auth.signInWithEmailAndPassword("test@test.test","11111111")
 
 
         //= ddb.collection("sportsmen").document("caBlWtPi6idpzBQUZ7M9Ta7w70q2")
 
-        button_listTren.setOnClickListener {
+        buttonListTrainer.setOnClickListener {
             val intent = Intent(this, SelectTrener::class.java)
 
 
@@ -63,14 +61,14 @@ auth.signInWithEmailAndPassword("test@test.test","11111111")
 
     fun AuthClick(view: View){
         when(view.id){
-            R.id.btn_login -> {
+            R.id.btnLogin -> {
                 doLogin()
             }
          /*   R.id.button_listTren ->{
                 startActivity(Intent(this, SelectTrener::class.java))
 
             }*/
-            R.id.SignUp ->{
+            R.id.signUp ->{
                 startActivity(Intent(this, Registration::class.java))
             }
         }
@@ -111,7 +109,7 @@ auth.signInWithEmailAndPassword("test@test.test","11111111")
                                     if (snapshot != null && snapshot.exists()) {
 
                                         if (snapshot.getString("status") == "trener") {
-                                            startActivity(Intent(this, ProfileTrener::class.java))
+                                            startActivity(Intent(this, ProfileTrainer::class.java))
                                         }
                                     }
                                     else {

@@ -31,14 +31,14 @@ abstract class MessageItem(private val message: TextMessage)
 
     private fun setMessageRootGravity(viewHolder: ViewHolder) {
         if (message.senderId == FirebaseAuth.getInstance().currentUser?.uid) {
-            viewHolder.message_root.apply {
+            viewHolder.messageRoot.apply {
                 backgroundResource = R.drawable.round
                 val lParams = FrameLayout.LayoutParams(wrapContent, wrapContent, Gravity.END)
                 this.layoutParams = lParams
             }
         }
         else {
-            viewHolder.message_root.apply {
+            viewHolder.messageRoot.apply {
                 backgroundResource = R.drawable.round
                 val lParams = FrameLayout.LayoutParams(wrapContent, wrapContent, Gravity.START)
                 this.layoutParams = lParams

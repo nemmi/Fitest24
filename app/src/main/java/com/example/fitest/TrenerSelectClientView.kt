@@ -8,8 +8,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.fitest.dffgh.SelectTrener
-import com.google.firebase.auth.FirebaseAuth
+import com.example.fitest.SelectTrener.SelectTrener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -50,7 +49,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
 
 
-        imageButton27.setOnClickListener {
+        btnSelectTrainer.setOnClickListener {
             if(Firebase.auth.currentUser?.uid?.let {
                     it=="caBlWtPi6idpzBQUZ7M9Ta7w70q2"
                 }!!){
@@ -82,7 +81,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
         loadData()
 
-        imageButton26.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
+        trenerSelectBack.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
         startActivity(intent)}
 
     }
@@ -115,11 +114,11 @@ class TrenerSelectClientView : AppCompatActivity() {
                 return@addSnapshotListener
             }
             if (snapshot != null && snapshot.exists()) {
-                textView7.text=snapshot.getString("price")
-                textView3.text=snapshot.getString("name")
-                textViewR.text=snapshot.getString("win")
-                textView8.text=snapshot.getString("spec")
-                textView2.text=snapshot.getString("study")
+                costThisTrainer.text=snapshot.getString("price")
+                nameThisTrainer.text=snapshot.getString("name")
+                description1.text=snapshot.getString("win")
+                description3.text=snapshot.getString("spec")
+                description2.text=snapshot.getString("study")
             }
             else {
                 Toast.makeText(

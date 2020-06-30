@@ -9,13 +9,11 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_body_params_coach_otchet.*
 
 
-class Params_Coach : AppCompatActivity() {
+class ParamsTrainer : AppCompatActivity() {
 
 
     private fun hideSystemUI() {
@@ -85,11 +83,11 @@ class Params_Coach : AppCompatActivity() {
     fun paramsCoachClick(view: View) {
         var value= intent.getStringExtra("id")
         when (view.id) {
-            R.id.button_clients -> {
+            R.id.buttonClients -> {
                 val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
             }
-            R.id.button_clients_profile -> {
+            R.id.buttonClientsProfile -> {
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
@@ -97,12 +95,12 @@ class Params_Coach : AppCompatActivity() {
 
                 startActivity(intent)
             }
-            R.id.button_chat -> {
+            R.id.buttonChat -> {
                 val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
-            R.id.profilecircle -> {
-                val intent = Intent(this, ProfileTrener::class.java)
+            R.id.profileCircle -> {
+                val intent = Intent(this, ProfileTrainer::class.java)
                 startActivity(intent)
             }
 

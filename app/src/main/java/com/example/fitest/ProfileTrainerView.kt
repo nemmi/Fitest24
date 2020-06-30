@@ -20,7 +20,7 @@ import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 
 import kotlinx.android.synthetic.main.activity_profile_trener_view.*
-import kotlinx.android.synthetic.main.activity_profile_trener_view.imageView61
+import kotlinx.android.synthetic.main.activity_profile_trener_view.downloadPhoto
 
 
 lateinit var REF_STORAGE_ROOT: StorageReference
@@ -56,12 +56,12 @@ class ProfileTrenerView : AppCompatActivity() {
 
     fun ProfileTrenerClick(view: View) {
         when (view.id){
-            R.id.imageButton25->{
+            R.id.btnDownloadPhoto->{
                 chooserPhoto()
 
             }
-            R.id.imageButton9 ->{
-                val intent = Intent(this, Anketa_Coach::class.java)
+            R.id.back ->{
+                val intent = Intent(this, FormTrainer::class.java)
                 startActivity(intent)
             }
         }
@@ -86,12 +86,12 @@ class ProfileTrenerView : AppCompatActivity() {
             if (path != null) {
                 path.putFile(uri).addOnSuccessListener {
                     Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()
-                    imageButton25.visibility=View.INVISIBLE
+                    btnDownloadPhoto.visibility=View.INVISIBLE
                 }
 
                 Glide.with(this)
                     .load(path)
-                    .into(imageView61)
+                    .into(downloadPhoto)
 
             }
         }

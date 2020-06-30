@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.RadioGroup
-import android.widget.ScrollView
 import android.widget.Toast
 import android.widget.VideoView
 import com.google.firebase.auth.ktx.auth
@@ -16,9 +15,9 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 import kotlinx.android.synthetic.main.activity_trainings.*
-import kotlinx.android.synthetic.main.activity_trainings.button_day1
-import kotlinx.android.synthetic.main.activity_trainings.button_day2
-import kotlinx.android.synthetic.main.activity_trainings.button_day3
+import kotlinx.android.synthetic.main.activity_trainings.buttonDay1
+import kotlinx.android.synthetic.main.activity_trainings.buttonDay2
+import kotlinx.android.synthetic.main.activity_trainings.buttonDay3
 import kotlinx.android.synthetic.main.activity_trainings.checkBox1
 import kotlinx.android.synthetic.main.activity_trainings.checkBox2
 import kotlinx.android.synthetic.main.activity_trainings.checkBox3
@@ -32,7 +31,7 @@ import kotlinx.android.synthetic.main.activity_trainings.textExercise6
 import java.io.File
 
 
-class Trainings_Sportsmen : AppCompatActivity() {
+class TrainingsSportsman : AppCompatActivity() {
 
     var mondayChek1 = false
     var mondayChek2 = false
@@ -86,16 +85,16 @@ class Trainings_Sportsmen : AppCompatActivity() {
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 when (optionId) {
-                    R.id.button_day1 -> {
+                    R.id.buttonDay1 -> {
                         CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5, mondayChek6, mondayChek7)
                         loadFirst("_1")
 
                     }
-                    R.id.button_day2 -> {
+                    R.id.buttonDay2 -> {
                         loadFirst("_2")
                         CheckThisOut(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5, tuesdayChek6, tuesdayChek7)
                     }
-                    R.id.button_day3 -> {
+                    R.id.buttonDay3 -> {
                         loadFirst("_3")
                         CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5, wednesdayChek6, wednesdayChek7)
                     }
@@ -188,16 +187,16 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
     fun trenSportsmenClick(view: View) {
         when (view.id) {
-            R.id.button_training -> {
-                val intent = Intent(this, Trainings_Sportsmen::class.java)
+            R.id.buttonTraining -> {
+                val intent = Intent(this, TrainingsSportsman::class.java)
                 startActivity(intent)
             }
-            R.id.button_eats -> {
-                val intent = Intent(this, Pitanie::class.java)
+            R.id.buttonEats -> {
+                val intent = Intent(this, Eat::class.java)
                 startActivity(intent)
             }
-            R.id.button_chats -> {
-                val intent = Intent(this, Chat_Sportsmen::class.java)
+            R.id.buttonChats -> {
+                val intent = Intent(this, ChatSportsman::class.java)
                 startActivity(intent)
             }
             R.id.profile -> {
@@ -207,19 +206,19 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
             R.id.checkBox1 -> {
 
-                    if (button_day1.isChecked) {
+                    if (buttonDay1.isChecked) {
 
                         mondayChek1 = checkBox1.isChecked
                         CheckID("_1", "Checkbox1", mondayChek1.toString())
 
 
                     }
-                    if (button_day2.isChecked) {
+                    if (buttonDay2.isChecked) {
 
                         tuesdayChek1 = checkBox1.isChecked
                         CheckID("_2", "Checkbox1", tuesdayChek1.toString())
                     }
-                    if (button_day3.isChecked) {
+                    if (buttonDay3.isChecked) {
 
                         wednesdayChek1 = checkBox1.isChecked
                         CheckID("_3", "Checkbox1", wednesdayChek1.toString())
@@ -228,17 +227,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
                                     }
 
             R.id.checkBox2 -> {
-                if (button_day1.isChecked) {
+                if (buttonDay1.isChecked) {
 
                     mondayChek2 = checkBox2.isChecked
                     CheckID("_1", "Checkbox2", mondayChek2.toString())
                 }
-                if (button_day2.isChecked) {
+                if (buttonDay2.isChecked) {
 
                     tuesdayChek2 = checkBox2.isChecked
                     CheckID("_2", "Checkbox2", tuesdayChek2.toString())
                 }
-                if (button_day3.isChecked) {
+                if (buttonDay3.isChecked) {
 
                     wednesdayChek2 = checkBox2.isChecked
                     CheckID("_3", "Checkbox2", wednesdayChek2.toString())
@@ -246,17 +245,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
             }
             R.id.checkBox3 -> {
-                if (button_day1.isChecked) {
+                if (buttonDay1.isChecked) {
 
                     mondayChek3 = checkBox3.isChecked
                     CheckID("_1", "Checkbox3", mondayChek3.toString())
                 }
-                if (button_day2.isChecked) {
+                if (buttonDay2.isChecked) {
 
                     tuesdayChek3 = checkBox3.isChecked
                     CheckID("_2", "Checkbox3", tuesdayChek3.toString())
                 }
-                if (button_day3.isChecked) {
+                if (buttonDay3.isChecked) {
 
                     wednesdayChek3 = checkBox3.isChecked
                     CheckID("_3", "Checkbox3", wednesdayChek3.toString())
@@ -264,17 +263,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
             }
             R.id.checkBox4 -> {
-                if (button_day1.isChecked) {
+                if (buttonDay1.isChecked) {
 
                     mondayChek4 = checkBox4.isChecked
                     CheckID("_1", "Checkbox4", mondayChek4.toString())
                 }
-                if (button_day2.isChecked) {
+                if (buttonDay2.isChecked) {
 
                     tuesdayChek4 = checkBox4.isChecked
                     CheckID("_2", "Checkbox4", tuesdayChek4.toString())
                 }
-                if (button_day3.isChecked) {
+                if (buttonDay3.isChecked) {
 
                     wednesdayChek4 = checkBox4.isChecked
                     CheckID("_3", "Checkbox4", wednesdayChek4.toString())
@@ -282,17 +281,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
             }
             R.id.checkBox5 -> {
-                if (button_day1.isChecked) {
+                if (buttonDay1.isChecked) {
 
                     mondayChek5 = checkBox5.isChecked
                     CheckID("_1", "Checkbox5", mondayChek5.toString())
                 }
-                if (button_day2.isChecked) {
+                if (buttonDay2.isChecked) {
 
                     tuesdayChek5 = checkBox5.isChecked
                     CheckID("_2", "Checkbox5", tuesdayChek5.toString())
                 }
-                if (button_day3.isChecked) {
+                if (buttonDay3.isChecked) {
 
                     wednesdayChek5 = checkBox5.isChecked
                     CheckID("_3", "Checkbox5", wednesdayChek5.toString())
@@ -300,17 +299,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
 
             }
             R.id.checkBox6 -> {
-                if (button_day1.isChecked) {
+                if (buttonDay1.isChecked) {
 
                     mondayChek6 = checkBox6.isChecked
                     CheckID("_1", "Checkbox6", mondayChek6.toString())
                 }
-                if (button_day2.isChecked) {
+                if (buttonDay2.isChecked) {
 
                     tuesdayChek6 = checkBox6.isChecked
                     CheckID("_2", "Checkbox6", tuesdayChek6.toString())
                 }
-                if (button_day3.isChecked) {
+                if (buttonDay3.isChecked) {
 
                     wednesdayChek6 = checkBox6.isChecked
                     CheckID("_3", "Checkbox6", wednesdayChek6.toString())
@@ -319,17 +318,17 @@ class Trainings_Sportsmen : AppCompatActivity() {
             }
             R.id.checkBox7 -> {
 
-                    if (button_day1.isChecked) {
+                    if (buttonDay1.isChecked) {
 
                         mondayChek7 = checkBox7.isChecked
                         CheckID("_1", "Checkbox7", mondayChek7.toString())
                     }
-                    if (button_day2.isChecked) {
+                    if (buttonDay2.isChecked) {
 
                         tuesdayChek7 = checkBox7.isChecked
                         CheckID("_2", "Checkbox7", tuesdayChek7.toString())
                     }
-                    if (button_day3.isChecked) {
+                    if (buttonDay3.isChecked) {
 
                         wednesdayChek7 = checkBox7.isChecked
                         CheckID("_3", "Checkbox7", wednesdayChek7.toString())
@@ -395,7 +394,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
     }
 
     private fun loadVideo(vid: String, exers: VideoView) {
-        if(button_day1.isChecked) {
+        if(buttonDay1.isChecked) {
             Firebase.auth.currentUser?.uid?.let {
                 ddb.collection("trainings")
                     .document(it + "_1")
@@ -448,7 +447,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
             }
         }
 
-        if(button_day2.isChecked) {
+        if(buttonDay2.isChecked) {
             Firebase.auth.currentUser?.uid?.let {
                 ddb.collection("trainings")
                     .document(it + "_2")
@@ -501,7 +500,7 @@ class Trainings_Sportsmen : AppCompatActivity() {
             }
         }
 
-        if(button_day3.isChecked) {
+        if(buttonDay3.isChecked) {
             Firebase.auth.currentUser?.uid?.let {
                 ddb.collection("trainings")
                     .document(it + "_3")

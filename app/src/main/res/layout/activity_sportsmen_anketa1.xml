@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backuniversal"
-    tools:context=".Anketa_Sportsmen_P1">
+    tools:context=".FormSportsmanP1">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/toolbarAnketaView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/topclientsanketa"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAnketaView"
         app:layout_constraintVertical_bias="0.234">
 
         <LinearLayout
@@ -228,7 +228,7 @@
                 android:src="@drawable/bads" />
 
             <EditText
-                android:id="@+id/editBADS"
+                android:id="@+id/editBads"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="15dp"
@@ -265,7 +265,7 @@
                 android:textColorHint="#FFFFFF" />
 
             <Button
-                android:id="@+id/button_choose"
+                android:id="@+id/buttonChoose"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="15dp"

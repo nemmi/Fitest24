@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_load_eat.*
 
 
 
-class Load_Eat : AppCompatActivity() {
+class LoadEat : AppCompatActivity() {
 
 
 
@@ -67,53 +67,53 @@ class Load_Eat : AppCompatActivity() {
             run {
                 when (optionId) {
                     R.id.monday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.tuesday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.wednesday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.thursday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.friday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.saturday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     R.id.sunday -> {
-                        eat1txt.setText("")
-                        eat2txt.setText("")
-                        eat3txt.setText("")
-                        eat4txt.setText("")
-                        eat5txt.setText("")
+                        eatTxt1.setText("")
+                        eatTxt2.setText("")
+                        eatTxt3.setText("")
+                        eatTxt4.setText("")
+                        eatTxt5.setText("")
                     }
                     else -> throw AssertionError()
                 }
@@ -126,14 +126,14 @@ class Load_Eat : AppCompatActivity() {
         val up=  ddb.collection("eat")
             .document(value+day)
 
-        if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
+        if(eatTxt1.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eatTxt1.text.toString())) {
             up
                 .update(
-                    "eat1", eat1txt.text.toString()
+                    "eat1", eatTxt1.text.toString()
                 )
                 .addOnSuccessListener {}
         }
-        else if(eat1txt.text.toString().isEmpty()){
+        else if(eatTxt1.text.toString().isEmpty()){
             up
                 .update(
                     "eat1", ""
@@ -141,14 +141,14 @@ class Load_Eat : AppCompatActivity() {
                 .addOnSuccessListener {}
         }
 
-        if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
+        if(eatTxt2.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eatTxt2.text.toString())) {
             up
                 .update(
-                    "eat2", eat2txt.text.toString()
+                    "eat2", eatTxt2.text.toString()
                 )
                 .addOnSuccessListener {}
         }
-        else if(eat2txt.text.toString().isEmpty()){
+        else if(eatTxt2.text.toString().isEmpty()){
             up
                 .update(
                     "eat2", ""
@@ -156,14 +156,14 @@ class Load_Eat : AppCompatActivity() {
                 .addOnSuccessListener {}
         }
 
-        if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
+        if(eatTxt3.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eatTxt3.text.toString())) {
             up
                 .update(
-                    "eat3", eat3txt.text.toString()
+                    "eat3", eatTxt3.text.toString()
                 )
                 .addOnSuccessListener {}
         }
-        else if(eat3txt.text.toString().isEmpty()){
+        else if(eatTxt3.text.toString().isEmpty()){
             up
                 .update(
                     "eat3", ""
@@ -171,28 +171,28 @@ class Load_Eat : AppCompatActivity() {
                 .addOnSuccessListener {}
         }
 
-        if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
+        if(eatTxt4.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eatTxt4.text.toString())) {
             up
                 .update(
-                    "eat4", eat4txt.text.toString()
+                    "eat4", eatTxt4.text.toString()
                 )
                 .addOnSuccessListener {}
         }
-        else if(eat4txt.text.toString().isEmpty()){
+        else if(eatTxt4.text.toString().isEmpty()){
             up
                 .update(
                     "eat4", ""
                 )
                 .addOnSuccessListener {}
         }
-        if(eat5txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat5txt.text.toString())) {
+        if(eatTxt5.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eatTxt5.text.toString())) {
             up
                 .update(
-                    "eat5",eat5txt.text.toString()
+                    "eat5",eatTxt5.text.toString()
                 )
                 .addOnSuccessListener {}
         }
-        else if(eat5txt.text.toString().isEmpty()){
+        else if(eatTxt5.text.toString().isEmpty()){
             up
                 .update(
                     "eat5", ""
@@ -211,18 +211,18 @@ class Load_Eat : AppCompatActivity() {
         var value= intent.getStringExtra("id")
         when (view.id){
             R.id.imageProfile ->{
-                val backtotrener= Intent(this, ProfileTrener::class.java)
+                val backtotrener= Intent(this, ProfileTrainer::class.java)
                 startActivity(backtotrener)
             }
-            R.id.Clienti ->{
+            R.id.btnClients ->{
                 val Clienty= Intent(this, ListClient::class.java)
                 startActivity(Clienty)
             }
-            R.id.groupchat ->{
+            R.id.btnChat ->{
                 val Chat= Intent(this, SpisocChatov::class.java)
                 startActivity(Chat)
             }
-            R.id.btn_profileClient ->{
+            R.id.btnProfileClient ->{
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)

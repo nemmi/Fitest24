@@ -22,7 +22,7 @@ import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_coach.*
 import java.util.*
 
-class Chat_Coach : AppCompatActivity() {
+class ChatTrainer : AppCompatActivity() {
 
     private lateinit var currentChannelId: String
     private val firestoreInstance: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
@@ -66,17 +66,17 @@ class Chat_Coach : AppCompatActivity() {
                 FirestoreUtil.addChatMessagesListener(channelId, this, this::updateRecyclerView)
 
             floatingActionButton.setOnClickListener{
-                if (editText3.text.toString().isNotEmpty()) {
+                if (writeMessage.text.toString().isNotEmpty()) {
                     val messageToSend =
                         TextMessage(
-                            editText3.text.toString(), Calendar.getInstance().time,
+                            writeMessage.text.toString(), Calendar.getInstance().time,
                             FirebaseAuth.getInstance().currentUser!!.uid,
                             otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
                                 firestoreInstance.collection("treners").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
                                     snapshot?.getString("name")
                                 }}.toString()
                         )
-                    editText3.setText("")
+                    writeMessage.setText("")
                     FirestoreUtil.sendMessage(messageToSend, channelId)
                 }
             }
@@ -88,14 +88,14 @@ class Chat_Coach : AppCompatActivity() {
         var otherUserId = intent.getStringExtra("id")
         when (view.id) {
             R.id.profile -> {
-                val intent = Intent(this, ProfileTrener::class.java)
+                val intent = Intent(this, ProfileTrainer::class.java)
                 startActivity(intent)
             }
-            R.id.button_clients -> {
+            R.id.buttonClients -> {
                 val intent = Intent(this, ListClient::class.java)
                 startActivity(intent)
             }
-            R.id.button_clients_profile -> {
+            R.id.buttonClientsProfile -> {
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", otherUserId)
                 intent.putExtra("id", otherUserId)
@@ -103,7 +103,7 @@ class Chat_Coach : AppCompatActivity() {
 
                 startActivity(intent)
             }
-            R.id.button_chat -> {
+            R.id.buttonChat -> {
                 val intent = Intent(this, SpisocChatov::class.java)
                 startActivity(intent)
             }
@@ -112,7 +112,7 @@ class Chat_Coach : AppCompatActivity() {
     private fun updateRecyclerView(messages: List<Item>) {
         fun init() {
             recyclerChat.apply {
-                layoutManager = LinearLayoutManager(this@Chat_Coach)
+                layoutManager = LinearLayoutManager(this@ChatTrainer)
                 adapter = GroupAdapter<ViewHolder>().apply {
                     messagesSection = Section(messages)
                     this.add(messagesSection)

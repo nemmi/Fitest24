@@ -10,9 +10,9 @@ import android.view.WindowManager
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitest.Chat_Coach
+import com.example.fitest.ChatTrainer
 import com.example.fitest.ListClient.ListClient
-import com.example.fitest.ProfileTrener
+import com.example.fitest.ProfileTrainer
 import com.example.fitest.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
@@ -60,14 +60,14 @@ class SpisocChatov : AppCompatActivity() {
         root = findViewById(R.id.root)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
-        imageButton21.setOnClickListener { val intent = Intent(this, ProfileTrener::class.java)
+        openProfile.setOnClickListener { val intent = Intent(this, ProfileTrainer::class.java)
         startActivity(intent)}
 
-        imageButton22.setOnClickListener { val intent = Intent(this, ListClient::class.java)
+        butClients.setOnClickListener { val intent = Intent(this, ListClient::class.java)
             startActivity(intent)}
 
         toolbar.inflateMenu(R.menu.refresh)
-        toolbar.inflateMenu(R.menu.sort)
+      //  toolbar.inflateMenu(R.menu.sort)
 
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
@@ -113,7 +113,7 @@ class SpisocChatov : AppCompatActivity() {
 
 
                 }
-                val intent = Intent(this, Chat_Coach::class.java)
+                val intent = Intent(this, ChatTrainer::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)

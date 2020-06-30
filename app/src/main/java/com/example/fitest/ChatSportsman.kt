@@ -17,12 +17,12 @@ import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_clients.*
-import kotlinx.android.synthetic.main.activity_chat_clients.editText3
+import kotlinx.android.synthetic.main.activity_chat_clients.writeMessage
 import kotlinx.android.synthetic.main.activity_chat_clients.floatingActionButton
 import java.util.*
 
 
-class Chat_Sportsmen : AppCompatActivity() {
+class ChatSportsman : AppCompatActivity() {
 
     private lateinit var currentChannelId: String
     private val firestoreInstance: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
@@ -60,18 +60,18 @@ class Chat_Sportsmen : AppCompatActivity() {
 
                     messagesListenerRegistration =
                         FirestoreUtilSportsmen.addChatMessagesListener(channelId, this, this::updateRecyclerView)
-                    floatingActionButton.setOnClickListener {
-                        if (editText3.text.toString().isNotEmpty()) {
+                        floatingActionButton.setOnClickListener {
+                        if (writeMessage.text.toString().isNotEmpty()) {
                             val messageToSend =
                                 TextMessage(
-                                    editText3.text.toString(), Calendar.getInstance().time,
+                                    writeMessage.text.toString(), Calendar.getInstance().time,
                                     FirebaseAuth.getInstance().currentUser!!.uid,
                                     otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
                                         firestoreInstance.collection("sportsmen").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
                                             snapshot?.getString("name")
                                         }}.toString()
                                 )
-                            editText3.setText("")
+                            writeMessage.setText("")
                             FirestoreUtilSportsmen.sendMessage(messageToSend, channelId)
                         }
                     }
@@ -88,12 +88,12 @@ class Chat_Sportsmen : AppCompatActivity() {
                 val intent = Intent(this, ProfileClient::class.java)
                 startActivity(intent)
             }
-            R.id.button_training -> {
-                val intent = Intent(this, Trainings_Sportsmen::class.java)
+            R.id.buttonTraining -> {
+                val intent = Intent(this, TrainingsSportsman::class.java)
                 startActivity(intent)
             }
-            R.id.button_eats -> {
-                val intent = Intent(this, Pitanie::class.java)
+            R.id.buttonEats -> {
+                val intent = Intent(this, Eat::class.java)
                 startActivity(intent)
             }
         }
@@ -102,7 +102,7 @@ class Chat_Sportsmen : AppCompatActivity() {
     private fun updateRecyclerView(messages: List<Item>) {
         fun init() {
             recyclerChat.apply {
-                layoutManager = LinearLayoutManager(this@Chat_Sportsmen)
+                layoutManager = LinearLayoutManager(this@ChatSportsman)
                 adapter = GroupAdapter<ViewHolder>().apply {
                     messagesSection = Section(messages)
                     this.add(messagesSection)

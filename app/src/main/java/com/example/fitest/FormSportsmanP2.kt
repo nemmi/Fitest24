@@ -3,11 +3,10 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import com.example.fitest.dffgh.SelectTrener
+import com.example.fitest.SelectTrener.SelectTrener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -15,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 
 import kotlinx.android.synthetic.main.activity_sportsmen_anketa2.*
 
-class Anketa_Sportsmen_P2 : AppCompatActivity() {
+class FormSportsmanP2 : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -42,11 +41,11 @@ class Anketa_Sportsmen_P2 : AppCompatActivity() {
     }
     fun anketaSp2Click(view: View) {
         when (view.id) {
-            R.id.toolbar3 -> {
-                val intent = Intent(this, Anketa_Sportsmen_P1::class.java)
+            R.id.toolbarAnketaView -> {
+                val intent = Intent(this, FormSportsmanP1::class.java)
                 startActivity(intent)
             }
-            R.id.button_toCoach -> {
+            R.id.buttonToCoach -> {
                 upProfile()
             }
 

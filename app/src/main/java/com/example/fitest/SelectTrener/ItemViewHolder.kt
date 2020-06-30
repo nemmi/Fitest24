@@ -1,4 +1,4 @@
-package com.example.fitest.dffgh
+package com.example.fitest.SelectTrener
 
 
 import android.view.LayoutInflater
@@ -17,9 +17,9 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    var textTitle: TextView = itemView.findViewById(R.id.text_title)
+    var textTitle: TextView = itemView.findViewById(R.id.listName)
    // var textSubtitle: TextView = itemView.findViewById(R.id.text_subtitle)
-    var textOther: TextView = itemView.findViewById(R.id.text_other)
+    var textOther: TextView = itemView.findViewById(R.id.listCost)
  //   var buttonDelete: View = itemView.findViewById(R.id.button_delete)
   //  var buttonUp: View = itemView.findViewById(R.id.button_up)
 

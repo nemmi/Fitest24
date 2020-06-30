@@ -9,9 +9,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_profile_client_view.*
 
 class ProfileClientView : AppCompatActivity() {
@@ -86,69 +84,69 @@ class ProfileClientView : AppCompatActivity() {
         Log.i("NewActivity", value)
 
         when (view.id) {
-            R.id.imageButton13 -> {
-                val intent = Intent(this, AnketaView::class.java)
+            R.id.lookForm -> {
+                val intent = Intent(this, FormSportsmanView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.imageButton12 -> {
-                val intent = Intent(this, Chat_Coach::class.java)
+            R.id.iconChat -> {
+                val intent = Intent(this, ChatTrainer::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.programtreni -> {
-                val intent = Intent(this, Load_Trainings::class.java)
+            R.id.programmTrainings -> {
+                val intent = Intent(this, LoadTrainings::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.programpitaniye -> {
-                val intent = Intent(this, Load_Eat::class.java)
+            R.id.programmEat -> {
+                val intent = Intent(this, LoadEat::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.otchettreni -> {
-                val intent = Intent(this, Trainings_Coach::class.java)
+            R.id.formTrainings -> {
+                val intent = Intent(this, TrainingsTrainer::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.otchetpitanie -> {
-                val intent = Intent(this, OtchetPitanie::class.java)
+            R.id.formEat -> {
+                val intent = Intent(this, ReportEat::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.otchetparamer -> {
-                val intent = Intent(this, Params_Coach::class.java)
+            R.id.formParams -> {
+                val intent = Intent(this, ParamsTrainer::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)
                 Log.i("Intent", value)
 
                 startActivity(intent)
             }
-            R.id.imageButton28 -> {
+            R.id.listClients -> {
                 startActivity(Intent(this, ListClient::class.java))
             }
-            R.id.imageView56 -> {
-                startActivity(Intent(this, ProfileTrener::class.java))
+            R.id.openYourProfile -> {
+                startActivity(Intent(this, ProfileTrainer::class.java))
             }
-            R.id.imageButton33 -> {
+            R.id.chat -> {
                 startActivity(Intent(this, SpisocChatov::class.java))
             }
 

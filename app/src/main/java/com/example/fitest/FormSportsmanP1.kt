@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 
@@ -19,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.*
 import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.editPhoneNumber
 import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.editSecondName
 
-class Anketa_Sportsmen_P1  : AppCompatActivity() {
+class FormSportsmanP1  : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -48,11 +46,11 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
     private val ddb = FirebaseFirestore.getInstance()
     fun anketaSp1Click(view: View) {
         when (view.id) {
-            R.id.toolbar3 -> {
+            R.id.toolbarAnketaView -> {
                 val intent = Intent(this, Registration::class.java)
                 startActivity(intent)
             }
-            R.id.button_choose -> {
+            R.id.buttonChoose -> {
                 upProfile()
 
             }
@@ -106,9 +104,9 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
             editDontEat.requestFocus()
             return
         }
-        if (!FIELD__PATTERN.matches(editBADS.text.toString())) {
-            editBADS.error = "Введите не менее 3 и не более 30 символов"
-            editBADS.requestFocus()
+        if (!FIELD__PATTERN.matches(editBads.text.toString())) {
+            editBads.error = "Введите не менее 3 и не более 30 символов"
+            editBads.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editBlood.text.toString())) {
@@ -162,9 +160,9 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
             editHeightAnketa.requestFocus()
             return
         }
-        if (editBADS.text.toString().isEmpty()) {
-            editBADS.error = "Введите данные"
-            editBADS.requestFocus()
+        if (editBads.text.toString().isEmpty()) {
+            editBads.error = "Введите данные"
+            editBads.requestFocus()
             return
         }
         if (editBlood.text.toString().isEmpty()) {
@@ -187,7 +185,7 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
                 "hatingEat" to editDontEat.text.toString(),
                 "weight" to editAnketaWeight.text.toString(),
                 "height" to editHeightAnketa.text.toString(),
-                "bads" to editBADS.text.toString(),
+                "bads" to editBads.text.toString(),
                 "bloods" to editBlood.text.toString()
             )
 
@@ -200,7 +198,7 @@ class Anketa_Sportsmen_P1  : AppCompatActivity() {
                             baseContext, "Отлично, осталось только выбрать продукты!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        startActivity(Intent(this, Anketa_Sportsmen_P2::class.java))
+                        startActivity(Intent(this, FormSportsmanP2::class.java))
                     }
             }
         }

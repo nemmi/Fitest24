@@ -17,7 +17,7 @@ class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    var textTitle: TextView = itemView.findViewById(R.id.text_title)
+    var textTitle: TextView = itemView.findViewById(R.id.listName)
     // var textSubtitle: TextView = itemView.findViewById(R.id.text_subtitle)
 
     //   var buttonDelete: View = itemView.findViewById(R.id.button_delete)

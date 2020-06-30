@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backchat"
-    tools:context=".Chat_Sportsmen">
+    tools:context=".ChatSportsman">
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button_training"
+            android:id="@+id/buttonTraining"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -25,7 +25,7 @@
             android:onClick="chatSportClick" />
 
         <Button
-            android:id="@+id/button_eats"
+            android:id="@+id/buttonEats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
             android:onClick="chatSportClick" />
 
         <Button
-            android:id="@+id/button_chats"
+            android:id="@+id/buttonChats"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -63,14 +63,14 @@
         android:layout_marginBottom="10dp"
         android:foregroundGravity="center"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@id/relativeLayout_message"
+        app:layout_constraintBottom_toTopOf="@id/relativeLayoutMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile"
         app:layout_constraintVertical_bias="1.0" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout_message"
+        android:id="@+id/relativeLayoutMessage"
         android:layout_width="0dp"
         android:layout_height="88dp"
 
@@ -94,7 +94,7 @@
 
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/writeMessage"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:layout_alignTop="@+id/imageView31"

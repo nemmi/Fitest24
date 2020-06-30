@@ -34,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
                         if (snapshot != null && snapshot.exists()) {
 
                             if (snapshot.getString("status") == "trener") {
-                                startActivity(Intent(this, ProfileTrener::class.java))
+                                startActivity(Intent(this, ProfileTrainer::class.java))
                             }
                         } else {
                             ddb.collection("sportsmen")

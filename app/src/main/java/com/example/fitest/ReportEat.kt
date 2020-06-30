@@ -10,23 +10,11 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
 import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-
-import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox1
-import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox2
-import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox3
-import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox4
-import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox5
-import kotlinx.android.synthetic.main.activity_otchet_eat.eat1txt
-import kotlinx.android.synthetic.main.activity_otchet_eat.eat2txt
-import kotlinx.android.synthetic.main.activity_otchet_eat.eat3txt
-import kotlinx.android.synthetic.main.activity_otchet_eat.eat4txt
-import kotlinx.android.synthetic.main.activity_otchet_eat.eat5txt
-import kotlinx.android.synthetic.main.activity_otchet_trainings.*
+import kotlinx.android.synthetic.main.activity_otchet_eat.*
 
 
-class OtchetPitanie : AppCompatActivity() {
+class ReportEat : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -111,11 +99,11 @@ class OtchetPitanie : AppCompatActivity() {
                 }
                 if (snapshot != null && snapshot.exists()) {
 
-                    eat1txt.text = snapshot.getString("eat1")
-                    eat2txt.text = snapshot.getString("eat2")
-                    eat3txt.text = snapshot.getString("eat3")
-                    eat4txt.text = snapshot.getString("eat4")
-                    eat5txt.text = snapshot.getString("eat5")
+                    eatTxt1.text = snapshot.getString("eat1")
+                    eatTxt2.text = snapshot.getString("eat2")
+                    eatTxt3.text = snapshot.getString("eat3")
+                    eatTxt4.text = snapshot.getString("eat4")
+                    eatTxt5.text = snapshot.getString("eat5")
 
                    if(snapshot.getString("Checkbox1") == "true")
                     {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
@@ -150,17 +138,17 @@ class OtchetPitanie : AppCompatActivity() {
         when (view.id){
 
             R.id.imageProfile ->{
-                startActivity(Intent(this, ProfileTrener::class.java))
+                startActivity(Intent(this, ProfileTrainer::class.java))
             }
-            R.id.Clienti ->{
+            R.id.btnClients ->{
 
                 startActivity(Intent(this, ListClient::class.java))
             }
-            R.id.groupchat ->{
+            R.id.btnChat ->{
 
                 startActivity(Intent(this, SpisocChatov::class.java))
             }
-            R.id.btn_profileClient ->{
+            R.id.btnProfileClient ->{
                 val intent = Intent(this, ProfileClientView::class.java)
                 Log.i("DocId", value)
                 intent.putExtra("id", value)

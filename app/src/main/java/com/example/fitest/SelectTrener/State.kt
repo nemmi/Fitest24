@@ -1,4 +1,4 @@
-package com.example.fitest.dffgh
+package com.example.fitest.SelectTrener
 
 class State {
 

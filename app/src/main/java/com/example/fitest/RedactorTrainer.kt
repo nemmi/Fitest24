@@ -3,31 +3,17 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.util.Patterns
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_profile_trener.*
-import kotlinx.android.synthetic.main.activity_redactor_client.*
-
-
 import kotlinx.android.synthetic.main.activity_redactor_trener.*
-import kotlinx.android.synthetic.main.activity_redactor_trener.editFI
-import kotlinx.android.synthetic.main.activity_redactor_trener.mailEdit
-import kotlinx.android.synthetic.main.activity_redactor_trener.phoneEdit
-import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.*
 
-class RedactorTrener : AppCompatActivity() {
+class RedactorTrainer : AppCompatActivity() {
 
     private fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -58,7 +44,7 @@ class RedactorTrener : AppCompatActivity() {
 
     fun editTrClick(view: View) {
         when (view.id) {
-            R.id.deleteprofile -> {
+            R.id.deleteProfile -> {
                 deleteUser()
             }
             R.id.save -> {
@@ -80,9 +66,9 @@ class RedactorTrener : AppCompatActivity() {
             return
         }
 
-        if (editFI.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editFI.text.toString())) {
-            editFI.error = "Введите Имя"
-            editFI.requestFocus()
+        if (editSecnameName.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editSecnameName.text.toString())) {
+            editSecnameName.error = "Введите Имя"
+            editSecnameName.requestFocus()
             return
         }
 
@@ -102,8 +88,8 @@ class RedactorTrener : AppCompatActivity() {
 
             }
 
-            if (editFI.text.toString().isNotEmpty()) {
-                Update("name",editFI)
+            if (editSecnameName.text.toString().isNotEmpty()) {
+                Update("name",editSecnameName)
             }
             if (phoneEdit.text.toString().isNotEmpty()) {
                 Update("phoneNumber", phoneEdit)
@@ -112,7 +98,7 @@ class RedactorTrener : AppCompatActivity() {
                 baseContext, "Профиль успешно обновлен",
                 Toast.LENGTH_SHORT
             ).show()
-            startActivity(Intent(this, ProfileTrener::class.java))
+            startActivity(Intent(this, ProfileTrainer::class.java))
         }
 
     }
