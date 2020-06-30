@@ -66,8 +66,8 @@ class FormSportsmanP1  : AppCompatActivity() {
         val EXP__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,50}")
         val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,30}")
         val AGE__PATTERN = Regex(pattern = "[0-9]{2,3}")
-        val PARAMS__PATTERN = Regex(pattern = "[0-9.]{2,4}")
-        val HEIGHT__PATTERN = Regex(pattern = "[0-9.]{3,4}")
+        val PARAMS__PATTERN = Regex(pattern = "[0-9.,]{2,4}")
+        val HEIGHT__PATTERN = Regex(pattern = "[0-9.,]{3,4}")
 
         if (!PARAMS__PATTERN.matches(editAnketaWeight.text.toString())) {
             editAnketaWeight.error = "Введите не менее 2 и не более 4 символов"

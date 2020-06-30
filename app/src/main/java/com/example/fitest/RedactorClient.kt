@@ -112,18 +112,24 @@ class RedactorClient : AppCompatActivity() {
 
     }
     private fun deleteUser(){
-        val user = Firebase.auth.currentUser!!
+        val user1 = Firebase.auth.currentUser!!
+        val user = Firebase.auth.currentUser?.uid
 
-        user.delete()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        baseContext, "Профиль удален",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    startActivity(Intent(this, MainActivity::class.java))
-                }
-            }
+
+
+
+FirebaseFirestore.getInstance().collection("sportsmen").document(user.toString())
+    .delete().addOnCompleteListener { task ->
+        if (task.isSuccessful) {
+            Toast.makeText(
+                baseContext, "Профиль удален",
+                Toast.LENGTH_SHORT
+            ).show()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+    }
+        user1.delete()
+
     }
 private fun Update(Auth:String, field:TextView){
     Firebase.auth.currentUser?.uid?.let {

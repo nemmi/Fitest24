@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
     auth.signInWithEmailAndPassword("test@test.test","11111111")
 
 
-        //= ddb.collection("sportsmen").document("caBlWtPi6idpzBQUZ7M9Ta7w70q2")
 
         buttonListTrainer.setOnClickListener {
             val intent = Intent(this, SelectTrener::class.java)
@@ -64,10 +63,7 @@ class MainActivity : AppCompatActivity() {
             R.id.btnLogin -> {
                 doLogin()
             }
-         /*   R.id.button_listTren ->{
-                startActivity(Intent(this, SelectTrener::class.java))
 
-            }*/
             R.id.signUp ->{
                 startActivity(Intent(this, Registration::class.java))
             }
@@ -124,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
                     else {
                         Toast.makeText(
-                            baseContext, "Вход не выполнен" + task.exception,
+                            baseContext, "Вход не выполнен",
                             Toast.LENGTH_SHORT
                         ).show()
                     }

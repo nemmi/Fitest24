@@ -104,9 +104,14 @@ class RedactorTrainer : AppCompatActivity() {
     }
 
     private fun deleteUser(){
-        val user = Firebase.auth.currentUser!!
-        user.delete()
-            .addOnCompleteListener { task ->
+        val user1 = Firebase.auth.currentUser!!
+        val user = Firebase.auth.currentUser?.uid
+
+
+
+
+        FirebaseFirestore.getInstance().collection("treners").document(user.toString())
+            .delete().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
                         baseContext, "Профиль удален",
@@ -115,7 +120,10 @@ class RedactorTrainer : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                 }
             }
+        user1.delete()
+
     }
+
 
     private fun Update(Auth:String, field:TextView){
      Firebase.auth.currentUser?.uid?.let {
