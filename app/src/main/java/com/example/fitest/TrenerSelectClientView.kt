@@ -78,12 +78,21 @@ class TrenerSelectClientView : AppCompatActivity() {
             }
         }
 
-
-        loadData()
-
-        trenerSelectBack.setOnClickListener { val intent = Intent(this, SelectTrener::class.java)
-        startActivity(intent)}
-
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            loadData()
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            trenerSelectBack.setOnClickListener {
+                val intent = Intent(this, SelectTrener::class.java)
+                startActivity(intent)
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     private val storage = FirebaseStorage.getInstance()
@@ -129,8 +138,16 @@ class TrenerSelectClientView : AppCompatActivity() {
         }
     }
     private val ddb = FirebaseFirestore.getInstance()
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

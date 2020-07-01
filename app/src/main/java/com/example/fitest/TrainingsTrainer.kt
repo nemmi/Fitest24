@@ -59,18 +59,23 @@ class TrainingsTrainer : AppCompatActivity() {
         loadFirst(value, "_1")
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
-                when (optionId) {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    when (optionId) {
 
-                    R.id.buttonDay1 -> {
-                        loadFirst(value, "_1")
+                        R.id.buttonDay1 -> {
+                            loadFirst(value, "_1")
+                        }
+                        R.id.buttonDay2 -> {
+                            loadFirst(value, "_2")
+                        }
+                        R.id.buttonDay3 -> {
+                            loadFirst(value, "_3")
+                        }
+                        else -> throw AssertionError()
                     }
-                    R.id.buttonDay2 -> {
-                        loadFirst(value, "_2")
-                    }
-                    R.id.buttonDay3 -> {
-                        loadFirst(value, "_3")
-                    }
-                    else -> throw AssertionError()
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
             }
         }
@@ -151,30 +156,42 @@ class TrainingsTrainer : AppCompatActivity() {
 
     fun trenCoachClick(view: View) {
         var value= intent.getStringExtra("id")
-        when (view.id){
-            R.id.buttonClients ->{
-                val intent = Intent(this, ListClient::class.java)
-                startActivity(intent)
-            }
-            R.id.buttonClientsProfile ->{
-                val intent = Intent(this, ProfileClientView::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.buttonClients -> {
+                    val intent = Intent(this, ListClient::class.java)
+                    startActivity(intent)
+                }
+                R.id.buttonClientsProfile -> {
+                    val intent = Intent(this, ProfileClientView::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.buttonChat ->{
-                val intent = Intent(this, SpisocChatov::class.java)
-                startActivity(intent)
-            }
-            R.id.profile ->{
-                val intent = Intent(this, ProfileTrainer::class.java)
-                startActivity(intent)
-            }
+                    startActivity(intent)
+                }
+                R.id.buttonChat -> {
+                    val intent = Intent(this, SpisocChatov::class.java)
+                    startActivity(intent)
+                }
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileTrainer::class.java)
+                    startActivity(intent)
+                }
 
 
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

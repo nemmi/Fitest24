@@ -39,16 +39,20 @@ class ParamsEdit : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params_edit)
-
-        loadData()
-        editWeight.limitLength()
-        editShoulder.limitLength()
-        editTall.limitLength()
-        editBreast.limitLength()
-        editBiceps.limitLength()
-        editWaist.limitLength()
-        editButtocks.limitLength()
-        editHip.limitLength()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            loadData()
+            editWeight.limitLength()
+            editShoulder.limitLength()
+            editTall.limitLength()
+            editBreast.limitLength()
+            editBiceps.limitLength()
+            editWaist.limitLength()
+            editButtocks.limitLength()
+            editHip.limitLength()
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     private fun loadData(){
@@ -92,19 +96,24 @@ class ParamsEdit : AppCompatActivity() {
 
 
     fun paramEditClick(view: View) {
-        when (view.id) {
-            R.id.toolbarProf2 -> {
-                startActivity(Intent(this, ParamsSportsman::class.java))
-            }
-            R.id.buttonSave -> {
-                editParam()
-                Toast.makeText(
-                    baseContext, "Так держать!",
-                    Toast.LENGTH_SHORT
-                ).show()
-                startActivity(Intent(this, ParamsSportsman::class.java))
-            }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.toolbarProf2 -> {
+                    startActivity(Intent(this, ParamsSportsman::class.java))
+                }
+                R.id.buttonSave -> {
+                    editParam()
+                    Toast.makeText(
+                        baseContext, "Так держать!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this, ParamsSportsman::class.java))
+                }
 
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     private val ddb = FirebaseFirestore.getInstance()
@@ -183,6 +192,13 @@ class ParamsEdit : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
 

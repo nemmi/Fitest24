@@ -32,13 +32,19 @@ class FormSportsmanView : AppCompatActivity(){
 
         var value = intent.getStringExtra("id")
         Log.i("NewActivity", value)
-        toolbarAnketaView.setOnClickListener {
-            val intent = Intent(this, ProfileClientView::class.java)
-            Log.i("DocId", value)
-            intent.putExtra("id", value)
-            Log.i("Intent", value)
 
-            startActivity(intent)
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            toolbarAnketaView.setOnClickListener {
+                val intent = Intent(this, ProfileClientView::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
+                startActivity(intent)
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         loadData(value)
@@ -83,5 +89,12 @@ class FormSportsmanView : AppCompatActivity(){
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

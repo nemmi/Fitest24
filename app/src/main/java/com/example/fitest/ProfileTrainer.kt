@@ -41,7 +41,12 @@ class ProfileTrainer : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_trener)
-        changesAndRead()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            changesAndRead()
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
     val uid= FirebaseAuth.getInstance().currentUser?.uid
 
@@ -82,21 +87,26 @@ class ProfileTrainer : AppCompatActivity() {
     }
 
     fun profileTrClick(view: View) {
-        when (view.id) {
-            R.id.btnExit -> {
-                Firebase.auth.signOut()
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            R.id.btnRedactorTrainerProfile -> {
-                startActivity(Intent(this, RedactorTrainer::class.java))
-            }
-            R.id.listClients -> {
-                startActivity(Intent(this, ListClient::class.java))
-            }
-            R.id.chat -> {
-                startActivity(Intent(this, SpisocChatov::class.java))
-            }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.btnExit -> {
+                    Firebase.auth.signOut()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+                R.id.btnRedactorTrainerProfile -> {
+                    startActivity(Intent(this, RedactorTrainer::class.java))
+                }
+                R.id.listClients -> {
+                    startActivity(Intent(this, ListClient::class.java))
+                }
+                R.id.chat -> {
+                    startActivity(Intent(this, SpisocChatov::class.java))
+                }
 
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -107,7 +117,12 @@ class ProfileTrainer : AppCompatActivity() {
 
     }
 
-
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 
 }
 

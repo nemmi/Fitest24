@@ -48,27 +48,37 @@ class MainActivity : AppCompatActivity() {
     auth.signInWithEmailAndPassword("test@test.test","11111111")
 
 
-
+        if (IsInternetAvailable.isInternetAvailable(this)) {
         buttonListTrainer.setOnClickListener {
             val intent = Intent(this, SelectTrener::class.java)
 
 
 
             startActivity(intent)}
-    }
-
-
-    fun AuthClick(view: View){
-        when(view.id){
-            R.id.btnLogin -> {
-                doLogin()
-            }
-
-            R.id.signUp ->{
-                startActivity(Intent(this, Registration::class.java))
-            }
+    } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
+        }
+
+
+    fun AuthClick(view: View) {
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.btnLogin -> {
+                    doLogin()
+                }
+
+                R.id.signUp -> {
+                    startActivity(Intent(this, Registration::class.java))
+                }
+            }
+
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
     private val ddb = FirebaseFirestore.getInstance()
     private fun doLogin(){
@@ -136,5 +146,10 @@ class MainActivity : AppCompatActivity() {
         if (hasFocus) hideSystemUI()
     }
 
-
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

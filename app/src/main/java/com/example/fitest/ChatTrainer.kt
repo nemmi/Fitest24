@@ -1,11 +1,16 @@
 package com.example.fitest
 
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitest.ListClient.ListClient
@@ -66,7 +71,7 @@ class ChatTrainer : AppCompatActivity() {
                 FirestoreUtil.addChatMessagesListener(channelId, this, this::updateRecyclerView)
 
             floatingActionButton.setOnClickListener{
-                if (writeMessage.text.toString().isNotEmpty()) {
+                if (writeMessage.text.toString().isNotEmpty()&&IsInternetAvailable.isInternetAvailable(this)) {
                     val messageToSend =
                         TextMessage(
                             writeMessage.text.toString(), Calendar.getInstance().time,
@@ -79,6 +84,10 @@ class ChatTrainer : AppCompatActivity() {
                     writeMessage.setText("")
                     FirestoreUtil.sendMessage(messageToSend, channelId)
                 }
+                else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
         }
 
@@ -88,24 +97,45 @@ class ChatTrainer : AppCompatActivity() {
         var otherUserId = intent.getStringExtra("id")
         when (view.id) {
             R.id.profile -> {
-                val intent = Intent(this, ProfileTrainer::class.java)
-                startActivity(intent)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, ProfileTrainer::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonClients -> {
-                val intent = Intent(this, ListClient::class.java)
-                startActivity(intent)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, ListClient::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonClientsProfile -> {
-                val intent = Intent(this, ProfileClientView::class.java)
-                Log.i("DocId", otherUserId)
-                intent.putExtra("id", otherUserId)
-                Log.i("Intent", otherUserId)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, ProfileClientView::class.java)
+                    Log.i("DocId", otherUserId)
+                    intent.putExtra("id", otherUserId)
+                    Log.i("Intent", otherUserId)
 
-                startActivity(intent)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonChat -> {
-                val intent = Intent(this, SpisocChatov::class.java)
-                startActivity(intent)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, SpisocChatov::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+
+                }
             }
         }
     }
@@ -130,6 +160,14 @@ class ChatTrainer : AppCompatActivity() {
 
         recyclerChat.scrollToPosition(recyclerChat.adapter!!.itemCount - 1)
     }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         val view = window.decorView

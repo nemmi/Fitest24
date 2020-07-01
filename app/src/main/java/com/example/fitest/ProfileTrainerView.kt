@@ -55,15 +55,20 @@ class ProfileTrenerView : AppCompatActivity() {
     private val uid= FirebaseAuth.getInstance().currentUser?.uid
 
     fun ProfileTrenerClick(view: View) {
-        when (view.id){
-            R.id.btnDownloadPhoto->{
-                chooserPhoto()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.btnDownloadPhoto -> {
+                    chooserPhoto()
 
+                }
+                R.id.back -> {
+                    val intent = Intent(this, FormTrainer::class.java)
+                    startActivity(intent)
+                }
             }
-            R.id.back ->{
-                val intent = Intent(this, FormTrainer::class.java)
-                startActivity(intent)
-            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
     }
@@ -83,7 +88,7 @@ class ProfileTrenerView : AppCompatActivity() {
             val uri =CropImage.getActivityResult(data).uri
             val path = uid?.let { REF_STORAGE_ROOT.child("TrenersPhoto").child(it) }
 
-            if (path != null) {
+            if (path != null&&IsInternetAvailable.isInternetAvailable(this)) {
                 path.putFile(uri).addOnSuccessListener {
                     Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()
                     btnDownloadPhoto.visibility=View.INVISIBLE
@@ -93,6 +98,9 @@ class ProfileTrenerView : AppCompatActivity() {
                     .load(path)
                     .into(downloadPhoto)
 
+            } else {
+                alert()
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
     }
@@ -101,6 +109,14 @@ class ProfileTrenerView : AppCompatActivity() {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
     }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }
 
 

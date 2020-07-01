@@ -46,126 +46,122 @@ class LoadTrainings : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         setContentView(R.layout.activity_load_trainings)
 
         var value = intent.getStringExtra("id")
-        buttonSave.setOnClickListener{
-            if(buttonDay1.isChecked) {
-                val up= ddb.collection("trainings")
+        buttonSave.setOnClickListener {
+            if (IsInternetAvailable.isInternetAvailable(this)) {
+            if (buttonDay1.isChecked) {
+                val up = ddb.collection("trainings")
                     .document(value + "_1") /*здесь будет айди спортсмена*/
 
-                if(editExercise1.text.toString().isNotEmpty()){
+                if (editExercise1.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment1" ,editComment1.text.toString(),
+                            "Comment1", editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
-                            "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString(),
+                            "Podhod1", editPodhods1.text.toString(),
+                            "Weight1", editTakeWeight1.text.toString(),
                             "test_week", false
                         ).addOnSuccessListener {}
-                }
-                else {
-                    editExercise1.error="Введите упражнение"
+                } else {
+                    editExercise1.error = "Введите упражнение"
                     editExercise1.requestFocus()
                 }
-                if(ediExercise2.text.toString().isNotEmpty()){
+                if (ediExercise2.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment2" ,editComment2.text.toString(),
+                            "Comment2", editComment2.text.toString(),
                             "Exercise2", ediExercise2.text.toString(),
-                            "Podhod2",editPodhods2.text.toString(),
-                            "Weight2",editTakeWeight2.text.toString()
+                            "Podhod2", editPodhods2.text.toString(),
+                            "Weight2", editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
-                }else {
-                    ediExercise2.error="Введите упражнение"
+                } else {
+                    ediExercise2.error = "Введите упражнение"
                     ediExercise2.requestFocus()
                 }
-                if(ediExercise3.text.toString().isNotEmpty()){
+                if (ediExercise3.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment3" ,editComment3.text.toString(),
+                            "Comment3", editComment3.text.toString(),
                             "Exercise3", ediExercise3.text.toString(),
-                            "Podhod3",editPodhods3.text.toString(),
-                            "Weight3",editTakeWeight3.text.toString()
+                            "Podhod3", editPodhods3.text.toString(),
+                            "Weight3", editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else {
-                    ediExercise3.error="Введите упражнение"
+                } else {
+                    ediExercise3.error = "Введите упражнение"
                     ediExercise3.requestFocus()
                 }
-                if(ediExercise4.text.toString().isNotEmpty()){
+                if (ediExercise4.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment4" ,editComment4.text.toString(),
+                            "Comment4", editComment4.text.toString(),
                             "Exercise4", ediExercise4.text.toString(),
-                            "Podhod4",editPodhods4.text.toString(),
-                            "Weight4",editTakeWeight4.text.toString()
+                            "Podhod4", editPodhods4.text.toString(),
+                            "Weight4", editTakeWeight4.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment4" ,"",
+                            "Comment4", "",
                             "Exercise4", "",
-                            "Podhod4","",
-                            "Weight4",""
+                            "Podhod4", "",
+                            "Weight4", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise5.text.toString().isNotEmpty()){
+                if (ediExercise5.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment5" ,editComment5.text.toString(),
+                            "Comment5", editComment5.text.toString(),
                             "Exercise5", ediExercise5.text.toString(),
-                            "Podhod5",editPodhods5.text.toString(),
-                            "Weight5",editTakeWeight5.text.toString()
+                            "Podhod5", editPodhods5.text.toString(),
+                            "Weight5", editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment5" ,"",
+                            "Comment5", "",
                             "Exercise5", "",
-                            "Podhod5","",
-                            "Weight5",""
+                            "Podhod5", "",
+                            "Weight5", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise6.text.toString().isNotEmpty()){
+                if (ediExercise6.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment6" ,editComment6.text.toString(),
+                            "Comment6", editComment6.text.toString(),
                             "Exercise6", ediExercise6.text.toString(),
-                            "Podhod6",editPodhods6.text.toString(),
-                            "Weight6",editTakeWeight6.text.toString()
+                            "Podhod6", editPodhods6.text.toString(),
+                            "Weight6", editTakeWeight6.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment6" ,"",
+                            "Comment6", "",
                             "Exercise6", "",
-                            "Podhod6","",
-                            "Weight6",""
+                            "Podhod6", "",
+                            "Weight6", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise7.text.toString().isNotEmpty()){
+                if (ediExercise7.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment7" ,editComment7.text.toString(),
+                            "Comment7", editComment7.text.toString(),
                             "Exercise7", ediExercise7.text.toString(),
-                            "Podhod7",editPodhods7.text.toString(),
-                            "Weight7",editTakeWeight7.text.toString()
+                            "Podhod7", editPodhods7.text.toString(),
+                            "Weight7", editTakeWeight7.text.toString()
                         )
                         .addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment7" ,"",
+                            "Comment7", "",
                             "Exercise7", "",
-                            "Podhod7","",
-                            "Weight7",""
+                            "Podhod7", "",
+                            "Weight7", ""
                         )
                         .addOnSuccessListener {}
                 }
@@ -176,119 +172,113 @@ class LoadTrainings : AppCompatActivity() {
                 ).show()
 
             }
-            if(buttonDay2.isChecked){
-                val up= ddb.collection("trainings")
+            if (buttonDay2.isChecked) {
+                val up = ddb.collection("trainings")
                     .document(value + "_2") /*здесь будет айди спортсмена*/
-                if(editExercise1.text.toString().isNotEmpty()){
+                if (editExercise1.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment1" ,editComment1.text.toString(),
+                            "Comment1", editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
-                            "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString(),
+                            "Podhod1", editPodhods1.text.toString(),
+                            "Weight1", editTakeWeight1.text.toString(),
                             "test_week", false
                         ).addOnSuccessListener {}
-                }
-                else {
-                    editExercise1.error="Введите упражнение"
+                } else {
+                    editExercise1.error = "Введите упражнение"
                     editExercise1.requestFocus()
                 }
-                if(ediExercise2.text.toString().isNotEmpty()){
+                if (ediExercise2.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment2" ,editComment2.text.toString(),
+                            "Comment2", editComment2.text.toString(),
                             "Exercise2", ediExercise2.text.toString(),
-                            "Podhod2",editPodhods2.text.toString(),
-                            "Weight2",editTakeWeight2.text.toString()
+                            "Podhod2", editPodhods2.text.toString(),
+                            "Weight2", editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
-                }else {
-                    ediExercise2.error="Введите упражнение"
+                } else {
+                    ediExercise2.error = "Введите упражнение"
                     ediExercise2.requestFocus()
                 }
-                if(ediExercise3.text.toString().isNotEmpty()){
+                if (ediExercise3.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment3" ,editComment3.text.toString(),
+                            "Comment3", editComment3.text.toString(),
                             "Exercise3", ediExercise3.text.toString(),
-                            "Podhod3",editPodhods3.text.toString(),
-                            "Weight3",editTakeWeight3.text.toString()
+                            "Podhod3", editPodhods3.text.toString(),
+                            "Weight3", editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else {
-                    ediExercise3.error="Введите упражнение"
+                } else {
+                    ediExercise3.error = "Введите упражнение"
                     ediExercise3.requestFocus()
                 }
-                if(ediExercise4.text.toString().isNotEmpty()){
+                if (ediExercise4.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment4" ,editComment4.text.toString(),
+                            "Comment4", editComment4.text.toString(),
                             "Exercise4", ediExercise4.text.toString(),
-                            "Podhod4",editPodhods4.text.toString(),
-                            "Weight4",editTakeWeight4.text.toString()
+                            "Podhod4", editPodhods4.text.toString(),
+                            "Weight4", editTakeWeight4.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment4" ,"",
+                            "Comment4", "",
                             "Exercise4", "",
-                            "Podhod4","",
-                            "Weight4",""
+                            "Podhod4", "",
+                            "Weight4", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise5.text.toString().isNotEmpty()){
+                if (ediExercise5.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment5" ,editComment5.text.toString(),
+                            "Comment5", editComment5.text.toString(),
                             "Exercise5", ediExercise5.text.toString(),
-                            "Podhod5",editPodhods5.text.toString(),
-                            "Weight5",editTakeWeight5.text.toString()
+                            "Podhod5", editPodhods5.text.toString(),
+                            "Weight5", editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment5" ,"",
+                            "Comment5", "",
                             "Exercise5", "",
-                            "Podhod5","",
-                            "Weight5",""
+                            "Podhod5", "",
+                            "Weight5", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise6.text.toString().isNotEmpty()){
+                if (ediExercise6.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment6" ,editComment6.text.toString(),
+                            "Comment6", editComment6.text.toString(),
                             "Exercise6", ediExercise6.text.toString(),
-                            "Podhod6",editPodhods6.text.toString(),
-                            "Weight6",editTakeWeight6.text.toString()
+                            "Podhod6", editPodhods6.text.toString(),
+                            "Weight6", editTakeWeight6.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment6" ,"",
+                            "Comment6", "",
                             "Exercise6", "",
-                            "Podhod6","",
-                            "Weight6",""
+                            "Podhod6", "",
+                            "Weight6", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise7.text.toString().isNotEmpty()){
+                if (ediExercise7.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment7" ,editComment7.text.toString(),
+                            "Comment7", editComment7.text.toString(),
                             "Exercise7", ediExercise7.text.toString(),
-                            "Podhod7",editPodhods7.text.toString(),
-                            "Weight7",editTakeWeight7.text.toString()
+                            "Podhod7", editPodhods7.text.toString(),
+                            "Weight7", editTakeWeight7.text.toString()
                         )
                         .addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment7" ,"",
+                            "Comment7", "",
                             "Exercise7", "",
-                            "Podhod7","",
-                            "Weight7",""
+                            "Podhod7", "",
+                            "Weight7", ""
                         )
                         .addOnSuccessListener {}
                 }
@@ -299,119 +289,113 @@ class LoadTrainings : AppCompatActivity() {
                 ).show()
 
             }
-            if(buttonDay3.isChecked){
-                val up= ddb.collection("trainings")
+            if (buttonDay3.isChecked) {
+                val up = ddb.collection("trainings")
                     .document(value + "_3") /*здесь будет айди спортсмена*/
-                if(editExercise1.text.toString().isNotEmpty()){
+                if (editExercise1.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment1" ,editComment1.text.toString(),
+                            "Comment1", editComment1.text.toString(),
                             "Exercise1", editExercise1.text.toString(),
-                            "Podhod1",editPodhods1.text.toString(),
-                            "Weight1",editTakeWeight1.text.toString(),
+                            "Podhod1", editPodhods1.text.toString(),
+                            "Weight1", editTakeWeight1.text.toString(),
                             "test_week", false
                         ).addOnSuccessListener {}
-                }
-                else {
-                    editExercise1.error="Введите упражнение"
+                } else {
+                    editExercise1.error = "Введите упражнение"
                     editExercise1.requestFocus()
                 }
-                if(ediExercise2.text.toString().isNotEmpty()){
+                if (ediExercise2.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment2" ,editComment2.text.toString(),
+                            "Comment2", editComment2.text.toString(),
                             "Exercise2", ediExercise2.text.toString(),
-                            "Podhod2",editPodhods2.text.toString(),
-                            "Weight2",editTakeWeight2.text.toString()
+                            "Podhod2", editPodhods2.text.toString(),
+                            "Weight2", editTakeWeight2.text.toString()
                         ).addOnSuccessListener {}
-                }else {
-                    ediExercise2.error="Введите упражнение"
+                } else {
+                    ediExercise2.error = "Введите упражнение"
                     ediExercise2.requestFocus()
                 }
-                if(ediExercise3.text.toString().isNotEmpty()){
+                if (ediExercise3.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment3" ,editComment3.text.toString(),
+                            "Comment3", editComment3.text.toString(),
                             "Exercise3", ediExercise3.text.toString(),
-                            "Podhod3",editPodhods3.text.toString(),
-                            "Weight3",editTakeWeight3.text.toString()
+                            "Podhod3", editPodhods3.text.toString(),
+                            "Weight3", editTakeWeight3.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else {
-                    ediExercise3.error="Введите упражнение"
+                } else {
+                    ediExercise3.error = "Введите упражнение"
                     ediExercise3.requestFocus()
                 }
-                if(ediExercise4.text.toString().isNotEmpty()){
+                if (ediExercise4.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment4" ,editComment4.text.toString(),
+                            "Comment4", editComment4.text.toString(),
                             "Exercise4", ediExercise4.text.toString(),
-                            "Podhod4",editPodhods4.text.toString(),
-                            "Weight4",editTakeWeight4.text.toString()
+                            "Podhod4", editPodhods4.text.toString(),
+                            "Weight4", editTakeWeight4.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment4" ,"",
+                            "Comment4", "",
                             "Exercise4", "",
-                            "Podhod4","",
-                            "Weight4",""
+                            "Podhod4", "",
+                            "Weight4", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise5.text.toString().isNotEmpty()){
+                if (ediExercise5.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment5" ,editComment5.text.toString(),
+                            "Comment5", editComment5.text.toString(),
                             "Exercise5", ediExercise5.text.toString(),
-                            "Podhod5",editPodhods5.text.toString(),
-                            "Weight5",editTakeWeight5.text.toString()
+                            "Podhod5", editPodhods5.text.toString(),
+                            "Weight5", editTakeWeight5.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment5" ,"",
+                            "Comment5", "",
                             "Exercise5", "",
-                            "Podhod5","",
-                            "Weight5",""
+                            "Podhod5", "",
+                            "Weight5", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise6.text.toString().isNotEmpty()){
+                if (ediExercise6.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment6" ,editComment6.text.toString(),
+                            "Comment6", editComment6.text.toString(),
                             "Exercise6", ediExercise6.text.toString(),
-                            "Podhod6",editPodhods6.text.toString(),
-                            "Weight6",editTakeWeight6.text.toString()
+                            "Podhod6", editPodhods6.text.toString(),
+                            "Weight6", editTakeWeight6.text.toString()
                         ).addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment6" ,"",
+                            "Comment6", "",
                             "Exercise6", "",
-                            "Podhod6","",
-                            "Weight6",""
+                            "Podhod6", "",
+                            "Weight6", ""
                         ).addOnSuccessListener {}
                 }
-                if(ediExercise7.text.toString().isNotEmpty()){
+                if (ediExercise7.text.toString().isNotEmpty()) {
                     up
                         .update(
-                            "Comment7" ,editComment7.text.toString(),
+                            "Comment7", editComment7.text.toString(),
                             "Exercise7", ediExercise7.text.toString(),
-                            "Podhod7",editPodhods7.text.toString(),
-                            "Weight7",editTakeWeight7.text.toString()
+                            "Podhod7", editPodhods7.text.toString(),
+                            "Weight7", editTakeWeight7.text.toString()
                         )
                         .addOnSuccessListener {}
-                }
-                else{
+                } else {
                     up
                         .update(
-                            "Comment7" ,"",
+                            "Comment7", "",
                             "Exercise7", "",
-                            "Podhod7","",
-                            "Weight7",""
+                            "Podhod7", "",
+                            "Weight7", ""
                         )
                         .addOnSuccessListener {}
                 }
@@ -424,10 +408,16 @@ class LoadTrainings : AppCompatActivity() {
 
             }
 
-        }
+        } else {
+                alert()
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+
+    }
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup);
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
-            run {
+            run { if (IsInternetAvailable.isInternetAvailable(this)) {
+
                 when (optionId) {
                     R.id.buttonDay1 -> {
                         editExercise1.setText("")
@@ -522,7 +512,12 @@ class LoadTrainings : AppCompatActivity() {
                     else -> throw AssertionError()
 
                 }
+            } else {
+                alert()
+                startActivity(Intent(this, MainActivity::class.java))
             }
+
+        }
         }
 
     }
@@ -534,6 +529,7 @@ class LoadTrainings : AppCompatActivity() {
     private val ddb = FirebaseFirestore.getInstance()
 
     fun loadTrenClick(view:View) {
+        if (IsInternetAvailable.isInternetAvailable(this)) {
         var value= intent.getStringExtra("id")
         when (view.id){
             R.id.buttonLoadVideo1 ->{
@@ -641,6 +637,11 @@ class LoadTrainings : AppCompatActivity() {
             }
 
         }
+    } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
     }
 
     private fun chooseVideo() {
@@ -800,5 +801,12 @@ class LoadTrainings : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

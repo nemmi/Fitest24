@@ -42,11 +42,21 @@ class FormSportsmanP2 : AppCompatActivity() {
     fun anketaSp2Click(view: View) {
         when (view.id) {
             R.id.toolbarAnketaView -> {
-                val intent = Intent(this, FormSportsmanP1::class.java)
-                startActivity(intent)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, FormSportsmanP1::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonToCoach -> {
-                upProfile()
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    upProfile()
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
 
         }
@@ -444,4 +454,12 @@ class FormSportsmanP2 : AppCompatActivity() {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
     }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }

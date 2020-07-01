@@ -49,89 +49,93 @@ class Registration : AppCompatActivity() {
     }
     private val ddb = FirebaseFirestore.getInstance()
     fun regClick(view: View) {
-        val PASSWORD__PATTERN = Regex(pattern = "[0-9a-zA-Z]{8,15}")
-        val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            val PASSWORD__PATTERN = Regex(pattern = "[0-9a-zA-Z]{8,15}")
+            val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
 
-        if (editMail.text.toString().isEmpty()) {
-            editMail.error = "Введите email"
-            editMail.requestFocus()
-            return
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(editMail.text.toString()).matches()) {
-            editMail.error = "Введите корректный email"
-            editMail.requestFocus()
-            return
-        }
-        if (editMail.text.length>30) {
-            editMail.error = "email должен содержать не более 30 символов"
-            editMail.requestFocus()
-            return
-        }
-        if (editMail.text.length<10) {
-            editMail.error = "email должен содержать не менее 10 символов"
-            editMail.requestFocus()
-            return
-        }
-        if (editPassword.text.toString().isEmpty()) {
-            editPassword.error = "Введите пароль"
-            editPassword.requestFocus()
-            return
-        }
-        if (!matched) {
-            editPassword.error = "Пароль должен содержать не менее 8 и не более 15 цифр"
-            editPassword.requestFocus()
-            return
-        }
-        if (editPassword1.text.toString().isEmpty()) {
-            editPassword.error = "Повторите пароль"
-            editPassword.requestFocus()
-            return
-        }
+            if (editMail.text.toString().isEmpty()) {
+                editMail.error = "Введите email"
+                editMail.requestFocus()
+                return
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(editMail.text.toString()).matches()) {
+                editMail.error = "Введите корректный email"
+                editMail.requestFocus()
+                return
+            }
+            if (editMail.text.length > 30) {
+                editMail.error = "email должен содержать не более 30 символов"
+                editMail.requestFocus()
+                return
+            }
+            if (editMail.text.length < 10) {
+                editMail.error = "email должен содержать не менее 10 символов"
+                editMail.requestFocus()
+                return
+            }
+            if (editPassword.text.toString().isEmpty()) {
+                editPassword.error = "Введите пароль"
+                editPassword.requestFocus()
+                return
+            }
+            if (!matched) {
+                editPassword.error = "Пароль должен содержать не менее 8 и не более 15 цифр"
+                editPassword.requestFocus()
+                return
+            }
+            if (editPassword1.text.toString().isEmpty()) {
+                editPassword.error = "Повторите пароль"
+                editPassword.requestFocus()
+                return
+            }
 
-        if (editPassword1.text.toString() != editPassword.text.toString()) {
-            editPassword.error = "Пароли не совпадают"
-            editPassword.requestFocus()
-            return
-        }
-        else {
-            when (view.id) {
-                R.id.buttonReg -> {
-                    auth.createUserWithEmailAndPassword(
-                        editMail.text.toString(),
-                        editPassword.text.toString()
-                    )
-                        .addOnCompleteListener(this) { task ->
-                            if (task.isSuccessful) {
-                                writeNewSportsmen()
-                                startActivity(Intent(this, FormSportsmanP1::class.java))
-                                finish()
-                            } else {
-                                Toast.makeText(
-                                    baseContext, "Регистрация не выполнена",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+            if (editPassword1.text.toString() != editPassword.text.toString()) {
+                editPassword.error = "Пароли не совпадают"
+                editPassword.requestFocus()
+                return
+            } else {
+                when (view.id) {
+                    R.id.buttonReg -> {
+                        auth.createUserWithEmailAndPassword(
+                            editMail.text.toString(),
+                            editPassword.text.toString()
+                        )
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    writeNewSportsmen()
+                                    startActivity(Intent(this, FormSportsmanP1::class.java))
+                                    finish()
+                                } else {
+                                    Toast.makeText(
+                                        baseContext, "Регистрация не выполнена",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
-                        }
-                }
-                R.id.buttonInTeam -> {
-                    auth.createUserWithEmailAndPassword(
-                        editMail.text.toString(),
-                        editPassword.text.toString()
-                    )
-                        .addOnCompleteListener(this) { task ->
-                            if (task.isSuccessful) {
-                                writeNewTrener()
-                                startActivity(Intent(this, FormTrainer::class.java))
-                                finish()
-                            } else {
-                                Toast.makeText(
-                                    baseContext, "Регистрация не выполнена",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                    }
+                    R.id.buttonInTeam -> {
+                        auth.createUserWithEmailAndPassword(
+                            editMail.text.toString(),
+                            editPassword.text.toString()
+                        )
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    writeNewTrener()
+                                    startActivity(Intent(this, FormTrainer::class.java))
+                                    finish()
+                                } else {
+                                    Toast.makeText(
+                                        baseContext, "Регистрация не выполнена",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
-                        }
+                    }
                 }
             }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -178,6 +182,13 @@ class Registration : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
 

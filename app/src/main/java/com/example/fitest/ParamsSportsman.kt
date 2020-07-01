@@ -44,7 +44,12 @@ class ParamsSportsman : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_body_params)
-        loadData()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            loadData()
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
     }
     private val ddb = FirebaseFirestore.getInstance()
@@ -94,24 +99,29 @@ class ParamsSportsman : AppCompatActivity() {
     }
 
     fun paramSportClick(view: View) {
-        when (view.id) {
-            R.id.toolbar -> {
-                startActivity(Intent(this, ProfileClient::class.java))
-            }
-            R.id.buttonEdit -> {
-                param()
-                startActivity(Intent(this, ParamsEdit::class.java))
-            }
-            R.id.buttonTrainings -> {
-                startActivity(Intent(this, TrainingsSportsman::class.java))
-            }
-            R.id.buttonEats -> {
-                startActivity(Intent(this, Eat::class.java))
-            }
-            R.id.buttonChat -> {
-                startActivity(Intent(this, ChatSportsman::class.java))
-            }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.toolbar -> {
+                    startActivity(Intent(this, ProfileClient::class.java))
+                }
+                R.id.buttonEdit -> {
+                    param()
+                    startActivity(Intent(this, ParamsEdit::class.java))
+                }
+                R.id.buttonTrainings -> {
+                    startActivity(Intent(this, TrainingsSportsman::class.java))
+                }
+                R.id.buttonEats -> {
+                    startActivity(Intent(this, Eat::class.java))
+                }
+                R.id.buttonChat -> {
+                    startActivity(Intent(this, ChatSportsman::class.java))
+                }
 
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -139,5 +149,12 @@ class ParamsSportsman : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

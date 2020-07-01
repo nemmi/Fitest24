@@ -46,36 +46,41 @@ class ReportEat : AppCompatActivity() {
 
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
-                when (optionId) {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    when (optionId) {
 
-                    R.id.monday -> {
-                        loadinfo(value, "_M")
-                    }
+                        R.id.monday -> {
+                            loadinfo(value, "_M")
+                        }
 
-                    R.id.tuesday -> {
-                        loadinfo(value, "_T")
-                    }
+                        R.id.tuesday -> {
+                            loadinfo(value, "_T")
+                        }
 
-                    R.id.wednesday -> {
-                        loadinfo(value, "_W")
-                    }
+                        R.id.wednesday -> {
+                            loadinfo(value, "_W")
+                        }
 
-                    R.id.thursday ->{
-                       loadinfo(value, "_Th")
-                    }
+                        R.id.thursday -> {
+                            loadinfo(value, "_Th")
+                        }
 
-                    R.id.friday ->{
-                        loadinfo(value, "_F")
-                    }
+                        R.id.friday -> {
+                            loadinfo(value, "_F")
+                        }
 
-                    R.id.saturday ->{
-                        loadinfo(value, "_Sat")
-                    }
+                        R.id.saturday -> {
+                            loadinfo(value, "_Sat")
+                        }
 
-                    R.id.sunday ->{
-                        loadinfo(value, "_Sun")
+                        R.id.sunday -> {
+                            loadinfo(value, "_Sun")
+                        }
+                        else -> throw AssertionError()
                     }
-                    else -> throw AssertionError()
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
             }
         }
@@ -134,33 +139,45 @@ class ReportEat : AppCompatActivity() {
     }
 
     fun otchEatClick(view: View) {
-        var value= intent.getStringExtra("id")
-        when (view.id){
+        var value = intent.getStringExtra("id")
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
 
-            R.id.imageProfile ->{
-                startActivity(Intent(this, ProfileTrainer::class.java))
-            }
-            R.id.btnClients ->{
+                R.id.imageProfile -> {
+                    startActivity(Intent(this, ProfileTrainer::class.java))
+                }
+                R.id.btnClients -> {
 
-                startActivity(Intent(this, ListClient::class.java))
-            }
-            R.id.btnChat ->{
+                    startActivity(Intent(this, ListClient::class.java))
+                }
+                R.id.btnChat -> {
 
-                startActivity(Intent(this, SpisocChatov::class.java))
-            }
-            R.id.btnProfileClient ->{
-                val intent = Intent(this, ProfileClientView::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(Intent(this, SpisocChatov::class.java))
+                }
+                R.id.btnProfileClient -> {
+                    val intent = Intent(this, ProfileClientView::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
+                    startActivity(intent)
+                }
             }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

@@ -1,17 +1,20 @@
 package com.example.fitest
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_profile_client.*
-import kotlinx.android.synthetic.main.activity_profile_client.fio
 
 
 class ProfileClient : AppCompatActivity() {
@@ -112,25 +115,61 @@ class ProfileClient : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
             }
             R.id.buttonEdit -> {
-                startActivity(Intent(this, RedactorClient::class.java))
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    startActivity(Intent(this, RedactorClient::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+
+                }
             }
             R.id.buttonParams -> {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 startActivity(Intent(this, ParamsSportsman::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+
+                }
             }
             R.id.buttonTrainings -> {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 startActivity(Intent(this, TrainingsSportsman::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+
+                }
             }
             R.id.buttonEats -> {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 startActivity(Intent(this, Eat::class.java))
+            } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+
+        }
             }
             R.id.buttonChat -> {
+            if (IsInternetAvailable.isInternetAvailable(this)) {
                 startActivity(Intent(this, ChatSportsman::class.java))
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+
+        }
             }
 
 
         }
     }
 
+     fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

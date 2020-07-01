@@ -45,16 +45,23 @@ class FormSportsmanP1  : AppCompatActivity() {
     }
     private val ddb = FirebaseFirestore.getInstance()
     fun anketaSp1Click(view: View) {
-        when (view.id) {
-            R.id.toolbarAnketaView -> {
-                val intent = Intent(this, Registration::class.java)
-                startActivity(intent)
-            }
-            R.id.buttonChoose -> {
-                upProfile()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.toolbarAnketaView -> {
+
+                        val intent = Intent(this, Registration::class.java)
+                        startActivity(intent)
+
+                }
+                R.id.buttonChoose -> {
+                      upProfile()
+
+                }
 
             }
-
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -206,5 +213,12 @@ class FormSportsmanP1  : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

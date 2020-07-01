@@ -110,4 +110,11 @@ class ParamsTrainer : AppCompatActivity() {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
     }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

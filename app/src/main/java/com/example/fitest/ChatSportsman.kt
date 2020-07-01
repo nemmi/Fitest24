@@ -1,9 +1,14 @@
 package com.example.fitest
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,7 +66,7 @@ class ChatSportsman : AppCompatActivity() {
                     messagesListenerRegistration =
                         FirestoreUtilSportsmen.addChatMessagesListener(channelId, this, this::updateRecyclerView)
                         floatingActionButton.setOnClickListener {
-                        if (writeMessage.text.toString().isNotEmpty()) {
+                        if (writeMessage.text.toString().isNotEmpty()&&IsInternetAvailable.isInternetAvailable(this)) {
                             val messageToSend =
                                 TextMessage(
                                     writeMessage.text.toString(), Calendar.getInstance().time,
@@ -74,6 +79,10 @@ class ChatSportsman : AppCompatActivity() {
                             writeMessage.setText("")
                             FirestoreUtilSportsmen.sendMessage(messageToSend, channelId)
                         }
+                            else {
+                            alert()
+                            startActivity(Intent(this, MainActivity::class.java))
+                        }
                     }
                 }
 
@@ -85,16 +94,31 @@ class ChatSportsman : AppCompatActivity() {
     fun chatSportClick(view: View) {
         when (view.id) {
             R.id.profile -> {
-                val intent = Intent(this, ProfileClient::class.java)
-                startActivity(intent)
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    val intent = Intent(this, ProfileClient::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonTraining -> {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 val intent = Intent(this, TrainingsSportsman::class.java)
                 startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.buttonEats -> {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 val intent = Intent(this, Eat::class.java)
                 startActivity(intent)
+                    } else {
+                        alert()
+                        startActivity(Intent(this, MainActivity::class.java))
+                    }
             }
         }
     }
@@ -119,6 +143,13 @@ class ChatSportsman : AppCompatActivity() {
             updateItems()
 
         recyclerChat.scrollToPosition(recyclerChat.adapter!!.itemCount - 1)
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

@@ -38,11 +38,12 @@ class ProfileClientView : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile_client_view)
 
-
-
-
-
-        read()
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            read()
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
     private fun read() {
 
@@ -82,78 +83,90 @@ class ProfileClientView : AppCompatActivity() {
     fun profileSpViewClick(view: View) {
         var value = intent.getStringExtra("id")
         Log.i("NewActivity", value)
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.lookForm -> {
+                    val intent = Intent(this, FormSportsmanView::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-        when (view.id) {
-            R.id.lookForm -> {
-                val intent = Intent(this, FormSportsmanView::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.iconChat -> {
+                    val intent = Intent(this, ChatTrainer::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.iconChat -> {
-                val intent = Intent(this, ChatTrainer::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.programmTrainings -> {
+                    val intent = Intent(this, LoadTrainings::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.programmTrainings -> {
-                val intent = Intent(this, LoadTrainings::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.programmEat -> {
+                    val intent = Intent(this, LoadEat::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.programmEat -> {
-                val intent = Intent(this, LoadEat::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.formTrainings -> {
+                    val intent = Intent(this, TrainingsTrainer::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.formTrainings -> {
-                val intent = Intent(this, TrainingsTrainer::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.formEat -> {
+                    val intent = Intent(this, ReportEat::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.formEat -> {
-                val intent = Intent(this, ReportEat::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.formParams -> {
+                    val intent = Intent(this, ParamsTrainer::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
 
-                startActivity(intent)
-            }
-            R.id.formParams -> {
-                val intent = Intent(this, ParamsTrainer::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+                    startActivity(intent)
+                }
+                R.id.listClients -> {
+                    startActivity(Intent(this, ListClient::class.java))
+                }
+                R.id.openYourProfile -> {
+                    startActivity(Intent(this, ProfileTrainer::class.java))
+                }
+                R.id.chat -> {
+                    startActivity(Intent(this, SpisocChatov::class.java))
+                }
 
-                startActivity(intent)
             }
-            R.id.listClients -> {
-                startActivity(Intent(this, ListClient::class.java))
-            }
-            R.id.openYourProfile -> {
-                startActivity(Intent(this, ProfileTrainer::class.java))
-            }
-            R.id.chat -> {
-                startActivity(Intent(this, SpisocChatov::class.java))
-            }
-
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
     }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }

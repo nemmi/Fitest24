@@ -209,31 +209,44 @@ class LoadEat : AppCompatActivity() {
     fun eatLoadClick(view: View) {
 
         var value= intent.getStringExtra("id")
-        when (view.id){
-            R.id.imageProfile ->{
-                val backtotrener= Intent(this, ProfileTrainer::class.java)
-                startActivity(backtotrener)
-            }
-            R.id.btnClients ->{
-                val Clienty= Intent(this, ListClient::class.java)
-                startActivity(Clienty)
-            }
-            R.id.btnChat ->{
-                val Chat= Intent(this, SpisocChatov::class.java)
-                startActivity(Chat)
-            }
-            R.id.btnProfileClient ->{
-                val intent = Intent(this, ProfileClientView::class.java)
-                Log.i("DocId", value)
-                intent.putExtra("id", value)
-                Log.i("Intent", value)
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.imageProfile -> {
+                    val backtotrener = Intent(this, ProfileTrainer::class.java)
+                    startActivity(backtotrener)
+                }
+                R.id.btnClients -> {
+                    val Clienty = Intent(this, ListClient::class.java)
+                    startActivity(Clienty)
+                }
+                R.id.btnChat -> {
+                    val Chat = Intent(this, SpisocChatov::class.java)
+                    startActivity(Chat)
+                }
+                R.id.btnProfileClient -> {
 
-                startActivity(intent)
+                    val intent = Intent(this, ProfileClientView::class.java)
+                    Log.i("DocId", value)
+                    intent.putExtra("id", value)
+                    Log.i("Intent", value)
+
+                    startActivity(intent)
+                }
             }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

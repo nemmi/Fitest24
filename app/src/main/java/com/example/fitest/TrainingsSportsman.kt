@@ -84,6 +84,7 @@ class TrainingsSportsman : AppCompatActivity() {
         loadFirst("_1")
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 when (optionId) {
                     R.id.buttonDay1 -> {
                         CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5, mondayChek6, mondayChek7)
@@ -99,6 +100,10 @@ class TrainingsSportsman : AppCompatActivity() {
                         CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5, wednesdayChek6, wednesdayChek7)
                     }
                     else -> throw AssertionError()
+                }
+            } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
             }
         }
@@ -186,25 +191,26 @@ class TrainingsSportsman : AppCompatActivity() {
     private val ddb = FirebaseFirestore.getInstance()
 
     fun trenSportsmenClick(view: View) {
-        when (view.id) {
-            R.id.buttonTraining -> {
-                val intent = Intent(this, TrainingsSportsman::class.java)
-                startActivity(intent)
-            }
-            R.id.buttonEats -> {
-                val intent = Intent(this, Eat::class.java)
-                startActivity(intent)
-            }
-            R.id.buttonChats -> {
-                val intent = Intent(this, ChatSportsman::class.java)
-                startActivity(intent)
-            }
-            R.id.profile -> {
-                val intent = Intent(this, ProfileClient::class.java)
-                startActivity(intent)
-            }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.buttonTraining -> {
+                    val intent = Intent(this, TrainingsSportsman::class.java)
+                    startActivity(intent)
+                }
+                R.id.buttonEats -> {
+                    val intent = Intent(this, Eat::class.java)
+                    startActivity(intent)
+                }
+                R.id.buttonChats -> {
+                    val intent = Intent(this, ChatSportsman::class.java)
+                    startActivity(intent)
+                }
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileClient::class.java)
+                    startActivity(intent)
+                }
 
-            R.id.checkBox1 -> {
+                R.id.checkBox1 -> {
 
                     if (buttonDay1.isChecked) {
 
@@ -224,99 +230,99 @@ class TrainingsSportsman : AppCompatActivity() {
                         CheckID("_3", "Checkbox1", wednesdayChek1.toString())
                     }
 
-                                    }
-
-            R.id.checkBox2 -> {
-                if (buttonDay1.isChecked) {
-
-                    mondayChek2 = checkBox2.isChecked
-                    CheckID("_1", "Checkbox2", mondayChek2.toString())
-                }
-                if (buttonDay2.isChecked) {
-
-                    tuesdayChek2 = checkBox2.isChecked
-                    CheckID("_2", "Checkbox2", tuesdayChek2.toString())
-                }
-                if (buttonDay3.isChecked) {
-
-                    wednesdayChek2 = checkBox2.isChecked
-                    CheckID("_3", "Checkbox2", wednesdayChek2.toString())
                 }
 
-            }
-            R.id.checkBox3 -> {
-                if (buttonDay1.isChecked) {
+                R.id.checkBox2 -> {
+                    if (buttonDay1.isChecked) {
 
-                    mondayChek3 = checkBox3.isChecked
-                    CheckID("_1", "Checkbox3", mondayChek3.toString())
+                        mondayChek2 = checkBox2.isChecked
+                        CheckID("_1", "Checkbox2", mondayChek2.toString())
+                    }
+                    if (buttonDay2.isChecked) {
+
+                        tuesdayChek2 = checkBox2.isChecked
+                        CheckID("_2", "Checkbox2", tuesdayChek2.toString())
+                    }
+                    if (buttonDay3.isChecked) {
+
+                        wednesdayChek2 = checkBox2.isChecked
+                        CheckID("_3", "Checkbox2", wednesdayChek2.toString())
+                    }
+
                 }
-                if (buttonDay2.isChecked) {
+                R.id.checkBox3 -> {
+                    if (buttonDay1.isChecked) {
 
-                    tuesdayChek3 = checkBox3.isChecked
-                    CheckID("_2", "Checkbox3", tuesdayChek3.toString())
+                        mondayChek3 = checkBox3.isChecked
+                        CheckID("_1", "Checkbox3", mondayChek3.toString())
+                    }
+                    if (buttonDay2.isChecked) {
+
+                        tuesdayChek3 = checkBox3.isChecked
+                        CheckID("_2", "Checkbox3", tuesdayChek3.toString())
+                    }
+                    if (buttonDay3.isChecked) {
+
+                        wednesdayChek3 = checkBox3.isChecked
+                        CheckID("_3", "Checkbox3", wednesdayChek3.toString())
+                    }
+
                 }
-                if (buttonDay3.isChecked) {
+                R.id.checkBox4 -> {
+                    if (buttonDay1.isChecked) {
 
-                    wednesdayChek3 = checkBox3.isChecked
-                    CheckID("_3", "Checkbox3", wednesdayChek3.toString())
+                        mondayChek4 = checkBox4.isChecked
+                        CheckID("_1", "Checkbox4", mondayChek4.toString())
+                    }
+                    if (buttonDay2.isChecked) {
+
+                        tuesdayChek4 = checkBox4.isChecked
+                        CheckID("_2", "Checkbox4", tuesdayChek4.toString())
+                    }
+                    if (buttonDay3.isChecked) {
+
+                        wednesdayChek4 = checkBox4.isChecked
+                        CheckID("_3", "Checkbox4", wednesdayChek4.toString())
+                    }
+
                 }
+                R.id.checkBox5 -> {
+                    if (buttonDay1.isChecked) {
 
-            }
-            R.id.checkBox4 -> {
-                if (buttonDay1.isChecked) {
+                        mondayChek5 = checkBox5.isChecked
+                        CheckID("_1", "Checkbox5", mondayChek5.toString())
+                    }
+                    if (buttonDay2.isChecked) {
 
-                    mondayChek4 = checkBox4.isChecked
-                    CheckID("_1", "Checkbox4", mondayChek4.toString())
+                        tuesdayChek5 = checkBox5.isChecked
+                        CheckID("_2", "Checkbox5", tuesdayChek5.toString())
+                    }
+                    if (buttonDay3.isChecked) {
+
+                        wednesdayChek5 = checkBox5.isChecked
+                        CheckID("_3", "Checkbox5", wednesdayChek5.toString())
+                    }
+
                 }
-                if (buttonDay2.isChecked) {
+                R.id.checkBox6 -> {
+                    if (buttonDay1.isChecked) {
 
-                    tuesdayChek4 = checkBox4.isChecked
-                    CheckID("_2", "Checkbox4", tuesdayChek4.toString())
+                        mondayChek6 = checkBox6.isChecked
+                        CheckID("_1", "Checkbox6", mondayChek6.toString())
+                    }
+                    if (buttonDay2.isChecked) {
+
+                        tuesdayChek6 = checkBox6.isChecked
+                        CheckID("_2", "Checkbox6", tuesdayChek6.toString())
+                    }
+                    if (buttonDay3.isChecked) {
+
+                        wednesdayChek6 = checkBox6.isChecked
+                        CheckID("_3", "Checkbox6", wednesdayChek6.toString())
+                    }
+
                 }
-                if (buttonDay3.isChecked) {
-
-                    wednesdayChek4 = checkBox4.isChecked
-                    CheckID("_3", "Checkbox4", wednesdayChek4.toString())
-                }
-
-            }
-            R.id.checkBox5 -> {
-                if (buttonDay1.isChecked) {
-
-                    mondayChek5 = checkBox5.isChecked
-                    CheckID("_1", "Checkbox5", mondayChek5.toString())
-                }
-                if (buttonDay2.isChecked) {
-
-                    tuesdayChek5 = checkBox5.isChecked
-                    CheckID("_2", "Checkbox5", tuesdayChek5.toString())
-                }
-                if (buttonDay3.isChecked) {
-
-                    wednesdayChek5 = checkBox5.isChecked
-                    CheckID("_3", "Checkbox5", wednesdayChek5.toString())
-                }
-
-            }
-            R.id.checkBox6 -> {
-                if (buttonDay1.isChecked) {
-
-                    mondayChek6 = checkBox6.isChecked
-                    CheckID("_1", "Checkbox6", mondayChek6.toString())
-                }
-                if (buttonDay2.isChecked) {
-
-                    tuesdayChek6 = checkBox6.isChecked
-                    CheckID("_2", "Checkbox6", tuesdayChek6.toString())
-                }
-                if (buttonDay3.isChecked) {
-
-                    wednesdayChek6 = checkBox6.isChecked
-                    CheckID("_3", "Checkbox6", wednesdayChek6.toString())
-                }
-
-            }
-            R.id.checkBox7 -> {
+                R.id.checkBox7 -> {
 
                     if (buttonDay1.isChecked) {
 
@@ -334,62 +340,66 @@ class TrainingsSportsman : AppCompatActivity() {
                         CheckID("_3", "Checkbox7", wednesdayChek7.toString())
                     }
                 }
-            R.id.videoExercise1 -> {
+                R.id.videoExercise1 -> {
 
-                if(textExercise1.text.toString().isNotEmpty()) {
-                    val vid = textExercise1.text.toString()
-                    loadVideo(vid, videoExercise1)
+                    if (textExercise1.text.toString().isNotEmpty()) {
+                        val vid = textExercise1.text.toString()
+                        loadVideo(vid, videoExercise1)
+                    }
                 }
-            }
-            R.id.videoExercise2 -> {
+                R.id.videoExercise2 -> {
 
-                if(textExercise2.text.toString().isNotEmpty()) {
-                    val vid = textExercise2.text.toString()
-                    loadVideo(vid, videoExercise2)
+                    if (textExercise2.text.toString().isNotEmpty()) {
+                        val vid = textExercise2.text.toString()
+                        loadVideo(vid, videoExercise2)
+                    }
+
+                }
+                R.id.videoExercise3 -> {
+
+                    if (textExercise3.text.toString().isNotEmpty()) {
+                        val vid = textExercise3.text.toString()
+                        loadVideo(vid, videoExercise3)
+                    }
+
+                }
+                R.id.videoExercise4 -> {
+
+                    if (textExercise4.text.toString().isNotEmpty()) {
+                        val vid = textExercise4.text.toString()
+                        loadVideo(vid, videoExercise4)
+                    }
+
+                }
+                R.id.videoExercise5 -> {
+
+                    if (textExercise5.text.toString().isNotEmpty()) {
+                        val vid = textExercise5.text.toString()
+                        loadVideo(vid, videoExercise5)
+                    }
+
+                }
+                R.id.videoExercise6 -> {
+
+                    if (textExercise6.text.toString().isNotEmpty()) {
+                        val vid = textExercise6.text.toString()
+                        loadVideo(vid, videoExercise6)
+                    }
+
+                }
+                R.id.videoExercise7 -> {
+
+                    if (textExercise7.text.toString().isNotEmpty()) {
+                        val vid = textExercise7.text.toString()
+                        loadVideo(vid, videoExercise7)
+                    }
+
                 }
 
             }
-            R.id.videoExercise3 -> {
-
-                if(textExercise3.text.toString().isNotEmpty()) {
-                    val vid = textExercise3.text.toString()
-                    loadVideo(vid, videoExercise3)
-                }
-
-            }
-            R.id.videoExercise4 -> {
-
-                if(textExercise4.text.toString().isNotEmpty()) {
-                    val vid = textExercise4.text.toString()
-                    loadVideo(vid, videoExercise4)
-                }
-
-            }
-            R.id.videoExercise5 -> {
-
-                if(textExercise5.text.toString().isNotEmpty()) {
-                    val vid = textExercise5.text.toString()
-                    loadVideo(vid, videoExercise5)
-                }
-
-            }
-            R.id.videoExercise6 -> {
-
-                if(textExercise6.text.toString().isNotEmpty()) {
-                    val vid = textExercise6.text.toString()
-                    loadVideo(vid, videoExercise6)
-                }
-
-            }
-            R.id.videoExercise7 -> {
-
-                if(textExercise7.text.toString().isNotEmpty()) {
-                    val vid = textExercise7.text.toString()
-                    loadVideo(vid, videoExercise7)
-                }
-
-            }
-
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -594,5 +604,12 @@ class TrainingsSportsman : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

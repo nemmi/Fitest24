@@ -80,41 +80,58 @@ class Eat : AppCompatActivity() {
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
+                if (IsInternetAvailable.isInternetAvailable(this)) {
                 when (optionId) {
 
                     R.id.monday -> {
+
                         loadEat("_M")
                         scanCheckBoxs(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5)
+
                     }
                     R.id.tuesday -> {
+
                         loadEat("_T")
                         scanCheckBoxs(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5)
+
                     }
                     R.id.wednesday -> {
+
                         loadEat("_W")
                         scanCheckBoxs(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5)
+
                     }
                     R.id.thursday -> {
+
                         loadEat("_Th")
                         scanCheckBoxs(thursdayChek1, thursdayChek2, thursdayChek3, thursdayChek4, thursdayChek5)
+
                     }
                     R.id.friday -> {
+
                         loadEat("_F")
                         scanCheckBoxs(fridayChek1, fridayChek2, fridayChek3, fridayChek4, fridayChek5)
+
                     }
                     R.id.saturday -> {
+
                         loadEat("_Sat")
                         scanCheckBoxs(saturdayChek1, saturdayChek2, saturdayChek3, saturdayChek4, saturdayChek5)
+
                     }
                     R.id.sunday -> {
+
                         loadEat("_Sun")
                         scanCheckBoxs(sundayChek1, sundayChek2, sundayChek3, sundayChek4, sundayChek5)
+
                     }
                     else -> throw AssertionError()
                 }
 
-            }
-
+            } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }}
         }
     }
     private val ddb = FirebaseFirestore.getInstance()
@@ -288,15 +305,28 @@ class Eat : AppCompatActivity() {
                 }
             }
             R.id.trenning ->{
-
-                startActivity(Intent(this, TrainingsSportsman::class.java))
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    startActivity(Intent(this, TrainingsSportsman::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.chat ->{
-
-                startActivity(Intent(this, ChatSportsman::class.java))
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    startActivity(Intent(this, ChatSportsman::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
             R.id.imageProfile ->{
-                startActivity(Intent(this, ProfileClient::class.java))
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    startActivity(Intent(this, ProfileClient::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
         }
     }
@@ -370,6 +400,14 @@ private fun verificationId(day:String, checkbox:String, daycheck:String)
             }
     }
 }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

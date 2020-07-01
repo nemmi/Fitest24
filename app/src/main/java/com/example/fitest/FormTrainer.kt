@@ -51,13 +51,22 @@ class FormTrainer : AppCompatActivity() {
     /*  val REQUEST_CODE = 100*/
 
     fun AnketaCoachClick(view: View) {
-        when (view.id){
-            R.id.buttonLoadPhoto->{
-                startActivity(Intent(this, ProfileTrenerView::class.java))
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.buttonLoadPhoto -> {
+
+                    startActivity(Intent(this, ProfileTrenerView::class.java))
+
+                }
+                R.id.butInCoach -> {
+
+                    upProfile()
+
+                }
             }
-            R.id.butInCoach ->{
-                upProfile()
-            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
     }
@@ -164,5 +173,12 @@ class FormTrainer : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

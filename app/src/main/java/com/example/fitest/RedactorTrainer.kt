@@ -43,14 +43,19 @@ class RedactorTrainer : AppCompatActivity() {
     private val ddb = FirebaseFirestore.getInstance()
 
     fun editTrClick(view: View) {
-        when (view.id) {
-            R.id.deleteProfile -> {
-                deleteUser()
-            }
-            R.id.save -> {
-                editProfile()
-            }
+        if (IsInternetAvailable.isInternetAvailable(this)) {
+            when (view.id) {
+                R.id.deleteProfile -> {
+                    deleteUser()
+                }
+                R.id.save -> {
+                    editProfile()
+                }
 
+            }
+        } else {
+            alert()
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -83,16 +88,16 @@ class RedactorTrainer : AppCompatActivity() {
             if (mailEdit.text.toString().isNotEmpty()) {
                 user!!.updateEmail(mailEdit.text.toString())
                     .addOnCompleteListener { task ->
-                        Update("email", mailEdit)
+                        update("email", mailEdit)
                     }
 
             }
 
             if (editSecnameName.text.toString().isNotEmpty()) {
-                Update("name",editSecnameName)
+                update("name",editSecnameName)
             }
             if (phoneEdit.text.toString().isNotEmpty()) {
-                Update("phoneNumber", phoneEdit)
+                update("phoneNumber", phoneEdit)
             }
             Toast.makeText(
                 baseContext, "Профиль успешно обновлен",
@@ -125,7 +130,7 @@ class RedactorTrainer : AppCompatActivity() {
     }
 
 
-    private fun Update(Auth:String, field:TextView){
+    private fun update(Auth:String, field:TextView){
      Firebase.auth.currentUser?.uid?.let {
         val up =
             ddb.collection("treners")
@@ -142,6 +147,13 @@ class RedactorTrainer : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()
+    }
+
+    fun alert(){
+        Toast.makeText(
+            baseContext, "Отсутствует  интернет соединение",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
 
