@@ -37,7 +37,7 @@ class FormSportsmanP1  : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sportsmen_anketa1)
@@ -49,12 +49,12 @@ class FormSportsmanP1  : AppCompatActivity() {
             when (view.id) {
                 R.id.toolbarAnketaView -> {
 
-                        val intent = Intent(this, Registration::class.java)
-                        startActivity(intent)
+                    val intent = Intent(this, Registration::class.java)
+                    startActivity(intent)
 
                 }
                 R.id.buttonChoose -> {
-                      upProfile()
+                    upProfile()
 
                 }
 
@@ -75,6 +75,7 @@ class FormSportsmanP1  : AppCompatActivity() {
         val AGE__PATTERN = Regex(pattern = "[0-9]{2,3}")
         val PARAMS__PATTERN = Regex(pattern = "[0-9.,]{2,4}")
         val HEIGHT__PATTERN = Regex(pattern = "[0-9.,]{3,4}")
+        val PHONE__PATTERN = Regex(pattern = "[0-9]{11}")
 
         if (!PARAMS__PATTERN.matches(editAnketaWeight.text.toString())) {
             editAnketaWeight.error = "Введите не менее 2 и не более 4 символов"
@@ -91,7 +92,7 @@ class FormSportsmanP1  : AppCompatActivity() {
             editSecondName.requestFocus()
             return
         }
-        if (!Patterns.PHONE.matcher(editPhoneNumber.text.toString()).matches()) {
+        if (!PHONE__PATTERN.matches(editPhoneNumber.text.toString())) {
             editPhoneNumber.error = "Введите корректный номер"
             editPhoneNumber.requestFocus()
             return
@@ -193,7 +194,8 @@ class FormSportsmanP1  : AppCompatActivity() {
                 "weight" to editAnketaWeight.text.toString(),
                 "height" to editHeightAnketa.text.toString(),
                 "bads" to editBads.text.toString(),
-                "bloods" to editBlood.text.toString()
+                "bloods" to editBlood.text.toString(),
+                "num" to "3"
             )
 
             Firebase.auth.currentUser?.uid?.let {

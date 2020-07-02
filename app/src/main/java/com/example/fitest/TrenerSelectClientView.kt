@@ -38,7 +38,7 @@ class TrenerSelectClientView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_trener_select_client_view)
@@ -97,15 +97,13 @@ class TrenerSelectClientView : AppCompatActivity() {
 
     private val storage = FirebaseStorage.getInstance()
 
-    private fun  loadData(){
-
-
+    private fun loadData(){
         var value = intent.getStringExtra("id")
         Log.i("NewActivity2", value)
 
-        var PhotoImage = storage.reference.child("TrenersPhoto").child(value) /* чайлд до айди*/
+        var photoImage = storage.reference.child("TrenersPhoto").child(value)
 
-        PhotoImage.downloadUrl.addOnSuccessListener { Uri ->
+        photoImage.downloadUrl.addOnSuccessListener { Uri ->
             val imageURL = Uri.toString()
             Glide.with(this)
                 .load(imageURL)
@@ -146,7 +144,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, "Отсутствует интернет соединение",
             Toast.LENGTH_SHORT
         ).show()
     }

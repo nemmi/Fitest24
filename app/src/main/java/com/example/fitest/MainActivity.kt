@@ -45,25 +45,25 @@ class MainActivity : AppCompatActivity() {
 
 
         auth = FirebaseAuth.getInstance()
-    auth.signInWithEmailAndPassword("test@test.test","11111111")
+        auth.signInWithEmailAndPassword("test@test.test","11111111")
 
 
         if (IsInternetAvailable.isInternetAvailable(this)) {
-        buttonListTrainer.setOnClickListener {
-            val intent = Intent(this, SelectTrener::class.java)
+            buttonListTrainer.setOnClickListener {
+                val intent = Intent(this, SelectTrener::class.java)
 
 
 
-            startActivity(intent)}
-    } else {
+                startActivity(intent)}
+        } else {
             alert()
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        }
+    }
 
 
-    fun AuthClick(view: View) {
+    fun authClick(view: View) {
         if (IsInternetAvailable.isInternetAvailable(this)) {
             when (view.id) {
                 R.id.btnLogin -> {

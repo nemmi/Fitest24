@@ -64,6 +64,7 @@ class RedactorTrainer : AppCompatActivity() {
         val user = Firebase.auth.currentUser
 
         val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
+        val PHONE_PATTERN = Regex(pattern= "[0-9]{11}")
 
         if (mailEdit.text.toString().isNotEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(mailEdit.text.toString()).matches()) {
             mailEdit.error = "Введите корректный email"
@@ -77,7 +78,7 @@ class RedactorTrainer : AppCompatActivity() {
             return
         }
 
-        if (phoneEdit.text.toString().isNotEmpty()&&!Patterns.PHONE.matcher(phoneEdit.text.toString()).matches()) {
+        if (phoneEdit.text.toString().isNotEmpty()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
             phoneEdit.error = "Введите корректный номер"
             phoneEdit.requestFocus()
             return
@@ -131,17 +132,17 @@ class RedactorTrainer : AppCompatActivity() {
 
 
     private fun update(Auth:String, field:TextView){
-     Firebase.auth.currentUser?.uid?.let {
-        val up =
-            ddb.collection("treners")
-                .document(it)
-        up.update(
+        Firebase.auth.currentUser?.uid?.let {
+            val up =
+                ddb.collection("treners")
+                    .document(it)
+            up.update(
 
-            Auth, field.text.toString()
-        )
-            .addOnSuccessListener {
-            }
-      }
+                Auth, field.text.toString()
+            )
+                .addOnSuccessListener {
+                }
+        }
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

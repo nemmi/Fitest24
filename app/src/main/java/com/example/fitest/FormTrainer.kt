@@ -78,6 +78,7 @@ class FormTrainer : AppCompatActivity() {
         val STUDY__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{8,50}")
         val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{5,250}")
         val PRICE__PATTERN = Regex(pattern = "[0-9]{3,5}")
+        val PHONE__PATTERN = Regex(pattern = "[0-9]{11}")
 
 
         if (!matched) {
@@ -85,7 +86,7 @@ class FormTrainer : AppCompatActivity() {
             editSecondName.requestFocus()
             return
         }
-        if (!Patterns.PHONE.matcher(editPhoneNumber.text.toString()).matches()) {
+        if (!PHONE__PATTERN.matches(editPhoneNumber.text.toString())) {
             editPhoneNumber.error = "Введите корректный номер"
             editPhoneNumber.requestFocus()
             return

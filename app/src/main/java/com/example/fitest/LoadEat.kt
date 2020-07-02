@@ -38,6 +38,7 @@ class LoadEat : AppCompatActivity() {
         setContentView(R.layout.activity_load_eat)
         var value= intent.getStringExtra("id")
         buttonSaveEat.setOnClickListener{
+            if (IsInternetAvailable.isInternetAvailable(this)) {
             if(monday.isChecked){
                 loadEat(value,"_M")
             }
@@ -61,10 +62,14 @@ class LoadEat : AppCompatActivity() {
             if(sunday.isChecked){
                 loadEat(value,"_Sun")
             }
+        } else {
+                alert()
+                startActivity(Intent(this, MainActivity::class.java))
+            }
         }
         val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
-            run {
+            run { if (IsInternetAvailable.isInternetAvailable(this)) {
                 when (optionId) {
                     R.id.monday -> {
                         eatTxt1.setText("")
@@ -117,7 +122,11 @@ class LoadEat : AppCompatActivity() {
                     }
                     else -> throw AssertionError()
                 }
+            } else {
+                alert()
+                startActivity(Intent(this, MainActivity::class.java))
             }
+                }
         }
     }
     fun loadEat(value:String, day:String){

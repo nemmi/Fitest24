@@ -34,7 +34,7 @@ class ReportEat : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otchet_eat)
@@ -42,7 +42,7 @@ class ReportEat : AppCompatActivity() {
 
         var value = intent.getStringExtra("id")
 
-        loadinfo(value, "_M")
+        loadInfo(value, "_M")
 
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
@@ -50,31 +50,31 @@ class ReportEat : AppCompatActivity() {
                     when (optionId) {
 
                         R.id.monday -> {
-                            loadinfo(value, "_M")
+                            loadInfo(value, "_M")
                         }
 
                         R.id.tuesday -> {
-                            loadinfo(value, "_T")
+                            loadInfo(value, "_T")
                         }
 
                         R.id.wednesday -> {
-                            loadinfo(value, "_W")
+                            loadInfo(value, "_W")
                         }
 
                         R.id.thursday -> {
-                            loadinfo(value, "_Th")
+                            loadInfo(value, "_Th")
                         }
 
                         R.id.friday -> {
-                            loadinfo(value, "_F")
+                            loadInfo(value, "_F")
                         }
 
                         R.id.saturday -> {
-                            loadinfo(value, "_Sat")
+                            loadInfo(value, "_Sat")
                         }
 
                         R.id.sunday -> {
-                            loadinfo(value, "_Sun")
+                            loadInfo(value, "_Sun")
                         }
                         else -> throw AssertionError()
                     }
@@ -91,7 +91,7 @@ class ReportEat : AppCompatActivity() {
     private val ddb = FirebaseFirestore.getInstance()
 
 
-    private fun loadinfo(value:String, day:String){
+    private fun loadInfo(value:String, day:String){
         ddb.collection("eat")
             .document(value+day) /*здесь будет айди спортсмена*/
             .addSnapshotListener { snapshot, e ->
@@ -110,7 +110,7 @@ class ReportEat : AppCompatActivity() {
                     eatTxt4.text = snapshot.getString("eat4")
                     eatTxt5.text = snapshot.getString("eat5")
 
-                   if(snapshot.getString("Checkbox1") == "true")
+                    if(snapshot.getString("Checkbox1") == "true")
                     {checkBox1.setChecked(true)} else {checkBox1.setChecked(false)}
 
                     if(snapshot.getString("Checkbox2") == "true")
@@ -125,9 +125,6 @@ class ReportEat : AppCompatActivity() {
                     if(snapshot.getString("Checkbox5") == "true")
                     {checkBox5.setChecked(true)} else {checkBox5.setChecked(false)}
 
-
-
-                       // check(snapshot)
                 }
                 else {
                     Toast.makeText(

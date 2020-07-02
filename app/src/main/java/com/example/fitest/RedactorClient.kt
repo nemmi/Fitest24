@@ -69,7 +69,7 @@ class RedactorClient : AppCompatActivity() {
     private fun editProfile(){
         val user = Firebase.auth.currentUser
         val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
-        val PHONE_PATTERN = Regex(pattern= "[0-9]{11,12}")
+        val PHONE_PATTERN = Regex(pattern= "[0-9]{11}")
 
         if (mailEdit.text.toString().isNotEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(mailEdit.text.toString()).matches()) {
             mailEdit.error = "Введите корректный email"
@@ -83,7 +83,7 @@ class RedactorClient : AppCompatActivity() {
             return
         }
 
-        if (phoneEdit.text.toString().isNotEmpty()&&!Patterns.PHONE.matcher(phoneEdit.text.toString()).matches()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
+        if (phoneEdit.text.toString().isNotEmpty()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
             phoneEdit.error = "Введите корректный номер"
             phoneEdit.requestFocus()
             return
@@ -120,35 +120,32 @@ class RedactorClient : AppCompatActivity() {
         val user1 = Firebase.auth.currentUser!!
         val user = Firebase.auth.currentUser?.uid
 
-
-
-
-FirebaseFirestore.getInstance().collection("sportsmen").document(user.toString())
-    .delete().addOnCompleteListener { task ->
-        if (task.isSuccessful) {
-            Toast.makeText(
-                baseContext, "Профиль удален",
-                Toast.LENGTH_SHORT
-            ).show()
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-    }
+        FirebaseFirestore.getInstance().collection("sportsmen").document(user.toString())
+            .delete().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        baseContext, "Профиль удален",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+            }
         user1.delete()
 
     }
-private fun update(Auth:String, field:TextView){
-    Firebase.auth.currentUser?.uid?.let {
-        val up =
-            ddb.collection("sportsmen")
-                .document(it)
-        up.update(
+    private fun update(Auth:String, field:TextView){
+        Firebase.auth.currentUser?.uid?.let {
+            val up =
+                ddb.collection("sportsmen")
+                    .document(it)
+            up.update(
 
-            Auth, field.text.toString()
-        )
-            .addOnSuccessListener {
-            }
+                Auth, field.text.toString()
+            )
+                .addOnSuccessListener {
+                }
+        }
     }
-}
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

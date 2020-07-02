@@ -24,36 +24,14 @@ class SplashActivity : AppCompatActivity() {
                 ddb.collection("treners")
                     .document(it)
                     .addSnapshotListener { snapshot, e ->
-                        if (e != null) {
-                            Toast.makeText(
-                                baseContext, "Считать неудалось$e",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            return@addSnapshotListener
-                        }
+
                         if (snapshot != null && snapshot.exists()) {
 
                             if (snapshot.getString("status") == "trener") {
                                 startActivity(Intent(this, ProfileTrainer::class.java))
                             }
                         } else {
-                            ddb.collection("sportsmen")
-                                .document(it)
-                                .addSnapshotListener { snapshot, e ->
-                                    if (e != null) {
-                                        Toast.makeText(
-                                            baseContext, "Считать неудалось$e",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        return@addSnapshotListener
-                                    }
-                                    if (snapshot != null && snapshot.exists()) {
-                                        if (snapshot.getString("status") == "sportsmen") {
-                                            startActivity(Intent(this, ProfileClient::class.java))
-                                        }
-                                    }
-                                }
-
+                            startActivity(Intent(this, ProfileClient::class.java))
                         }
 
 
