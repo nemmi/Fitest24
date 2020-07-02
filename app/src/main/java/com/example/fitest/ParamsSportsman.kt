@@ -62,7 +62,7 @@ class ParamsSportsman : AppCompatActivity() {
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Toast.makeText(
-                            baseContext, "Считать неудалось$e",
+                            baseContext, resources.getString(R.string.error_base),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
@@ -89,7 +89,7 @@ class ParamsSportsman : AppCompatActivity() {
                         textHip2.text = snapshot.getString("hip2")
                     } else {
                         Toast.makeText(
-                            baseContext, "Нет данных",
+                            baseContext, resources.getString(R.string.error_empty_base),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -153,7 +153,7 @@ class ParamsSportsman : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

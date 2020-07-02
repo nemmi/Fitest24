@@ -63,23 +63,23 @@ class RedactorTrainer : AppCompatActivity() {
     private fun editProfile(){
         val user = Firebase.auth.currentUser
 
-        val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
-        val PHONE_PATTERN = Regex(pattern= "[0-9]{11}")
+        val NAME__PATTERN = Regex(pattern = resources.getString(R.string.pattern_name))
+        val PHONE_PATTERN = Regex(pattern= resources.getString(R.string.pattern_phone))
 
         if (mailEdit.text.toString().isNotEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(mailEdit.text.toString()).matches()) {
-            mailEdit.error = "Введите корректный email"
+            mailEdit.error = resources.getString(R.string.error_valid_universal)
             mailEdit.requestFocus()
             return
         }
 
         if (editSecnameName.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editSecnameName.text.toString())) {
-            editSecnameName.error = "Введите Имя"
+            editSecnameName.error = resources.getString(R.string.error_valid_for_empty_field)
             editSecnameName.requestFocus()
             return
         }
 
         if (phoneEdit.text.toString().isNotEmpty()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
-            phoneEdit.error = "Введите корректный номер"
+            phoneEdit.error = resources.getString(R.string.error_valid_universal)
             phoneEdit.requestFocus()
             return
         }
@@ -101,7 +101,7 @@ class RedactorTrainer : AppCompatActivity() {
                 update("phoneNumber", phoneEdit)
             }
             Toast.makeText(
-                baseContext, "Профиль успешно обновлен",
+                baseContext, resources.getString(R.string.message_success),
                 Toast.LENGTH_SHORT
             ).show()
             startActivity(Intent(this, ProfileTrainer::class.java))
@@ -110,35 +110,34 @@ class RedactorTrainer : AppCompatActivity() {
     }
 
     private fun deleteUser(){
-        val user1 = Firebase.auth.currentUser!!
-        val user = Firebase.auth.currentUser?.uid
-
-
-
-
-        FirebaseFirestore.getInstance().collection("treners").document(user.toString())
-            .delete().addOnCompleteListener { task ->
+        Firebase.auth.currentUser!!.delete()
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(
-                        baseContext, "Профиль удален",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("treners")
+                            .document(it)
+                            .delete()
+                            .addOnSuccessListener { task ->
+                                Toast.makeText(
+                                    baseContext, resources.getString(R.string.message_deleted),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                startActivity(Intent(this, MainActivity::class.java))
+                            }
+                    }
                 }
             }
-        user1.delete()
-
     }
 
 
-    private fun update(Auth:String, field:TextView){
+    private fun update(auth:String, field:TextView){
         Firebase.auth.currentUser?.uid?.let {
             val up =
                 ddb.collection("treners")
                     .document(it)
             up.update(
 
-                Auth, field.text.toString()
+                auth, field.text.toString()
             )
                 .addOnSuccessListener {
                 }
@@ -152,7 +151,7 @@ class RedactorTrainer : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

@@ -59,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/swaptrener"
         android:onClick="editSpClick"
         app:layout_constraintBottom_toTopOf="@+id/save"
@@ -73,7 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="15dp"
         android:background="@drawable/field_mail_cl"
         android:hint="mail@mail.ru"
         android:inputType="textEmailAddress"
@@ -85,21 +84,49 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageViewNumTren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/numoftrainingsred" />
+
+    <EditText
+        android:id="@+id/numOfTrenEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/fieldeditnum"
+        android:hint="3"
+        android:inputType="number"
+        android:maxLength="1"
+        android:paddingStart="25dp"
+        android:paddingTop="7dp"
+        android:paddingEnd="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewNumTren" />
+
     <EditText
         android:id="@+id/phoneEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/field_ph_cli"
         android:hint="phone"
-        android:maxLength="12"
         android:inputType="phone"
+        android:maxLength="12"
         android:paddingStart="15dp"
         android:paddingTop="20dp"
         android:paddingEnd="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewNumTren"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -111,7 +138,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/field_fi_cl"
         android:hint="Фамилия Имя"
         android:inputType="textPersonName"
@@ -120,6 +147,7 @@
         android:paddingEnd="15dp"
         app:layout_constraintBottom_toTopOf="@+id/mailEdit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

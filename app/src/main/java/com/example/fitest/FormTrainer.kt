@@ -72,73 +72,73 @@ class FormTrainer : AppCompatActivity() {
     }
 
     private fun upProfile() {
-        val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
+        val NAME__PATTERN = Regex(pattern = resources.getString(R.string.pattern_name))
         val matched = NAME__PATTERN.matches(editSecondName.text.toString())
 
-        val STUDY__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{8,50}")
-        val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{5,250}")
-        val PRICE__PATTERN = Regex(pattern = "[0-9]{3,5}")
-        val PHONE__PATTERN = Regex(pattern = "[0-9]{11}")
+        val STUDY__PATTERN = Regex(pattern = resources.getString(R.string.pattern_study))
+        val FIELD__PATTERN = Regex(pattern = resources.getString(R.string.pattern_long_field))
+        val PRICE__PATTERN = Regex(pattern = resources.getString(R.string.pattern_price))
+        val PHONE__PATTERN = Regex(pattern = resources.getString(R.string.pattern_phone))
 
 
         if (!matched) {
-            editSecondName.error = "Имя должно состоять только из символов русского или английского алфавита. Введите не менее 4 и не более 60 символов"
+            editSecondName.error =  resources.getString(R.string.error_valid_name)
             editSecondName.requestFocus()
             return
         }
         if (!PHONE__PATTERN.matches(editPhoneNumber.text.toString())) {
-            editPhoneNumber.error = "Введите корректный номер"
+            editPhoneNumber.error = resources.getString(R.string.error_valid_universal)
             editPhoneNumber.requestFocus()
             return
         }
         if (!STUDY__PATTERN.matches(editStudy.text.toString())) {
-            editStudy.error = "Введите не менее 5 и не более 50 символов"
+            editStudy.error = resources.getString(R.string.error_valid_8_50)
             editStudy.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editSpec.text.toString())) {
-            editSpec.error ="Введите не менее 5 и не более 250 символов"
+            editSpec.error =resources.getString(R.string.error_valid_5_250)
             editSpec.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editWins.text.toString())) {
-            editWins.error = "Введите не менее 5 и не более 250 символов"
+            editWins.error = resources.getString(R.string.error_valid_5_250)
             editWins.requestFocus()
             return
         }
         if (!PRICE__PATTERN.matches(editPrice.text.toString())) {
-            editPrice.error = "Введите не менее 3 и не более 5 символов"
+            editPrice.error = resources.getString(R.string.error_valid_three_five)
             editPrice.requestFocus()
             return
         }
 
         if (editSecondName.text.toString().isEmpty()) {
-            editSecondName.error = "Введите имя"
+            editSecondName.error = resources.getString(R.string.error_valid_for_empty_field)
             editSecondName.requestFocus()
             return
         }
         if (editStudy.text.toString().isEmpty()) {
-            editStudy.error = "Введите данные"
+            editStudy.error =resources.getString(R.string.error_valid_for_empty_field)
             editStudy.requestFocus()
             return
         }
         if (editPhoneNumber.text.toString().isEmpty()) {
-            editPhoneNumber.error = "Введите данные"
+            editPhoneNumber.error = resources.getString(R.string.error_valid_for_empty_field)
             editPhoneNumber.requestFocus()
             return
         }
         if (editSpec.text.toString().isEmpty()) {
-            editSpec.error = "Введите данные"
+            editSpec.error = resources.getString(R.string.error_valid_for_empty_field)
             editSpec.requestFocus()
             return
         }
         if (editWins.text.toString().isEmpty()) {
-            editWins.error = "Введите данные"
+            editWins.error = resources.getString(R.string.error_valid_for_empty_field)
             editWins.requestFocus()
             return
         }
         if (editPrice.text.toString().isEmpty()) {
-            editPrice.error = "Введите данные"
+            editPrice.error = resources.getString(R.string.error_valid_for_empty_field)
             editPrice.requestFocus()
             return
         }
@@ -162,7 +162,7 @@ class FormTrainer : AppCompatActivity() {
                     .set(user as Map<String, Any>, SetOptions.merge())
                     .addOnSuccessListener { documentReference ->
                         Toast.makeText(
-                            baseContext, "Профиль заполнен",
+                            baseContext, resources.getString(R.string.message_success),
                             Toast.LENGTH_SHORT
                         ).show()
                         startActivity(Intent(this, ProfileTrainer::class.java))
@@ -178,7 +178,7 @@ class FormTrainer : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

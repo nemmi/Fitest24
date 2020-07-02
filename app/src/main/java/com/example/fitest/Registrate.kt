@@ -54,43 +54,39 @@ class Registration : AppCompatActivity() {
             val matched = PASSWORD__PATTERN.matches(editPassword.text.toString())
 
             if (editMail.text.toString().isEmpty()) {
-                editMail.error = "Введите email"
+                editMail.error = resources.getString(R.string.error_valid_for_empty_field)
                 editMail.requestFocus()
                 return
             }
             if (!Patterns.EMAIL_ADDRESS.matcher(editMail.text.toString()).matches()) {
-                editMail.error = "Введите корректный email"
+                editMail.error = resources.getString(R.string.error_valid_universal)
                 editMail.requestFocus()
                 return
             }
-            if (editMail.text.length > 30) {
-                editMail.error = "email должен содержать не более 30 символов"
+            if (editMail.text.length < 10 || editMail.text.length > 30) {
+                editMail.error =  resources.getString(R.string.error_valid_ten_thirty)
                 editMail.requestFocus()
                 return
             }
-            if (editMail.text.length < 10) {
-                editMail.error = "email должен содержать не менее 10 символов"
-                editMail.requestFocus()
-                return
-            }
+
             if (editPassword.text.toString().isEmpty()) {
-                editPassword.error = "Введите пароль"
+                editPassword.error =  resources.getString(R.string.error_valid_for_empty_field)
                 editPassword.requestFocus()
                 return
             }
             if (!matched) {
-                editPassword.error = "Пароль должен содержать не менее 8 и не более 15 цифр"
+                editPassword.error =  resources.getString(R.string.error_valid_password)
                 editPassword.requestFocus()
                 return
             }
             if (editPassword1.text.toString().isEmpty()) {
-                editPassword.error = "Повторите пароль"
+                editPassword.error =  resources.getString(R.string.error_valid_for_empty_field)
                 editPassword.requestFocus()
                 return
             }
 
             if (editPassword1.text.toString() != editPassword.text.toString()) {
-                editPassword.error = "Пароли не совпадают"
+                editPassword.error = resources.getString(R.string.error_valid_repassword)
                 editPassword.requestFocus()
                 return
             } else {
@@ -107,7 +103,7 @@ class Registration : AppCompatActivity() {
                                     finish()
                                 } else {
                                     Toast.makeText(
-                                        baseContext, "Регистрация не выполнена",
+                                        baseContext, resources.getString(R.string.message_unsuccess_reg),
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
@@ -125,7 +121,7 @@ class Registration : AppCompatActivity() {
                                     finish()
                                 } else {
                                     Toast.makeText(
-                                        baseContext, "Регистрация не выполнена",
+                                        baseContext, resources.getString(R.string.message_unsuccess_reg),
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
@@ -150,7 +146,7 @@ class Registration : AppCompatActivity() {
                 .set(user as Map<String, Any>)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(
-                        baseContext, "Вы зарегистрировались как спортсмен, пожалуйста, заполните анкету",
+                        baseContext, resources.getString(R.string.message_reg_sp),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -168,7 +164,7 @@ class Registration : AppCompatActivity() {
                 .set(user as Map<String, Any>)
                 .addOnSuccessListener { documentReference ->
                     Toast.makeText(
-                        baseContext, "Вы зарегистрировались как тренер, пожалуйста, заполните анкету",
+                        baseContext, resources.getString(R.string.message_reg_tren),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -186,7 +182,7 @@ class Registration : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

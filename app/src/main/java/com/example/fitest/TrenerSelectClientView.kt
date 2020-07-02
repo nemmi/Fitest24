@@ -97,7 +97,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
     private val storage = FirebaseStorage.getInstance()
 
-    private fun loadData(){
+    private fun  loadData(){
         var value = intent.getStringExtra("id")
         Log.i("NewActivity2", value)
 
@@ -115,7 +115,7 @@ class TrenerSelectClientView : AppCompatActivity() {
                 snapshot, e ->
             if (e != null) {
                 Toast.makeText(
-                    baseContext, "Считать неудалось$e",
+                    baseContext, resources.getString(R.string.error_base),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@addSnapshotListener
@@ -129,7 +129,7 @@ class TrenerSelectClientView : AppCompatActivity() {
             }
             else {
                 Toast.makeText(
-                    baseContext, "Нет данных",
+                    baseContext, resources.getString(R.string.error_empty_base),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -144,7 +144,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

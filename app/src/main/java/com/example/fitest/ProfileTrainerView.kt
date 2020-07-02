@@ -54,7 +54,7 @@ class ProfileTrenerView : AppCompatActivity() {
     }
     private val uid= FirebaseAuth.getInstance().currentUser?.uid
 
-    fun ProfileTrenerClick(view: View) {
+    fun profileTrenerClick(view: View) {
         if (IsInternetAvailable.isInternetAvailable(this)) {
             when (view.id) {
                 R.id.btnDownloadPhoto -> {
@@ -82,22 +82,24 @@ class ProfileTrenerView : AppCompatActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE &&
             resultCode== Activity.RESULT_OK && data!=null) {
 
             val uri =CropImage.getActivityResult(data).uri
             val path = uid?.let { REF_STORAGE_ROOT.child("TrenersPhoto").child(it) }
 
-            if (path != null&&IsInternetAvailable.isInternetAvailable(this)) {
+            if (path != null && IsInternetAvailable.isInternetAvailable(this)) {
                 path.putFile(uri).addOnSuccessListener {
-                    Toast.makeText(applicationContext, "Фото успешно загружено", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, resources.getString(R.string.message_success), Toast.LENGTH_SHORT).show()
+
+                    Glide.with(this)
+                        .load(path)
+                        .into(downloadPhoto)
+
                     btnDownloadPhoto.visibility=View.INVISIBLE
+
                 }
-
-                Glide.with(this)
-                    .load(path)
-                    .into(downloadPhoto)
-
             } else {
                 alert()
                 startActivity(Intent(this, MainActivity::class.java))
@@ -112,7 +114,7 @@ class ProfileTrenerView : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

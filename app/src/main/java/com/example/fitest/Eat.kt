@@ -81,54 +81,54 @@ class Eat : AppCompatActivity() {
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                when (optionId) {
+                    when (optionId) {
 
-                    R.id.monday -> {
+                        R.id.monday -> {
 
-                        loadEat("_M")
-                        scanCheckBoxs(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5)
+                            loadEat("_M")
+                            scanCheckBoxs(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5)
 
+                        }
+                        R.id.tuesday -> {
+
+                            loadEat("_T")
+                            scanCheckBoxs(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5)
+
+                        }
+                        R.id.wednesday -> {
+
+                            loadEat("_W")
+                            scanCheckBoxs(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5)
+
+                        }
+                        R.id.thursday -> {
+
+                            loadEat("_Th")
+                            scanCheckBoxs(thursdayChek1, thursdayChek2, thursdayChek3, thursdayChek4, thursdayChek5)
+
+                        }
+                        R.id.friday -> {
+
+                            loadEat("_F")
+                            scanCheckBoxs(fridayChek1, fridayChek2, fridayChek3, fridayChek4, fridayChek5)
+
+                        }
+                        R.id.saturday -> {
+
+                            loadEat("_Sat")
+                            scanCheckBoxs(saturdayChek1, saturdayChek2, saturdayChek3, saturdayChek4, saturdayChek5)
+
+                        }
+                        R.id.sunday -> {
+
+                            loadEat("_Sun")
+                            scanCheckBoxs(sundayChek1, sundayChek2, sundayChek3, sundayChek4, sundayChek5)
+
+                        }
+                        else -> throw AssertionError()
                     }
-                    R.id.tuesday -> {
 
-                        loadEat("_T")
-                        scanCheckBoxs(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5)
-
-                    }
-                    R.id.wednesday -> {
-
-                        loadEat("_W")
-                        scanCheckBoxs(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5)
-
-                    }
-                    R.id.thursday -> {
-
-                        loadEat("_Th")
-                        scanCheckBoxs(thursdayChek1, thursdayChek2, thursdayChek3, thursdayChek4, thursdayChek5)
-
-                    }
-                    R.id.friday -> {
-
-                        loadEat("_F")
-                        scanCheckBoxs(fridayChek1, fridayChek2, fridayChek3, fridayChek4, fridayChek5)
-
-                    }
-                    R.id.saturday -> {
-
-                        loadEat("_Sat")
-                        scanCheckBoxs(saturdayChek1, saturdayChek2, saturdayChek3, saturdayChek4, saturdayChek5)
-
-                    }
-                    R.id.sunday -> {
-
-                        loadEat("_Sun")
-                        scanCheckBoxs(sundayChek1, sundayChek2, sundayChek3, sundayChek4, sundayChek5)
-
-                    }
-                    else -> throw AssertionError()
-                }
-
-            } else {
+                } else {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
                 }}
@@ -139,38 +139,38 @@ class Eat : AppCompatActivity() {
     fun eatClick(view: View) {
         when (view.id) {
             R.id.checkBox1 -> {
-                   if (monday.isChecked) {
-                        mondayChek1 = checkBox1.isChecked
-                       verificationId("_M", "Checkbox1", mondayChek1.toString())
-                    }
-
-                    if (tuesday.isChecked) {
-                        tuesdayChek1 = checkBox1.isChecked
-                        verificationId("_T", "Checkbox1", tuesdayChek1.toString())
-                    }
-
-                    if (wednesday.isChecked) {
-                        wednesdayChek1 = checkBox1.isChecked
-                        verificationId("_W", "Checkbox1", wednesdayChek1.toString())
-                    }
-
-                    if (thursday.isChecked) {
-                        thursdayChek1 = checkBox1.isChecked
-                        verificationId("_Th", "Checkbox1", thursdayChek1.toString())
-                    }
-                    if (friday.isChecked) {
-                        fridayChek1 = checkBox1.isChecked
-                        verificationId("_F", "Checkbox1", fridayChek1.toString())
-                    }
-                    if (saturday.isChecked) {
-                        saturdayChek1 = checkBox1.isChecked
-                        verificationId("_Sat", "Checkbox1", saturdayChek1.toString())
-                    }
-                    if (sunday.isChecked) {
-                        sundayChek1 = checkBox1.isChecked
-                        verificationId("_Sun", "Checkbox1", sundayChek1.toString())
-                    }
+                if (monday.isChecked) {
+                    mondayChek1 = checkBox1.isChecked
+                    verificationId("_M", "Checkbox1", mondayChek1.toString())
                 }
+
+                if (tuesday.isChecked) {
+                    tuesdayChek1 = checkBox1.isChecked
+                    verificationId("_T", "Checkbox1", tuesdayChek1.toString())
+                }
+
+                if (wednesday.isChecked) {
+                    wednesdayChek1 = checkBox1.isChecked
+                    verificationId("_W", "Checkbox1", wednesdayChek1.toString())
+                }
+
+                if (thursday.isChecked) {
+                    thursdayChek1 = checkBox1.isChecked
+                    verificationId("_Th", "Checkbox1", thursdayChek1.toString())
+                }
+                if (friday.isChecked) {
+                    fridayChek1 = checkBox1.isChecked
+                    verificationId("_F", "Checkbox1", fridayChek1.toString())
+                }
+                if (saturday.isChecked) {
+                    saturdayChek1 = checkBox1.isChecked
+                    verificationId("_Sat", "Checkbox1", saturdayChek1.toString())
+                }
+                if (sunday.isChecked) {
+                    sundayChek1 = checkBox1.isChecked
+                    verificationId("_Sun", "Checkbox1", sundayChek1.toString())
+                }
+            }
 
             R.id.checkBox2 -> {
                 if (monday.isChecked) {
@@ -337,7 +337,7 @@ class Eat : AppCompatActivity() {
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Toast.makeText(
-                            baseContext, "Считать неудалось$e",
+                            baseContext, resources.getString(R.string.error_base),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
@@ -364,7 +364,7 @@ class Eat : AppCompatActivity() {
                         if(snapshot.getString("Checkbox5") == "true")
                         {checkBox5.setChecked(true)} else {checkBox5.setChecked(false)}
 
-                       } else {
+                    } else {
                         Toast.makeText(
                             baseContext, "Нет данных",
                             Toast.LENGTH_SHORT
@@ -390,20 +390,20 @@ class Eat : AppCompatActivity() {
 
     }
 
-private fun verificationId(day:String, checkbox:String, daycheck:String)
-{
-    Firebase.auth.currentUser?.uid?.let {
-        ddb.collection("eat")
-            .document(it+day)
-            .update(checkbox, daycheck)
-            .addOnSuccessListener {
-            }
+    private fun verificationId(day:String, checkbox:String, daycheck:String)
+    {
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("eat")
+                .document(it+day)
+                .update(checkbox, daycheck)
+                .addOnSuccessListener {
+                }
+        }
     }
-}
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

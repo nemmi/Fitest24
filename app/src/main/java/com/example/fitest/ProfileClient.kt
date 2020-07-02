@@ -52,9 +52,6 @@ class ProfileClient : AppCompatActivity() {
     }
 
     private fun changesAndRead() {
-
-
-
         Firebase.auth.currentUser?.uid?.let {
 
             ddb.collection("sportsmen")
@@ -62,30 +59,28 @@ class ProfileClient : AppCompatActivity() {
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Toast.makeText(
-                            baseContext, "Считать неудалось$e",
+                            baseContext, resources.getString(R.string.error_base),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
                     }
-
-
                     if (snapshot != null && snapshot.exists()) {
                         clientEmailView.text=snapshot.getString("email")
                         fio.text=snapshot.getString("name")
                         clientPhoneView.text=snapshot.getString("phoneNumber")
-                        var NameTren = snapshot.getString("myTrener")
+                        textNumOfTren.text=snapshot.getString("num")
+                        var nameTren = snapshot.getString("myTrener")
 
                         ddb.collection("treners")
-                            .document(NameTren.toString())
+                            .document(nameTren.toString())
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
-                                        baseContext, "Считать неудалось$e",
+                                        baseContext, resources.getString(R.string.error_base),
                                         Toast.LENGTH_SHORT
                                     ).show()
                                     return@addSnapshotListener
                                 }
-
 
                                 if (snapshot != null && snapshot.exists()) {
                                     clentTrenerView.text = snapshot.getString("name")
@@ -95,13 +90,13 @@ class ProfileClient : AppCompatActivity() {
                     }
                     else {
                         Toast.makeText(
-                            baseContext, "Нет данных",
+                            baseContext, resources.getString(R.string.error_empty_base),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
 
                 }
-             }
+        }
 
     }
 
@@ -125,7 +120,7 @@ class ProfileClient : AppCompatActivity() {
             }
             R.id.buttonParams -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                startActivity(Intent(this, ParamsSportsman::class.java))
+                    startActivity(Intent(this, ParamsSportsman::class.java))
                 } else {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
@@ -134,7 +129,7 @@ class ProfileClient : AppCompatActivity() {
             }
             R.id.buttonTrainings -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                startActivity(Intent(this, TrainingsSportsman::class.java))
+                    startActivity(Intent(this, TrainingsSportsman::class.java))
                 } else {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
@@ -143,30 +138,30 @@ class ProfileClient : AppCompatActivity() {
             }
             R.id.buttonEats -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                startActivity(Intent(this, Eat::class.java))
-            } else {
-            alert()
-            startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, Eat::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
 
-        }
+                }
             }
             R.id.buttonChat -> {
-            if (IsInternetAvailable.isInternetAvailable(this)) {
-                startActivity(Intent(this, ChatSportsman::class.java))
-        } else {
-            alert()
-            startActivity(Intent(this, MainActivity::class.java))
+                if (IsInternetAvailable.isInternetAvailable(this)) {
+                    startActivity(Intent(this, ChatSportsman::class.java))
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
 
-        }
+                }
             }
 
 
         }
     }
 
-     fun alert(){
+    fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

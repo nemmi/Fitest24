@@ -14,6 +14,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_redactor_client.*
+import kotlinx.android.synthetic.main.activity_redactor_client.editSecnameName
+import kotlinx.android.synthetic.main.activity_redactor_client.mailEdit
+import kotlinx.android.synthetic.main.activity_redactor_client.phoneEdit
+import kotlinx.android.synthetic.main.activity_redactor_trener.*
 
 
 class RedactorClient : AppCompatActivity() {
@@ -68,34 +72,60 @@ class RedactorClient : AppCompatActivity() {
 
     private fun editProfile(){
         val user = Firebase.auth.currentUser
-        val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
-        val PHONE_PATTERN = Regex(pattern= "[0-9]{11}")
+        val NAME__PATTERN = Regex(pattern = resources.getString(R.string.pattern_name))
+        val PHONE_PATTERN = Regex(pattern= resources.getString(R.string.pattern_phone))
+        val NUM_PATTERN = Regex(pattern= "[1-3]{1}")
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("sportsman")
+                .whereEqualTo("email",mailEdit.text.toString())
+                .get()
+                .addOnSuccessListener{
+                    mailEdit.error = resources.getString(R.string.message_unsuccess_email)
+                    mailEdit.requestFocus()
+                }
+        }
 
         if (mailEdit.text.toString().isNotEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(mailEdit.text.toString()).matches()) {
-            mailEdit.error = "Введите корректный email"
+            mailEdit.error = resources.getString(R.string.error_valid_universal)
             mailEdit.requestFocus()
             return
         }
 
         if (editSecnameName.text.toString().isNotEmpty()&&!NAME__PATTERN.matches(editSecnameName.text.toString())) {
-            editSecnameName.error = "Введите Имя"
+            editSecnameName.error = resources.getString(R.string.error_valid_for_empty_field)
             editSecnameName.requestFocus()
             return
         }
 
         if (phoneEdit.text.toString().isNotEmpty()&&!PHONE_PATTERN.matches(phoneEdit.text.toString())) {
-            phoneEdit.error = "Введите корректный номер"
+            phoneEdit.error = resources.getString(R.string.error_valid_universal)
             phoneEdit.requestFocus()
+            return
+        }
+
+        if (numOfTrenEdit.text.toString().isNotEmpty()&&!NUM_PATTERN.matches(numOfTrenEdit.text.toString())) {
+            numOfTrenEdit.error = resources.getString(R.string.error_valid_1_3)
+            numOfTrenEdit.requestFocus()
             return
         }
 
         else {
 
-            if (mailEdit.text.toString().isNotEmpty()){
-                user!!.updateEmail(mailEdit.text.toString())
-                    .addOnCompleteListener { task ->
-                        update("email", mailEdit)
+            if (mailEdit.text.toString().isNotEmpty()) {
+
+                ddb.collection("sportsman")
+                    .whereEqualTo("email", mailEdit.text.toString())
+                    .get()
+                    .addOnSuccessListener {
+                        mailEdit.error = resources.getString(R.string.message_unsuccess_email)
+                        mailEdit.requestFocus()
                     }
+                    .addOnFailureListener{ user!!.updateEmail(mailEdit.text.toString())
+                        .addOnCompleteListener { task ->
+                            update("email", mailEdit)
+                        }}
+
+
 
             }
 
@@ -103,44 +133,59 @@ class RedactorClient : AppCompatActivity() {
 
                 update("name", editSecnameName)
 
-
             }
             if (phoneEdit.text.toString().isNotEmpty()) {
                 update("phoneNumber", phoneEdit)
             }
-            Toast.makeText(
-                baseContext, "Профиль успешно обновлен",
-                Toast.LENGTH_SHORT
-            ).show()
+            if (numOfTrenEdit.text.toString().isNotEmpty()) {
+                update("num", numOfTrenEdit)
+            }
+            if(mailEdit.text.toString().isNotEmpty()||editSecnameName.text.toString().isNotEmpty()||phoneEdit.text.toString().isNotEmpty()||numOfTrenEdit.text.toString().isNotEmpty()) {
+                Toast.makeText(
+                    baseContext, resources.getString(R.string.message_success),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            else{
+                Toast.makeText(
+                    baseContext, resources.getString(R.string.message_unsuccess),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
             startActivity(Intent(this, ProfileClient::class.java))
+
         }
 
     }
     private fun deleteUser(){
-        val user1 = Firebase.auth.currentUser!!
-        val user = Firebase.auth.currentUser?.uid
-
-        FirebaseFirestore.getInstance().collection("sportsmen").document(user.toString())
-            .delete().addOnCompleteListener { task ->
+        Firebase.auth.currentUser!!.delete()
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(
-                        baseContext, "Профиль удален",
-                        Toast.LENGTH_SHORT
-                    ).show()
                     startActivity(Intent(this, MainActivity::class.java))
+                    Firebase.auth.currentUser?.uid?.let {
+                        ddb.collection("sportsmen")
+                            .document(it)
+                            .delete()
+                            .addOnSuccessListener { task ->
+                                Toast.makeText(
+                                    baseContext, resources.getString(R.string.message_deleted),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+
+                            }
+                    }
                 }
             }
-        user1.delete()
-
     }
-    private fun update(Auth:String, field:TextView){
+
+    private fun update(auth:String, field:TextView){
         Firebase.auth.currentUser?.uid?.let {
             val up =
                 ddb.collection("sportsmen")
                     .document(it)
             up.update(
 
-                Auth, field.text.toString()
+                auth, field.text.toString()
             )
                 .addOnSuccessListener {
                 }
@@ -153,7 +198,7 @@ class RedactorClient : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

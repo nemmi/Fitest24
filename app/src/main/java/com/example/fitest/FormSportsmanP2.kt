@@ -63,52 +63,52 @@ class FormSportsmanP2 : AppCompatActivity() {
     }
 
     private fun upProfile() {
-        val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,50}")
+        val FIELD__PATTERN = Regex(pattern = resources.getString(R.string.pattern_field))
 
         if (!FIELD__PATTERN.matches(editBelok.text.toString())) {
-            editBelok.error = "Введите не менее 3 и не более 50 символов"
+            editBelok.error  = resources.getString(R.string.error_valid_three_fifty)
             editBelok.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editFats.text.toString())) {
-            editFats.error = "Введите не менее 3 и не более 50 символов"
+            editFats.error =  resources.getString(R.string.error_valid_three_fifty)
             editFats.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editCarbs.text.toString())) {
-            editCarbs.error = "Введите не менее 3 и не более 50 символов"
+            editCarbs.error =  resources.getString(R.string.error_valid_three_fifty)
             editCarbs.requestFocus()
             return
         }
 
         if (editBelok.text.toString().isEmpty()) {
-            editBelok.error = "Введите данные"
+            editBelok.error =  resources.getString(R.string.error_valid_for_empty_field)
             editBelok.requestFocus()
             return
         }
         if (editFats.text.toString().isEmpty()) {
-            editFats.error = "Введите данные"
+            editFats.error = resources.getString(R.string.error_valid_for_empty_field)
             editFats.requestFocus()
             return
         }
         if (editCarbs.text.toString().isEmpty()) {
-            editCarbs.error = "Введите данные"
+            editCarbs.error = resources.getString(R.string.error_valid_for_empty_field)
             editCarbs.requestFocus()
             return
         }
 
         if ((editBelok.text.length > 50) or (editBelok.text.length < 10)) {
-            editBelok.error = "Введите не менее 10 и не более 30 символов"
+            editBelok.error = resources.getString(R.string.error_valid_ten_fifty)
             editBelok.requestFocus()
             return
         }
         if ((editCarbs.text.length > 50) or (editCarbs.text.length < 10)) {
-            editCarbs.error = "Введите не менее 10 и не более 30 символов"
+            editCarbs.error = resources.getString(R.string.error_valid_ten_fifty)
             editCarbs.requestFocus()
             return
         }
         if ((editFats.text.length > 50) or (editFats.text.length < 10)) {
-            editFats.error = "Введите не менее 10 и не более 30 символов"
+            editFats.error = resources.getString(R.string.error_valid_ten_fifty)
             editFats.requestFocus()
             return
         }
@@ -429,7 +429,7 @@ class FormSportsmanP2 : AppCompatActivity() {
                     .set(user as Map<String, Any>, SetOptions.merge())
                     .addOnSuccessListener { documentReference ->
                         Toast.makeText(
-                            baseContext, "Профиль заполнен!",
+                            baseContext, resources.getString(R.string.message_success),
                             Toast.LENGTH_SHORT
                         ).show()
                         val num="true"
@@ -440,7 +440,7 @@ class FormSportsmanP2 : AppCompatActivity() {
                     }
                     .addOnFailureListener{e ->
                         Toast.makeText(
-                            baseContext, "Что-то пошло не так.. " + e.localizedMessage,
+                            baseContext, resources.getString(R.string.message_unsuccess) + e.localizedMessage,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -457,7 +457,7 @@ class FormSportsmanP2 : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

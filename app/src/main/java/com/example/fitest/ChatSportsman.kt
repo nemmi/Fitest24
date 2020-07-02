@@ -65,24 +65,29 @@ class ChatSportsman : AppCompatActivity() {
 
                     messagesListenerRegistration =
                         FirestoreUtilSportsmen.addChatMessagesListener(channelId, this, this::updateRecyclerView)
-                        floatingActionButton.setOnClickListener {
-                        if (writeMessage.text.toString().isNotEmpty()&&IsInternetAvailable.isInternetAvailable(this)) {
-                            val messageToSend =
-                                TextMessage(
-                                    writeMessage.text.toString(), Calendar.getInstance().time,
-                                    FirebaseAuth.getInstance().currentUser!!.uid,
-                                    otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
-                                        firestoreInstance.collection("sportsmen").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
-                                            snapshot?.getString("name")
-                                        }}.toString()
-                                )
-                            writeMessage.setText("")
-                            FirestoreUtilSportsmen.sendMessage(messageToSend, channelId)
+                    floatingActionButton.setOnClickListener {
+                        if(IsInternetAvailable.isInternetAvailable(this)){
+                            if (writeMessage.text.toString().isNotEmpty()) {
+                                val messageToSend =
+                                    TextMessage(
+                                        writeMessage.text.toString(), Calendar.getInstance().time,
+                                        FirebaseAuth.getInstance().currentUser!!.uid,
+                                        otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
+                                            firestoreInstance.collection("sportsmen").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
+                                                snapshot?.getString("name")
+                                            }}.toString()
+                                    )
+                                writeMessage.setText("")
+                                FirestoreUtilSportsmen.sendMessage(messageToSend, channelId)
+                            }
+                            else{
+                                writeMessage.error=resources.getString(R.string.error_message)
+                                writeMessage.requestFocus()
+                            }
                         }
-                            else {
+                        else {
                             alert()
-                            startActivity(Intent(this, MainActivity::class.java))
-                        }
+                            startActivity(Intent(this, MainActivity::class.java))}
                     }
                 }
 
@@ -104,8 +109,8 @@ class ChatSportsman : AppCompatActivity() {
             }
             R.id.buttonTraining -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                val intent = Intent(this, TrainingsSportsman::class.java)
-                startActivity(intent)
+                    val intent = Intent(this, TrainingsSportsman::class.java)
+                    startActivity(intent)
                 } else {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
@@ -113,12 +118,12 @@ class ChatSportsman : AppCompatActivity() {
             }
             R.id.buttonEats -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                val intent = Intent(this, Eat::class.java)
-                startActivity(intent)
-                    } else {
-                        alert()
-                        startActivity(Intent(this, MainActivity::class.java))
-                    }
+                    val intent = Intent(this, Eat::class.java)
+                    startActivity(intent)
+                } else {
+                    alert()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
         }
     }
@@ -147,7 +152,7 @@ class ChatSportsman : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

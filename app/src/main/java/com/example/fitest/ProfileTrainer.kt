@@ -62,7 +62,7 @@ class ProfileTrainer : AppCompatActivity() {
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Toast.makeText(
-                            baseContext, "Считать неудалось$e",
+                            baseContext, resources.getString(R.string.error_base),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
@@ -76,7 +76,7 @@ class ProfileTrainer : AppCompatActivity() {
                     }
                     else {
                         Toast.makeText(
-                            baseContext, "Нет данных",
+                            baseContext, resources.getString(R.string.error_empty_base),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -119,7 +119,7 @@ class ProfileTrainer : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

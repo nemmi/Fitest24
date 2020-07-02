@@ -67,114 +67,114 @@ class FormSportsmanP1  : AppCompatActivity() {
 
     private fun upProfile() {
 
-        val NAME__PATTERN = Regex(pattern = "[а-яА-Яa-zA-Z ]{4,60}")
+        val NAME__PATTERN = Regex(pattern = resources.getString(R.string.pattern_name))
         val matched = NAME__PATTERN.matches(editSecondName.text.toString())
 
-        val EXP__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,50}")
-        val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,30}")
-        val AGE__PATTERN = Regex(pattern = "[0-9]{2,3}")
-        val PARAMS__PATTERN = Regex(pattern = "[0-9.,]{2,4}")
-        val HEIGHT__PATTERN = Regex(pattern = "[0-9.,]{3,4}")
-        val PHONE__PATTERN = Regex(pattern = "[0-9]{11}")
+        val EXP__PATTERN = Regex(pattern = resources.getString(R.string.pattern_exp))
+        val FIELD__PATTERN = Regex(pattern = resources.getString(R.string.pattern_field))
+        val AGE__PATTERN = Regex(pattern = resources.getString(R.string.pattern_age))
+        val PARAMS__PATTERN = Regex(pattern = resources.getString(R.string.pattern_params))
+        val HEIGHT__PATTERN = Regex(pattern = resources.getString(R.string.pattern_height))
+        val PHONE__PATTERN = Regex(pattern = resources.getString(R.string.pattern_phone))
 
         if (!PARAMS__PATTERN.matches(editAnketaWeight.text.toString())) {
-            editAnketaWeight.error = "Введите не менее 2 и не более 4 символов"
+            editAnketaWeight.error = resources.getString(R.string.error_valid_params)
             editAnketaWeight.requestFocus()
             return
         }
         if (!HEIGHT__PATTERN.matches(editHeightAnketa.text.toString())) {
-            editHeightAnketa.error = "Введите не менее 3 и не более 4 символов"
+            editHeightAnketa.error =resources.getString(R.string.error_valid_three_four)
             editHeightAnketa.requestFocus()
             return
         }
         if (!matched) {
-            editSecondName.error = "Имя должно состоять только из символов русского или английского алфавита. Введите не менее 4 и не более 60 символов"
+            editSecondName.error =resources.getString(R.string.error_valid_name)
             editSecondName.requestFocus()
             return
         }
         if (!PHONE__PATTERN.matches(editPhoneNumber.text.toString())) {
-            editPhoneNumber.error = "Введите корректный номер"
+            editPhoneNumber.error = resources.getString(R.string.error_valid_universal)
             editPhoneNumber.requestFocus()
             return
         }
         if (!EXP__PATTERN.matches(editExpTr.text.toString())) {
-            editExpTr.error = "Введите не менее 3 и не более 50 символов"
+            editExpTr.error = resources.getString(R.string.error_valid_three_fifty)
             editExpTr.requestFocus()
             return
         }
         if (!EXP__PATTERN.matches(editGoals.text.toString())) {
-            editGoals.error = "Введите не менее 3 и не более 50 символов"
+            editGoals.error = resources.getString(R.string.error_valid_three_fifty)
             editGoals.requestFocus()
             return
         }
         if (!EXP__PATTERN.matches(editDontEat.text.toString())) {
-            editDontEat.error = "Введите не менее 3 и не более 50 символов"
+            editDontEat.error = resources.getString(R.string.error_valid_three_fifty)
             editDontEat.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editBads.text.toString())) {
-            editBads.error = "Введите не менее 3 и не более 30 символов"
+            editBads.error = resources.getString(R.string.error_valid_three_thirty)
             editBads.requestFocus()
             return
         }
         if (!FIELD__PATTERN.matches(editBlood.text.toString())) {
-            editBlood.error = "Введите не менее 3 и не более 30 символов"
+            editBlood.error = resources.getString(R.string.error_valid_three_fifty)
             editBlood.requestFocus()
             return
         }
         if (!AGE__PATTERN .matches(editAge.text.toString())) {
-            editAge.error = "Введите корректные данные"
+            editAge.error = resources.getString(R.string.error_valid_universal)
             editAge.requestFocus()
             return
         }
 
         if (editSecondName.text.toString().isEmpty()) {
-            editSecondName.error = "Введите имя и фамилию"
+            editSecondName.error = resources.getString(R.string.error_valid_for_empty_field)
             editSecondName.requestFocus()
             return
         }
         if (editAge.text.toString().isEmpty()) {
-            editAge.error = "Введите данные"
+            editAge.error =  resources.getString(R.string.error_valid_for_empty_field)
             editAge.requestFocus()
             return
         }
         if (editPhoneNumber.text.toString().isEmpty()) {
-            editPhoneNumber.error = "Введите данные"
+            editPhoneNumber.error = resources.getString(R.string.error_valid_for_empty_field)
             editPhoneNumber.requestFocus()
             return
         }
         if (editExpTr.text.toString().isEmpty()) {
-            editExpTr.error = "Введите данные"
+            editExpTr.error = resources.getString(R.string.error_valid_for_empty_field)
             editExpTr.requestFocus()
             return
         }
         if (editGoals.text.toString().isEmpty()) {
-            editGoals.error = "Введите данные"
+            editGoals.error = resources.getString(R.string.error_valid_for_empty_field)
             editGoals.requestFocus()
             return
         }
         if (editDontEat.text.toString().isEmpty()) {
-            editDontEat.error = "Введите данные"
+            editDontEat.error = resources.getString(R.string.error_valid_for_empty_field)
             editDontEat.requestFocus()
             return
         }
         if (editAnketaWeight.text.toString().isEmpty()) {
-            editAnketaWeight.error = "Введите данные"
+            editAnketaWeight.error = resources.getString(R.string.error_valid_for_empty_field)
             editAnketaWeight.requestFocus()
             return
         }
         if (editHeightAnketa.text.toString().isEmpty()) {
-            editHeightAnketa.error = "Введите данные"
+            editHeightAnketa.error = resources.getString(R.string.error_valid_for_empty_field)
             editHeightAnketa.requestFocus()
             return
         }
         if (editBads.text.toString().isEmpty()) {
-            editBads.error = "Введите данные"
+            editBads.error = resources.getString(R.string.error_valid_for_empty_field)
             editBads.requestFocus()
             return
         }
         if (editBlood.text.toString().isEmpty()) {
-            editBlood.error = "Введите данные"
+            editBlood.error = resources.getString(R.string.error_valid_for_empty_field)
             editBlood.requestFocus()
             return
         }
@@ -204,7 +204,7 @@ class FormSportsmanP1  : AppCompatActivity() {
                     .set(user as Map<String, Any>, SetOptions.merge())
                     .addOnSuccessListener { documentReference ->
                         Toast.makeText(
-                            baseContext, "Отлично, осталось только выбрать продукты!",
+                            baseContext,  resources.getString(R.string.message_next),
                             Toast.LENGTH_SHORT
                         ).show()
                         startActivity(Intent(this, FormSportsmanP2::class.java))
@@ -219,7 +219,7 @@ class FormSportsmanP1  : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

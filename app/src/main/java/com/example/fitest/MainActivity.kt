@@ -51,9 +51,6 @@ class MainActivity : AppCompatActivity() {
         if (IsInternetAvailable.isInternetAvailable(this)) {
             buttonListTrainer.setOnClickListener {
                 val intent = Intent(this, SelectTrener::class.java)
-
-
-
                 startActivity(intent)}
         } else {
             alert()
@@ -85,13 +82,13 @@ class MainActivity : AppCompatActivity() {
 
 
         if (editEmail.text.toString().isEmpty()) {
-            editEmail.error = "Введите email"
+            editEmail.error = resources.getString(R.string.error_valid_for_empty_field)
             editEmail.requestFocus()
             return
         }
 
         if (editPassword.text.toString().isEmpty()) {
-            editEmail.error = "Введите пароль"
+            editEmail.error = resources.getString(R.string.error_valid_for_empty_field)
             editEmail.requestFocus()
             return
         }
@@ -103,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
                         val user = auth.currentUser
                         Toast.makeText(
-                            baseContext, "Вход выполнен успешно",
+                            baseContext, resources.getString(R.string.message_success),
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -130,7 +127,7 @@ class MainActivity : AppCompatActivity() {
 
                     else {
                         Toast.makeText(
-                            baseContext, "Вход не выполнен",
+                            baseContext, resources.getString(R.string.message_unsuccess_in),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -148,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

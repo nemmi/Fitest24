@@ -24,7 +24,11 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
+import kotlinx.android.synthetic.main.activity_chat_clients.*
 import kotlinx.android.synthetic.main.activity_chat_coach.*
+import kotlinx.android.synthetic.main.activity_chat_coach.floatingActionButton
+import kotlinx.android.synthetic.main.activity_chat_coach.recyclerChat
+import kotlinx.android.synthetic.main.activity_chat_coach.writeMessage
 import java.util.*
 
 class ChatTrainer : AppCompatActivity() {
@@ -71,18 +75,24 @@ class ChatTrainer : AppCompatActivity() {
                 FirestoreUtil.addChatMessagesListener(channelId, this, this::updateRecyclerView)
 
             floatingActionButton.setOnClickListener{
-                if (writeMessage.text.toString().isNotEmpty()&&IsInternetAvailable.isInternetAvailable(this)) {
-                    val messageToSend =
-                        TextMessage(
-                            writeMessage.text.toString(), Calendar.getInstance().time,
-                            FirebaseAuth.getInstance().currentUser!!.uid,
-                            otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
-                                firestoreInstance.collection("treners").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
-                                    snapshot?.getString("name")
-                                }}.toString()
-                        )
-                    writeMessage.setText("")
-                    FirestoreUtil.sendMessage(messageToSend, channelId)
+                if(IsInternetAvailable.isInternetAvailable(this)){
+                    if (writeMessage.text.toString().isNotEmpty()) {
+                        val messageToSend =
+                            TextMessage(
+                                writeMessage.text.toString(), Calendar.getInstance().time,
+                                FirebaseAuth.getInstance().currentUser!!.uid,
+                                otherUserId, FirebaseAuth.getInstance().currentUser?.uid?.let {
+                                    firestoreInstance.collection("treners").document(it).addSnapshotListener{snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
+                                        snapshot?.getString("name")
+                                    }}.toString()
+                            )
+                        writeMessage.setText("")
+                        FirestoreUtil.sendMessage(messageToSend, channelId)
+                    }
+                    else{
+                        writeMessage.error=resources.getString(R.string.error_message)
+                        writeMessage.requestFocus()
+                    }
                 }
                 else {
                     alert()
@@ -163,7 +173,7 @@ class ChatTrainer : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

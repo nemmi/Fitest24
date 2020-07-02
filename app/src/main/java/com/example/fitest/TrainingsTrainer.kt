@@ -48,7 +48,7 @@ class TrainingsTrainer : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_otchet_trainings)
@@ -89,7 +89,7 @@ class TrainingsTrainer : AppCompatActivity() {
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Toast.makeText(
-                        baseContext, "Считать неудалось$e",
+                        baseContext, resources.getString(R.string.error_base),
                         Toast.LENGTH_SHORT
                     ).show()
                     return@addSnapshotListener
@@ -147,7 +147,7 @@ class TrainingsTrainer : AppCompatActivity() {
                 }
                 else {
                     Toast.makeText(
-                        baseContext, "Нет данных",
+                        baseContext, resources.getString(R.string.error_empty_base),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -189,7 +189,7 @@ class TrainingsTrainer : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

@@ -79,29 +79,29 @@ class TrainingsSportsman : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_trainings)
-     //   horizontalScrollView.fullScroll(ScrollView.FOCUS_LEFT)
+        //   horizontalScrollView.fullScroll(ScrollView.FOCUS_LEFT)
         val radGrp = findViewById<RadioGroup>(R.id.radioGroup);
         loadFirst("_1")
         radGrp.setOnCheckedChangeListener { radGrp, optionId ->
             run {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
-                when (optionId) {
-                    R.id.buttonDay1 -> {
-                        CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5, mondayChek6, mondayChek7)
-                        loadFirst("_1")
+                    when (optionId) {
+                        R.id.buttonDay1 -> {
+                            CheckThisOut(mondayChek1, mondayChek2, mondayChek3, mondayChek4, mondayChek5, mondayChek6, mondayChek7)
+                            loadFirst("_1")
 
+                        }
+                        R.id.buttonDay2 -> {
+                            loadFirst("_2")
+                            CheckThisOut(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5, tuesdayChek6, tuesdayChek7)
+                        }
+                        R.id.buttonDay3 -> {
+                            loadFirst("_3")
+                            CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5, wednesdayChek6, wednesdayChek7)
+                        }
+                        else -> throw AssertionError()
                     }
-                    R.id.buttonDay2 -> {
-                        loadFirst("_2")
-                        CheckThisOut(tuesdayChek1, tuesdayChek2, tuesdayChek3, tuesdayChek4, tuesdayChek5, tuesdayChek6, tuesdayChek7)
-                    }
-                    R.id.buttonDay3 -> {
-                        loadFirst("_3")
-                        CheckThisOut(wednesdayChek1, wednesdayChek2, wednesdayChek3, wednesdayChek4, wednesdayChek5, wednesdayChek6, wednesdayChek7)
-                    }
-                    else -> throw AssertionError()
-                }
-            } else {
+                } else {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
                 }
@@ -115,7 +115,7 @@ class TrainingsSportsman : AppCompatActivity() {
                 .addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Toast.makeText(
-                            baseContext, "Считать неудалось$e",
+                            baseContext, resources.getString(R.string.error_base),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
@@ -179,7 +179,7 @@ class TrainingsSportsman : AppCompatActivity() {
 
                     } else {
                         Toast.makeText(
-                            baseContext, "Нет данных",
+                            baseContext, resources.getString(R.string.error_empty_base),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -404,170 +404,71 @@ class TrainingsSportsman : AppCompatActivity() {
     }
 
     private fun loadVideo(vid: String, exers: VideoView) {
+
         if(buttonDay1.isChecked) {
-            Firebase.auth.currentUser?.uid?.let {
-                ddb.collection("trainings")
-                    .document(it + "_1")
-                    .addSnapshotListener { snapshot, e ->
-                        if (snapshot?.get("test_week") == true) {
-                            Toast.makeText(
-                                baseContext,
-                                "Это тестовое видео, до загрузки упражнений тренером, оно одно на все упражнения этого дня.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child("test_week")
-                                    .child("2020-05-29-13-07-09-2754.mp4")
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        } else {
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child(it).child(vid)
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }
-            }
+            loadVideoInDay(vid,exers,"_1")
         }
 
         if(buttonDay2.isChecked) {
-            Firebase.auth.currentUser?.uid?.let {
-                ddb.collection("trainings")
-                    .document(it + "_2")
-                    .addSnapshotListener { snapshot, e ->
-                        if (snapshot?.get("test_week") == true) {
-                            Toast.makeText(
-                                baseContext,
-                                "Это тестовое видео, до загрузки упражнений тренером, оно одно на все упражнения этого дня.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child("test_week")
-                                    .child("2020-05-29-13-31-17-6499.mp4")
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        } else {
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child(it).child(vid)
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }
-            }
+            loadVideoInDay(vid,exers,"_2")
         }
 
         if(buttonDay3.isChecked) {
-            Firebase.auth.currentUser?.uid?.let {
-                ddb.collection("trainings")
-                    .document(it + "_3")
-                    .addSnapshotListener { snapshot, e ->
-                        if (snapshot?.get("test_week") == true) {
-                            Toast.makeText(
-                                baseContext,
-                                "Это тестовое видео, до загрузки упражнений тренером, оно одно на все упражнения  этого дня.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child("test_week")
-                                    .child("2020-05-29-13-30-27-1061.mp4")
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        } else {
-                            var VideoStorage = Firebase.auth.currentUser?.uid?.let {
-                                storage.reference.child("video_training").child(it).child(vid)
-                            }
-                            val localFile = File.createTempFile("video", "mp4")
-
-                            VideoStorage?.getFile(localFile)?.addOnSuccessListener {
-
-                                val videoUri = Uri.fromFile(localFile)
-                                exers.setVideoURI(videoUri)
-                                exers.start()
-
-                            }?.addOnFailureListener { e ->
-                                Toast.makeText(
-                                    baseContext, "Неудачно " + e.localizedMessage,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }
-            }
+            loadVideoInDay(vid,exers,"_3")
         }
 
+    }
+    private fun loadVideoInDay(vid: String, exers: VideoView, day: String){
+        Firebase.auth.currentUser?.uid?.let {
+            ddb.collection("trainings")
+                .document(it + day)
+                .addSnapshotListener { snapshot, e ->
+                    if (snapshot?.get("test_week") == true) {
+                        Toast.makeText(
+                            baseContext,
+                            resources.getString(R.string.message_about_video),
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-        // val videoUri= Uri.parse(vid?.path)
+                        var videoStorage = Firebase.auth.currentUser?.uid?.let {
+                            storage.reference.child("video_training").child("test_week")
+                                .child("2020-05-29-13-30-27-1061.mp4")
+                        }
+                        val localFile = File.createTempFile("video", "mp4")
 
+                        videoStorage?.getFile(localFile)?.addOnSuccessListener {
 
+                            val videoUri = Uri.fromFile(localFile)
+                            exers.setVideoURI(videoUri)
+                            exers.start()
 
+                        }?.addOnFailureListener { e ->
+                            Toast.makeText(
+                                baseContext, resources.getString(R.string.message_unsuccess) + e.localizedMessage,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } else {
+                        var videoStorage = Firebase.auth.currentUser?.uid?.let {
+                            storage.reference.child("video_training").child(it).child(vid)
+                        }
+                        val localFile = File.createTempFile("video", "mp4")
+
+                        videoStorage?.getFile(localFile)?.addOnSuccessListener {
+
+                            val videoUri = Uri.fromFile(localFile)
+                            exers.setVideoURI(videoUri)
+                            exers.start()
+
+                        }?.addOnFailureListener { e ->
+                            Toast.makeText(
+                                baseContext, resources.getString(R.string.message_unsuccess) + e.localizedMessage,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+        }
     }
 
     private fun CheckID(day:String, checkbox:String, daycheck:String){
@@ -608,7 +509,7 @@ class TrainingsSportsman : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }

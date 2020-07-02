@@ -54,19 +54,20 @@ class ProfileClientView : AppCompatActivity() {
                 snapshot, e ->
             if (e != null) {
                 Toast.makeText(
-                    baseContext, "Считать неудалось$e",
+                    baseContext, resources.getString(R.string.error_base),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@addSnapshotListener
             }
             if (snapshot != null && snapshot.exists()) {
-                textView5.text=snapshot.getString("email")
-                textView4.text=snapshot.getString("name")
-                textView6.text=snapshot.getString("phoneNumber")
+                textMail.text=snapshot.getString("email")
+                textName.text=snapshot.getString("name")
+                textPhone.text=snapshot.getString("phoneNumber")
+                textNumOfTren.text=snapshot.getString("num")
             }
             else {
                 Toast.makeText(
-                    baseContext, "Нет данных",
+                    baseContext, resources.getString(R.string.error_empty_base),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -164,7 +165,7 @@ class ProfileClientView : AppCompatActivity() {
 
     fun alert(){
         Toast.makeText(
-            baseContext, "Отсутствует  интернет соединение",
+            baseContext, resources.getString(R.string.error_internet),
             Toast.LENGTH_SHORT
         ).show()
     }
