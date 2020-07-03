@@ -30,7 +30,8 @@
         android:layout_marginTop="64dp"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundselecttrener"
-        android:scrollbars="vertical"
+
+        android:scrollbars="none"
         app:srcCompat="@drawable/backgroundselecttrener" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

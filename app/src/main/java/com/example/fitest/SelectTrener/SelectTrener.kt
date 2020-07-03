@@ -84,7 +84,7 @@ class SelectTrener : AppCompatActivity() {
                 }
                 R.id.action_last ->{
                     if(Firebase.auth.currentUser?.uid?.let {
-                            it=="caBlWtPi6idpzBQUZ7M9Ta7w70q2"
+                            it=="DGZR5wetADb3iovL7TDfAwg70lB3"
                         }!!){  startActivity(Intent(this, MainActivity::class.java))}
                     else{
                         if(num=="true") {
@@ -100,6 +100,8 @@ class SelectTrener : AppCompatActivity() {
             }
             false
         }
+
+
 
         val query = Firebase.auth.currentUser!!.uid.let {
 
@@ -159,6 +161,9 @@ class SelectTrener : AppCompatActivity() {
             log("onHasLoadedAll")
         }
 
+    }
+
+    override fun onBackPressed() {
     }
 
     override fun onStart() {

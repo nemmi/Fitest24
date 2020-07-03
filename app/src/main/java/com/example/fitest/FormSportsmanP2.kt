@@ -39,9 +39,13 @@ class FormSportsmanP2 : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sportsmen_anketa2)
     }
+
+    override fun onBackPressed() {
+    }
+
     fun anketaSp2Click(view: View) {
         when (view.id) {
-            R.id.toolbarAnketaView -> {
+          /*  R.id.toolbarAnketaView -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
                     val intent = Intent(this, FormSportsmanP1::class.java)
                     startActivity(intent)
@@ -49,7 +53,7 @@ class FormSportsmanP2 : AppCompatActivity() {
                     alert()
                     startActivity(Intent(this, MainActivity::class.java))
                 }
-            }
+            }*/
             R.id.buttonToCoach -> {
                 if (IsInternetAvailable.isInternetAvailable(this)) {
                     upProfile()

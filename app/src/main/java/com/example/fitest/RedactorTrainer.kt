@@ -40,6 +40,9 @@ class RedactorTrainer : AppCompatActivity() {
         setContentView(R.layout.activity_redactor_trener)
     }
 
+    override fun onBackPressed() {
+    }
+
     private val ddb = FirebaseFirestore.getInstance()
 
     fun editTrClick(view: View) {
@@ -110,7 +113,24 @@ class RedactorTrainer : AppCompatActivity() {
     }
 
     private fun deleteUser(){
+
+        val user = Firebase.auth.currentUser?.uid
+
+
+
         Firebase.auth.currentUser!!.delete()
+        FirebaseFirestore.getInstance().collection("treners").document(user.toString())
+            .delete().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(
+                        baseContext, resources.getString(R.string.message_deleted),
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+            }
+        /*Firebase.auth.currentUser!!.delete()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Firebase.auth.currentUser?.uid?.let {
@@ -126,7 +146,7 @@ class RedactorTrainer : AppCompatActivity() {
                             }
                     }
                 }
-            }
+            }*/
     }
 
 

@@ -98,9 +98,6 @@ class ParamsEdit : AppCompatActivity() {
     fun paramEditClick(view: View) {
         if (IsInternetAvailable.isInternetAvailable(this)) {
             when (view.id) {
-                R.id.toolbarProf2 -> {
-                    startActivity(Intent(this, ParamsSportsman::class.java))
-                }
                 R.id.buttonSave -> {
                     editParam()
                     Toast.makeText(

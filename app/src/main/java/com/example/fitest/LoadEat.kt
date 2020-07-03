@@ -31,6 +31,7 @@ class LoadEat : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -67,59 +68,38 @@ class LoadEat : AppCompatActivity() {
             run {
                 when (optionId) {
                     R.id.monday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     R.id.tuesday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     R.id.wednesday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     R.id.thursday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
-                    }
+                        setEat()
+                }
                     R.id.friday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     R.id.saturday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     R.id.sunday -> {
-                        eatTxt1.setText("")
-                        eatTxt2.setText("")
-                        eatTxt3.setText("")
-                        eatTxt4.setText("")
-                        eatTxt5.setText("")
+                        setEat()
                     }
                     else -> throw AssertionError()
                 }
             }
         }
     }
+            private fun setEat() {
+                eatTxt1.setText("")
+                eatTxt2.setText("")
+                eatTxt3.setText("")
+                eatTxt4.setText("")
+                eatTxt5.setText("")
+            }
     fun loadEat(value:String, day:String){
         val FIELD__PATTERN = Regex(pattern = "[0-9a-zA-Zа-яА-Я -., \n \r]{3,300}")
 

@@ -145,6 +145,9 @@ class SpisocChatov : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+    }
+
     override fun onStart() {
         super.onStart()
         adapter.clear()

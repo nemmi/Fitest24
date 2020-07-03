@@ -43,16 +43,19 @@ class FormSportsmanP1  : AppCompatActivity() {
         setContentView(R.layout.activity_sportsmen_anketa1)
 
     }
+
+    override fun onBackPressed() {
+    }
     private val ddb = FirebaseFirestore.getInstance()
     fun anketaSp1Click(view: View) {
         if (IsInternetAvailable.isInternetAvailable(this)) {
             when (view.id) {
-                R.id.toolbarAnketaView -> {
+               /* R.id.toolbarAnketaView -> {
 
                     val intent = Intent(this, Registration::class.java)
                     startActivity(intent)
 
-                }
+                }*/
                 R.id.buttonChoose -> {
                     upProfile()
 
@@ -78,12 +81,12 @@ class FormSportsmanP1  : AppCompatActivity() {
         val PHONE__PATTERN = Regex(pattern = resources.getString(R.string.pattern_phone))
 
         if (!PARAMS__PATTERN.matches(editAnketaWeight.text.toString())) {
-            editAnketaWeight.error = resources.getString(R.string.error_valid_params)
+            editAnketaWeight.error = resources.getString(R.string.error_weight_form)
             editAnketaWeight.requestFocus()
             return
         }
         if (!HEIGHT__PATTERN.matches(editHeightAnketa.text.toString())) {
-            editHeightAnketa.error =resources.getString(R.string.error_valid_three_four)
+            editHeightAnketa.error =resources.getString(R.string.error_weight_form)
             editHeightAnketa.requestFocus()
             return
         }

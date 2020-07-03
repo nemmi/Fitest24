@@ -51,7 +51,7 @@ class TrenerSelectClientView : AppCompatActivity() {
 
         btnSelectTrainer.setOnClickListener {
             if(Firebase.auth.currentUser?.uid?.let {
-                    it=="caBlWtPi6idpzBQUZ7M9Ta7w70q2"
+                    it=="DGZR5wetADb3iovL7TDfAwg70lB3"
                 }!!){
                 Toast.makeText(
                     baseContext, "Сначала авторизируйтесь!",

@@ -47,6 +47,10 @@ class RedactorClient : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+    }
+
     private val ddb = FirebaseFirestore.getInstance()
 
     fun editSpClick(view: View) {
@@ -104,7 +108,7 @@ class RedactorClient : AppCompatActivity() {
         }
 
         if (numOfTrenEdit.text.toString().isNotEmpty()&&!NUM_PATTERN.matches(numOfTrenEdit.text.toString())) {
-            numOfTrenEdit.error = resources.getString(R.string.error_valid_1_3)
+            numOfTrenEdit.error = resources.getString(R.string.error_valid_number_classes)
             numOfTrenEdit.requestFocus()
             return
         }
@@ -158,7 +162,26 @@ class RedactorClient : AppCompatActivity() {
 
     }
     private fun deleteUser(){
-        Firebase.auth.currentUser!!.delete()
+
+        val user = Firebase.auth.currentUser?.uid
+
+
+
+
+        FirebaseFirestore.getInstance().collection("sportsmen").document(user.toString())
+            .delete().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Firebase.auth.currentUser!!.delete()
+                   // startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(
+                        baseContext, resources.getString(R.string.message_deleted),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+            }
+
+       /* Firebase.auth.currentUser!!.delete()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
@@ -175,7 +198,7 @@ class RedactorClient : AppCompatActivity() {
                             }
                     }
                 }
-            }
+            }*/
     }
 
     private fun update(auth:String, field:TextView){

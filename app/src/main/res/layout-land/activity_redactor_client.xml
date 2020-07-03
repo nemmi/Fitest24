@@ -11,9 +11,10 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/osnova"
         android:scaleType="fitXY"
-        />
+        app:srcCompat="@drawable/osnova"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
         android:id="@+id/imageView26"
@@ -88,15 +89,14 @@
         android:id="@+id/imageViewNumTren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/numOfTrenEdit"
+        app:layout_constraintStart_toStartOf="@+id/phoneEdit"
+        app:layout_constraintTop_toTopOf="@+id/numOfTrenEdit"
         app:srcCompat="@drawable/numoftrainingsred" />
 
     <EditText
         android:id="@+id/numOfTrenEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="44dp"
@@ -108,9 +108,7 @@
         android:paddingTop="7dp"
         android:paddingEnd="15dp"
         app:layout_constraintBottom_toTopOf="@+id/swapTrainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageViewNumTren" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/phoneEdit"
@@ -118,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="18dp"
         android:background="@drawable/field_ph_cli"
         android:hint="phone"
         android:inputType="phone"
@@ -126,7 +124,7 @@
         android:paddingStart="15dp"
         android:paddingTop="20dp"
         android:paddingEnd="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewNumTren"
+        app:layout_constraintBottom_toTopOf="@+id/numOfTrenEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -145,6 +143,7 @@
         android:paddingStart="15dp"
         android:paddingTop="20dp"
         android:paddingEnd="15dp"
+        android:maxLength="60"
         app:layout_constraintBottom_toTopOf="@+id/mailEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

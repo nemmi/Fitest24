@@ -39,13 +39,14 @@ class MainActivity : AppCompatActivity() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_auth)
 
 
 
 
         auth = FirebaseAuth.getInstance()
-        auth.signInWithEmailAndPassword("test@test.test","11111111")
+        auth.signInWithEmailAndPassword("test@mail.test","11111111")
 
 
         if (IsInternetAvailable.isInternetAvailable(this)) {
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+    }
 
     fun authClick(view: View) {
         if (IsInternetAvailable.isInternetAvailable(this)) {

@@ -46,6 +46,8 @@ class FormTrainer : AppCompatActivity() {
         setContentView(R.layout.activity_coaches_anketa)
     }
 
+    override fun onBackPressed() {
+    }
 
     private val ddb = FirebaseFirestore.getInstance()
     /*  val REQUEST_CODE = 100*/

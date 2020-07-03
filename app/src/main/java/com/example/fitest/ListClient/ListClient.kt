@@ -172,6 +172,9 @@ class ListClient : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+    }
+
     override fun onStart() {
         super.onStart()
         adapter.clear()
